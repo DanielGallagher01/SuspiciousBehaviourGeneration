@@ -9,27 +9,31 @@ import fr.uga.pddl4j.problem.Problem;
 import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.plan.Plan;
 import fr.uga.pddl4j.problem.State;
+import fr.uga.pddl4j.problem.operator.Condition;
+import java.util.ArrayList;
 
 
 public class MirroringController {
-	private Problem problem;
+	private ArrayList<Problem> problems;
 	private HSP planner;
 
-	public MirroringController(Problem problem) {
-		this.problem = problem;	
+	public MirroringController(ArrayList<Problem> problems) {
+		this.problems = problems;	
 		this.planner = new HSP();
 	}
 
 	public void run(State state) {
-		for (Action a : problem.getActions()) {
+		for (Action a : problems.get(0).getActions()) {
 			State tempState = (State)state.clone();
 
-			System.out.println(problem.toString(a));
 			if (a.isApplicable(tempState)) {
-				state.apply(a.getConditionalEffects());
+				tempState.apply(a.getConditionalEffects());
+				System.out.println(problems.get(0).toString(a));
 
 
-				System.out.println("\n\n\n");
+
+
+				//System.out.println("\n\n");
 			} else {
 				System.out.println("Not Applicable");
 			}

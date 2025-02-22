@@ -1,6 +1,9 @@
 package com.suspiciousbehaviour.app;
 
 import fr.uga.pddl4j.parser.DefaultParsedProblem;
+import fr.uga.pddl4j.parser.ParsedDomain;
+import fr.uga.pddl4j.parser.ParsedProblem;
+import fr.uga.pddl4j.problem.DefaultProblem;
 import fr.uga.pddl4j.parser.ErrorManager;
 import fr.uga.pddl4j.parser.Message;
 import fr.uga.pddl4j.parser.Parser;
@@ -9,38 +12,49 @@ import fr.uga.pddl4j.problem.Problem;
 import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.plan.Plan;
 import fr.uga.pddl4j.problem.State;
+import java.util.ArrayList;
 
 
 public class Main {
 
     public static void main(final String[] args) {
 
-        if (args.length != 2) {
+        if (args.length < 2) {
             System.out.println("Invalid command line");
             return;
         }
 
         try {
             final Parser parser = new Parser();
-            final DefaultParsedProblem parsedProblem = parser.parse(args[0], args[1]);
+
+	    final ParsedDomain parsedDomain = parser.parseDomain(args[0]);
+
+	    ArrayList<Problem> problems = new ArrayList<Problem>();
+
+	    for (int i = 1; i < args.length; i++) {
+		ParsedProblem parsedProblem = parser.parseProblem(args[i]);
+		//System.out.println(parsedProblem.toString());
+		DefaultParsedProblem defaultParsedProblem = new DefaultParsedProblem(parsedDomain, parsedProblem);
+		DefaultProblem defaultProblem = new DefaultProblem(defaultParsedProblem);
+		defaultProblem.instantiate();
+	    	problems.add(defaultProblem);
+	    }
+
             final ErrorManager errorManager = parser.getErrorManager();
             if (!errorManager.isEmpty()) {
                 for (Message m : errorManager.getMessages()) {
                     System.out.println(m.toString());
                 }
             } else {
-                System.out.print("\nparsing domain file \"" + args[0] + "\" done successfully");
-                System.out.print("\nparsing problem file \"" + args[1] + "\" done successfully\n\n");
+                System.out.println("\nparsing files done successfully\n\n\n\n\n\n\n\n");
 
-		System.out.println(parsedProblem.getActions().get(0).toString());
-		
 		HSP planner = new HSP();
-		Problem problem = planner.instantiate(parsedProblem);
 
-		MirroringController mc = new MirroringController(problem);
-		State state = new State(problem.getInitialState());
+		MirroringController mc = new MirroringController(problems);
+		State state = new State(problems.get(0).getInitialState());
 		mc.run(state);
 
+		System.out.println(state.toString());
             }
         } catch (Throwable t) {
             t.printStackTrace();

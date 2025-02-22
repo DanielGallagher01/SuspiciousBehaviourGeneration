@@ -7,6 +7,8 @@ if echo "$out" | grep -q "error"; then
 fi
 
 java -cp out:lib/pddl4j-4.0.0.jar com.suspiciousbehaviour.app.Main \
-	src/test/resources/benchmarks/pddl/ipc2000/blocks/strips-typed/domain.pddl \
-	src/test/resources/benchmarks/pddl/ipc2000/blocks/strips-typed/p001.pddl
+	src/test/resources/benchmarks/pddl/blocks/domain.pddl \
+	src/test/resources/benchmarks/pddl/blocks/p001-a1.pddl \
+	src/test/resources/benchmarks/pddl/blocks/p001-a2.pddl \
+	src/test/resources/benchmarks/pddl/blocks/p001-a3.pddl 
 
