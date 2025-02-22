@@ -8,6 +8,7 @@ import fr.uga.pddl4j.planners.statespace.HSP;
 import fr.uga.pddl4j.problem.Problem;
 import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.plan.Plan;
+import fr.uga.pddl4j.problem.State;
 
 
 public class Main {
@@ -36,11 +37,9 @@ public class Main {
 		HSP planner = new HSP();
 		Problem problem = planner.instantiate(parsedProblem);
 
-		Plan plan = planner.solve(problem);
-
-		for (Action a : plan.actions()) {
-			System.out.println(problem.toString(a));
-		}
+		MirroringController mc = new MirroringController(problem);
+		State state = new State(problem.getInitialState());
+		mc.run(state);
 
             }
         } catch (Throwable t) {

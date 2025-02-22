@@ -2,7 +2,7 @@
 ;;Domain for painting floor tiles with two colors
 
 (define (domain floor-tile)
- (:requirements :typing :durative-actions)
+ (:requirements :typing )
  (:types robot tile color - object)
 
 (:predicates 	
@@ -17,28 +17,25 @@
                 (available-color ?c - color)
                 (free-color ?r - robot))
 
-(:durative-action change-color
+(:action change-color
   :parameters (?r - robot ?c - color ?c2 - color)
-  :duration (= ?duration 5)
-  :condition (and (at start (robot-has ?r ?c))
-  		  (over all (available-color ?c2)))
+  :precondition (and (at start robot-has ?r ?c)
+  		  (over all available-color ?c2))
   :effect (and (at start (not (robot-has ?r ?c)))
   	       (at end (robot-has ?r ?c2))))
 
-(:durative-action paint-up
+(:action paint-up
   :parameters (?r - robot ?y - tile ?x - tile ?c - color)
-  :duration (= ?duration 2)
-  :condition (and (over all (robot-has ?r ?c))
+  :precondition (and (over all (robot-has ?r ?c))
   		  (at start (robot-at ?r ?x))
 		  (over all (up ?y ?x))
 		  (at start (clear ?y)))
   :effect (and (at start (not (clear ?y)))
   	       (at end (painted ?y ?c))))
 
-(:durative-action paint-down
+(:action paint-down
   :parameters (?r - robot ?y - tile ?x - tile ?c - color)
-  :duration (= ?duration 2)
-  :condition (and (over all (robot-has ?r ?c))
+  :precondition (and (over all (robot-has ?r ?c))
   		  (at start (robot-at ?r ?x))
 		  (over all (down ?y ?x))
 		  (at start (clear ?y)))
@@ -47,10 +44,9 @@
 
 
 ; Robot movements
-(:durative-action up 
+(:action up 
   :parameters (?r - robot ?x - tile ?y - tile)
-  :duration (= ?duration 3)
-  :condition (and (at start (robot-at ?r ?x)) 
+  :precondition (and (at start (robot-at ?r ?x)) 
   		  (over all (up ?y ?x)) 
 		  (at start (clear ?y)))
   :effect (and 
@@ -59,10 +55,9 @@
 	       (at start (not (clear ?y)))
                (at end (clear ?x))))
 
-(:durative-action down 
+(:action down 
   :parameters (?r - robot ?x - tile ?y - tile)
-  :duration (= ?duration 1)
-  :condition (and (at start (robot-at ?r ?x))
+  :precondition (and (at start (robot-at ?r ?x))
   		  (over all (down ?y ?x)) 
 		  (at start (clear ?y)))
   :effect (and (at start (not (robot-at ?r ?x)))
@@ -70,10 +65,9 @@
 	       (at start (not (clear ?y)))
                (at end (clear ?x))))
 
-(:durative-action right 
+(:action right 
   :parameters (?r - robot ?x - tile ?y - tile)
-  :duration (= ?duration 1)
-  :condition (and (at start (robot-at ?r ?x))
+  :precondition (and (at start (robot-at ?r ?x))
   		  (over all (right ?y ?x))
 		  (at start (clear ?y)))
   :effect (and (at start (not (robot-at ?r ?x)))
@@ -81,10 +75,9 @@
 	       (at start (not (clear ?y)))
                (at end (clear ?x))))
 
-(:durative-action left 
+(:action left 
   :parameters (?r - robot ?x - tile ?y - tile)
-  :duration (= ?duration 1)
-  :condition (and (at start (robot-at ?r ?x)) 
+  :precondition (and (at start (robot-at ?r ?x)) 
   		  (over all (left ?y ?x)) 
 		  (at start (clear ?y)))
   :effect (and (at start (not (robot-at ?r ?x)))

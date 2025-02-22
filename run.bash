@@ -1,4 +1,4 @@
-out=$(javac -d out -sourcepath src/main/java src/main/java/com/suspiciousbehaviour/app/Main.java -cp classes:lib/pddl4j-4.0.0.jar 2>&1)
+out=$(javac -d out -sourcepath src/main/java src/main/java/com/suspiciousbehaviour/app/*.java -cp classes:lib/pddl4j-4.0.0.jar 2>&1)
 
 if echo "$out" | grep -q "error"; then
     echo "Compilation failed:"
@@ -7,6 +7,6 @@ if echo "$out" | grep -q "error"; then
 fi
 
 java -cp out:lib/pddl4j-4.0.0.jar com.suspiciousbehaviour.app.Main \
-	src/test/resources/benchmarks/pddl/ipc2000/logistics/strips-typed/domain.pddl \
-	src/test/resources/benchmarks/pddl/ipc2000/logistics/strips-typed/p01.pddl
+	src/test/resources/benchmarks/pddl/ipc2000/blocks/strips-typed/domain.pddl \
+	src/test/resources/benchmarks/pddl/ipc2000/blocks/strips-typed/p001.pddl
 
