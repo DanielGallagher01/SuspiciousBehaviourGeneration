@@ -29,7 +29,7 @@ public class Main {
 
 	    final ParsedDomain parsedDomain = parser.parseDomain(args[0]);
 
-	    ArrayList<Problem> problems = new ArrayList<Problem>();
+	    ArrayList<DefaultProblem> problems = new ArrayList<DefaultProblem>();
 
 	    for (int i = 1; i < args.length; i++) {
 		ParsedProblem parsedProblem = parser.parseProblem(args[i]);
@@ -48,11 +48,26 @@ public class Main {
             } else {
                 System.out.println("\nparsing files done successfully\n\n\n\n\n\n\n\n");
 
-		HSP planner = new HSP();
 
-		MirroringController mc = new MirroringController(problems);
+		BehaviourGenerator bg = new DirectedBehaviourGenerator(problems);
+
 		State state = new State(problems.get(0).getInitialState());
-		mc.run(state);
+
+		while (true) {
+			try {
+				Action chosen = bg.generateAction(state);
+				System.out.println(problems.get(0).toString(chosen));
+				bg.actionTaken(state, chosen);
+				state.apply(chosen.getConditionalEffects());
+			}
+			catch (NoValidActionException e) {
+				System.out.println("Generator has no more actions");
+				break;
+			}
+		}
+
+		//MirroringController mc = new MirroringController(problems);
+		//mc.run(state, 0);
 
 		System.out.println(state.toString());
             }
