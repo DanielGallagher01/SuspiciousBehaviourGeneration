@@ -15,7 +15,7 @@ import fr.uga.pddl4j.problem.operator.Condition;
 import fr.uga.pddl4j.planners.ProblemNotSupportedException;
 import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Dictionary;
+import java.util.Map;
 
 
 public class MirroringController {
@@ -23,7 +23,7 @@ public class MirroringController {
 	private HSP planner;
 	private InitialState initialState;
 
-	private Dictionary<Problem, Plan> initialPlans;
+	private Map<Problem, Plan> initialPlans;
 
 	public MirroringController(ArrayList<DefaultProblem> problems) {
 		this.problems = problems;	
@@ -33,7 +33,7 @@ public class MirroringController {
 
 		for(Problem p : problems) {
 			try {
-				Plan plan = this.planner.solve(p);
+				Plan plan = planner.solve(p);
 				this.initialPlans.put(p, plan);
 			} 
 			catch (ProblemNotSupportedException e) {
@@ -42,9 +42,9 @@ public class MirroringController {
 		}
 	}
 
-	public Dictionary<Problem, Double> mirroring(State state, double prefixCost) {
+	public Map<Problem, Double> mirroring(State state, double prefixCost) {
 
-		Dictionary<Problem, Double> cost = new Hashtable<>();
+		Map<Problem, Double> cost = new Hashtable<>();
 
 		for(Problem problem : problems) {
 			problem.getInitialState().getPositiveFluents().clear();
@@ -53,7 +53,6 @@ public class MirroringController {
 			try {
 				Plan plan = planner.solve(problem);
 				cost.put(problem, plan.cost());
-				System.out.println(plan.cost());
 			}
 			catch (ProblemNotSupportedException e) {
 				System.out.println(e.toString());
@@ -62,7 +61,7 @@ public class MirroringController {
 			problem.getInitialState().getPositiveFluents().clear();
 			problem.getInitialState().getPositiveFluents().or(initialState.getPositiveFluents());
 		}
-		Dictionary<Problem, Double> scores = new Hashtable<>();
+		Map<Problem, Double> scores = new Hashtable<>();
 
 		for(Problem problem : problems) {
 			scores.put(problem, initialPlans.get(problem).cost() / (prefixCost + cost.get(problem)));	
@@ -74,7 +73,7 @@ public class MirroringController {
 			totalScore += scores.get(problem);
 		}
 	
-		Dictionary<Problem, Double> P = new Hashtable<>();
+		Map<Problem, Double> P = new Hashtable<>();
 		for(Problem problem : problems) {
 			P.put(problem, scores.get(problem)/totalScore);	
 		}
@@ -82,8 +81,8 @@ public class MirroringController {
 		return P;
 	}
 
-	public Dictionary<Action, Double> run(State state, double prefixCost) {
-		Dictionary<Action, Double> P = new Hashtable<>();
+	public Map<Action, Double> run(State state, double prefixCost) {
+		Map<Action, Double> P = new Hashtable<>();
 
 		for (Action a : problems.get(0).getActions()) {
 			State tempState = (State)state.clone();
@@ -94,7 +93,7 @@ public class MirroringController {
 
 				double delta = prefixCost + a.getCost().getValue();
 				
-				Dictionary<Problem, Double> probabilities = mirroring(tempState, delta);
+				Map<Problem, Double> probabilities = mirroring(tempState, delta);
 
 				System.out.println(probabilities);
 

@@ -49,13 +49,17 @@ public class Main {
                 System.out.println("\nparsing files done successfully\n\n\n\n\n\n\n\n");
 
 
-		BehaviourGenerator bg = new DirectedBehaviourGenerator(problems);
+		MirroringController mc = new MirroringController(problems);
+
+		BehaviourGenerator bg = new PurposefulSuspiciousBehaviourGenerator(problems, 0.2, mc, 20);
+		//BehaviourGenerator bg = new DirectedBehaviourGenerator(problems);
 
 		State state = new State(problems.get(0).getInitialState());
 
 		while (true) {
 			try {
 				Action chosen = bg.generateAction(state);
+				System.out.println("Action Chosen:");
 				System.out.println(problems.get(0).toString(chosen));
 				bg.actionTaken(state, chosen);
 				state.apply(chosen.getConditionalEffects());
