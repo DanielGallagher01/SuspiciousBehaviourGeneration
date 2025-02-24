@@ -51,18 +51,21 @@ public class Main {
 
 		MirroringController mc = new MirroringController(problems);
 
-		BehaviourGenerator bg = new PurposefulSuspiciousBehaviourGenerator(problems, 0.2, mc, 20);
+		BehaviourGenerator bg = new PurposelessSuspiciousBehaviourGenerator(problems, 4, 20);
+		//BehaviourGenerator bg = new PurposefulSuspiciousBehaviourGenerator(problems, 0.2, mc, 20);
 		//BehaviourGenerator bg = new DirectedBehaviourGenerator(problems);
 
 		State state = new State(problems.get(0).getInitialState());
-
+		BlockWorldRenderer bwr = new BlockWorldRenderer();
+		bwr.visualizeState(problems.get(0), state);
 		while (true) {
 			try {
 				Action chosen = bg.generateAction(state);
-				System.out.println("Action Chosen:");
-				System.out.println(problems.get(0).toString(chosen));
+				//System.out.println("Action Chosen:");
+				//System.out.println(problems.get(0).toString(chosen));
 				bg.actionTaken(state, chosen);
 				state.apply(chosen.getConditionalEffects());
+				bwr.visualizeState(problems.get(0), state);
 			}
 			catch (NoValidActionException e) {
 				System.out.println("Generator has no more actions");
@@ -74,6 +77,8 @@ public class Main {
 		//mc.run(state, 0);
 
 		System.out.println(state.toString());
+
+		
             }
         } catch (Throwable t) {
             t.printStackTrace();
