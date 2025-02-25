@@ -22,7 +22,7 @@ import java.util.List;
 
 
 public class BlockWorldRenderer {
-	public void visualizeState(DefaultProblem problem, State state) {
+	public String visualizeState(DefaultProblem problem, State state) {
 		Set<String> onTable = new HashSet<>();
         	Map<String, String> onTop = new HashMap<>();
         	Set<String> clearBlocks = new HashSet<>();
@@ -53,10 +53,11 @@ public class BlockWorldRenderer {
 			}
 		}
 
-        	renderBlocks(onTable, onTop, clearBlocks, holding);
+        	return renderBlocks(onTable, onTop, clearBlocks, holding);
 	}
 
-	private void renderBlocks(Set<String> onTable, Map<String, String> onTop, Set<String> clearBlocks, String holding) {
+	private String renderBlocks(Set<String> onTable, Map<String, String> onTop, Set<String> clearBlocks, String holding) {
+		String output = "";
         	List<List<String>> stacks = new ArrayList<>();
 
         	for (String s : onTable) {
@@ -70,10 +71,15 @@ public class BlockWorldRenderer {
 		for (List<String> stack : stacks) {
             		for (int j = stack.size() - 1; j >= 0; j--) {
                 		System.out.println("| " + stack.get(j) + " |");
+				output += "| " + stack.get(j) + " |" + "\n";
             		}
             		System.out.println("-------");
+			output += "-------\n";
         	}
 		System.out.println("Holding: " + holding);
+		output += "Holding: " + holding;
+		output += "\n\n";
+		return output;
     }
 
     private void addToStack(List<String> stack, Map<String, String> onTop, String s) {

@@ -13,6 +13,9 @@ import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.plan.Plan;
 import fr.uga.pddl4j.problem.State;
 import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 
 public class Main {
@@ -61,11 +64,16 @@ public class Main {
 		while (true) {
 			try {
 				Action chosen = bg.generateAction(state);
-				//System.out.println("Action Chosen:");
-				//System.out.println(problems.get(0).toString(chosen));
 				bg.actionTaken(state, chosen);
 				state.apply(chosen.getConditionalEffects());
-				bwr.visualizeState(problems.get(0), state);
+				String output = bwr.visualizeState(problems.get(0), state);
+
+        			try (BufferedWriter writer = new BufferedWriter(new FileWriter("outputs/Def6.txt", true))) {
+        			    	writer.write(output);
+        			    	writer.newLine();
+				} catch (IOException e) {
+            				System.out.println("Error writing to file: " + e.getMessage());
+        			}
 			}
 			catch (NoValidActionException e) {
 				System.out.println("Generator has no more actions");
@@ -73,8 +81,6 @@ public class Main {
 			}
 		}
 
-		//MirroringController mc = new MirroringController(problems);
-		//mc.run(state, 0);
 
 		System.out.println(state.toString());
 
