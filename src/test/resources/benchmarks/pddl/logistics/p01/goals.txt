@@ -1,0 +1,2 @@
+(and (at pkg1 pos2_2))
+(and (at pkg1 pos3_1))

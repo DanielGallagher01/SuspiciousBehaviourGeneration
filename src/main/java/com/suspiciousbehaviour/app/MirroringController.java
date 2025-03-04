@@ -42,70 +42,86 @@ public class MirroringController {
 		}
 	}
 
-	public Map<Problem, Double> mirroring(State state, double prefixCost) {
+	public Map<Problem, Double> mirroring(State state, double prefixCost, Logger logger) {
+		logger.logDetailed("Starting mirroring");
 
 		Map<Problem, Double> cost = new Hashtable<>();
 
+		int i = 1;
 		for(Problem problem : problems) {
+			logger.logDetailed("Planning for problem " + i + " starting");
+			logger.logDetailed("Setting initial state to current state");
 			problem.getInitialState().getPositiveFluents().clear();
 			problem.getInitialState().getPositiveFluents().or(state);
 
 			try {
+				logger.logDetailed("Generating plan");
 				Plan plan = planner.solve(problem);
+				logger.logDetailed("Plan's cost: " + plan.cost());
 				cost.put(problem, plan.cost());
 			}
 			catch (ProblemNotSupportedException e) {
+				logger.logSimple("Error in generating plan for mirroring: " + e.toString()); 
 				System.out.println(e.toString());
 			}
 
+			logger.logDetailed("Reseting initial state of problem");
 			problem.getInitialState().getPositiveFluents().clear();
 			problem.getInitialState().getPositiveFluents().or(initialState.getPositiveFluents());
+			i++;
 		}
 		Map<Problem, Double> scores = new Hashtable<>();
 
+		logger.logDetailed("Generating scores for problems");
+		i = 1;
 		for(Problem problem : problems) {
-			scores.put(problem, initialPlans.get(problem).cost() / (prefixCost + cost.get(problem)));	
+			Double score = initialPlans.get(problem).cost() / (prefixCost + cost.get(problem));
+			logger.logDetailed("Score for problem " + i + ": " + score);
+			scores.put(problem, score);	
+			i++;
 		}
 
 		double totalScore = 0;
-		
+		logger.logDetailed("Calculating summed score");
 		for(Problem problem : problems) {
 			totalScore += scores.get(problem);
 		}
+		logger.logDetailed("Total score: " + totalScore);
 	
 		Map<Problem, Double> P = new Hashtable<>();
 		for(Problem problem : problems) {
 			P.put(problem, scores.get(problem)/totalScore);	
 		}
-
+		
+		logger.logDetailed("Mirroring Complete!");
 		return P;
 	}
 
-	public Map<Action, Double> run(State state, double prefixCost) {
-		Map<Action, Double> P = new Hashtable<>();
-
-		for (Action a : problems.get(0).getActions()) {
-			State tempState = (State)state.clone();
-
-			if (a.isApplicable(tempState)) {
-				tempState.apply(a.getConditionalEffects());
-				System.out.println(problems.get(0).toString(a));
-
-				double delta = prefixCost + a.getCost().getValue();
-				
-				Map<Problem, Double> probabilities = mirroring(tempState, delta);
-
-				System.out.println(probabilities);
-
-			} else {
-				//System.out.println("Not Applicable");
-			}
-
-
-
-		}
-
-		return P;
-	}
+//	public Map<Action, Double> run(State state, double prefixCost) {
+//		Map<Action, Double> P = new Hashtable<>();
+//
+//		for (Action a : problems.get(0).getActions()) {
+//			State tempState = (State)state.clone();
+//
+//			if (a.isApplicable(tempState)) {
+//				tempState.apply(a.getConditionalEffects());
+//				System.out.println(problems.get(0).toString(a));
+//
+//				double delta = prefixCost + a.getCost().getValue();
+//				
+//				Map<Problem, Double> probabilities = mirroring(tempState, delta);
+//
+//				System.out.println(probabilities);
+//
+//			} else {
+//				//System.out.println("Not Applicable");
+//			}
+//
+//
+//
+//		}
+//
+//		return P;
+//	}
 
 }

@@ -16,21 +16,34 @@ public class DirectedBehaviourGenerator implements BehaviourGenerator {
 		this.observedStates = new ArrayList<State>();
 	}
 
-	public Action generateAction(State state) throws NoValidActionException {
+	public Action generateAction(State state, Logger logger) throws NoValidActionException {
+		logger.logDetailed("Randomising actions");
 		Collections.shuffle(problems.get(0).getActions());
 		for (Action a : problems.get(0).getActions()) {
+			logger.logDetailed("Chosen Action: \n" + problems.get(0).toString(a));
 			State tempState = (State)state.clone();
 
+			logger.logDetailed("Checking if action is applicable to state");
 			if (a.isApplicable(tempState)) {
+				logger.logDetailed("Action is applicable to state");
+				logger.logDetailed("Applying action to temporary state");
 				tempState.apply(a.getConditionalEffects());
-				//System.out.println(problems.get(0).toString(a));
+				logger.logDetailed("Temporary state after action: " + problems.get(0).toString(tempState));
+				logger.logDetailed("Checking if state has already been observed");
 
 				if (!observedStates.contains(tempState)) {
+					logger.logDetailed("State has not been observed");
 					return a;
-				}
-			} 
+				} 
+				logger.logDetailed("State has been observed. Choosing another action");
+
+			} else {
+				logger.logDetailed("Action is not applicable to state");
+			}
 		}
 
+
+		logger.logDetailed("Out of actions to try. None are applicable or new.");
 		throw new NoValidActionException("No valid action");
 
 
@@ -41,5 +54,12 @@ public class DirectedBehaviourGenerator implements BehaviourGenerator {
 		State tempState = (State)state.clone();
 		tempState.apply(action.getConditionalEffects());
 		observedStates.add(tempState);
+	}
+
+	@Override
+	public String toString() {
+		return "DirectedBehaviourGenerator{" +
+			"type=Directed" +
+			"}";
 	}
 }

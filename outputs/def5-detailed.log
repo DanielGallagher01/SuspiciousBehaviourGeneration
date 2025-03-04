@@ -1,0 +1,1599 @@
+=== Detailed log started at 2025-03-04 15:18:29 ===
+## Behaviour Generator: PurposefulSuspiciousBehaviourGenerator{type=Purposeful, epsilon=0.4, stepsBeforeOptimal=10}
+
+
+
+## Initial state:
+(and (at truck1 pos1_1)
+ (at pkg1 pos1_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Checking if completed enough steps to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action load-truck
+Instantiations:
+?X0 - package : pkg5 
+?X1 - truck : truck2 
+?X2 - place : pos2_2 
+Preconditions:
+(and (at truck2 pos2_2)
+  (at pkg5 pos2_2))
+Effects:
+(and (in pkg5 truck2)
+  (not (at pkg5 pos2_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos1_1)
+ (at pkg1 pos1_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (in pkg5 truck2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 1.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 11.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 3.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.9166666666666666
+Score for problem 2: 0.75
+Calculating summed score
+Total score: 1.6666666666666665
+Mirroring Complete!
+Highest probability: 0.55
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos1_1 
+?X2 - place : pos3_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos1_1))
+Effects:
+(and (at truck1 pos3_1)
+  (not (at truck1 pos1_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at pkg1 pos1_1)
+ (at truck1 pos3_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 1.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 12.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 4.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.8461538461538461
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.4461538461538461
+Mirroring Complete!
+Highest probability: 0.5851063829787234
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos1_1 
+?X2 - place : pos2_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos1_1))
+Effects:
+(and (at truck1 pos2_1)
+  (not (at truck1 pos1_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at pkg1 pos1_1)
+ (at truck1 pos2_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 1.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 12.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 4.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.8461538461538461
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.4461538461538461
+Mirroring Complete!
+Highest probability: 0.5851063829787234
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action fly-airplane
+Instantiations:
+?X0 - airplane : plane1 
+?X1 - airport : apt1_2 
+?X2 - airport : apt1_2 
+Preconditions:
+(and (at plane1 apt1_2))
+Effects:
+(and (at plane1 apt1_2)
+  (not (at plane1 apt1_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos1_1)
+ (at pkg1 pos1_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 1.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 11.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 3.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.9166666666666666
+Score for problem 2: 0.75
+Calculating summed score
+Total score: 1.6666666666666665
+Mirroring Complete!
+Highest probability: 0.55
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action load-truck
+Instantiations:
+?X0 - package : pkg1 
+?X1 - truck : truck1 
+?X2 - place : pos1_1 
+Preconditions:
+(and (at truck1 pos1_1)
+  (at pkg1 pos1_1))
+Effects:
+(and (in pkg1 truck1)
+  (not (at pkg1 pos1_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 1.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 10.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 2.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 1.0
+Score for problem 2: 1.0
+Calculating summed score
+Total score: 2.0
+Mirroring Complete!
+Highest probability: 0.5
+Second highest: 0.5
+Difference between probabilities is less than epsilon. Choosing action.
+## Action Made:
+Action load-truck
+Instantiations:
+?X0 - package : pkg1 
+?X1 - truck : truck1 
+?X2 - place : pos1_1 
+Preconditions:
+(and (at truck1 pos1_1)
+  (at pkg1 pos1_1))
+Effects:
+(and (in pkg1 truck1)
+  (not (at pkg1 pos1_1))
+
+## New State:
+(and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Checking if completed enough steps to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos2_2 
+?X2 - place : pos3_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos2_2))
+Effects:
+(and (at truck2 pos3_2)
+  (not (at truck2 pos2_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos3_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 2.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 10.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 2.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.9166666666666666
+Score for problem 2: 0.75
+Calculating summed score
+Total score: 1.6666666666666665
+Mirroring Complete!
+Highest probability: 0.55
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action fly-airplane
+Instantiations:
+?X0 - airplane : plane1 
+?X1 - airport : apt1_2 
+?X2 - airport : apt1_1 
+Preconditions:
+(and (at plane1 apt1_2))
+Effects:
+(and (at plane1 apt1_1)
+  (not (at plane1 apt1_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 2.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 9.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 2.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 1.0
+Score for problem 2: 0.75
+Calculating summed score
+Total score: 1.75
+Mirroring Complete!
+Highest probability: 0.5714285714285714
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos1_1 
+?X2 - place : pos3_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos1_1))
+Effects:
+(and (at truck1 pos3_1)
+  (not (at truck1 pos1_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (in pkg1 truck1)
+ (at truck1 pos3_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 2.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 10.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 1.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.9166666666666666
+Score for problem 2: 1.0
+Calculating summed score
+Total score: 1.9166666666666665
+Mirroring Complete!
+Highest probability: 0.5217391304347826
+Second highest: 0.4782608695652174
+Difference between probabilities is less than epsilon. Choosing action.
+## Action Made:
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos1_1 
+?X2 - place : pos3_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos1_1))
+Effects:
+(and (at truck1 pos3_1)
+  (not (at truck1 pos1_1))
+
+## New State:
+(and (in pkg1 truck1)
+ (at truck1 pos3_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Checking if completed enough steps to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos2_2 
+?X2 - place : pos2_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos2_2))
+Effects:
+(and (at truck2 pos2_2)
+  (not (at truck2 pos2_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (in pkg1 truck1)
+ (at truck1 pos3_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 3.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 10.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 1.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.8461538461538461
+Score for problem 2: 0.75
+Calculating summed score
+Total score: 1.5961538461538463
+Mirroring Complete!
+Highest probability: 0.5301204819277108
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos2_2 
+?X2 - place : apt1_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos2_2))
+Effects:
+(and (at truck2 apt1_2)
+  (not (at truck2 pos2_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (in pkg1 truck1)
+ (at truck1 pos3_1)
+ (at truck2 apt1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 3.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 9.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 1.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.9166666666666666
+Score for problem 2: 0.75
+Calculating summed score
+Total score: 1.6666666666666665
+Mirroring Complete!
+Highest probability: 0.55
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos3_1 
+?X2 - place : pos2_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos3_1))
+Effects:
+(and (at truck1 pos2_1)
+  (not (at truck1 pos3_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (in pkg1 truck1)
+ (at truck1 pos2_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 3.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 10.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 2.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.8461538461538461
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.4461538461538461
+Mirroring Complete!
+Highest probability: 0.5851063829787234
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action unload-truck
+Instantiations:
+?X0 - package : pkg1 
+?X1 - truck : truck1 
+?X2 - place : pos3_1 
+Preconditions:
+(and (in pkg1 truck1)
+  (at truck1 pos3_1))
+Effects:
+(and (at pkg1 pos3_1)
+  (not (in pkg1 truck1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 3.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 11.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.7857142857142857
+Score for problem 2: 1.0
+Calculating summed score
+Total score: 1.7857142857142856
+Mirroring Complete!
+Highest probability: 0.56
+Second highest: 0.44
+Difference between probabilities is less than epsilon. Choosing action.
+## Action Made:
+Action unload-truck
+Instantiations:
+?X0 - package : pkg1 
+?X1 - truck : truck1 
+?X2 - place : pos3_1 
+Preconditions:
+(and (in pkg1 truck1)
+  (at truck1 pos3_1))
+Effects:
+(and (at pkg1 pos3_1)
+  (not (in pkg1 truck1))
+
+## New State:
+(and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Checking if completed enough steps to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos2_2 
+?X2 - place : pos1_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos2_2))
+Effects:
+(and (at truck2 pos1_2)
+  (not (at truck2 pos2_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 4.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 11.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.7333333333333333
+Score for problem 2: 0.75
+Calculating summed score
+Total score: 1.4833333333333334
+Mirroring Complete!
+Highest probability: 0.5056179775280899
+Second highest: 0.49438202247191004
+Difference between probabilities is less than epsilon. Choosing action.
+## Action Made:
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos2_2 
+?X2 - place : pos1_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos2_2))
+Effects:
+(and (at truck2 pos1_2)
+  (not (at truck2 pos2_2))
+
+## New State:
+(and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Checking if completed enough steps to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos1_2 
+?X2 - place : apt1_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos1_2))
+Effects:
+(and (at truck2 apt1_2)
+  (not (at truck2 pos1_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 apt1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 5.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 10.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.7333333333333333
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.3333333333333333
+Mirroring Complete!
+Highest probability: 0.55
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action fly-airplane
+Instantiations:
+?X0 - airplane : plane1 
+?X1 - airport : apt1_2 
+?X2 - airport : apt1_2 
+Preconditions:
+(and (at plane1 apt1_2))
+Effects:
+(and (at plane1 apt1_2)
+  (not (at plane1 apt1_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 5.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 11.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.6875
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.2875
+Mirroring Complete!
+Highest probability: 0.5339805825242718
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action load-truck
+Instantiations:
+?X0 - package : pkg3 
+?X1 - truck : truck1 
+?X2 - place : pos3_1 
+Preconditions:
+(and (at truck1 pos3_1)
+  (at pkg3 pos3_1))
+Effects:
+(and (in pkg3 truck1)
+  (not (at pkg3 pos3_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos1_2)
+ (at pkg2 pos2_1)
+ (in pkg3 truck1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 5.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 11.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.6875
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.2875
+Mirroring Complete!
+Highest probability: 0.5339805825242718
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action load-truck
+Instantiations:
+?X0 - package : pkg4 
+?X1 - truck : truck2 
+?X2 - place : pos1_2 
+Preconditions:
+(and (at truck2 pos1_2)
+  (at pkg4 pos1_2))
+Effects:
+(and (in pkg4 truck2)
+  (not (at pkg4 pos1_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (in pkg4 truck2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 5.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 11.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.6875
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.2875
+Mirroring Complete!
+Highest probability: 0.5339805825242718
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos1_2 
+?X2 - place : pos1_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos1_2))
+Effects:
+(and (at truck2 pos1_2)
+  (not (at truck2 pos1_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 5.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 11.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.6875
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.2875
+Mirroring Complete!
+Highest probability: 0.5339805825242718
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos1_2 
+?X2 - place : pos3_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos1_2))
+Effects:
+(and (at truck2 pos3_2)
+  (not (at truck2 pos1_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos3_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 5.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 12.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.6470588235294118
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.2470588235294118
+Mirroring Complete!
+Highest probability: 0.5188679245283019
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos3_1 
+?X2 - place : pos2_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos3_1))
+Effects:
+(and (at truck1 pos2_1)
+  (not (at truck1 pos3_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos2_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 5.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 12.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.6470588235294118
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.2470588235294118
+Mirroring Complete!
+Highest probability: 0.5188679245283019
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action fly-airplane
+Instantiations:
+?X0 - airplane : plane1 
+?X1 - airport : apt1_2 
+?X2 - airport : apt1_1 
+Preconditions:
+(and (at plane1 apt1_2))
+Effects:
+(and (at plane1 apt1_1)
+  (not (at plane1 apt1_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 5.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 10.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.7333333333333333
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.3333333333333333
+Mirroring Complete!
+Highest probability: 0.55
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos3_1 
+?X2 - place : pos3_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos3_1))
+Effects:
+(and (at truck1 pos3_1)
+  (not (at truck1 pos3_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 5.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 11.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.6875
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.2875
+Mirroring Complete!
+Highest probability: 0.5339805825242718
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos1_2 
+?X2 - place : pos2_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos1_2))
+Effects:
+(and (at truck2 pos2_2)
+  (not (at truck2 pos1_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 5.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 11.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.6875
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.2875
+Mirroring Complete!
+Highest probability: 0.5339805825242718
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos3_1 
+?X2 - place : pos1_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos3_1))
+Effects:
+(and (at truck1 pos1_1)
+  (not (at truck1 pos3_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos1_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 5.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 12.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.6470588235294118
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.2470588235294118
+Mirroring Complete!
+Highest probability: 0.5188679245283019
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos3_1 
+?X2 - place : apt1_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos3_1))
+Effects:
+(and (at truck1 apt1_1)
+  (not (at truck1 pos3_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 apt1_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 5.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 12.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 0.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.6470588235294118
+Score for problem 2: 0.6
+Calculating summed score
+Total score: 1.2470588235294118
+Mirroring Complete!
+Highest probability: 0.5188679245283019
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action load-truck
+Instantiations:
+?X0 - package : pkg1 
+?X1 - truck : truck1 
+?X2 - place : pos3_1 
+Preconditions:
+(and (at truck1 pos3_1)
+  (at pkg1 pos3_1))
+Effects:
+(and (in pkg1 truck1)
+  (not (at pkg1 pos3_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (in pkg1 truck1)
+ (at truck1 pos3_1)
+ (at truck2 pos1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Mirroing delta: 5.0
+Starting mirroring
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 11.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 1.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.6875
+Score for problem 2: 0.5
+Calculating summed score
+Total score: 1.1875
+Mirroring Complete!
+Highest probability: 0.5789473684210527
+Second highest: 0.0
+Difference between probabilities is greater than epsilon. Skipping action.
+Execution terminated: No more valid actions
+Final state:
+(and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)

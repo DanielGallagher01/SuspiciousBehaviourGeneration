@@ -1,0 +1,334 @@
+=== Log started at 2025-03-04 15:18:30 ===
+## Behaviour Generator: DirectedBehaviourGenerator{type=Semidirected, lambda=2, goal=2}
+
+
+
+## Initial state:
+(and (at truck1 pos1_1)
+ (at pkg1 pos1_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Making Optimal move
+## Action Made:
+Action load-truck
+Instantiations:
+?X0 - package : pkg1 
+?X1 - truck : truck1 
+?X2 - place : pos1_1 
+Preconditions:
+(and (at truck1 pos1_1)
+  (at pkg1 pos1_1))
+Effects:
+(and (in pkg1 truck1)
+  (not (at pkg1 pos1_1))
+
+## New State:
+(and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Making random move
+## Action Made:
+Action unload-truck
+Instantiations:
+?X0 - package : pkg1 
+?X1 - truck : truck1 
+?X2 - place : pos1_1 
+Preconditions:
+(and (in pkg1 truck1)
+  (at truck1 pos1_1))
+Effects:
+(and (at pkg1 pos1_1)
+  (not (in pkg1 truck1))
+
+## New State:
+(and (at truck1 pos1_1)
+ (at pkg1 pos1_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Making Optimal move
+## Action Made:
+Action load-truck
+Instantiations:
+?X0 - package : pkg1 
+?X1 - truck : truck1 
+?X2 - place : pos1_1 
+Preconditions:
+(and (at truck1 pos1_1)
+  (at pkg1 pos1_1))
+Effects:
+(and (in pkg1 truck1)
+  (not (at pkg1 pos1_1))
+
+## New State:
+(and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Making random move
+## Action Made:
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos2_2 
+?X2 - place : apt1_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos2_2))
+Effects:
+(and (at truck2 apt1_2)
+  (not (at truck2 pos2_2))
+
+## New State:
+(and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 apt1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Making Optimal move
+## Action Made:
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos1_1 
+?X2 - place : pos3_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos1_1))
+Effects:
+(and (at truck1 pos3_1)
+  (not (at truck1 pos1_1))
+
+## New State:
+(and (in pkg1 truck1)
+ (at truck1 pos3_1)
+ (at truck2 apt1_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Making random move
+## Action Made:
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : apt1_2 
+?X2 - place : pos2_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 apt1_2))
+Effects:
+(and (at truck2 pos2_2)
+  (not (at truck2 apt1_2))
+
+## New State:
+(and (in pkg1 truck1)
+ (at truck1 pos3_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Making Optimal move
+## Action Made:
+Action unload-truck
+Instantiations:
+?X0 - package : pkg1 
+?X1 - truck : truck1 
+?X2 - place : pos3_1 
+Preconditions:
+(and (in pkg1 truck1)
+  (at truck1 pos3_1))
+Effects:
+(and (at pkg1 pos3_1)
+  (not (in pkg1 truck1))
+
+## New State:
+(and (at truck1 pos3_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Making random move
+## Action Made:
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos3_1 
+?X2 - place : pos2_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos3_1))
+Effects:
+(and (at truck1 pos2_1)
+  (not (at truck1 pos3_1))
+
+## New State:
+(and (at truck1 pos2_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Making Optimal move
+Execution terminated: No more valid actions
+Final state:
+(and (at truck1 pos2_1)
+ (at pkg1 pos3_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos2_1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+=== Log closed at 2025-03-04 15:18:30 ===
