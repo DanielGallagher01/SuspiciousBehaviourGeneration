@@ -37,28 +37,28 @@ public class Main {
 	logger.initialize("outputs/def4-simple.log", "outputs/def4-detailed.log");
 	generateBehaviour(problems, 
 			new DirectedBehaviourGenerator(problems), 
-			logger);		
+			logger);
 
 	problems = ParseProblems(args);
-	MirroringController mc = new MirroringController(problems);
+	BehaviourRecogniser br = new SelfModulatingRecogniser(problems);
 	logger = new Logger();
 	logger.initialize("outputs/def5-simple.log", "outputs/def5-detailed.log");
 	generateBehaviour(problems, 
-			new PurposefulSuspiciousBehaviourGenerator(problems, 0.4, 10, mc), 
+			new PurposefulSuspiciousBehaviourGenerator(problems, 0.3, 20, br), 
 			logger);
 	
 	problems = ParseProblems(args);
 	logger = new Logger();
 	logger.initialize("outputs/def6-goal1-simple.log", "outputs/def6-goal1-detailed.log");
 	generateBehaviour(problems, 
-			new PurposelessSuspiciousBehaviourGenerator(problems, 3, 10, 0), 
-			logger);	
+			new PurposelessSuspiciousBehaviourGenerator(problems, 3, 20, 0), 
+			logger);
 
 	problems = ParseProblems(args);
 	logger = new Logger();
 	logger.initialize("outputs/def6-goal2-simple.log", "outputs/def6-goal2-detailed.log");
 	generateBehaviour(problems, 
-			new PurposelessSuspiciousBehaviourGenerator(problems, 3, 10, 1), 
+			new PurposelessSuspiciousBehaviourGenerator(problems, 3, 20, 1), 
 			logger);
 
 	problems = ParseProblems(args);
@@ -74,7 +74,14 @@ public class Main {
 	logger.initialize("outputs/def7-goal2-simple.log", "outputs/def7-goal2-detailed.log");
 	generateBehaviour(problems, 
 			new SemidirectedBehaviourGenerator(problems, 2, 1), 
-			logger);	
+			logger);
+
+  problems = ParseProblems(args);
+	logger = new Logger();
+	logger.initialize("outputs/def8-goal1-simple.log", "outputs/def8-goal1-detailed.log");
+	generateBehaviour(problems, 
+			new UnexpectedlySuspiciousBehaviourGenerator(problems, 3, 1, new SemidirectedBehaviourGenerator(problems, 2, 1)), 
+			logger);
 
 	logger.close();
 

@@ -18,14 +18,14 @@ import java.util.Hashtable;
 import java.util.Map;
 
 
-public class MirroringController implements BehaviourRecogniser {
+public class SelfModulatingRecogniser implements BehaviourRecogniser {
 	private ArrayList<DefaultProblem> problems;
 	private HSP planner;
 	private InitialState initialState;
 
 	private Map<Problem, Plan> initialPlans;
 
-	public MirroringController(ArrayList<DefaultProblem> problems) {
+	public SelfModulatingRecogniser(ArrayList<DefaultProblem> problems) {
 		this.problems = problems;	
 		this.planner = new HSP();
 		this.initialPlans = new Hashtable<>();
@@ -43,7 +43,7 @@ public class MirroringController implements BehaviourRecogniser {
 	}
 
 	public Map<Problem, Double> recognise(State state, double prefixCost, Logger logger) {
-		logger.logDetailed("Starting mirroring");
+		logger.logDetailed("Starting recognising");
 
 		Map<Problem, Double> cost = new Hashtable<>();
 
@@ -75,7 +75,7 @@ public class MirroringController implements BehaviourRecogniser {
 		logger.logDetailed("Generating scores for problems");
 		i = 1;
 		for(Problem problem : problems) {
-			Double score = initialPlans.get(problem).cost() / (prefixCost + cost.get(problem));
+			Double score = Math.exp(initialPlans.get(problem).cost() - cost.get(problem));
 			logger.logDetailed("Score for problem " + i + ": " + score);
 			scores.put(problem, score);	
 			i++;
@@ -90,38 +90,13 @@ public class MirroringController implements BehaviourRecogniser {
 	
 		Map<Problem, Double> P = new Hashtable<>();
 		for(Problem problem : problems) {
-			P.put(problem, scores.get(problem)/totalScore);	
+			P.put(problem, scores.get(problem)/totalScore);
+      logger.logDetailed("Final probability: " + scores.get(problem)/totalScore);
 		}
 		
-		logger.logDetailed("Mirroring Complete!");
+		logger.logDetailed("Recognising Complete!");
 		return P;
 	}
 
-//	public Map<Action, Double> run(State state, double prefixCost) {
-//		Map<Action, Double> P = new Hashtable<>();
-//
-//		for (Action a : problems.get(0).getActions()) {
-//			State tempState = (State)state.clone();
-//
-//			if (a.isApplicable(tempState)) {
-//				tempState.apply(a.getConditionalEffects());
-//				System.out.println(problems.get(0).toString(a));
-//
-//				double delta = prefixCost + a.getCost().getValue();
-//				
-//				Map<Problem, Double> probabilities = mirroring(tempState, delta);
-//
-//				System.out.println(probabilities);
-//
-//			} else {
-//				//System.out.println("Not Applicable");
-//			}
-//
-//
-//
-//		}
-//
-//		return P;
-//	}
 
 }

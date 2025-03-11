@@ -16,15 +16,15 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
 	private List<DefaultProblem> problems;
 	private Double epsilon;
 	private Double prefixCost;
-	private MirroringController mc;
+	private BehaviourRecogniser br;
 	private int stepsBeforeOptimal;
 	private int currentStep;
 	private HSP planner;
 
-	public PurposefulSuspiciousBehaviourGenerator (List<DefaultProblem> problems, Double epsilon, int stepsBeforeOptimal, MirroringController mc) {
+	public PurposefulSuspiciousBehaviourGenerator (List<DefaultProblem> problems, Double epsilon, int stepsBeforeOptimal, BehaviourRecogniser br) {
 		this.problems = problems;
 		this.epsilon = epsilon;
-		this.mc = mc;
+		this.br = br;
 		this.stepsBeforeOptimal = stepsBeforeOptimal;
 		this.currentStep = 1;
 		this.planner = new HSP();
@@ -75,7 +75,7 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
 				double delta = prefixCost + a.getCost().getValue();
 				logger.logDetailed("Mirroing delta: " + delta);
 
-				Map<Problem, Double> probabilities = mc.mirroring(tempState, delta, logger);
+				Map<Problem, Double> probabilities = br.recognise(tempState, delta, logger);
 
 				double highest = 0;
 				double second = 0;
@@ -83,6 +83,7 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
 				for ( Problem p : probabilities.keySet()) {
 					Double prob = probabilities.get(p);
 					if (prob > highest) {
+            second = highest;
 						highest = prob;
 					} else if (prob > second) {
 						second = prob;
@@ -92,8 +93,6 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
 				logger.logDetailed("Highest probability: " + highest);
 				logger.logDetailed("Second highest: " + second);
 
-				System.out.println("Highest: " + highest);
-				System.out.println("Second: " + second);
 				if (highest - second < epsilon) {
 					logger.logDetailed("Difference between probabilities is less than epsilon. Choosing action.");
 					return a;
