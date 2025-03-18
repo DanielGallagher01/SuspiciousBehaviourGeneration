@@ -20,6 +20,7 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
 	private int stepsBeforeOptimal;
 	private int currentStep;
 	private HSP planner;
+	private List<State> observedStates;
 
 	public PurposefulSuspiciousBehaviourGenerator (List<DefaultProblem> problems, Double epsilon, int stepsBeforeOptimal, BehaviourRecogniser br) {
 		this.problems = problems;
@@ -29,6 +30,7 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
 		this.currentStep = 1;
 		this.planner = new HSP();
 		this.prefixCost = 0d;
+		this.observedStates = new ArrayList<State>();
 	}
 
 	public Action generateAction(State state, Logger logger) throws NoValidActionException {
@@ -71,6 +73,13 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
 				tempState.apply(a.getConditionalEffects());
 				logger.logDetailed("Temporary state after action: " + problems.get(0).toString(tempState));
 				
+        logger.logDetailed("Checking if state has already been observed");
+
+				if (observedStates.contains(tempState)) {
+				  logger.logDetailed("State has been observed. Choosing another action");
+					continue;
+        } 
+				logger.logDetailed("State has not been observed");
 				
 				double delta = prefixCost + a.getCost().getValue();
 				logger.logDetailed("Mirroing delta: " + delta);
@@ -114,6 +123,9 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
 	public void actionTaken(State state, Action action) {
 		prefixCost += action.getCost().getValue();
 		currentStep++;
+    State tempState = (State)state.clone();
+		tempState.apply(action.getConditionalEffects());
+		observedStates.add(tempState);
 	}
 	
 	@Override

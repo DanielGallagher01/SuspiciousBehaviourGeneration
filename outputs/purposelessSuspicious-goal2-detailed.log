@@ -1,4 +1,4 @@
-=== Detailed log started at 2025-03-11 13:11:49 ===
+=== Detailed log started at 2025-03-18 16:15:09 ===
 ## Behaviour Generator: PurposelessSuspiciousBehaviourGenerator{type=Purposeless, epsilon=3, stepsBeforeOptimal=20}
 
 
@@ -69,18 +69,18 @@ Action drive-truck
 Instantiations:
 ?X0 - truck : truck1 
 ?X1 - place : pos1_1 
-?X2 - place : apt1_1 
+?X2 - place : pos2_1 
 ?X3 - city : city1 
 Preconditions:
 (and (at truck1 pos1_1))
 Effects:
-(and (at truck1 apt1_1)
+(and (at truck1 pos2_1)
   (not (at truck1 pos1_1))
 
 Action is applicable to state
 Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (in pkg1 truck1)
+Temporary state after action: (and (in pkg1 truck1)
+ (at truck1 pos2_1)
  (at truck2 pos2_2)
  (at pkg2 pos2_1)
  (at pkg3 pos3_1)
@@ -105,391 +105,18 @@ Action drive-truck
 Instantiations:
 ?X0 - truck : truck1 
 ?X1 - place : pos1_1 
-?X2 - place : apt1_1 
+?X2 - place : pos2_1 
 ?X3 - city : city1 
 Preconditions:
 (and (at truck1 pos1_1))
 Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos1_1))
-
-## New State:
-(and (at truck1 apt1_1)
- (in pkg1 truck1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Generating plan
-Checking if completed enough steps or is far enough away to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 apt1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (in pkg1 truck1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Generating Plan
-Plan's cost: 2.0
-Action does not achieve goal and maintains close proximity to goal. Choosing action.
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 apt1_1))
-
-## New State:
-(and (at truck1 apt1_1)
- (in pkg1 truck1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Generating plan
-Checking if completed enough steps or is far enough away to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 apt1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Generating Plan
-Plan's cost: 2.0
-Action does not achieve goal and maintains close proximity to goal. Choosing action.
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 apt1_1))
-
-## New State:
-(and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Generating plan
-Checking if completed enough steps or is far enough away to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action fly-airplane
-Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_2 
-?X2 - airport : apt1_2 
-Preconditions:
-(and (at plane1 apt1_2))
-Effects:
-(and (at plane1 apt1_2)
-  (not (at plane1 apt1_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Generating Plan
-Plan's cost: 2.0
-Action does not achieve goal and maintains close proximity to goal. Choosing action.
-## Action Made:
-Action fly-airplane
-Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_2 
-?X2 - airport : apt1_2 
-Preconditions:
-(and (at plane1 apt1_2))
-Effects:
-(and (at plane1 apt1_2)
-  (not (at plane1 apt1_2))
-
-## New State:
-(and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Generating plan
-Checking if completed enough steps or is far enough away to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos2_2))
-Effects:
-(and (at truck2 apt1_2)
-  (not (at truck2 pos2_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Generating Plan
-Plan's cost: 2.0
-Action does not achieve goal and maintains close proximity to goal. Choosing action.
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos2_2))
-Effects:
-(and (at truck2 apt1_2)
-  (not (at truck2 pos2_2))
-
-## New State:
-(and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Generating plan
-Checking if completed enough steps or is far enough away to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : pos3_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 pos3_1)
-  (not (at truck1 pos1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (in pkg1 truck1)
- (at truck1 pos3_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Generating Plan
-Plan's cost: 1.0
-Action does not achieve goal and maintains close proximity to goal. Choosing action.
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : pos3_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 pos3_1)
+(and (at truck1 pos2_1)
   (not (at truck1 pos1_1))
 
 ## New State:
 (and (in pkg1 truck1)
- (at truck1 pos3_1)
- (at truck2 apt1_2)
+ (at truck1 pos2_1)
+ (at truck2 pos2_2)
  (at pkg2 pos2_1)
  (at pkg3 pos3_1)
  (at pkg4 pos1_2)
@@ -515,23 +142,23 @@ Randomising actions
 Chosen Action: 
 Action load-truck
 Instantiations:
-?X0 - package : pkg3 
+?X0 - package : pkg2 
 ?X1 - truck : truck1 
-?X2 - place : pos3_1 
+?X2 - place : pos2_1 
 Preconditions:
-(and (at truck1 pos3_1)
-  (at pkg3 pos3_1))
+(and (at truck1 pos2_1)
+  (at pkg2 pos2_1))
 Effects:
-(and (in pkg3 truck1)
-  (not (at pkg3 pos3_1))
+(and (in pkg2 truck1)
+  (not (at pkg2 pos2_1))
 
 Action is applicable to state
 Applying action to temporary state
 Temporary state after action: (and (in pkg1 truck1)
- (at truck1 pos3_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck1 pos2_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -546,27 +173,27 @@ Temporary state after action: (and (in pkg1 truck1)
  (in-city pos3_2 city2)
 )
 Generating Plan
-Plan's cost: 1.0
+Plan's cost: 2.0
 Action does not achieve goal and maintains close proximity to goal. Choosing action.
 ## Action Made:
 Action load-truck
 Instantiations:
-?X0 - package : pkg3 
+?X0 - package : pkg2 
 ?X1 - truck : truck1 
-?X2 - place : pos3_1 
+?X2 - place : pos2_1 
 Preconditions:
-(and (at truck1 pos3_1)
-  (at pkg3 pos3_1))
+(and (at truck1 pos2_1)
+  (at pkg2 pos2_1))
 Effects:
-(and (in pkg3 truck1)
-  (not (at pkg3 pos3_1))
+(and (in pkg2 truck1)
+  (not (at pkg2 pos2_1))
 
 ## New State:
 (and (in pkg1 truck1)
- (at truck1 pos3_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck1 pos2_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -588,24 +215,100 @@ Checking if completed enough steps or is far enough away to act optimal
 Still acting suspicious
 Randomising actions
 Chosen Action: 
-Action fly-airplane
+Action drive-truck
 Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_2 
-?X2 - airport : apt1_2 
+?X0 - truck : truck1 
+?X1 - place : pos2_1 
+?X2 - place : pos1_1 
+?X3 - city : city1 
 Preconditions:
-(and (at plane1 apt1_2))
+(and (at truck1 pos2_1))
 Effects:
-(and (at plane1 apt1_2)
-  (not (at plane1 apt1_2))
+(and (at truck1 pos1_1)
+  (not (at truck1 pos2_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Generating Plan
+Plan's cost: 2.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos2_1 
+?X2 - place : pos1_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos2_1))
+Effects:
+(and (at truck1 pos1_1)
+  (not (at truck1 pos2_1))
+
+## New State:
+(and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_2)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos1_1 
+?X2 - place : pos3_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos1_1))
+Effects:
+(and (at truck1 pos3_1)
+  (not (at truck1 pos1_1))
 
 Action is applicable to state
 Applying action to temporary state
 Temporary state after action: (and (in pkg1 truck1)
  (at truck1 pos3_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -623,23 +326,24 @@ Generating Plan
 Plan's cost: 1.0
 Action does not achieve goal and maintains close proximity to goal. Choosing action.
 ## Action Made:
-Action fly-airplane
+Action drive-truck
 Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_2 
-?X2 - airport : apt1_2 
+?X0 - truck : truck1 
+?X1 - place : pos1_1 
+?X2 - place : pos3_1 
+?X3 - city : city1 
 Preconditions:
-(and (at plane1 apt1_2))
+(and (at truck1 pos1_1))
 Effects:
-(and (at plane1 apt1_2)
-  (not (at plane1 apt1_2))
+(and (at truck1 pos3_1)
+  (not (at truck1 pos1_1))
 
 ## New State:
 (and (in pkg1 truck1)
  (at truck1 pos3_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -665,21 +369,21 @@ Action drive-truck
 Instantiations:
 ?X0 - truck : truck1 
 ?X1 - place : pos3_1 
-?X2 - place : pos1_1 
+?X2 - place : pos2_1 
 ?X3 - city : city1 
 Preconditions:
 (and (at truck1 pos3_1))
 Effects:
-(and (at truck1 pos1_1)
+(and (at truck1 pos2_1)
   (not (at truck1 pos3_1))
 
 Action is applicable to state
 Applying action to temporary state
 Temporary state after action: (and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck1 pos2_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -701,20 +405,20 @@ Action drive-truck
 Instantiations:
 ?X0 - truck : truck1 
 ?X1 - place : pos3_1 
-?X2 - place : pos1_1 
+?X2 - place : pos2_1 
 ?X3 - city : city1 
 Preconditions:
 (and (at truck1 pos3_1))
 Effects:
-(and (at truck1 pos1_1)
+(and (at truck1 pos2_1)
   (not (at truck1 pos3_1))
 
 ## New State:
 (and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck1 pos2_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -750,10 +454,10 @@ Effects:
 Action is applicable to state
 Applying action to temporary state
 Temporary state after action: (and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck1 pos2_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -784,10 +488,10 @@ Effects:
 
 ## New State:
 (and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck1 pos2_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -812,22 +516,22 @@ Chosen Action:
 Action drive-truck
 Instantiations:
 ?X0 - truck : truck2 
-?X1 - place : apt1_2 
+?X1 - place : pos2_2 
 ?X2 - place : pos1_2 
 ?X3 - city : city2 
 Preconditions:
-(and (at truck2 apt1_2))
+(and (at truck2 pos2_2))
 Effects:
 (and (at truck2 pos1_2)
-  (not (at truck2 apt1_2))
+  (not (at truck2 pos2_2))
 
 Action is applicable to state
 Applying action to temporary state
 Temporary state after action: (and (in pkg1 truck1)
- (at truck1 pos1_1)
+ (at truck1 pos2_1)
  (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -848,21 +552,21 @@ Action does not achieve goal and maintains close proximity to goal. Choosing act
 Action drive-truck
 Instantiations:
 ?X0 - truck : truck2 
-?X1 - place : apt1_2 
+?X1 - place : pos2_2 
 ?X2 - place : pos1_2 
 ?X3 - city : city2 
 Preconditions:
-(and (at truck2 apt1_2))
+(and (at truck2 pos2_2))
 Effects:
 (and (at truck2 pos1_2)
-  (not (at truck2 apt1_2))
+  (not (at truck2 pos2_2))
 
 ## New State:
 (and (in pkg1 truck1)
- (at truck1 pos1_1)
+ (at truck1 pos2_1)
  (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -884,24 +588,25 @@ Checking if completed enough steps or is far enough away to act optimal
 Still acting suspicious
 Randomising actions
 Chosen Action: 
-Action fly-airplane
+Action drive-truck
 Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_1 
-?X2 - airport : apt1_1 
+?X0 - truck : truck2 
+?X1 - place : pos1_2 
+?X2 - place : pos3_2 
+?X3 - city : city2 
 Preconditions:
-(and (at plane1 apt1_1))
+(and (at truck2 pos1_2))
 Effects:
-(and (at plane1 apt1_1)
-  (not (at plane1 apt1_1))
+(and (at truck2 pos3_2)
+  (not (at truck2 pos1_2))
 
 Action is applicable to state
 Applying action to temporary state
 Temporary state after action: (and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck1 pos2_1)
+ (at truck2 pos3_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -919,23 +624,399 @@ Generating Plan
 Plan's cost: 2.0
 Action does not achieve goal and maintains close proximity to goal. Choosing action.
 ## Action Made:
-Action fly-airplane
+Action drive-truck
 Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_1 
-?X2 - airport : apt1_1 
+?X0 - truck : truck2 
+?X1 - place : pos1_2 
+?X2 - place : pos3_2 
+?X3 - city : city2 
 Preconditions:
-(and (at plane1 apt1_1))
+(and (at truck2 pos1_2))
 Effects:
-(and (at plane1 apt1_1)
-  (not (at plane1 apt1_1))
+(and (at truck2 pos3_2)
+  (not (at truck2 pos1_2))
+
+## New State:
+(and (in pkg1 truck1)
+ (at truck1 pos2_1)
+ (at truck2 pos3_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos2_1 
+?X2 - place : apt1_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos2_1))
+Effects:
+(and (at truck1 apt1_1)
+  (not (at truck1 pos2_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 apt1_1)
+ (in pkg1 truck1)
+ (at truck2 pos3_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Generating Plan
+Plan's cost: 2.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : pos2_1 
+?X2 - place : apt1_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 pos2_1))
+Effects:
+(and (at truck1 apt1_1)
+  (not (at truck1 pos2_1))
+
+## New State:
+(and (at truck1 apt1_1)
+ (in pkg1 truck1)
+ (at truck2 pos3_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos3_2 
+?X2 - place : pos2_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos3_2))
+Effects:
+(and (at truck2 pos2_2)
+  (not (at truck2 pos3_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 apt1_1)
+ (in pkg1 truck1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Generating Plan
+Plan's cost: 2.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos3_2 
+?X2 - place : pos2_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos3_2))
+Effects:
+(and (at truck2 pos2_2)
+  (not (at truck2 pos3_2))
+
+## New State:
+(and (at truck1 apt1_1)
+ (in pkg1 truck1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : apt1_1 
+?X2 - place : pos1_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 apt1_1))
+Effects:
+(and (at truck1 pos1_1)
+  (not (at truck1 apt1_1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Generating Plan
+Plan's cost: 2.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action drive-truck
+Instantiations:
+?X0 - truck : truck1 
+?X1 - place : apt1_1 
+?X2 - place : pos1_1 
+?X3 - city : city1 
+Preconditions:
+(and (at truck1 apt1_1))
+Effects:
+(and (at truck1 pos1_1)
+  (not (at truck1 apt1_1))
+
+## New State:
+(and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos2_2 
+?X2 - place : pos2_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos2_2))
+Effects:
+(and (at truck2 pos2_2)
+  (not (at truck2 pos2_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Generating Plan
+Plan's cost: 2.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos2_2 
+?X2 - place : pos2_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos2_2))
+Effects:
+(and (at truck2 pos2_2)
+  (not (at truck2 pos2_2))
+
+## New State:
+(and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos2_2 
+?X2 - place : pos1_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos2_2))
+Effects:
+(and (at truck2 pos1_2)
+  (not (at truck2 pos2_2))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos1_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Generating Plan
+Plan's cost: 2.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action drive-truck
+Instantiations:
+?X0 - truck : truck2 
+?X1 - place : pos2_2 
+?X2 - place : pos1_2 
+?X3 - city : city2 
+Preconditions:
+(and (at truck2 pos2_2))
+Effects:
+(and (at truck2 pos1_2)
+  (not (at truck2 pos2_2))
 
 ## New State:
 (and (in pkg1 truck1)
  (at truck1 pos1_1)
  (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -974,8 +1055,8 @@ Applying action to temporary state
 Temporary state after action: (and (in pkg1 truck1)
  (at truck1 pos1_1)
  (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -1009,8 +1090,8 @@ Effects:
 (and (in pkg1 truck1)
  (at truck1 pos1_1)
  (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -1049,8 +1130,8 @@ Applying action to temporary state
 Temporary state after action: (and (in pkg1 truck1)
  (at truck1 pos1_1)
  (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -1084,158 +1165,8 @@ Effects:
 (and (in pkg1 truck1)
  (at truck1 pos1_1)
  (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Generating plan
-Checking if completed enough steps or is far enough away to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck2 pos2_2)
-  (at pkg5 pos2_2))
-Effects:
-(and (in pkg5 truck2)
-  (not (at pkg5 pos2_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
- (at pkg4 pos1_2)
- (in pkg5 truck2)
- (at pkg6 pos3_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Generating Plan
-Plan's cost: 2.0
-Action does not achieve goal and maintains close proximity to goal. Choosing action.
-## Action Made:
-Action load-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck2 pos2_2)
-  (at pkg5 pos2_2))
-Effects:
-(and (in pkg5 truck2)
-  (not (at pkg5 pos2_2))
-
-## New State:
-(and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
- (at pkg4 pos1_2)
- (in pkg5 truck2)
- (at pkg6 pos3_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Generating plan
-Checking if completed enough steps or is far enough away to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck2 pos2_2)
-  (in pkg5 truck2))
-Effects:
-(and (at pkg5 pos2_2)
-  (not (in pkg5 truck2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Generating Plan
-Plan's cost: 2.0
-Action does not achieve goal and maintains close proximity to goal. Choosing action.
-## Action Made:
-Action unload-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck2 pos2_2)
-  (in pkg5 truck2))
-Effects:
-(and (at pkg5 pos2_2)
-  (not (in pkg5 truck2))
-
-## New State:
-(and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -1261,21 +1192,21 @@ Action drive-truck
 Instantiations:
 ?X0 - truck : truck2 
 ?X1 - place : pos2_2 
-?X2 - place : apt1_2 
+?X2 - place : pos2_2 
 ?X3 - city : city2 
 Preconditions:
 (and (at truck2 pos2_2))
 Effects:
-(and (at truck2 apt1_2)
+(and (at truck2 pos2_2)
   (not (at truck2 pos2_2))
 
 Action is applicable to state
 Applying action to temporary state
 Temporary state after action: (and (in pkg1 truck1)
  (at truck1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -1297,20 +1228,20 @@ Action drive-truck
 Instantiations:
 ?X0 - truck : truck2 
 ?X1 - place : pos2_2 
-?X2 - place : apt1_2 
+?X2 - place : pos2_2 
 ?X3 - city : city2 
 Preconditions:
 (and (at truck2 pos2_2))
 Effects:
-(and (at truck2 apt1_2)
+(and (at truck2 pos2_2)
   (not (at truck2 pos2_2))
 
 ## New State:
 (and (in pkg1 truck1)
  (at truck1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -1332,24 +1263,138 @@ Checking if completed enough steps or is far enough away to act optimal
 Still acting suspicious
 Randomising actions
 Chosen Action: 
-Action fly-airplane
+Action unload-truck
 Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_1 
-?X2 - airport : apt1_1 
+?X0 - package : pkg1 
+?X1 - truck : truck1 
+?X2 - place : pos1_1 
 Preconditions:
-(and (at plane1 apt1_1))
+(and (in pkg1 truck1)
+  (at truck1 pos1_1))
 Effects:
-(and (at plane1 apt1_1)
-  (not (at plane1 apt1_1))
+(and (at pkg1 pos1_1)
+  (not (in pkg1 truck1))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (at truck1 pos1_1)
+ (at pkg1 pos1_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+Generating Plan
+Plan's cost: 3.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action unload-truck
+Instantiations:
+?X0 - package : pkg1 
+?X1 - truck : truck1 
+?X2 - place : pos1_1 
+Preconditions:
+(and (in pkg1 truck1)
+  (at truck1 pos1_1))
+Effects:
+(and (at pkg1 pos1_1)
+  (not (in pkg1 truck1))
+
+## New State:
+(and (at truck1 pos1_1)
+ (at pkg1 pos1_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action load-truck
+Instantiations:
+?X0 - package : pkg1 
+?X1 - truck : truck1 
+?X2 - place : pos1_1 
+Preconditions:
+(and (at truck1 pos1_1)
+  (at pkg1 pos1_1))
+Effects:
+(and (in pkg1 truck1)
+  (not (at pkg1 pos1_1))
+
+## New State:
+(and (in pkg1 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos2_2)
+ (in pkg2 truck1)
+ (at pkg3 pos3_1)
+ (at pkg4 pos1_2)
+ (at pkg5 pos2_2)
+ (at pkg6 pos3_2)
+ (at plane1 apt1_1)
+ (in-city apt1_1 city1)
+ (in-city pos1_1 city1)
+ (in-city pos2_1 city1)
+ (in-city pos3_1 city1)
+ (in-city apt1_2 city2)
+ (in-city pos1_2 city2)
+ (in-city pos2_2 city2)
+ (in-city pos3_2 city2)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action unload-truck
+Instantiations:
+?X0 - package : pkg2 
+?X1 - truck : truck1 
+?X2 - place : pos1_1 
+Preconditions:
+(and (at truck1 pos1_1)
+  (in pkg2 truck1))
+Effects:
+(and (at pkg2 pos1_1)
+  (not (in pkg2 truck1))
 
 Action is applicable to state
 Applying action to temporary state
 Temporary state after action: (and (in pkg1 truck1)
  (at truck1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck2 pos2_2)
+ (at pkg2 pos1_1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -1367,98 +1412,24 @@ Generating Plan
 Plan's cost: 2.0
 Action does not achieve goal and maintains close proximity to goal. Choosing action.
 ## Action Made:
-Action fly-airplane
+Action unload-truck
 Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_1 
-?X2 - airport : apt1_1 
+?X0 - package : pkg2 
+?X1 - truck : truck1 
+?X2 - place : pos1_1 
 Preconditions:
-(and (at plane1 apt1_1))
+(and (at truck1 pos1_1)
+  (in pkg2 truck1))
 Effects:
-(and (at plane1 apt1_1)
-  (not (at plane1 apt1_1))
+(and (at pkg2 pos1_1)
+  (not (in pkg2 truck1))
 
 ## New State:
 (and (in pkg1 truck1)
  (at truck1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Generating plan
-Checking if completed enough steps or is far enough away to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : pos3_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 pos3_1)
-  (not (at truck1 pos1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (in pkg1 truck1)
- (at truck1 pos3_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Generating Plan
-Plan's cost: 1.0
-Action does not achieve goal and maintains close proximity to goal. Choosing action.
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : pos3_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 pos3_1)
-  (not (at truck1 pos1_1))
-
-## New State:
-(and (in pkg1 truck1)
- (at truck1 pos3_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck2 pos2_2)
+ (at pkg2 pos1_1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)
@@ -1477,10 +1448,10 @@ Effects:
 
 Final state:
 (and (in pkg1 truck1)
- (at truck1 pos3_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (in pkg3 truck1)
+ (at truck1 pos1_1)
+ (at truck2 pos2_2)
+ (at pkg2 pos1_1)
+ (at pkg3 pos3_1)
  (at pkg4 pos1_2)
  (at pkg5 pos2_2)
  (at pkg6 pos3_2)

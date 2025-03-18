@@ -1,4 +1,4 @@
-=== Log started at 2025-03-11 13:11:49 ===
+=== Log started at 2025-03-18 16:15:09 ===
 ## Behaviour Generator: DirectedBehaviourGenerator{type=UnexpectedlySuspiciousBehaviourGenerator, epsilon=3, goal=2,secondaryGenerator=DirectedBehaviourGenerator{type=Semidirected, lambda=2, goal=2}}
 
 
@@ -151,4 +151,4 @@ Final state:
  (in-city pos2_2 city2)
  (in-city pos3_2 city2)
 )
-=== Log closed at 2025-03-11 13:11:49 ===
+=== Log closed at 2025-03-18 16:15:09 ===

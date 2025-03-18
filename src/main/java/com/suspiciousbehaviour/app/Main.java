@@ -34,7 +34,7 @@ public class Main {
 	logger = new Logger();
 
 	ArrayList<DefaultProblem> problems = ParseProblems(args);
-	logger.initialize("outputs/def4-simple.log", "outputs/def4-detailed.log");
+	logger.initialize("outputs/directed-simple.log", "outputs/directed-detailed.log");
 	generateBehaviour(problems, 
 			new DirectedBehaviourGenerator(problems), 
 			logger);
@@ -42,28 +42,28 @@ public class Main {
 	problems = ParseProblems(args);
 	BehaviourRecogniser br = new SelfModulatingRecogniser(problems);
 	logger = new Logger();
-	logger.initialize("outputs/def5-simple.log", "outputs/def5-detailed.log");
+	logger.initialize("outputs/purposefulSuspicious-simple.log", "outputs/purposefulSuspicious-detailed.log");
 	generateBehaviour(problems, 
 			new PurposefulSuspiciousBehaviourGenerator(problems, 0.3, 20, br), 
 			logger);
 	
 	problems = ParseProblems(args);
 	logger = new Logger();
-	logger.initialize("outputs/def6-goal1-simple.log", "outputs/def6-goal1-detailed.log");
+	logger.initialize("outputs/purposelessSuspicious-goal1-simple.log", "outputs/purposelessSuspiciou-goal1-detailed.log");
 	generateBehaviour(problems, 
 			new PurposelessSuspiciousBehaviourGenerator(problems, 3, 20, 0), 
 			logger);
 
 	problems = ParseProblems(args);
 	logger = new Logger();
-	logger.initialize("outputs/def6-goal2-simple.log", "outputs/def6-goal2-detailed.log");
+	logger.initialize("outputs/purposelessSuspiciou-goal2-simple.log", "outputs/purposelessSuspicious-goal2-detailed.log");
 	generateBehaviour(problems, 
 			new PurposelessSuspiciousBehaviourGenerator(problems, 3, 20, 1), 
 			logger);
 
 	problems = ParseProblems(args);
 	logger = new Logger();
-	logger.initialize("outputs/def7-goal1-simple.log", "outputs/def7-goal1-detailed.log");
+	logger.initialize("outputs/semidirected-goal1-simple.log", "outputs/semidirected-goal1-detailed.log");
 	generateBehaviour(problems, 
 			new SemidirectedBehaviourGenerator(problems, 2, 0), 
 			logger);	
@@ -71,14 +71,14 @@ public class Main {
 
 	problems = ParseProblems(args);
 	logger = new Logger();
-	logger.initialize("outputs/def7-goal2-simple.log", "outputs/def7-goal2-detailed.log");
+	logger.initialize("outputs/semidirected-goal2-simple.log", "outputs/semidirected-goal2-detailed.log");
 	generateBehaviour(problems, 
 			new SemidirectedBehaviourGenerator(problems, 2, 1), 
 			logger);
 
   problems = ParseProblems(args);
 	logger = new Logger();
-	logger.initialize("outputs/def8-goal1-simple.log", "outputs/def8-goal1-detailed.log");
+	logger.initialize("outputs/unexpectedlySuspicious-goal1-simple.log", "outputs/unexpectedlySuspiciou-goal1-detailed.log");
 	generateBehaviour(problems, 
 			new UnexpectedlySuspiciousBehaviourGenerator(problems, 3, 1, new SemidirectedBehaviourGenerator(problems, 2, 1)), 
 			logger);
