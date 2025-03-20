@@ -1,62 +1,45 @@
-=== Detailed log started at 2025-03-18 16:15:08 ===
-## Behaviour Generator: PurposefulSuspiciousBehaviourGenerator{type=Purposeful, epsilon=0.3, stepsBeforeOptimal=20}
+=== Detailed log started at 2025-03-20 14:55:13 ===
+## Behaviour Generator: PurposefulSuspiciousBehaviourGenerator{type=Purposeful, epsilon=0.35, stepsBeforeOptimal=30}
 
 
 
 ## Initial state:
-(and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (clear d)
+ (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (ontable c)
 )
 Checking if completed enough steps to act optimal
 Still acting suspicious
 Randomising actions
 Chosen Action: 
-Action drive-truck
+Action pick-up
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
+?X0 - block : c 
 Preconditions:
-(and (at truck1 pos1_1))
+(and (handempty)
+  (clear c)
+  (ontable c))
 Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 pos1_1))
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
 
 Action is applicable to state
 Applying action to temporary state
-Temporary state after action: (and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+Temporary state after action: (and (clear d)
+ (ontable d)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (holding c)
 )
 Checking if state has already been observed
 State has not been observed
@@ -65,55 +48,109 @@ Starting recognising
 Planning for problem 1 starting
 Setting initial state to current state
 Generating plan
-Plan's cost: 11.0
+Plan's cost: 5.0
 Reseting initial state of problem
 Planning for problem 2 starting
 Setting initial state to current state
 Generating plan
-Plan's cost: 3.0
+Plan's cost: 7.0
+Reseting initial state of problem
+Planning for problem 3 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 5.0
 Reseting initial state of problem
 Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 1.0
+Score for problem 1: 2.718281828459045
+Score for problem 2: 0.36787944117144233
+Score for problem 3: 0.36787944117144233
 Calculating summed score
-Total score: 2.0
-Final probability: 0.5
-Final probability: 0.5
+Total score: 3.4540407108019298
+Final probability: 0.7869860421615985
+Final probability: 0.10650697891920076
+Final probability: 0.10650697891920076
 Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
+Highest probability: 0.7869860421615985
+Second highest: 0.10650697891920076
+Difference between probabilities is greater than epsilon. Skipping action.
+Chosen Action: 
+Action pick-up
+Instantiations:
+?X0 - block : a 
+Preconditions:
+(and (handempty)
+  (clear a)
+  (ontable a))
+Effects:
+(and (holding a)
+  (not (handempty)
+  (not (clear a)
+  (not (ontable a))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (clear d)
+ (ontable d)
+ (clear b)
+ (ontable b)
+ (holding a)
+ (clear c)
+ (ontable c)
+)
+Checking if state has already been observed
+State has not been observed
+Mirroing delta: 1.0
+Starting recognising
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 7.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 7.0
+Reseting initial state of problem
+Planning for problem 3 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 5.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.36787944117144233
+Score for problem 2: 0.36787944117144233
+Score for problem 3: 0.36787944117144233
+Calculating summed score
+Total score: 1.103638323514327
+Final probability: 0.3333333333333333
+Final probability: 0.3333333333333333
+Final probability: 0.3333333333333333
+Recognising Complete!
+Highest probability: 0.3333333333333333
+Second highest: 0.3333333333333333
 Difference between probabilities is less than epsilon. Choosing action.
 ## Action Made:
-Action drive-truck
+Action pick-up
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
+?X0 - block : a 
 Preconditions:
-(and (at truck1 pos1_1))
+(and (handempty)
+  (clear a)
+  (ontable a))
 Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 pos1_1))
+(and (holding a)
+  (not (handempty)
+  (not (clear a)
+  (not (ontable a))
 
 ## New State:
-(and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (clear d)
+ (ontable d)
+ (clear b)
+ (ontable b)
+ (holding a)
+ (clear c)
+ (ontable c)
 )
 
 
@@ -122,41 +159,258 @@ Checking if completed enough steps to act optimal
 Still acting suspicious
 Randomising actions
 Chosen Action: 
-Action drive-truck
+Action stack
 Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
+?X0 - block : a 
+?X1 - block : c 
 Preconditions:
-(and (at truck2 pos2_2))
+(and (holding a)
+  (clear c))
 Effects:
-(and (at truck2 apt1_2)
-  (not (at truck2 pos2_2))
+(and (handempty)
+  (clear a)
+  (on a c)
+  (not (holding a)
+  (not (clear c))
 
 Action is applicable to state
 Applying action to temporary state
-Temporary state after action: (and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+Temporary state after action: (and (clear d)
+ (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable c)
+ (on a c)
 )
 Checking if state has already been observed
 State has not been observed
 Mirroing delta: 2.0
+Starting recognising
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 8.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 8.0
+Reseting initial state of problem
+Planning for problem 3 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 6.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.1353352832366127
+Score for problem 2: 0.1353352832366127
+Score for problem 3: 0.1353352832366127
+Calculating summed score
+Total score: 0.4060058497098381
+Final probability: 0.3333333333333333
+Final probability: 0.3333333333333333
+Final probability: 0.3333333333333333
+Recognising Complete!
+Highest probability: 0.3333333333333333
+Second highest: 0.3333333333333333
+Difference between probabilities is less than epsilon. Choosing action.
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : a 
+?X1 - block : c 
+Preconditions:
+(and (holding a)
+  (clear c))
+Effects:
+(and (handempty)
+  (clear a)
+  (on a c)
+  (not (holding a)
+  (not (clear c))
+
+## New State:
+(and (clear d)
+ (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable c)
+ (on a c)
+)
+
+
+
+Checking if completed enough steps to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action unstack
+Instantiations:
+?X0 - block : a 
+?X1 - block : c 
+Preconditions:
+(and (handempty)
+  (clear a)
+  (on a c))
+Effects:
+(and (holding a)
+  (clear c)
+  (not (handempty)
+  (not (clear a)
+  (not (on a c))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (clear d)
+ (ontable d)
+ (clear b)
+ (ontable b)
+ (holding a)
+ (clear c)
+ (ontable c)
+)
+Checking if state has already been observed
+State has been observed. Choosing another action
+Chosen Action: 
+Action pick-up
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (ontable b))
+Effects:
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (clear d)
+ (ontable d)
+ (holding b)
+ (clear a)
+ (ontable c)
+ (on a c)
+)
+Checking if state has already been observed
+State has not been observed
+Mirroing delta: 3.0
+Starting recognising
+Planning for problem 1 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 9.0
+Reseting initial state of problem
+Planning for problem 2 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 9.0
+Reseting initial state of problem
+Planning for problem 3 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 7.0
+Reseting initial state of problem
+Generating scores for problems
+Score for problem 1: 0.049787068367863944
+Score for problem 2: 0.049787068367863944
+Score for problem 3: 0.049787068367863944
+Calculating summed score
+Total score: 0.14936120510359183
+Final probability: 0.33333333333333337
+Final probability: 0.33333333333333337
+Final probability: 0.33333333333333337
+Recognising Complete!
+Highest probability: 0.33333333333333337
+Second highest: 0.33333333333333337
+Difference between probabilities is less than epsilon. Choosing action.
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (ontable b))
+Effects:
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
+
+## New State:
+(and (clear d)
+ (ontable d)
+ (holding b)
+ (clear a)
+ (ontable c)
+ (on a c)
+)
+
+
+
+Checking if completed enough steps to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (clear d)
+ (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable c)
+ (on a c)
+)
+Checking if state has already been observed
+State has been observed. Choosing another action
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : d 
+Preconditions:
+(and (clear d)
+  (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b d)
+  (not (clear d)
+  (not (holding b))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (clear a)
+ (ontable c)
+ (on b d)
+ (on a c)
+)
+Checking if state has already been observed
+State has not been observed
+Mirroing delta: 4.0
 Starting recognising
 Planning for problem 1 starting
 Setting initial state to current state
@@ -166,108 +420,49 @@ Reseting initial state of problem
 Planning for problem 2 starting
 Setting initial state to current state
 Generating plan
-Plan's cost: 3.0
+Plan's cost: 8.0
 Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 2.718281828459045
-Score for problem 2: 1.0
-Calculating summed score
-Total score: 3.718281828459045
-Final probability: 0.7310585786300049
-Final probability: 0.2689414213699951
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : pos3_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos2_2))
-Effects:
-(and (at truck2 pos3_2)
-  (not (at truck2 pos2_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos3_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 2.0
-Starting recognising
-Planning for problem 1 starting
+Planning for problem 3 starting
 Setting initial state to current state
 Generating plan
-Plan's cost: 11.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 3.0
+Plan's cost: 6.0
 Reseting initial state of problem
 Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 1.0
+Score for problem 1: 0.01831563888873418
+Score for problem 2: 0.1353352832366127
+Score for problem 3: 0.1353352832366127
 Calculating summed score
-Total score: 2.0
-Final probability: 0.5
-Final probability: 0.5
+Total score: 0.28898620536195957
+Final probability: 0.06337893833303761
+Final probability: 0.46831053083348123
+Final probability: 0.46831053083348123
 Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
+Highest probability: 0.46831053083348123
+Second highest: 0.46831053083348123
 Difference between probabilities is less than epsilon. Choosing action.
 ## Action Made:
-Action drive-truck
+Action stack
 Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : pos3_2 
-?X3 - city : city2 
+?X0 - block : b 
+?X1 - block : d 
 Preconditions:
-(and (at truck2 pos2_2))
+(and (clear d)
+  (holding b))
 Effects:
-(and (at truck2 pos3_2)
-  (not (at truck2 pos2_2))
+(and (handempty)
+  (clear b)
+  (on b d)
+  (not (clear d)
+  (not (holding b))
 
 ## New State:
-(and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos3_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (clear a)
+ (ontable c)
+ (on b d)
+ (on a c)
 )
 
 
@@ -276,415 +471,29 @@ Checking if completed enough steps to act optimal
 Still acting suspicious
 Randomising actions
 Chosen Action: 
-Action load-truck
+Action unstack
 Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck2 
-?X2 - place : pos3_2 
+?X0 - block : a 
+?X1 - block : c 
 Preconditions:
-(and (at truck2 pos3_2)
-  (at pkg6 pos3_2))
+(and (handempty)
+  (clear a)
+  (on a c))
 Effects:
-(and (in pkg6 truck2)
-  (not (at pkg6 pos3_2))
+(and (holding a)
+  (clear c)
+  (not (handempty)
+  (not (clear a)
+  (not (on a c))
 
 Action is applicable to state
 Applying action to temporary state
-Temporary state after action: (and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos3_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 3.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 11.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 3.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 1.0
-Calculating summed score
-Total score: 2.0
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action load-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck2 
-?X2 - place : pos3_2 
-Preconditions:
-(and (at truck2 pos3_2)
-  (at pkg6 pos3_2))
-Effects:
-(and (in pkg6 truck2)
-  (not (at pkg6 pos3_2))
-
-## New State:
-(and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos3_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 pos2_1)
-  (not (at truck1 pos1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos3_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 4.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 13.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.1353352832366127
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.503214724408055
-Final probability: 0.2689414213699951
-Final probability: 0.7310585786300049
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos3_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 4.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 13.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.1353352832366127
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.503214724408055
-Final probability: 0.2689414213699951
-Final probability: 0.7310585786300049
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 pos1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos3_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has been observed. Choosing another action
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_2 
-?X2 - place : pos1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos3_2))
-Effects:
-(and (at truck2 pos1_2)
-  (not (at truck2 pos3_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 4.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 11.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 3.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 1.0
-Calculating summed score
-Total score: 2.0
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_2 
-?X2 - place : pos1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos3_2))
-Effects:
-(and (at truck2 pos1_2)
-  (not (at truck2 pos3_2))
-
-## New State:
-(and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 pos1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has been observed. Choosing another action
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck2 
-?X2 - place : pos1_2 
-Preconditions:
-(and (at truck2 pos1_2)
-  (in pkg6 truck2))
-Effects:
-(and (at pkg6 pos1_2)
-  (not (in pkg6 truck2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+Temporary state after action: (and (ontable d)
+ (clear b)
+ (holding a)
+ (clear c)
+ (ontable c)
+ (on b d)
 )
 Checking if state has already been observed
 State has not been observed
@@ -693,55 +502,54 @@ Starting recognising
 Planning for problem 1 starting
 Setting initial state to current state
 Generating plan
-Plan's cost: 11.0
+Plan's cost: 9.0
 Reseting initial state of problem
 Planning for problem 2 starting
 Setting initial state to current state
 Generating plan
-Plan's cost: 3.0
+Plan's cost: 7.0
+Reseting initial state of problem
+Planning for problem 3 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 5.0
 Reseting initial state of problem
 Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 1.0
+Score for problem 1: 0.049787068367863944
+Score for problem 2: 0.36787944117144233
+Score for problem 3: 0.36787944117144233
 Calculating summed score
-Total score: 2.0
-Final probability: 0.5
-Final probability: 0.5
+Total score: 0.7855459507107486
+Final probability: 0.06337893833303762
+Final probability: 0.4683105308334812
+Final probability: 0.4683105308334812
 Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
+Highest probability: 0.4683105308334812
+Second highest: 0.4683105308334812
 Difference between probabilities is less than epsilon. Choosing action.
 ## Action Made:
-Action unload-truck
+Action unstack
 Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck2 
-?X2 - place : pos1_2 
+?X0 - block : a 
+?X1 - block : c 
 Preconditions:
-(and (at truck2 pos1_2)
-  (in pkg6 truck2))
+(and (handempty)
+  (clear a)
+  (on a c))
 Effects:
-(and (at pkg6 pos1_2)
-  (not (in pkg6 truck2))
+(and (holding a)
+  (clear c)
+  (not (handempty)
+  (not (clear a)
+  (not (on a c))
 
 ## New State:
-(and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (clear b)
+ (holding a)
+ (clear c)
+ (ontable c)
+ (on b d)
 )
 
 
@@ -750,72 +558,29 @@ Checking if completed enough steps to act optimal
 Still acting suspicious
 Randomising actions
 Chosen Action: 
-Action drive-truck
+Action stack
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
+?X0 - block : a 
+?X1 - block : b 
 Preconditions:
-(and (at truck1 pos1_1))
+(and (clear b)
+  (holding a))
 Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 pos1_1))
+(and (handempty)
+  (clear a)
+  (on a b)
+  (not (clear b)
+  (not (holding a))
 
 Action is applicable to state
 Applying action to temporary state
-Temporary state after action: (and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has been observed. Choosing another action
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 pos2_1)
-  (not (at truck1 pos1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear a)
+ (clear c)
+ (ontable c)
+ (on b d)
+ (on a b)
 )
 Checking if state has already been observed
 State has not been observed
@@ -824,55 +589,54 @@ Starting recognising
 Planning for problem 1 starting
 Setting initial state to current state
 Generating plan
-Plan's cost: 12.0
+Plan's cost: 10.0
 Reseting initial state of problem
 Planning for problem 2 starting
 Setting initial state to current state
 Generating plan
-Plan's cost: 4.0
+Plan's cost: 8.0
+Reseting initial state of problem
+Planning for problem 3 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 6.0
 Reseting initial state of problem
 Generating scores for problems
-Score for problem 1: 0.36787944117144233
-Score for problem 2: 0.36787944117144233
+Score for problem 1: 0.01831563888873418
+Score for problem 2: 0.1353352832366127
+Score for problem 3: 0.1353352832366127
 Calculating summed score
-Total score: 0.7357588823428847
-Final probability: 0.5
-Final probability: 0.5
+Total score: 0.28898620536195957
+Final probability: 0.06337893833303761
+Final probability: 0.46831053083348123
+Final probability: 0.46831053083348123
 Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
+Highest probability: 0.46831053083348123
+Second highest: 0.46831053083348123
 Difference between probabilities is less than epsilon. Choosing action.
 ## Action Made:
-Action drive-truck
+Action stack
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
+?X0 - block : a 
+?X1 - block : b 
 Preconditions:
-(and (at truck1 pos1_1))
+(and (clear b)
+  (holding a))
 Effects:
-(and (at truck1 pos2_1)
-  (not (at truck1 pos1_1))
+(and (handempty)
+  (clear a)
+  (on a b)
+  (not (clear b)
+  (not (holding a))
 
 ## New State:
-(and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear a)
+ (clear c)
+ (ontable c)
+ (on b d)
+ (on a b)
 )
 
 
@@ -881,37 +645,26 @@ Checking if completed enough steps to act optimal
 Still acting suspicious
 Randomising actions
 Chosen Action: 
-Action drive-truck
+Action pick-up
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos2_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
+?X0 - block : c 
 Preconditions:
-(and (at truck1 pos2_1))
+(and (handempty)
+  (clear c)
+  (ontable c))
 Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos2_1))
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
 
 Action is applicable to state
 Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+Temporary state after action: (and (ontable d)
+ (clear a)
+ (holding c)
+ (on b d)
+ (on a b)
 )
 Checking if state has already been observed
 State has not been observed
@@ -920,55 +673,51 @@ Starting recognising
 Planning for problem 1 starting
 Setting initial state to current state
 Generating plan
-Plan's cost: 12.0
+Plan's cost: 11.0
 Reseting initial state of problem
 Planning for problem 2 starting
 Setting initial state to current state
 Generating plan
-Plan's cost: 4.0
+Plan's cost: 9.0
+Reseting initial state of problem
+Planning for problem 3 starting
+Setting initial state to current state
+Generating plan
+Plan's cost: 7.0
 Reseting initial state of problem
 Generating scores for problems
-Score for problem 1: 0.36787944117144233
-Score for problem 2: 0.36787944117144233
+Score for problem 1: 0.006737946999085467
+Score for problem 2: 0.049787068367863944
+Score for problem 3: 0.049787068367863944
 Calculating summed score
-Total score: 0.7357588823428847
-Final probability: 0.5
-Final probability: 0.5
+Total score: 0.10631208373481335
+Final probability: 0.06337893833303762
+Final probability: 0.46831053083348123
+Final probability: 0.46831053083348123
 Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
+Highest probability: 0.46831053083348123
+Second highest: 0.46831053083348123
 Difference between probabilities is less than epsilon. Choosing action.
 ## Action Made:
-Action drive-truck
+Action pick-up
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos2_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
+?X0 - block : c 
 Preconditions:
-(and (at truck1 pos2_1))
+(and (handempty)
+  (clear c)
+  (ontable c))
 Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos2_1))
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
 
 ## New State:
-(and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (clear a)
+ (holding c)
+ (on b d)
+ (on a b)
 )
 
 
@@ -977,36 +726,28 @@ Checking if completed enough steps to act optimal
 Still acting suspicious
 Randomising actions
 Chosen Action: 
-Action fly-airplane
+Action stack
 Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_2 
-?X2 - airport : apt1_1 
+?X0 - block : c 
+?X1 - block : a 
 Preconditions:
-(and (at plane1 apt1_2))
+(and (clear a)
+  (holding c))
 Effects:
-(and (at plane1 apt1_1)
-  (not (at plane1 apt1_2))
+(and (handempty)
+  (clear c)
+  (on c a)
+  (not (clear a)
+  (not (holding c))
 
 Action is applicable to state
 Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear c)
+ (on b d)
+ (on a b)
+ (on c a)
 )
 Checking if state has already been observed
 State has not been observed
@@ -1020,2169 +761,87 @@ Reseting initial state of problem
 Planning for problem 2 starting
 Setting initial state to current state
 Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.36787944117144233
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.7357588823428847
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action fly-airplane
-Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_2 
-?X2 - airport : apt1_1 
-Preconditions:
-(and (at plane1 apt1_2))
-Effects:
-(and (at plane1 apt1_1)
-  (not (at plane1 apt1_2))
-
-## New State:
-(and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck2 
-?X2 - place : pos1_2 
-Preconditions:
-(and (at truck2 pos1_2)
-  (at pkg4 pos1_2))
-Effects:
-(and (in pkg4 truck2)
-  (not (at pkg4 pos1_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 9.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 12.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.36787944117144233
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.7357588823428847
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action load-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck2 
-?X2 - place : pos1_2 
-Preconditions:
-(and (at truck2 pos1_2)
-  (at pkg4 pos1_2))
-Effects:
-(and (in pkg4 truck2)
-  (not (at pkg4 pos1_2))
-
-## New State:
-(and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action fly-airplane
-Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_1 
-?X2 - airport : apt1_1 
-Preconditions:
-(and (at plane1 apt1_1))
-Effects:
-(and (at plane1 apt1_1)
-  (not (at plane1 apt1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has been observed. Choosing another action
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos1_2))
-Effects:
-(and (at truck2 apt1_2)
-  (not (at truck2 pos1_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 10.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
 Plan's cost: 10.0
 Reseting initial state of problem
-Planning for problem 2 starting
+Planning for problem 3 starting
 Setting initial state to current state
 Generating plan
-Plan's cost: 4.0
+Plan's cost: 8.0
 Reseting initial state of problem
 Generating scores for problems
-Score for problem 1: 2.718281828459045
-Score for problem 2: 0.36787944117144233
+Score for problem 1: 0.0024787521766663585
+Score for problem 2: 0.01831563888873418
+Score for problem 3: 0.01831563888873418
 Calculating summed score
-Total score: 3.0861612696304874
-Final probability: 0.8807970779778824
-Final probability: 0.11920292202211756
+Total score: 0.03911002995413472
+Final probability: 0.06337893833303762
+Final probability: 0.4683105308334811
+Final probability: 0.4683105308334811
 Recognising Complete!
-Highest probability: 0.8807970779778824
-Second highest: 0.11920292202211756
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action load-truck
+Highest probability: 0.4683105308334811
+Second highest: 0.4683105308334811
+Difference between probabilities is less than epsilon. Choosing action.
+## Action Made:
+Action stack
 Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck2 
-?X2 - place : pos1_2 
+?X0 - block : c 
+?X1 - block : a 
 Preconditions:
-(and (at truck2 pos1_2)
-  (at pkg6 pos1_2))
+(and (clear a)
+  (holding c))
 Effects:
-(and (in pkg6 truck2)
-  (not (at pkg6 pos1_2))
+(and (handempty)
+  (clear c)
+  (on c a)
+  (not (clear a)
+  (not (holding c))
 
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear c)
+ (on b d)
+ (on a b)
+ (on c a)
 )
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 10.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 11.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 1.3678794411714423
-Final probability: 0.7310585786300049
-Final probability: 0.2689414213699951
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
+
+
+
+Checking if completed enough steps to act optimal
+Still acting suspicious
+Randomising actions
 Chosen Action: 
-Action unload-truck
+Action unstack
 Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck2 
-?X2 - place : pos1_2 
+?X0 - block : c 
+?X1 - block : a 
 Preconditions:
-(and (at truck2 pos1_2)
-  (in pkg4 truck2))
+(and (handempty)
+  (clear c)
+  (on c a))
 Effects:
-(and (at pkg4 pos1_2)
-  (not (in pkg4 truck2))
+(and (clear a)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c a))
 
 Action is applicable to state
 Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+Temporary state after action: (and (ontable d)
+ (clear a)
+ (holding c)
+ (on b d)
+ (on a b)
 )
 Checking if state has already been observed
 State has been observed. Choosing another action
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 apt1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has been observed. Choosing another action
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_2 
-?X2 - place : pos3_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos1_2))
-Effects:
-(and (at truck2 pos3_2)
-  (not (at truck2 pos1_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos3_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 10.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 11.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 1.3678794411714423
-Final probability: 0.7310585786300049
-Final probability: 0.2689414213699951
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos1_2))
-Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 pos1_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 10.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 11.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 1.3678794411714423
-Final probability: 0.7310585786300049
-Final probability: 0.2689414213699951
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 pos2_1)
-  (not (at truck1 apt1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 10.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 11.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 1.3678794411714423
-Final probability: 0.7310585786300049
-Final probability: 0.2689414213699951
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 apt1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 10.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 10.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 3.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 2.718281828459045
-Score for problem 2: 1.0
-Calculating summed score
-Total score: 3.718281828459045
-Final probability: 0.7310585786300049
-Final probability: 0.2689414213699951
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_2 
-?X2 - place : pos1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos1_2))
-Effects:
-(and (at truck2 pos1_2)
-  (not (at truck2 pos1_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has been observed. Choosing another action
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : pos3_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 pos3_1)
-  (not (at truck1 apt1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos3_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 10.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 11.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 1.3678794411714423
-Final probability: 0.7310585786300049
-Final probability: 0.2689414213699951
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action fly-airplane
-Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_1 
-?X2 - airport : apt1_2 
-Preconditions:
-(and (at plane1 apt1_1))
-Effects:
-(and (at plane1 apt1_2)
-  (not (at plane1 apt1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 10.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 12.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.36787944117144233
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.7357588823428847
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action fly-airplane
-Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_1 
-?X2 - airport : apt1_2 
-Preconditions:
-(and (at plane1 apt1_1))
-Effects:
-(and (at plane1 apt1_2)
-  (not (at plane1 apt1_1))
-
-## New State:
-(and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 apt1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has been observed. Choosing another action
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : pos3_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 pos3_1)
-  (not (at truck1 apt1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos3_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 11.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 13.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.1353352832366127
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.503214724408055
-Final probability: 0.2689414213699951
-Final probability: 0.7310585786300049
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 apt1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 11.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 11.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 3.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 1.0
-Calculating summed score
-Total score: 2.0
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 apt1_1))
-
-## New State:
-(and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_2 
-?X2 - place : pos1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos1_2))
-Effects:
-(and (at truck2 pos1_2)
-  (not (at truck2 pos1_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has been observed. Choosing another action
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos1_2))
-Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 pos1_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 12.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 11.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 3.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 1.0
-Calculating summed score
-Total score: 2.0
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos1_2))
-Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 pos1_2))
-
-## New State:
-(and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 13.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 12.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.36787944117144233
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.7357588823428847
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos1_1))
-
-## New State:
-(and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (in pkg4 truck2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck2 pos2_2)
-  (in pkg4 truck2))
-Effects:
-(and (at pkg4 pos2_2)
-  (not (in pkg4 truck2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 14.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 12.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.36787944117144233
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.7357588823428847
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action unload-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck2 pos2_2)
-  (in pkg4 truck2))
-Effects:
-(and (at pkg4 pos2_2)
-  (not (in pkg4 truck2))
-
-## New State:
-(and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos2_2))
-Effects:
-(and (at truck2 apt1_2)
-  (not (at truck2 pos2_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 15.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 11.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 1.3678794411714423
-Final probability: 0.7310585786300049
-Final probability: 0.2689414213699951
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 pos2_1)
-  (not (at truck1 apt1_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 15.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 12.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.36787944117144233
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.7357588823428847
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 apt1_1))
-Effects:
-(and (at truck1 pos2_1)
-  (not (at truck1 apt1_1))
-
-## New State:
-(and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action fly-airplane
-Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_2 
-?X2 - airport : apt1_2 
-Preconditions:
-(and (at plane1 apt1_2))
-Effects:
-(and (at plane1 apt1_2)
-  (not (at plane1 apt1_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has been observed. Choosing another action
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : pos3_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos2_2))
-Effects:
-(and (at truck2 pos3_2)
-  (not (at truck2 pos2_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos3_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 16.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 12.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.36787944117144233
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.7357588823428847
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : pos3_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos2_2))
-Effects:
-(and (at truck2 pos3_2)
-  (not (at truck2 pos2_2))
-
-## New State:
-(and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos3_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos2_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos2_1))
-Effects:
-(and (at truck1 pos2_1)
-  (not (at truck1 pos2_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos3_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has been observed. Choosing another action
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_2 
-?X2 - place : pos3_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos3_2))
-Effects:
-(and (at truck2 pos3_2)
-  (not (at truck2 pos3_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos3_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has been observed. Choosing another action
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos2_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos2_1))
-Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos2_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at truck1 apt1_1)
- (at pkg1 pos1_1)
- (at truck2 pos3_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 17.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 13.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.1353352832366127
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.503214724408055
-Final probability: 0.2689414213699951
-Final probability: 0.7310585786300049
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_2 
-?X2 - place : pos1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos3_2))
-Effects:
-(and (at truck2 pos1_2)
-  (not (at truck2 pos3_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 17.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 12.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.36787944117144233
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.7357588823428847
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_2 
-?X2 - place : pos1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos3_2))
-Effects:
-(and (at truck2 pos1_2)
-  (not (at truck2 pos3_2))
-
-## New State:
-(and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (at pkg6 pos1_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck2 
-?X2 - place : pos1_2 
-Preconditions:
-(and (at truck2 pos1_2)
-  (at pkg6 pos1_2))
-Effects:
-(and (in pkg6 truck2)
-  (not (at pkg6 pos1_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 18.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 12.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.36787944117144233
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.7357588823428847
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action load-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck2 
-?X2 - place : pos1_2 
-Preconditions:
-(and (at truck2 pos1_2)
-  (at pkg6 pos1_2))
-Effects:
-(and (in pkg6 truck2)
-  (not (at pkg6 pos1_2))
-
-## New State:
-(and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Still acting suspicious
-Randomising actions
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos1_2))
-Effects:
-(and (at truck2 apt1_2)
-  (not (at truck2 pos1_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 19.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 11.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 1.0
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 1.3678794411714423
-Final probability: 0.7310585786300049
-Final probability: 0.2689414213699951
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck1 
-?X2 - place : pos2_1 
-Preconditions:
-(and (at truck1 pos2_1)
-  (at pkg2 pos2_1))
-Effects:
-(and (in pkg2 truck1)
-  (not (at pkg2 pos2_1))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos1_2)
- (in pkg2 truck1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 19.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 13.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.1353352832366127
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.503214724408055
-Final probability: 0.2689414213699951
-Final probability: 0.7310585786300049
-Recognising Complete!
-Highest probability: 0.7310585786300049
-Second highest: 0.2689414213699951
-Difference between probabilities is greater than epsilon. Skipping action.
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos1_2))
-Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 pos1_2))
-
-Action is applicable to state
-Applying action to temporary state
-Temporary state after action: (and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-Checking if state has already been observed
-State has not been observed
-Mirroing delta: 19.0
-Starting recognising
-Planning for problem 1 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 12.0
-Reseting initial state of problem
-Planning for problem 2 starting
-Setting initial state to current state
-Generating plan
-Plan's cost: 4.0
-Reseting initial state of problem
-Generating scores for problems
-Score for problem 1: 0.36787944117144233
-Score for problem 2: 0.36787944117144233
-Calculating summed score
-Total score: 0.7357588823428847
-Final probability: 0.5
-Final probability: 0.5
-Recognising Complete!
-Highest probability: 0.5
-Second highest: 0.5
-Difference between probabilities is less than epsilon. Choosing action.
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos1_2))
-Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 pos1_2))
-
-## New State:
-(and (at pkg1 pos1_1)
- (at truck1 pos2_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Checking if completed enough steps to act optimal
-Acting Optimally
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos2_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos2_1))
-Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 pos2_1))
-
-## New State:
-(and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
+Execution terminated: No more valid actions
 Final state:
-(and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos2_2)
- (at pkg5 pos2_2)
- (in pkg6 truck2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear c)
+ (on b d)
+ (on a b)
+ (on c a)
 )

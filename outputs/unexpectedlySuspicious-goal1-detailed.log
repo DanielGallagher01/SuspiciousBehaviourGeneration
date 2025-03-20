@@ -1,4 +1,4 @@
-=== Log started at 2025-03-20 14:55:13 ===
+=== Detailed log started at 2025-03-20 14:55:13 ===
 ## Behaviour Generator: DirectedBehaviourGenerator{type=UnexpectedlySuspiciousBehaviourGenerator, epsilon=3, goal=2,secondaryGenerator=DirectedBehaviourGenerator{type=Semidirected, lambda=2, goal=2}}
 
 
@@ -149,6 +149,7 @@ Effects:
 
 
 
+Reached epsilon. Using secondaryGenerator
 Making Optimal move
 ## Action Made:
 Action stack
@@ -176,6 +177,7 @@ Effects:
 
 
 
+Reached epsilon. Using secondaryGenerator
 Making Optimal move
 Execution terminated: No more valid actions
 Final state:
@@ -186,4 +188,4 @@ Final state:
  (on b a)
  (on c b)
 )
-=== Log closed at 2025-03-20 14:55:13 ===
+=== Detailed log closed at 2025-03-20 14:55:13 ===

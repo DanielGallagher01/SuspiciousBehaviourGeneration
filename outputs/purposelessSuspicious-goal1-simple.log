@@ -1,740 +1,803 @@
-=== Log started at 2025-03-18 16:15:09 ===
-## Behaviour Generator: PurposelessSuspiciousBehaviourGenerator{type=Purposeless, epsilon=3, stepsBeforeOptimal=20}
+=== Log started at 2025-03-20 14:55:13 ===
+## Behaviour Generator: PurposelessSuspiciousBehaviourGenerator{type=Purposeless, epsilon=4, stepsBeforeOptimal=30}
 
 
 
 ## Initial state:
-(and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (clear d)
+ (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (ontable c)
 )
 ## Action Made:
-Action load-truck
+Action pick-up
 Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck1 
-?X2 - place : pos1_1 
+?X0 - block : c 
 Preconditions:
-(and (at truck1 pos1_1)
-  (at pkg1 pos1_1))
+(and (handempty)
+  (clear c)
+  (ontable c))
 Effects:
-(and (in pkg1 truck1)
-  (not (at pkg1 pos1_1))
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
 
 ## New State:
-(and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (clear d)
+ (ontable d)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (holding c)
 )
 
 
 
 ## Action Made:
-Action drive-truck
+Action stack
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
+?X0 - block : c 
+?X1 - block : d 
 Preconditions:
-(and (at truck1 pos1_1))
+(and (clear d)
+  (holding c))
 Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos1_1))
+(and (handempty)
+  (clear c)
+  (on c d)
+  (not (clear d)
+  (not (holding c))
 
 ## New State:
-(and (at truck1 apt1_1)
- (in pkg1 truck1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action unload-truck
+Action pick-up
 Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck1 
-?X2 - place : apt1_1 
+?X0 - block : b 
 Preconditions:
-(and (at truck1 apt1_1)
-  (in pkg1 truck1))
+(and (handempty)
+  (clear b)
+  (ontable b))
 Effects:
-(and (at pkg1 apt1_1)
-  (not (in pkg1 truck1))
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
 
 ## New State:
-(and (at truck1 apt1_1)
- (at pkg1 apt1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action fly-airplane
+Action put-down
 Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_2 
-?X2 - airport : apt1_1 
+?X0 - block : b 
 Preconditions:
-(and (at plane1 apt1_2))
+(and (holding b))
 Effects:
-(and (at plane1 apt1_1)
-  (not (at plane1 apt1_2))
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
 
 ## New State:
-(and (at truck1 apt1_1)
- (at pkg1 apt1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action load-airplane
+Action pick-up
 Instantiations:
-?X0 - package : pkg1 
-?X1 - airplane : plane1 
-?X2 - place : apt1_1 
+?X0 - block : b 
 Preconditions:
-(and (at pkg1 apt1_1)
-  (at plane1 apt1_1))
+(and (handempty)
+  (clear b)
+  (ontable b))
 Effects:
-(and (in pkg1 plane1)
-  (not (at pkg1 apt1_1))
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
 
 ## New State:
-(and (at truck1 apt1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_1)
- (in pkg1 plane1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action fly-airplane
+Action put-down
 Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_1 
-?X2 - airport : apt1_2 
+?X0 - block : b 
 Preconditions:
-(and (at plane1 apt1_1))
+(and (holding b))
 Effects:
-(and (at plane1 apt1_2)
-  (not (at plane1 apt1_1))
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
 
 ## New State:
-(and (at truck1 apt1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (in pkg1 plane1)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action unload-airplane
+Action pick-up
 Instantiations:
-?X0 - package : pkg1 
-?X1 - airplane : plane1 
-?X2 - place : apt1_2 
+?X0 - block : b 
 Preconditions:
-(and (in pkg1 plane1)
-  (at plane1 apt1_2))
+(and (handempty)
+  (clear b)
+  (ontable b))
 Effects:
-(and (at pkg1 apt1_2)
-  (not (in pkg1 plane1))
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
 
 ## New State:
-(and (at truck1 apt1_1)
- (at pkg1 apt1_2)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action drive-truck
+Action stack
 Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
+?X0 - block : b 
+?X1 - block : c 
 Preconditions:
-(and (at truck2 pos2_2))
+(and (holding b)
+  (clear c))
 Effects:
-(and (at truck2 apt1_2)
-  (not (at truck2 pos2_2))
+(and (handempty)
+  (clear b)
+  (on b c)
+  (not (holding b)
+  (not (clear c))
 
 ## New State:
-(and (at truck1 apt1_1)
- (at pkg1 apt1_2)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (clear a)
+ (ontable a)
+ (on b c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action load-truck
+Action pick-up
 Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : apt1_2 
+?X0 - block : a 
 Preconditions:
-(and (at pkg1 apt1_2)
-  (at truck2 apt1_2))
+(and (handempty)
+  (clear a)
+  (ontable a))
 Effects:
-(and (in pkg1 truck2)
-  (not (at pkg1 apt1_2))
+(and (holding a)
+  (not (handempty)
+  (not (clear a)
+  (not (ontable a))
 
 ## New State:
-(and (at truck1 apt1_1)
- (in pkg1 truck2)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (clear b)
+ (holding a)
+ (on b c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action drive-truck
+Action put-down
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : pos3_1 
-?X3 - city : city1 
+?X0 - block : a 
 Preconditions:
-(and (at truck1 apt1_1))
+(and (holding a))
 Effects:
-(and (at truck1 pos3_1)
-  (not (at truck1 apt1_1))
+(and (handempty)
+  (clear a)
+  (ontable a)
+  (not (holding a))
 
 ## New State:
-(and (at truck1 pos3_1)
- (in pkg1 truck2)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (clear a)
+ (ontable a)
+ (on b c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action fly-airplane
+Action unstack
 Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_2 
-?X2 - airport : apt1_2 
+?X0 - block : b 
+?X1 - block : c 
 Preconditions:
-(and (at plane1 apt1_2))
+(and (handempty)
+  (clear b)
+  (on b c))
 Effects:
-(and (at plane1 apt1_2)
-  (not (at plane1 apt1_2))
+(and (holding b)
+  (clear c)
+  (not (handempty)
+  (not (clear b)
+  (not (on b c))
 
 ## New State:
-(and (at truck1 pos3_1)
- (in pkg1 truck2)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action drive-truck
+Action put-down
 Instantiations:
-?X0 - truck : truck2 
-?X1 - place : apt1_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
+?X0 - block : b 
 Preconditions:
-(and (at truck2 apt1_2))
+(and (holding b))
 Effects:
-(and (at truck2 apt1_2)
-  (not (at truck2 apt1_2))
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
 
 ## New State:
-(and (at truck1 pos3_1)
- (in pkg1 truck2)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action drive-truck
+Action pick-up
 Instantiations:
-?X0 - truck : truck2 
-?X1 - place : apt1_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
+?X0 - block : b 
 Preconditions:
-(and (at truck2 apt1_2))
+(and (handempty)
+  (clear b)
+  (ontable b))
 Effects:
-(and (at truck2 apt1_2)
-  (not (at truck2 apt1_2))
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
 
 ## New State:
-(and (at truck1 pos3_1)
- (in pkg1 truck2)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action drive-truck
+Action put-down
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos3_1 
-?X2 - place : pos3_1 
-?X3 - city : city1 
+?X0 - block : b 
 Preconditions:
-(and (at truck1 pos3_1))
+(and (holding b))
 Effects:
-(and (at truck1 pos3_1)
-  (not (at truck1 pos3_1))
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
 
 ## New State:
-(and (at truck1 pos3_1)
- (in pkg1 truck2)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action unload-truck
+Action pick-up
 Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : apt1_2 
+?X0 - block : b 
 Preconditions:
-(and (in pkg1 truck2)
-  (at truck2 apt1_2))
+(and (handempty)
+  (clear b)
+  (ontable b))
 Effects:
-(and (at pkg1 apt1_2)
-  (not (in pkg1 truck2))
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
 
 ## New State:
-(and (at pkg1 apt1_2)
- (at truck1 pos3_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action load-truck
+Action stack
 Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : apt1_2 
+?X0 - block : b 
+?X1 - block : a 
 Preconditions:
-(and (at pkg1 apt1_2)
-  (at truck2 apt1_2))
+(and (holding b)
+  (clear a))
 Effects:
-(and (in pkg1 truck2)
-  (not (at pkg1 apt1_2))
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
 
 ## New State:
-(and (at truck1 pos3_1)
- (in pkg1 truck2)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action drive-truck
+Action unstack
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos3_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
+?X0 - block : b 
+?X1 - block : a 
 Preconditions:
-(and (at truck1 pos3_1))
+(and (handempty)
+  (clear b)
+  (on b a))
 Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos3_1))
+(and (holding b)
+  (clear a)
+  (not (handempty)
+  (not (clear b)
+  (not (on b a))
 
 ## New State:
-(and (at truck1 apt1_1)
- (in pkg1 truck2)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action drive-truck
+Action stack
 Instantiations:
-?X0 - truck : truck2 
-?X1 - place : apt1_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
+?X0 - block : b 
+?X1 - block : a 
 Preconditions:
-(and (at truck2 apt1_2))
+(and (holding b)
+  (clear a))
 Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 apt1_2))
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
 
 ## New State:
-(and (at truck1 apt1_1)
- (in pkg1 truck2)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action drive-truck
+Action unstack
 Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : pos1_2 
-?X3 - city : city2 
+?X0 - block : b 
+?X1 - block : a 
 Preconditions:
-(and (at truck2 pos2_2))
+(and (handempty)
+  (clear b)
+  (on b a))
 Effects:
-(and (at truck2 pos1_2)
-  (not (at truck2 pos2_2))
+(and (holding b)
+  (clear a)
+  (not (handempty)
+  (not (clear b)
+  (not (on b a))
 
 ## New State:
-(and (at truck1 apt1_1)
- (in pkg1 truck2)
- (at truck2 pos1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 ## Action Made:
-Action drive-truck
+Action stack
 Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
+?X0 - block : b 
+?X1 - block : a 
 Preconditions:
-(and (at truck2 pos1_2))
+(and (holding b)
+  (clear a))
 Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 pos1_2))
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
 
 ## New State:
-(and (at truck1 apt1_1)
- (in pkg1 truck2)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (on b a))
+Effects:
+(and (holding b)
+  (clear a)
+  (not (handempty)
+  (not (clear b)
+  (not (on b a))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (ontable b))
+Effects:
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (on b a))
+Effects:
+(and (holding b)
+  (clear a)
+  (not (handempty)
+  (not (clear b)
+  (not (on b a))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (ontable b))
+Effects:
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (on b a))
+Effects:
+(and (holding b)
+  (clear a)
+  (not (handempty)
+  (not (clear b)
+  (not (on b a))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
 )
 
 
 
 Final state:
-(and (at truck1 apt1_1)
- (in pkg1 truck2)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
 )

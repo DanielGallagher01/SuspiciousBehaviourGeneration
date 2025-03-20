@@ -1,59 +1,42 @@
-=== Detailed log started at 2025-03-18 16:15:09 ===
+=== Detailed log started at 2025-03-20 14:55:13 ===
 ## Behaviour Generator: DirectedBehaviourGenerator{type=Semidirected, lambda=2, goal=1}
 
 
 
 ## Initial state:
-(and (at truck1 pos1_1)
- (at pkg1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (clear d)
+ (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (ontable c)
 )
 Making Optimal move
 ## Action Made:
-Action load-truck
+Action pick-up
 Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck1 
-?X2 - place : pos1_1 
+?X0 - block : c 
 Preconditions:
-(and (at truck1 pos1_1)
-  (at pkg1 pos1_1))
+(and (handempty)
+  (clear c)
+  (ontable c))
 Effects:
-(and (in pkg1 truck1)
-  (not (at pkg1 pos1_1))
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
 
 ## New State:
-(and (in pkg1 truck1)
- (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (clear d)
+ (ontable d)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (holding c)
 )
 
 
@@ -61,87 +44,243 @@ Effects:
 Making random move
 Randomising actions
 Chosen Action: 
-Action drive-truck
+Action unstack
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
+?X0 - block : d 
+?X1 - block : b 
 Preconditions:
-(and (at truck1 pos1_1))
+(and (clear d)
+  (handempty)
+  (on d b))
 Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos1_1))
+(and (holding d)
+  (clear b)
+  (not (clear d)
+  (not (handempty)
+  (not (on d b))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : d 
+?X1 - block : b 
+Preconditions:
+(and (holding d)
+  (clear b))
+Effects:
+(and (clear d)
+  (handempty)
+  (on d b)
+  (not (holding d)
+  (not (clear b))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : d 
+?X1 - block : c 
+Preconditions:
+(and (holding d)
+  (clear c))
+Effects:
+(and (clear d)
+  (handempty)
+  (on d c)
+  (not (holding d)
+  (not (clear c))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action unstack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (on b a))
+Effects:
+(and (holding b)
+  (clear a)
+  (not (handempty)
+  (not (clear b)
+  (not (on b a))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action unstack
+Instantiations:
+?X0 - block : a 
+?X1 - block : b 
+Preconditions:
+(and (handempty)
+  (clear a)
+  (on a b))
+Effects:
+(and (clear b)
+  (holding a)
+  (not (handempty)
+  (not (clear a)
+  (not (on a b))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action unstack
+Instantiations:
+?X0 - block : b 
+?X1 - block : b 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (on b b))
+Effects:
+(and (clear b)
+  (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (on b b))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action pick-up
+Instantiations:
+?X0 - block : a 
+Preconditions:
+(and (handempty)
+  (clear a)
+  (ontable a))
+Effects:
+(and (holding a)
+  (not (handempty)
+  (not (clear a)
+  (not (ontable a))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action put-down
+Instantiations:
+?X0 - block : a 
+Preconditions:
+(and (holding a))
+Effects:
+(and (handempty)
+  (clear a)
+  (ontable a)
+  (not (holding a))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action unstack
+Instantiations:
+?X0 - block : a 
+?X1 - block : a 
+Preconditions:
+(and (handempty)
+  (clear a)
+  (on a a))
+Effects:
+(and (clear a)
+  (holding a)
+  (not (handempty)
+  (not (clear a)
+  (not (on a a))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : d 
+Preconditions:
+(and (clear d)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c d)
+  (not (clear d)
+  (not (holding c))
 
 Checking if action is applicable to state
 Action is applicable to state
 ## Action Made:
-Action drive-truck
+Action stack
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
+?X0 - block : c 
+?X1 - block : d 
 Preconditions:
-(and (at truck1 pos1_1))
+(and (clear d)
+  (holding c))
 Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos1_1))
+(and (handempty)
+  (clear c)
+  (on c d)
+  (not (clear d)
+  (not (holding c))
 
 ## New State:
-(and (at truck1 apt1_1)
- (in pkg1 truck1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 Making Optimal move
 ## Action Made:
-Action unload-truck
+Action pick-up
 Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck1 
-?X2 - place : apt1_1 
+?X0 - block : b 
 Preconditions:
-(and (at truck1 apt1_1)
-  (in pkg1 truck1))
+(and (handempty)
+  (clear b)
+  (ontable b))
 Effects:
-(and (at pkg1 apt1_1)
-  (not (in pkg1 truck1))
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
 
 ## New State:
-(and (at truck1 apt1_1)
- (at pkg1 apt1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
@@ -149,86 +288,253 @@ Effects:
 Making random move
 Randomising actions
 Chosen Action: 
-Action drive-truck
+Action unstack
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
+?X0 - block : c 
+?X1 - block : b 
 Preconditions:
-(and (at truck1 apt1_1))
+(and (handempty)
+  (clear c)
+  (on c b))
 Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 apt1_1))
+(and (clear b)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c b))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : d 
+Preconditions:
+(and (clear d)
+  (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b d)
+  (not (clear d)
+  (not (holding b))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : a 
+?X1 - block : b 
+Preconditions:
+(and (clear b)
+  (holding a))
+Effects:
+(and (handempty)
+  (clear a)
+  (on a b)
+  (not (clear b)
+  (not (holding a))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : a 
+?X1 - block : a 
+Preconditions:
+(and (clear a)
+  (holding a))
+Effects:
+(and (handempty)
+  (clear a)
+  (on a a)
+  (not (clear a)
+  (not (holding a))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action unstack
+Instantiations:
+?X0 - block : d 
+?X1 - block : b 
+Preconditions:
+(and (clear d)
+  (handempty)
+  (on d b))
+Effects:
+(and (holding d)
+  (clear b)
+  (not (clear d)
+  (not (handempty)
+  (not (on d b))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action unstack
+Instantiations:
+?X0 - block : d 
+?X1 - block : c 
+Preconditions:
+(and (clear d)
+  (handempty)
+  (on d c))
+Effects:
+(and (holding d)
+  (clear c)
+  (not (clear d)
+  (not (handempty)
+  (not (on d c))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : d 
+?X1 - block : b 
+Preconditions:
+(and (holding d)
+  (clear b))
+Effects:
+(and (clear d)
+  (handempty)
+  (on d b)
+  (not (holding d)
+  (not (clear b))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action pick-up
+Instantiations:
+?X0 - block : a 
+Preconditions:
+(and (handempty)
+  (clear a)
+  (ontable a))
+Effects:
+(and (holding a)
+  (not (handempty)
+  (not (clear a)
+  (not (ontable a))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action unstack
+Instantiations:
+?X0 - block : a 
+?X1 - block : a 
+Preconditions:
+(and (handempty)
+  (clear a)
+  (on a a))
+Effects:
+(and (clear a)
+  (holding a)
+  (not (handempty)
+  (not (clear a)
+  (not (on a a))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action put-down
+Instantiations:
+?X0 - block : d 
+Preconditions:
+(and (holding d))
+Effects:
+(and (clear d)
+  (ontable d)
+  (handempty)
+  (not (holding d))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : c 
+Preconditions:
+(and (clear c)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c c)
+  (not (clear c)
+  (not (holding c))
+
+Checking if action is applicable to state
+Action is not applicable to state
+Chosen Action: 
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
 
 Checking if action is applicable to state
 Action is applicable to state
 ## Action Made:
-Action drive-truck
+Action put-down
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
+?X0 - block : b 
 Preconditions:
-(and (at truck1 apt1_1))
+(and (holding b))
 Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 apt1_1))
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
 
 ## New State:
-(and (at pkg1 apt1_1)
- (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
 
 Making Optimal move
 ## Action Made:
-Action fly-airplane
+Action pick-up
 Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_2 
-?X2 - airport : apt1_1 
+?X0 - block : b 
 Preconditions:
-(and (at plane1 apt1_2))
+(and (handempty)
+  (clear b)
+  (ontable b))
 Effects:
-(and (at plane1 apt1_1)
-  (not (at plane1 apt1_2))
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
 
 ## New State:
-(and (at pkg1 apt1_1)
- (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
 )
 
 
@@ -236,761 +542,221 @@ Effects:
 Making random move
 Randomising actions
 Chosen Action: 
-Action drive-truck
+Action unstack
 Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
+?X0 - block : d 
+?X1 - block : b 
 Preconditions:
-(and (at truck2 pos2_1))
+(and (clear d)
+  (handempty)
+  (on d b))
 Effects:
-(and (at truck2 pos2_1)
-  (not (at truck2 pos2_1))
+(and (holding d)
+  (clear b)
+  (not (clear d)
+  (not (handempty)
+  (not (on d b))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action load-truck
+Action pick-up
 Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : pos1_2 
+?X0 - block : c 
 Preconditions:
-(and (at pkg1 pos1_2)
-  (at truck2 pos1_2))
+(and (handempty)
+  (clear c)
+  (ontable c))
 Effects:
-(and (in pkg1 truck2)
-  (not (at pkg1 pos1_2))
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action load-truck
+Action unstack
 Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck1 
-?X2 - place : pos1_2 
+?X0 - block : c 
+?X1 - block : b 
 Preconditions:
-(and (at truck1 pos1_2)
-  (at pkg3 pos1_2))
+(and (handempty)
+  (clear c)
+  (on c b))
 Effects:
-(and (in pkg3 truck1)
-  (not (at pkg3 pos1_2))
+(and (clear b)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c b))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action drive-truck
+Action stack
 Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
+?X0 - block : b 
+?X1 - block : d 
 Preconditions:
-(and (at truck2 pos3_1))
+(and (clear d)
+  (holding b))
 Effects:
-(and (at truck2 pos1_1)
-  (not (at truck2 pos3_1))
+(and (handempty)
+  (clear b)
+  (on b d)
+  (not (clear d)
+  (not (holding b))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action load-truck
+Action stack
 Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck1 
-?X2 - place : pos1_2 
+?X0 - block : c 
+?X1 - block : c 
 Preconditions:
-(and (at truck1 pos1_2)
-  (at pkg2 pos1_2))
+(and (clear c)
+  (holding c))
 Effects:
-(and (in pkg2 truck1)
-  (not (at pkg2 pos1_2))
+(and (handempty)
+  (clear c)
+  (on c c)
+  (not (clear c)
+  (not (holding c))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action drive-truck
+Action put-down
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos3_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
+?X0 - block : d 
 Preconditions:
-(and (at truck1 pos3_2))
+(and (holding d))
 Effects:
-(and (at truck1 apt1_2)
-  (not (at truck1 pos3_2))
+(and (clear d)
+  (ontable d)
+  (handempty)
+  (not (holding d))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action unload-truck
+Action unstack
 Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck1 
-?X2 - place : pos3_2 
+?X0 - block : a 
+?X1 - block : b 
 Preconditions:
-(and (in pkg1 truck1)
-  (at truck1 pos3_2))
+(and (handempty)
+  (clear a)
+  (on a b))
 Effects:
-(and (at pkg1 pos3_2)
-  (not (in pkg1 truck1))
+(and (clear b)
+  (holding a)
+  (not (handempty)
+  (not (clear a)
+  (not (on a b))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action unload-truck
+Action pick-up
 Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
+?X0 - block : a 
 Preconditions:
-(and (at truck2 pos2_2)
-  (in pkg5 truck2))
+(and (handempty)
+  (clear a)
+  (ontable a))
 Effects:
-(and (at pkg5 pos2_2)
-  (not (in pkg5 truck2))
+(and (holding a)
+  (not (handempty)
+  (not (clear a)
+  (not (ontable a))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action load-truck
+Action stack
 Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck2 
-?X2 - place : apt1_2 
+?X0 - block : a 
+?X1 - block : d 
 Preconditions:
-(and (at truck2 apt1_2)
-  (at pkg3 apt1_2))
+(and (clear d)
+  (holding a))
 Effects:
-(and (in pkg3 truck2)
-  (not (at pkg3 apt1_2))
+(and (handempty)
+  (clear a)
+  (on a d)
+  (not (clear d)
+  (not (holding a))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action unload-truck
+Action stack
 Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck1 
-?X2 - place : pos1_1 
+?X0 - block : b 
+?X1 - block : c 
 Preconditions:
-(and (at truck1 pos1_1)
-  (in pkg6 truck1))
+(and (holding b)
+  (clear c))
 Effects:
-(and (at pkg6 pos1_1)
-  (not (in pkg6 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos2_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos2_1))
-Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 pos2_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck2 pos2_2)
-  (at pkg3 pos2_2))
-Effects:
-(and (in pkg3 truck2)
-  (not (at pkg3 pos2_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_2 
-?X2 - place : pos3_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck1 pos1_2))
-Effects:
-(and (at truck1 pos3_2)
-  (not (at truck1 pos1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck2 pos3_1))
-Effects:
-(and (at truck2 pos2_1)
-  (not (at truck2 pos3_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-airplane
-Instantiations:
-?X0 - package : pkg1 
-?X1 - airplane : plane1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at plane1 apt1_1)
-  (in pkg1 plane1))
-Effects:
-(and (at pkg1 apt1_1)
-  (not (in pkg1 plane1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-airplane
-Instantiations:
-?X0 - package : pkg1 
-?X1 - airplane : plane1 
-?X2 - place : apt1_2 
-Preconditions:
-(and (in pkg1 plane1)
-  (at plane1 apt1_2))
-Effects:
-(and (at pkg1 apt1_2)
-  (not (in pkg1 plane1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos3_2))
-Effects:
-(and (at truck2 apt1_2)
-  (not (at truck2 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck1 
-?X2 - place : pos1_1 
-Preconditions:
-(and (at truck1 pos1_1)
-  (at pkg2 pos1_1))
-Effects:
-(and (in pkg2 truck1)
-  (not (at pkg2 pos1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-airplane
-Instantiations:
-?X0 - package : pkg5 
-?X1 - airplane : plane1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at pkg5 apt1_1)
-  (at plane1 apt1_1))
-Effects:
-(and (in pkg5 plane1)
-  (not (at pkg5 apt1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at truck1 apt1_1)
-  (in pkg2 truck1))
-Effects:
-(and (at pkg2 apt1_1)
-  (not (in pkg2 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos3_2 
-?X2 - place : pos1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck1 pos3_2))
-Effects:
-(and (at truck1 pos1_2)
-  (not (at truck1 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at truck1 apt1_1)
-  (at pkg6 apt1_1))
-Effects:
-(and (in pkg6 truck1)
-  (not (at pkg6 apt1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at truck2 apt1_2)
-  (at pkg5 apt1_2))
-Effects:
-(and (in pkg5 truck2)
-  (not (at pkg5 apt1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck2 pos2_2)
-  (in pkg6 truck2))
-Effects:
-(and (at pkg6 pos2_2)
-  (not (in pkg6 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : pos3_1 
-Preconditions:
-(and (at pkg1 pos3_1)
-  (at truck2 pos3_1))
-Effects:
-(and (in pkg1 truck2)
-  (not (at pkg1 pos3_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck1 
-?X2 - place : pos3_1 
-Preconditions:
-(and (at truck1 pos3_1)
-  (at pkg3 pos3_1))
-Effects:
-(and (in pkg3 truck1)
-  (not (at pkg3 pos3_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : pos2_1 
-Preconditions:
-(and (in pkg1 truck2)
-  (at truck2 pos2_1))
-Effects:
-(and (at pkg1 pos2_1)
-  (not (in pkg1 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck2 
-?X2 - place : pos2_1 
-Preconditions:
-(and (at truck2 pos2_1)
-  (at pkg3 pos2_1))
-Effects:
-(and (in pkg3 truck2)
-  (not (at pkg3 pos2_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck2 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at truck2 apt1_2)
-  (in pkg3 truck2))
-Effects:
-(and (at pkg3 apt1_2)
-  (not (in pkg3 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck2 
-?X2 - place : pos1_2 
-Preconditions:
-(and (at truck2 pos1_2)
-  (at pkg3 pos1_2))
-Effects:
-(and (in pkg3 truck2)
-  (not (at pkg3 pos1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : pos3_1 
-Preconditions:
-(and (in pkg1 truck2)
-  (at truck2 pos3_1))
-Effects:
-(and (at pkg1 pos3_1)
-  (not (in pkg1 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck1 
-?X2 - place : pos1_2 
-Preconditions:
-(and (at truck1 pos1_2)
-  (at pkg6 pos1_2))
-Effects:
-(and (in pkg6 truck1)
-  (not (at pkg6 pos1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : pos3_2 
-Preconditions:
-(and (at truck2 pos3_2)
-  (at pkg5 pos3_2))
-Effects:
-(and (in pkg5 truck2)
-  (not (at pkg5 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck1 
-?X2 - place : pos1_1 
-Preconditions:
-(and (at truck1 pos1_1)
-  (in pkg3 truck1))
-Effects:
-(and (at pkg3 pos1_1)
-  (not (in pkg3 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck1 
-?X2 - place : pos3_2 
-Preconditions:
-(and (at truck1 pos3_2)
-  (at pkg1 pos3_2))
-Effects:
-(and (in pkg1 truck1)
-  (not (at pkg1 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck1 
-?X2 - place : pos3_2 
-Preconditions:
-(and (at truck1 pos3_2)
-  (in pkg5 truck1))
-Effects:
-(and (at pkg5 pos3_2)
-  (not (in pkg5 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck2 
-?X2 - place : pos3_2 
-Preconditions:
-(and (at truck2 pos3_2)
-  (at pkg3 pos3_2))
-Effects:
-(and (in pkg3 truck2)
-  (not (at pkg3 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck1 
-?X2 - place : pos1_1 
-Preconditions:
-(and (in pkg1 truck1)
-  (at truck1 pos1_1))
-Effects:
-(and (at pkg1 pos1_1)
-  (not (in pkg1 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck2 
-?X2 - place : pos2_1 
-Preconditions:
-(and (at truck2 pos2_1)
-  (in pkg3 truck2))
-Effects:
-(and (at pkg3 pos2_1)
-  (not (in pkg3 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-airplane
-Instantiations:
-?X0 - package : pkg3 
-?X1 - airplane : plane1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at plane1 apt1_1)
-  (in pkg3 plane1))
-Effects:
-(and (at pkg3 apt1_1)
-  (not (in pkg3 plane1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-airplane
-Instantiations:
-?X0 - package : pkg3 
-?X1 - airplane : plane1 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at pkg3 apt1_2)
-  (at plane1 apt1_2))
-Effects:
-(and (in pkg3 plane1)
-  (not (at pkg3 apt1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck2 
-?X2 - place : pos3_2 
-Preconditions:
-(and (at truck2 pos3_2)
-  (at pkg6 pos3_2))
-Effects:
-(and (in pkg6 truck2)
-  (not (at pkg6 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : apt1_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck2 apt1_1))
-Effects:
-(and (at truck2 pos1_1)
-  (not (at truck2 apt1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck1 
-?X2 - place : pos3_1 
-Preconditions:
-(and (in pkg1 truck1)
-  (at truck1 pos3_1))
-Effects:
-(and (at pkg1 pos3_1)
-  (not (in pkg1 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck2 
-?X2 - place : pos1_1 
-Preconditions:
-(and (at truck2 pos1_1)
-  (in pkg4 truck2))
-Effects:
-(and (at pkg4 pos1_1)
-  (not (in pkg4 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-airplane
-Instantiations:
-?X0 - package : pkg1 
-?X1 - airplane : plane1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at pkg1 apt1_1)
-  (at plane1 apt1_1))
-Effects:
-(and (in pkg1 plane1)
-  (not (at pkg1 apt1_1))
+(and (handempty)
+  (clear b)
+  (on b c)
+  (not (holding b)
+  (not (clear c))
 
 Checking if action is applicable to state
 Action is applicable to state
 ## Action Made:
-Action load-airplane
+Action stack
 Instantiations:
-?X0 - package : pkg1 
-?X1 - airplane : plane1 
-?X2 - place : apt1_1 
+?X0 - block : b 
+?X1 - block : c 
 Preconditions:
-(and (at pkg1 apt1_1)
-  (at plane1 apt1_1))
+(and (holding b)
+  (clear c))
 Effects:
-(and (in pkg1 plane1)
-  (not (at pkg1 apt1_1))
+(and (handempty)
+  (clear b)
+  (on b c)
+  (not (holding b)
+  (not (clear c))
 
 ## New State:
-(and (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_1)
- (in pkg1 plane1)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (clear a)
+ (ontable a)
+ (on b c)
+ (on c d)
 )
 
 
 
 Making Optimal move
 ## Action Made:
-Action fly-airplane
+Action pick-up
 Instantiations:
-?X0 - airplane : plane1 
-?X1 - airport : apt1_1 
-?X2 - airport : apt1_2 
+?X0 - block : a 
 Preconditions:
-(and (at plane1 apt1_1))
+(and (handempty)
+  (clear a)
+  (ontable a))
 Effects:
-(and (at plane1 apt1_2)
-  (not (at plane1 apt1_1))
+(and (holding a)
+  (not (handempty)
+  (not (clear a)
+  (not (ontable a))
 
 ## New State:
-(and (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (in pkg1 plane1)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (clear b)
+ (holding a)
+ (on b c)
+ (on c d)
 )
 
 
@@ -998,1875 +764,248 @@ Effects:
 Making random move
 Randomising actions
 Chosen Action: 
-Action unload-truck
+Action put-down
 Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck1 
-?X2 - place : pos2_1 
+?X0 - block : c 
 Preconditions:
-(and (at truck1 pos2_1)
-  (in pkg2 truck1))
+(and (holding c))
 Effects:
-(and (at pkg2 pos2_1)
-  (not (in pkg2 truck1))
+(and (handempty)
+  (clear c)
+  (ontable c)
+  (not (holding c))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action drive-truck
+Action stack
 Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
+?X0 - block : d 
+?X1 - block : b 
 Preconditions:
-(and (at truck2 pos1_1))
+(and (holding d)
+  (clear b))
 Effects:
-(and (at truck2 pos2_1)
-  (not (at truck2 pos1_1))
+(and (clear d)
+  (handempty)
+  (on d b)
+  (not (holding d)
+  (not (clear b))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action load-truck
+Action stack
 Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
+?X0 - block : d 
+?X1 - block : a 
 Preconditions:
-(and (at truck2 pos2_2)
-  (at pkg3 pos2_2))
+(and (holding d)
+  (clear a))
 Effects:
-(and (in pkg3 truck2)
-  (not (at pkg3 pos2_2))
+(and (clear d)
+  (handempty)
+  (on d a)
+  (not (holding d)
+  (not (clear a))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action load-truck
+Action pick-up
 Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck2 
-?X2 - place : pos1_2 
+?X0 - block : c 
 Preconditions:
-(and (at truck2 pos1_2)
-  (at pkg6 pos1_2))
+(and (handempty)
+  (clear c)
+  (ontable c))
 Effects:
-(and (in pkg6 truck2)
-  (not (at pkg6 pos1_2))
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action unload-truck
+Action stack
 Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : pos1_1 
+?X0 - block : b 
+?X1 - block : d 
 Preconditions:
-(and (at truck2 pos1_1)
-  (in pkg5 truck2))
+(and (clear d)
+  (holding b))
 Effects:
-(and (at pkg5 pos1_1)
-  (not (in pkg5 truck2))
+(and (handempty)
+  (clear b)
+  (on b d)
+  (not (clear d)
+  (not (holding b))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action load-truck
+Action unstack
 Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck1 
-?X2 - place : pos3_1 
+?X0 - block : a 
+?X1 - block : c 
 Preconditions:
-(and (at truck1 pos3_1)
-  (at pkg3 pos3_1))
+(and (handempty)
+  (clear a)
+  (on a c))
 Effects:
-(and (in pkg3 truck1)
-  (not (at pkg3 pos3_1))
+(and (holding a)
+  (clear c)
+  (not (handempty)
+  (not (clear a)
+  (not (on a c))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action load-truck
+Action stack
 Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck2 
-?X2 - place : pos3_2 
+?X0 - block : b 
+?X1 - block : b 
 Preconditions:
-(and (at truck2 pos3_2)
-  (at pkg6 pos3_2))
+(and (clear b)
+  (holding b))
 Effects:
-(and (in pkg6 truck2)
-  (not (at pkg6 pos3_2))
+(and (handempty)
+  (clear b)
+  (on b b)
+  (not (clear b)
+  (not (holding b))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action drive-truck
+Action stack
 Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos3_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
+?X0 - block : c 
+?X1 - block : b 
 Preconditions:
-(and (at truck1 pos3_1))
+(and (clear b)
+  (holding c))
 Effects:
-(and (at truck1 pos2_1)
-  (not (at truck1 pos3_1))
+(and (handempty)
+  (clear c)
+  (on c b)
+  (not (clear b)
+  (not (holding c))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action load-truck
+Action stack
 Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : apt1_1 
+?X0 - block : a 
+?X1 - block : d 
 Preconditions:
-(and (at pkg1 apt1_1)
-  (at truck2 apt1_1))
+(and (clear d)
+  (holding a))
 Effects:
-(and (in pkg1 truck2)
-  (not (at pkg1 apt1_1))
+(and (handempty)
+  (clear a)
+  (on a d)
+  (not (clear d)
+  (not (holding a))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action unload-truck
+Action unstack
 Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : pos2_1 
+?X0 - block : b 
+?X1 - block : a 
 Preconditions:
-(and (in pkg1 truck2)
-  (at truck2 pos2_1))
+(and (handempty)
+  (clear b)
+  (on b a))
 Effects:
-(and (at pkg1 pos2_1)
-  (not (in pkg1 truck2))
+(and (holding b)
+  (clear a)
+  (not (handempty)
+  (not (clear b)
+  (not (on b a))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action load-truck
+Action unstack
 Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : pos3_1 
+?X0 - block : b 
+?X1 - block : b 
 Preconditions:
-(and (at pkg1 pos3_1)
-  (at truck2 pos3_1))
+(and (handempty)
+  (clear b)
+  (on b b))
 Effects:
-(and (in pkg1 truck2)
-  (not (at pkg1 pos3_1))
+(and (clear b)
+  (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (on b b))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action load-truck
+Action unstack
 Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck1 
-?X2 - place : pos3_2 
+?X0 - block : d 
+?X1 - block : a 
 Preconditions:
-(and (at truck1 pos3_2)
-  (at pkg5 pos3_2))
+(and (clear d)
+  (handempty)
+  (on d a))
 Effects:
-(and (in pkg5 truck1)
-  (not (at pkg5 pos3_2))
+(and (holding d)
+  (clear a)
+  (not (clear d)
+  (not (handempty)
+  (not (on d a))
 
 Checking if action is applicable to state
 Action is not applicable to state
 Chosen Action: 
-Action unload-truck
+Action stack
 Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck1 
-?X2 - place : pos2_1 
+?X0 - block : a 
+?X1 - block : b 
 Preconditions:
-(and (at truck1 pos2_1)
-  (in pkg5 truck1))
+(and (clear b)
+  (holding a))
 Effects:
-(and (at pkg5 pos2_1)
-  (not (in pkg5 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos1_2))
-Effects:
-(and (at truck2 apt1_2)
-  (not (at truck2 pos1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : apt1_2 
-?X2 - place : pos3_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck1 apt1_2))
-Effects:
-(and (at truck1 pos3_2)
-  (not (at truck1 apt1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck1 
-?X2 - place : pos3_1 
-Preconditions:
-(and (at truck1 pos3_1)
-  (in pkg5 truck1))
-Effects:
-(and (at pkg5 pos3_1)
-  (not (in pkg5 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-airplane
-Instantiations:
-?X0 - package : pkg6 
-?X1 - airplane : plane1 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at plane1 apt1_2)
-  (in pkg6 plane1))
-Effects:
-(and (at pkg6 apt1_2)
-  (not (in pkg6 plane1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck1 
-?X2 - place : pos2_1 
-Preconditions:
-(and (at truck1 pos2_1)
-  (at pkg4 pos2_1))
-Effects:
-(and (in pkg4 truck1)
-  (not (at pkg4 pos2_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at truck2 apt1_1)
-  (in pkg5 truck2))
-Effects:
-(and (at pkg5 apt1_1)
-  (not (in pkg5 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : pos1_1 
-Preconditions:
-(and (at truck2 pos1_1)
-  (at pkg5 pos1_1))
-Effects:
-(and (in pkg5 truck2)
-  (not (at pkg5 pos1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at truck2 apt1_1)
-  (at pkg5 apt1_1))
-Effects:
-(and (in pkg5 truck2)
-  (not (at pkg5 apt1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck2 
-?X2 - place : pos2_1 
-Preconditions:
-(and (at truck2 pos2_1)
-  (at pkg3 pos2_1))
-Effects:
-(and (in pkg3 truck2)
-  (not (at pkg3 pos2_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck1 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck1 pos2_2)
-  (at pkg6 pos2_2))
-Effects:
-(and (in pkg6 truck1)
-  (not (at pkg6 pos2_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck1 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck1 pos2_2)
-  (in pkg6 truck1))
-Effects:
-(and (at pkg6 pos2_2)
-  (not (in pkg6 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck2 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at truck2 apt1_2)
-  (at pkg6 apt1_2))
-Effects:
-(and (in pkg6 truck2)
-  (not (at pkg6 apt1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck1 
-?X2 - place : pos3_2 
-Preconditions:
-(and (at truck1 pos3_2)
-  (at pkg4 pos3_2))
-Effects:
-(and (in pkg4 truck1)
-  (not (at pkg4 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck1 
-?X2 - place : pos2_1 
-Preconditions:
-(and (at truck1 pos2_1)
-  (at pkg3 pos2_1))
-Effects:
-(and (in pkg3 truck1)
-  (not (at pkg3 pos2_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck1 
-?X2 - place : pos3_1 
-Preconditions:
-(and (at truck1 pos3_1)
-  (at pkg4 pos3_1))
-Effects:
-(and (in pkg4 truck1)
-  (not (at pkg4 pos3_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-airplane
-Instantiations:
-?X0 - package : pkg1 
-?X1 - airplane : plane1 
-?X2 - place : apt1_2 
-Preconditions:
-(and (in pkg1 plane1)
-  (at plane1 apt1_2))
-Effects:
-(and (at pkg1 apt1_2)
-  (not (in pkg1 plane1))
+(and (handempty)
+  (clear a)
+  (on a b)
+  (not (clear b)
+  (not (holding a))
 
 Checking if action is applicable to state
 Action is applicable to state
 ## Action Made:
-Action unload-airplane
+Action stack
 Instantiations:
-?X0 - package : pkg1 
-?X1 - airplane : plane1 
-?X2 - place : apt1_2 
+?X0 - block : a 
+?X1 - block : b 
 Preconditions:
-(and (in pkg1 plane1)
-  (at plane1 apt1_2))
+(and (clear b)
+  (holding a))
 Effects:
-(and (at pkg1 apt1_2)
-  (not (in pkg1 plane1))
+(and (handempty)
+  (clear a)
+  (on a b)
+  (not (clear b)
+  (not (holding a))
 
 ## New State:
-(and (at pkg1 apt1_2)
- (at truck1 pos1_1)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos2_2))
-Effects:
-(and (at truck2 apt1_2)
-  (not (at truck2 pos2_2))
-
-## New State:
-(and (at pkg1 apt1_2)
- (at truck1 pos1_1)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Making random move
-Randomising actions
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck1 
-?X2 - place : pos2_1 
-Preconditions:
-(and (at truck1 pos2_1)
-  (at pkg3 pos2_1))
-Effects:
-(and (in pkg3 truck1)
-  (not (at pkg3 pos2_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck1 
-?X2 - place : pos1_2 
-Preconditions:
-(and (at truck1 pos1_2)
-  (at pkg1 pos1_2))
-Effects:
-(and (in pkg1 truck1)
-  (not (at pkg1 pos1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos1_1))
-
-Checking if action is applicable to state
-Action is applicable to state
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos1_1))
-
-## New State:
-(and (at truck1 apt1_1)
- (at pkg1 apt1_2)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action load-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at pkg1 apt1_2)
-  (at truck2 apt1_2))
-Effects:
-(and (in pkg1 truck2)
-  (not (at pkg1 apt1_2))
-
-## New State:
-(and (at truck1 apt1_1)
- (in pkg1 truck2)
- (at truck2 apt1_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Making random move
-Randomising actions
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at truck1 apt1_1)
-  (in pkg2 truck1))
-Effects:
-(and (at pkg2 apt1_1)
-  (not (in pkg2 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_2 
-?X2 - place : pos1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos1_2))
-Effects:
-(and (at truck2 pos1_2)
-  (not (at truck2 pos1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_2 
-?X2 - place : pos1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos3_2))
-Effects:
-(and (at truck2 pos1_2)
-  (not (at truck2 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck1 
-?X2 - place : pos3_2 
-Preconditions:
-(and (at truck1 pos3_2)
-  (at pkg4 pos3_2))
-Effects:
-(and (in pkg4 truck1)
-  (not (at pkg4 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at truck2 apt1_1)
-  (in pkg1 truck2))
-Effects:
-(and (at pkg1 apt1_1)
-  (not (in pkg1 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos3_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos3_1))
-Effects:
-(and (at truck1 pos2_1)
-  (not (at truck1 pos3_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos3_2))
-Effects:
-(and (at truck2 apt1_2)
-  (not (at truck2 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at truck1 apt1_1)
-  (in pkg3 truck1))
-Effects:
-(and (at pkg3 apt1_1)
-  (not (in pkg3 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck1 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at truck1 apt1_2)
-  (at pkg3 apt1_2))
-Effects:
-(and (in pkg3 truck1)
-  (not (at pkg3 apt1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos2_2))
-Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 pos2_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck2 pos3_1))
-Effects:
-(and (at truck2 apt1_1)
-  (not (at truck2 pos3_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck1 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck1 pos2_2)
-  (at pkg4 pos2_2))
-Effects:
-(and (in pkg4 truck1)
-  (not (at pkg4 pos2_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at truck1 apt1_1)
-  (at pkg6 apt1_1))
-Effects:
-(and (in pkg6 truck1)
-  (not (at pkg6 apt1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck2 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at truck2 apt1_2)
-  (in pkg4 truck2))
-Effects:
-(and (at pkg4 apt1_2)
-  (not (in pkg4 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos3_2))
-Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck2 
-?X2 - place : pos3_2 
-Preconditions:
-(and (at truck2 pos3_2)
-  (at pkg4 pos3_2))
-Effects:
-(and (in pkg4 truck2)
-  (not (at pkg4 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at pkg1 pos2_2)
-  (at truck2 pos2_2))
-Effects:
-(and (in pkg1 truck2)
-  (not (at pkg1 pos2_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck2 pos2_2)
-  (at pkg5 pos2_2))
-Effects:
-(and (in pkg5 truck2)
-  (not (at pkg5 pos2_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck1 
-?X2 - place : pos3_2 
-Preconditions:
-(and (at truck1 pos3_2)
-  (at pkg2 pos3_2))
-Effects:
-(and (in pkg2 truck1)
-  (not (at pkg2 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : pos3_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos2_2))
-Effects:
-(and (at truck2 pos3_2)
-  (not (at truck2 pos2_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck1 
-?X2 - place : pos1_2 
-Preconditions:
-(and (at truck1 pos1_2)
-  (at pkg3 pos1_2))
-Effects:
-(and (in pkg3 truck1)
-  (not (at pkg3 pos1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos3_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck1 pos3_2))
-Effects:
-(and (at truck1 pos2_2)
-  (not (at truck1 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck1 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at truck1 apt1_2)
-  (at pkg2 apt1_2))
-Effects:
-(and (in pkg2 truck1)
-  (not (at pkg2 apt1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck2 pos2_2)
-  (in pkg4 truck2))
-Effects:
-(and (at pkg4 pos2_2)
-  (not (in pkg4 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos3_2 
-?X2 - place : pos3_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck1 pos3_2))
-Effects:
-(and (at truck1 pos3_2)
-  (not (at truck1 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at pkg1 apt1_2)
-  (at truck2 apt1_2))
-Effects:
-(and (in pkg1 truck2)
-  (not (at pkg1 apt1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : apt1_1 
-?X2 - place : pos3_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck2 apt1_1))
-Effects:
-(and (at truck2 pos3_1)
-  (not (at truck2 apt1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck1 
-?X2 - place : pos3_1 
-Preconditions:
-(and (at truck1 pos3_1)
-  (at pkg4 pos3_1))
-Effects:
-(and (in pkg4 truck1)
-  (not (at pkg4 pos3_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck1 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck1 pos2_2)
-  (in pkg4 truck1))
-Effects:
-(and (at pkg4 pos2_2)
-  (not (in pkg4 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck1 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at truck1 apt1_2)
-  (in pkg2 truck1))
-Effects:
-(and (at pkg2 apt1_2)
-  (not (in pkg2 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-airplane
-Instantiations:
-?X0 - package : pkg6 
-?X1 - airplane : plane1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at plane1 apt1_1)
-  (in pkg6 plane1))
-Effects:
-(and (at pkg6 apt1_1)
-  (not (in pkg6 plane1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos2_1 
-?X2 - place : pos1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos2_1))
-Effects:
-(and (at truck1 pos1_1)
-  (not (at truck1 pos2_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-airplane
-Instantiations:
-?X0 - package : pkg4 
-?X1 - airplane : plane1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at pkg4 apt1_1)
-  (at plane1 apt1_1))
-Effects:
-(and (in pkg4 plane1)
-  (not (at pkg4 apt1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck1 
-?X2 - place : pos1_1 
-Preconditions:
-(and (at truck1 pos1_1)
-  (at pkg4 pos1_1))
-Effects:
-(and (in pkg4 truck1)
-  (not (at pkg4 pos1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck1 
-?X2 - place : pos1_1 
-Preconditions:
-(and (at truck1 pos1_1)
-  (at pkg3 pos1_1))
-Effects:
-(and (in pkg3 truck1)
-  (not (at pkg3 pos1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck2 
-?X2 - place : pos2_1 
-Preconditions:
-(and (at truck2 pos2_1)
-  (in pkg2 truck2))
-Effects:
-(and (at pkg2 pos2_1)
-  (not (in pkg2 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : apt1_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 apt1_2))
-Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 apt1_2))
-
-Checking if action is applicable to state
-Action is applicable to state
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : apt1_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 apt1_2))
-Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 apt1_2))
-
-## New State:
-(and (at truck1 apt1_1)
- (in pkg1 truck2)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action unload-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (in pkg1 truck2)
-  (at truck2 pos2_2))
-Effects:
-(and (at pkg1 pos2_2)
-  (not (in pkg1 truck2))
-
-## New State:
-(and (at truck1 apt1_1)
- (at pkg1 pos2_2)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
-)
-
-
-
-Making random move
-Randomising actions
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck2 
-?X2 - place : pos1_2 
-Preconditions:
-(and (at truck2 pos1_2)
-  (at pkg3 pos1_2))
-Effects:
-(and (in pkg3 truck2)
-  (not (at pkg3 pos1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-airplane
-Instantiations:
-?X0 - package : pkg3 
-?X1 - airplane : plane1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at pkg3 apt1_1)
-  (at plane1 apt1_1))
-Effects:
-(and (in pkg3 plane1)
-  (not (at pkg3 apt1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck2 pos2_2)
-  (at pkg4 pos2_2))
-Effects:
-(and (in pkg4 truck2)
-  (not (at pkg4 pos2_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_2 
-?X2 - place : pos1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos3_2))
-Effects:
-(and (at truck2 pos1_2)
-  (not (at truck2 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at truck1 apt1_1)
-  (in pkg6 truck1))
-Effects:
-(and (at pkg6 apt1_1)
-  (not (in pkg6 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_1 
-?X2 - place : pos3_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck2 pos3_1))
-Effects:
-(and (at truck2 pos3_1)
-  (not (at truck2 pos3_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck1 
-?X2 - place : pos3_2 
-Preconditions:
-(and (at truck1 pos3_2)
-  (at pkg2 pos3_2))
-Effects:
-(and (in pkg2 truck1)
-  (not (at pkg2 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : pos3_1 
-Preconditions:
-(and (at pkg1 pos3_1)
-  (at truck2 pos3_1))
-Effects:
-(and (in pkg1 truck2)
-  (not (at pkg1 pos3_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos2_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck1 pos2_2))
-Effects:
-(and (at truck1 apt1_2)
-  (not (at truck1 pos2_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_2 
-?X2 - place : pos1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck1 pos1_2))
-Effects:
-(and (at truck1 pos1_2)
-  (not (at truck1 pos1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos2_1 
-?X2 - place : pos3_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos2_1))
-Effects:
-(and (at truck1 pos3_1)
-  (not (at truck1 pos2_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg3 
-?X1 - truck : truck2 
-?X2 - place : pos1_2 
-Preconditions:
-(and (at truck2 pos1_2)
-  (in pkg3 truck2))
-Effects:
-(and (at pkg3 pos1_2)
-  (not (in pkg3 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-airplane
-Instantiations:
-?X0 - package : pkg2 
-?X1 - airplane : plane1 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at plane1 apt1_1)
-  (in pkg2 plane1))
-Effects:
-(and (at pkg2 apt1_1)
-  (not (in pkg2 plane1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg6 
-?X1 - truck : truck2 
-?X2 - place : pos3_2 
-Preconditions:
-(and (at truck2 pos3_2)
-  (in pkg6 truck2))
-Effects:
-(and (at pkg6 pos3_2)
-  (not (in pkg6 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos1_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck2 pos1_1))
-Effects:
-(and (at truck2 apt1_1)
-  (not (at truck2 pos1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck2 
-?X2 - place : pos3_1 
-Preconditions:
-(and (in pkg1 truck2)
-  (at truck2 pos3_1))
-Effects:
-(and (at pkg1 pos3_1)
-  (not (in pkg1 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck1 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at truck1 apt1_2)
-  (at pkg1 apt1_2))
-Effects:
-(and (in pkg1 truck1)
-  (not (at pkg1 apt1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck1 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at truck1 apt1_2)
-  (in pkg5 truck1))
-Effects:
-(and (at pkg5 apt1_2)
-  (not (in pkg5 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck1 
-?X2 - place : pos2_1 
-Preconditions:
-(and (at truck1 pos2_1)
-  (at pkg2 pos2_1))
-Effects:
-(and (in pkg2 truck1)
-  (not (at pkg2 pos2_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : apt1_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 apt1_2))
-Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 apt1_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos3_1 
-?X2 - place : apt1_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos3_1))
-Effects:
-(and (at truck1 apt1_1)
-  (not (at truck1 pos3_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos1_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos1_1))
-Effects:
-(and (at truck1 pos2_1)
-  (not (at truck1 pos1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos3_1 
-?X2 - place : pos2_1 
-?X3 - city : city1 
-Preconditions:
-(and (at truck1 pos3_1))
-Effects:
-(and (at truck1 pos2_1)
-  (not (at truck1 pos3_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : apt1_1 
-Preconditions:
-(and (at truck2 apt1_1)
-  (in pkg5 truck2))
-Effects:
-(and (at pkg5 apt1_1)
-  (not (in pkg5 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck2 
-?X2 - place : pos1_1 
-Preconditions:
-(and (at truck2 pos1_1)
-  (at pkg2 pos1_1))
-Effects:
-(and (in pkg2 truck2)
-  (not (at pkg2 pos1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck2 pos2_2)
-  (in pkg4 truck2))
-Effects:
-(and (at pkg4 pos2_2)
-  (not (in pkg4 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck1 
-?X2 - place : pos3_1 
-Preconditions:
-(and (at truck1 pos3_1)
-  (in pkg5 truck1))
-Effects:
-(and (at pkg5 pos3_1)
-  (not (in pkg5 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck1 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck1 pos2_2)
-  (in pkg2 truck1))
-Effects:
-(and (at pkg2 pos2_2)
-  (not (in pkg2 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck2 pos2_2)
-  (in pkg5 truck2))
-Effects:
-(and (at pkg5 pos2_2)
-  (not (in pkg5 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos3_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos3_2))
-Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg2 
-?X1 - truck : truck2 
-?X2 - place : apt1_2 
-Preconditions:
-(and (at truck2 apt1_2)
-  (in pkg2 truck2))
-Effects:
-(and (at pkg2 apt1_2)
-  (not (in pkg2 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg4 
-?X1 - truck : truck1 
-?X2 - place : pos3_1 
-Preconditions:
-(and (at truck1 pos3_1)
-  (in pkg4 truck1))
-Effects:
-(and (at pkg4 pos3_1)
-  (not (in pkg4 truck1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck1 
-?X1 - place : pos3_2 
-?X2 - place : apt1_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck1 pos3_2))
-Effects:
-(and (at truck1 apt1_2)
-  (not (at truck1 pos3_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : pos2_1 
-Preconditions:
-(and (at truck2 pos2_1)
-  (at pkg5 pos2_1))
-Effects:
-(and (in pkg5 truck2)
-  (not (at pkg5 pos2_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck1 
-?X2 - place : pos1_1 
-Preconditions:
-(and (at truck1 pos1_1)
-  (at pkg5 pos1_1))
-Effects:
-(and (in pkg5 truck1)
-  (not (at pkg5 pos1_1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-airplane
-Instantiations:
-?X0 - package : pkg1 
-?X1 - airplane : plane1 
-?X2 - place : apt1_2 
-Preconditions:
-(and (in pkg1 plane1)
-  (at plane1 apt1_2))
-Effects:
-(and (at pkg1 apt1_2)
-  (not (in pkg1 plane1))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action unload-truck
-Instantiations:
-?X0 - package : pkg5 
-?X1 - truck : truck2 
-?X2 - place : pos3_1 
-Preconditions:
-(and (at truck2 pos3_1)
-  (in pkg5 truck2))
-Effects:
-(and (at pkg5 pos3_1)
-  (not (in pkg5 truck2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action load-truck
-Instantiations:
-?X0 - package : pkg1 
-?X1 - truck : truck1 
-?X2 - place : pos2_2 
-Preconditions:
-(and (at truck1 pos2_2)
-  (at pkg1 pos2_2))
-Effects:
-(and (in pkg1 truck1)
-  (not (at pkg1 pos2_2))
-
-Checking if action is applicable to state
-Action is not applicable to state
-Chosen Action: 
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos2_2))
-Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 pos2_2))
-
-Checking if action is applicable to state
-Action is applicable to state
-## Action Made:
-Action drive-truck
-Instantiations:
-?X0 - truck : truck2 
-?X1 - place : pos2_2 
-?X2 - place : pos2_2 
-?X3 - city : city2 
-Preconditions:
-(and (at truck2 pos2_2))
-Effects:
-(and (at truck2 pos2_2)
-  (not (at truck2 pos2_2))
-
-## New State:
-(and (at truck1 apt1_1)
- (at pkg1 pos2_2)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear a)
+ (on b c)
+ (on a b)
+ (on c d)
 )
 
 
@@ -2874,21 +1013,10 @@ Effects:
 Making Optimal move
 Execution terminated: No more valid actions
 Final state:
-(and (at truck1 apt1_1)
- (at pkg1 pos2_2)
- (at truck2 pos2_2)
- (at pkg2 pos2_1)
- (at pkg3 pos3_1)
- (at pkg4 pos1_2)
- (at pkg5 pos2_2)
- (at pkg6 pos3_2)
- (at plane1 apt1_2)
- (in-city apt1_1 city1)
- (in-city pos1_1 city1)
- (in-city pos2_1 city1)
- (in-city pos3_1 city1)
- (in-city apt1_2 city2)
- (in-city pos1_2 city2)
- (in-city pos2_2 city2)
- (in-city pos3_2 city2)
+(and (ontable d)
+ (handempty)
+ (clear a)
+ (on b c)
+ (on a b)
+ (on c d)
 )

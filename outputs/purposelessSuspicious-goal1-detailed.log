@@ -1,0 +1,1366 @@
+=== Detailed log started at 2025-03-20 14:55:13 ===
+## Behaviour Generator: PurposelessSuspiciousBehaviourGenerator{type=Purposeless, epsilon=4, stepsBeforeOptimal=30}
+
+
+
+## Initial state:
+(and (clear d)
+ (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (ontable c)
+)
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (ontable c))
+Effects:
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
+
+## New State:
+(and (clear d)
+ (ontable d)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (holding c)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : d 
+Preconditions:
+(and (clear d)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c d)
+  (not (clear d)
+  (not (holding c))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (ontable b))
+Effects:
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 4.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (ontable b))
+Effects:
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 4.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (ontable b))
+Effects:
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : c 
+Preconditions:
+(and (holding b)
+  (clear c))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b c)
+  (not (holding b)
+  (not (clear c))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (clear a)
+ (ontable a)
+ (on b c)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 2.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : c 
+Preconditions:
+(and (holding b)
+  (clear c))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b c)
+  (not (holding b)
+  (not (clear c))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (clear a)
+ (ontable a)
+ (on b c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action pick-up
+Instantiations:
+?X0 - block : a 
+Preconditions:
+(and (handempty)
+  (clear a)
+  (ontable a))
+Effects:
+(and (holding a)
+  (not (handempty)
+  (not (clear a)
+  (not (ontable a))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (clear b)
+ (holding a)
+ (on b c)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 1.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : a 
+Preconditions:
+(and (handempty)
+  (clear a)
+  (ontable a))
+Effects:
+(and (holding a)
+  (not (handempty)
+  (not (clear a)
+  (not (ontable a))
+
+## New State:
+(and (ontable d)
+ (clear b)
+ (holding a)
+ (on b c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : a 
+?X1 - block : b 
+Preconditions:
+(and (clear b)
+  (holding a))
+Effects:
+(and (handempty)
+  (clear a)
+  (on a b)
+  (not (clear b)
+  (not (holding a))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear a)
+ (on b c)
+ (on a b)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 0.0
+Action achieves goal. Skipping action
+Chosen Action: 
+Action put-down
+Instantiations:
+?X0 - block : a 
+Preconditions:
+(and (holding a))
+Effects:
+(and (handempty)
+  (clear a)
+  (ontable a)
+  (not (holding a))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (clear a)
+ (ontable a)
+ (on b c)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 2.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : a 
+Preconditions:
+(and (holding a))
+Effects:
+(and (handempty)
+  (clear a)
+  (ontable a)
+  (not (holding a))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (clear a)
+ (ontable a)
+ (on b c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action unstack
+Instantiations:
+?X0 - block : b 
+?X1 - block : c 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (on b c))
+Effects:
+(and (holding b)
+  (clear c)
+  (not (handempty)
+  (not (clear b)
+  (not (on b c))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 3.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : b 
+?X1 - block : c 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (on b c))
+Effects:
+(and (holding b)
+  (clear c)
+  (not (handempty)
+  (not (clear b)
+  (not (on b c))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 4.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (ontable b))
+Effects:
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 4.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (ontable b))
+Effects:
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 4.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (on b a))
+Effects:
+(and (holding b)
+  (clear a)
+  (not (handempty)
+  (not (clear b)
+  (not (on b a))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 4.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (on b a))
+Effects:
+(and (holding b)
+  (clear a)
+  (not (handempty)
+  (not (clear b)
+  (not (on b a))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 4.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (on b a))
+Effects:
+(and (holding b)
+  (clear a)
+  (not (handempty)
+  (not (clear b)
+  (not (on b a))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 4.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (ontable b))
+Effects:
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 4.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (on b a))
+Effects:
+(and (holding b)
+  (clear a)
+  (not (handempty)
+  (not (clear b)
+  (not (on b a))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 4.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (holding b))
+Effects:
+(and (handempty)
+  (clear b)
+  (ontable b)
+  (not (holding b))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : b 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (ontable b))
+Effects:
+(and (holding b)
+  (not (handempty)
+  (not (clear b)
+  (not (ontable b))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 4.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Acting Optimally
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (handempty)
+  (clear b)
+  (on b a))
+Effects:
+(and (holding b)
+  (clear a)
+  (not (handempty)
+  (not (clear b)
+  (not (on b a))
+
+## New State:
+(and (ontable d)
+ (holding b)
+ (clear a)
+ (ontable a)
+ (clear c)
+ (on c d)
+)
+
+
+
+Generating plan
+Checking if completed enough steps or is far enough away to act optimal
+Still acting suspicious
+Randomising actions
+Chosen Action: 
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+Action is applicable to state
+Applying action to temporary state
+Temporary state after action: (and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+Generating Plan
+Plan's cost: 4.0
+Action does not achieve goal and maintains close proximity to goal. Choosing action.
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : b 
+?X1 - block : a 
+Preconditions:
+(and (holding b)
+  (clear a))
+Effects:
+(and (handempty)
+  (clear b)
+  (on b a)
+  (not (holding b)
+  (not (clear a))
+
+## New State:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+Final state:
+(and (ontable d)
+ (handempty)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
