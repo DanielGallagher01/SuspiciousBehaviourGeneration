@@ -34,7 +34,7 @@ public class PurposelessSuspiciousBehaviourGenerator implements BehaviourGenerat
 		Plan plan = GeneratePlan(state);	
 		
 
-		if (plan.actions().size() == 0) {
+		if (plan == null || plan.actions().size() == 0) {
 			logger.logDetailed("Already at goal");
 			throw new NoValidActionException("Achieved Goal");
 		}
@@ -62,7 +62,9 @@ public class PurposelessSuspiciousBehaviourGenerator implements BehaviourGenerat
 				logger.logDetailed("Generating Plan");
 				plan = GeneratePlan(tempState);	
 				logger.logDetailed("Plan's cost: " + plan.cost());
-				if (plan.cost() > 0 && plan.cost() <= epsilon)
+        if (plan == null) {
+          logger.logDetailed("Action is a dead end");
+        } else if (plan.cost() > 0 && plan.cost() <= epsilon)
 				{
 					logger.logDetailed("Action does not achieve goal and maintains close proximity to goal. Choosing action.");
 					currentStep++;	
