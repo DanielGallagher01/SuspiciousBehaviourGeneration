@@ -29,7 +29,7 @@ public class SemidirectedBehaviourGenerator implements BehaviourGenerator {
 			logger.logSimple("Making Optimal move");
 			Plan plan = GeneratePlan(state);
 
-			if (plan.actions().size() == 0) {
+			if (plan == null || plan.actions().size() == 0) {
 				throw new NoValidActionException("Achieved Goal");
 			}
 

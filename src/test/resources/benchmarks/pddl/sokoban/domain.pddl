@@ -1,0 +1,67 @@
+(define (domain sokoban-sequential)
+  (:requirements :typing)
+  (:types thing location direction - object
+          player stone - thing)
+  (:predicates (clear ?l - location)
+	       (at ?t - thing ?l - location)
+	       (at-goal ?s - stone)
+	       (IS-GOAL ?l - location)
+	       (IS-NONGOAL ?l - location)
+               (MOVE-DIR ?from ?to - location ?dir - direction))
+
+  (:action move
+   :parameters (?p - player ?from ?to - location ?dir - direction)
+   :precondition (and (at ?p ?from)
+                      (clear ?to)
+                      (MOVE-DIR ?from ?to ?dir)
+                      )
+   :effect       (and (not (at ?p ?from))
+                      (not (clear ?to))
+                      (at ?p ?to)
+                      (clear ?from)
+                      )
+   )
+
+  (:action push-to-nongoal
+   :parameters (?p - player ?s - stone
+                ?np ?from ?to - location
+                ?dir - direction)
+   :precondition (and (at ?p ?np)
+                      (at ?s ?from)
+                      (clear ?to)
+                      (MOVE-DIR ?np ?from ?dir)
+                      (MOVE-DIR ?from ?to ?dir)
+                      (IS-NONGOAL ?to)
+                      )
+   :effect       (and (not (at ?p ?np))
+                      (not (at ?s ?from))
+                      (not (clear ?to))
+                      (at ?p ?from)
+                      (at ?s ?to)
+                      (clear ?np)
+                      (not (at-goal ?s))
+                      )
+   )
+
+  (:action push-to-goal
+   :parameters (?p - player ?s - stone
+                ?np ?from ?to - location
+                ?dir - direction)
+   :precondition (and (at ?p ?np)
+                      (at ?s ?from)
+                      (clear ?to)
+                      (MOVE-DIR ?np ?from ?dir)
+                      (MOVE-DIR ?from ?to ?dir)
+                      (IS-GOAL ?to)
+                      )
+   :effect       (and (not (at ?p ?np))
+                      (not (at ?s ?from))
+                      (not (clear ?to))
+                      (at ?p ?from)
+                      (at ?s ?to)
+                      (clear ?np)
+                      (at-goal ?s)
+                      )
+   )
+)
+

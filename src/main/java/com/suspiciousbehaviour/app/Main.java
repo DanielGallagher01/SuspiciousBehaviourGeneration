@@ -85,10 +85,9 @@ public class Main {
 
 	logger.close();
 
-        
     }
 
-    private static void generateBehaviour(ArrayList<DefaultProblem> problems, BehaviourGenerator bg, Logger logger) {
+  private static void generateBehaviour(ArrayList<DefaultProblem> problems, BehaviourGenerator bg, Logger logger) {
 	State state = new State(problems.get(0).getInitialState());
 
 	logger.logSimple("## Behaviour Generator: " + bg.toString() + "\n\n\n");
@@ -116,30 +115,40 @@ public class Main {
 	}
 
 	logger.logSimple("Final state:\n" + problems.get(0).toString(state));
-    }
+  }
 
-    private static ArrayList<DefaultProblem> ParseProblems(final String[] args) {
-	try {
+  private static ArrayList<DefaultProblem> ParseProblems(final String[] args) {
+	  try {
 	    final Parser parser = new Parser();
 
 	    final ParsedDomain parsedDomain = parser.parseDomain(args[0]);
 
+      System.out.println("Domain Parsed");
 	    ArrayList<DefaultProblem> problems = new ArrayList<DefaultProblem>();
-
+  
 	    for (int i = 1; i < args.length; i++) {
-		ParsedProblem parsedProblem = parser.parseProblem(args[i]);
-		DefaultParsedProblem defaultParsedProblem = new DefaultParsedProblem(parsedDomain, parsedProblem);
-		DefaultProblem defaultProblem = new DefaultProblem(defaultParsedProblem);
-		defaultProblem.instantiate();
+		    ParsedProblem parsedProblem = parser.parseProblem(args[i]);
+      final ErrorManager errorManager = parser.getErrorManager();
+      if (!errorManager.isEmpty()) {
+        for (Message m : errorManager.getMessages()) {
+           System.out.println(m.toString());
+        }
+      }
+
+
+        System.out.println("Problem Parsed");
+		    DefaultParsedProblem defaultParsedProblem = new DefaultParsedProblem(parsedDomain, parsedProblem);
+		    DefaultProblem defaultProblem = new DefaultProblem(defaultParsedProblem);
+		    defaultProblem.instantiate();
 	    	problems.add(defaultProblem);
 	    }
 
-            final ErrorManager errorManager = parser.getErrorManager();
-            if (!errorManager.isEmpty()) {
-                for (Message m : errorManager.getMessages()) {
-                    System.out.println(m.toString());
-                }
-            }
+      final ErrorManager errorManager = parser.getErrorManager();
+      if (!errorManager.isEmpty()) {
+        for (Message m : errorManager.getMessages()) {
+           System.out.println(m.toString());
+        }
+      }
 
 	    return problems;
 	}

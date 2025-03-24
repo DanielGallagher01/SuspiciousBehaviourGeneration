@@ -14,6 +14,9 @@ public class DirectedBehaviourGenerator implements BehaviourGenerator {
 	public DirectedBehaviourGenerator(List<DefaultProblem> problems) {
 		this.problems = problems;
 		this.observedStates = new ArrayList<State>();
+
+	  State state = new State(problems.get(0).getInitialState());
+    observedStates.add(state);
 	}
 
 	public Action generateAction(State state, Logger logger) throws NoValidActionException {

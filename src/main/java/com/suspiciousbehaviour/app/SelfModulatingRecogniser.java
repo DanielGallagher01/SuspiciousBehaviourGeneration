@@ -57,9 +57,14 @@ public class SelfModulatingRecogniser implements BehaviourRecogniser {
 			try {
 				logger.logDetailed("Generating plan");
 				Plan plan = planner.solve(problem);
-				logger.logDetailed("Plan's cost: " + plan.cost());
-				cost.put(problem, plan.cost());
-			}
+        if (plan == null) {
+          logger.logDetailed("Action makes goal impossible");
+				  cost.put(problem, Double.POSITIVE_INFINITY); 
+        } else {
+				  logger.logDetailed("Plan's cost: " + plan.cost());
+				  cost.put(problem, plan.cost());
+			  }
+      }
 			catch (ProblemNotSupportedException e) {
 				logger.logSimple("Error in generating plan for mirroring: " + e.toString()); 
 				System.out.println(e.toString());
