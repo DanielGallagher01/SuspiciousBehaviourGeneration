@@ -61,7 +61,6 @@ public class PurposelessSuspiciousBehaviourGenerator implements BehaviourGenerat
 
 				logger.logDetailed("Generating Plan");
 				plan = GeneratePlan(tempState);	
-				logger.logDetailed("Plan's cost: " + plan.cost());
         if (plan == null) {
           logger.logDetailed("Action is a dead end");
         } else if (plan.cost() > 0 && plan.cost() <= epsilon)

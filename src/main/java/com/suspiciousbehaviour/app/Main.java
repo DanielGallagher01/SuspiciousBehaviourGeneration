@@ -94,7 +94,7 @@ public class Main {
 
 	logger.logSimple("## Initial state:\n" + problems.get(0).toString(state));
 		
-	for (int i = 0; i < 50; i++) {
+	for (int i = 0; i < 70; i++) {
 		try {
 			Action chosen = bg.generateAction(state, logger);
 			bg.actionTaken(state, chosen);
