@@ -51,14 +51,14 @@ public class Main {
 	logger = new Logger();
 	logger.initialize("outputs/purposelessSuspicious-goal1-simple.log", "outputs/purposelessSuspicious-goal1-detailed.log", "outputs/purposelessSuspicious-goal1-plan.plan");
 	generateBehaviour(problems, 
-			new PurposelessSuspiciousBehaviourGenerator(problems, 4, 30, 0), 
+			new PurposelessSuspiciousBehaviourGenerator(problems, 8, 30, 0), 
 			logger);
 
 	problems = ParseProblems(args);
 	logger = new Logger();
-	logger.initialize("outputs/purposelessSuspiciou-goal2-simple.log", "outputs/purposelessSuspicious-goal2-detailed.log", "outputs/purposelessSuspicious-goal2-plan.plan");
+	logger.initialize("outputs/purposelessSuspicious-goal2-simple.log", "outputs/purposelessSuspicious-goal2-detailed.log", "outputs/purposelessSuspicious-goal2-plan.plan");
 	generateBehaviour(problems, 
-			new PurposelessSuspiciousBehaviourGenerator(problems, 4, 30, 1), 
+			new PurposelessSuspiciousBehaviourGenerator(problems, 8, 30, 1), 
 			logger);
 
 	problems = ParseProblems(args);
