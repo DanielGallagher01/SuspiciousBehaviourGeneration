@@ -1,0 +1,4 @@
+(load-truck pkg1 truck1 pos1_1)
+(drive-truck truck1 pos1_1 pos1_1 city1)
+(drive-truck truck1 pos1_1 pos3_1 city1)
+(unload-truck pkg1 truck1 pos3_1)
