@@ -80,7 +80,7 @@ public class Main {
 	logger = new Logger();
 	logger.initialize("outputs/unexpectedlySuspicious-goal1-simple.log", "outputs/unexpectedlySuspicious-goal1-detailed.log", "outputs/unexpectedlySuspicious-goal1-plan.plan");
 	generateBehaviour(problems, 
-			new UnexpectedlySuspiciousBehaviourGenerator(problems, 3, 1, new SemidirectedBehaviourGenerator(problems, 2, 0)), 
+			new UnexpectedlySuspiciousBehaviourGenerator(problems, 3, 1, new SemidirectedBehaviourGenerator(problems, 3, 0)), 
 			logger);
 
 	logger.close();
