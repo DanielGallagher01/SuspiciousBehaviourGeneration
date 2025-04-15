@@ -62,6 +62,10 @@ public class UnexpectedlySuspiciousBehaviourGenerator implements BehaviourGenera
 
 	public void actionTaken(State state, Action action) {
 		stepCount++;
+
+    if (reachedEpsilon) {
+      secondaryGenerator.actionTaken(state, action);
+    }
 	}
 
 	@Override

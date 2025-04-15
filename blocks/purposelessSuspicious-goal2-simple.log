@@ -1,5 +1,5 @@
 === Log started at 2025-04-15 17:53:48 ===
-## Behaviour Generator: DirectedBehaviourGenerator{type=Semidirected, lambda=2, goal=2}
+## Behaviour Generator: PurposelessSuspiciousBehaviourGenerator{type=Purposeless, epsilon=8, stepsBeforeOptimal=30}
 
 
 
@@ -18,7 +18,6 @@
  (clear c)
  (ontable c)
 )
-Making Optimal move
 ## Action Made:
 Action pick-up
 Instantiations:
@@ -49,73 +48,6 @@ Effects:
 
 
 
-Making random move
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : b 
-?X1 - block : e 
-Preconditions:
-(and (clear e)
-  (holding b))
-Effects:
-(and (handempty)
-  (clear b)
-  (on b e)
-  (not (clear e)
-  (not (holding b))
-
-## New State:
-(and (ontable e)
- (handempty)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (clear a)
- (ontable a)
- (clear c)
- (ontable c)
- (on b e)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : b 
-?X1 - block : e 
-Preconditions:
-(and (handempty)
-  (clear b)
-  (on b e))
-Effects:
-(and (clear e)
-  (holding b)
-  (not (handempty)
-  (not (clear b)
-  (not (on b e))
-
-## New State:
-(and (clear e)
- (ontable e)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (holding b)
- (clear a)
- (ontable a)
- (clear c)
- (ontable c)
-)
-
-
-
-Making random move
 ## Action Made:
 Action stack
 Instantiations:
@@ -148,7 +80,6 @@ Effects:
 
 
 
-Making Optimal move
 ## Action Made:
 Action pick-up
 Instantiations:
@@ -178,131 +109,6 @@ Effects:
 
 
 
-Making random move
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : c 
-?X1 - block : d 
-Preconditions:
-(and (clear d)
-  (holding c))
-Effects:
-(and (handempty)
-  (clear c)
-  (on c d)
-  (not (clear d)
-  (not (holding c))
-
-## New State:
-(and (clear e)
- (ontable e)
- (handempty)
- (clear f)
- (ontable f)
- (ontable d)
- (clear b)
- (ontable a)
- (clear c)
- (on b a)
- (on c d)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : c 
-?X1 - block : d 
-Preconditions:
-(and (handempty)
-  (clear c)
-  (on c d))
-Effects:
-(and (clear d)
-  (holding c)
-  (not (handempty)
-  (not (clear c)
-  (not (on c d))
-
-## New State:
-(and (clear e)
- (ontable e)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (holding c)
- (on b a)
-)
-
-
-
-Making random move
-## Action Made:
-Action put-down
-Instantiations:
-?X0 - block : c 
-Preconditions:
-(and (holding c))
-Effects:
-(and (handempty)
-  (clear c)
-  (ontable c)
-  (not (holding c))
-
-## New State:
-(and (clear e)
- (ontable e)
- (handempty)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (clear c)
- (ontable c)
- (on b a)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action pick-up
-Instantiations:
-?X0 - block : c 
-Preconditions:
-(and (handempty)
-  (clear c)
-  (ontable c))
-Effects:
-(and (holding c)
-  (not (handempty)
-  (not (clear c)
-  (not (ontable c))
-
-## New State:
-(and (clear e)
- (ontable e)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (holding c)
- (on b a)
-)
-
-
-
-Making random move
 ## Action Made:
 Action stack
 Instantiations:
@@ -334,7 +140,6 @@ Effects:
 
 
 
-Making Optimal move
 ## Action Made:
 Action unstack
 Instantiations:
@@ -366,71 +171,6 @@ Effects:
 
 
 
-Making random move
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : c 
-?X1 - block : e 
-Preconditions:
-(and (clear e)
-  (holding c))
-Effects:
-(and (handempty)
-  (clear c)
-  (on c e)
-  (not (clear e)
-  (not (holding c))
-
-## New State:
-(and (ontable e)
- (handempty)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (clear c)
- (on b a)
- (on c e)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : c 
-?X1 - block : e 
-Preconditions:
-(and (handempty)
-  (clear c)
-  (on c e))
-Effects:
-(and (clear e)
-  (holding c)
-  (not (handempty)
-  (not (clear c)
-  (not (on c e))
-
-## New State:
-(and (clear e)
- (ontable e)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (holding c)
- (on b a)
-)
-
-
-
-Making random move
 ## Action Made:
 Action stack
 Instantiations:
@@ -462,7 +202,6 @@ Effects:
 
 
 
-Making Optimal move
 ## Action Made:
 Action unstack
 Instantiations:
@@ -494,259 +233,6 @@ Effects:
 
 
 
-Making random move
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : c 
-?X1 - block : f 
-Preconditions:
-(and (clear f)
-  (holding c))
-Effects:
-(and (handempty)
-  (clear c)
-  (on c f)
-  (not (clear f)
-  (not (holding c))
-
-## New State:
-(and (clear e)
- (ontable e)
- (handempty)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (clear c)
- (on b a)
- (on c f)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : c 
-?X1 - block : f 
-Preconditions:
-(and (handempty)
-  (clear c)
-  (on c f))
-Effects:
-(and (clear f)
-  (holding c)
-  (not (handempty)
-  (not (clear c)
-  (not (on c f))
-
-## New State:
-(and (clear e)
- (ontable e)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (holding c)
- (on b a)
-)
-
-
-
-Making random move
-## Action Made:
-Action put-down
-Instantiations:
-?X0 - block : c 
-Preconditions:
-(and (holding c))
-Effects:
-(and (handempty)
-  (clear c)
-  (ontable c)
-  (not (holding c))
-
-## New State:
-(and (clear e)
- (ontable e)
- (handempty)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (clear c)
- (ontable c)
- (on b a)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action pick-up
-Instantiations:
-?X0 - block : c 
-Preconditions:
-(and (handempty)
-  (clear c)
-  (ontable c))
-Effects:
-(and (holding c)
-  (not (handempty)
-  (not (clear c)
-  (not (ontable c))
-
-## New State:
-(and (clear e)
- (ontable e)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (holding c)
- (on b a)
-)
-
-
-
-Making random move
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : c 
-?X1 - block : d 
-Preconditions:
-(and (clear d)
-  (holding c))
-Effects:
-(and (handempty)
-  (clear c)
-  (on c d)
-  (not (clear d)
-  (not (holding c))
-
-## New State:
-(and (clear e)
- (ontable e)
- (handempty)
- (clear f)
- (ontable f)
- (ontable d)
- (clear b)
- (ontable a)
- (clear c)
- (on b a)
- (on c d)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : c 
-?X1 - block : d 
-Preconditions:
-(and (handempty)
-  (clear c)
-  (on c d))
-Effects:
-(and (clear d)
-  (holding c)
-  (not (handempty)
-  (not (clear c)
-  (not (on c d))
-
-## New State:
-(and (clear e)
- (ontable e)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (holding c)
- (on b a)
-)
-
-
-
-Making random move
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : c 
-?X1 - block : d 
-Preconditions:
-(and (clear d)
-  (holding c))
-Effects:
-(and (handempty)
-  (clear c)
-  (on c d)
-  (not (clear d)
-  (not (holding c))
-
-## New State:
-(and (clear e)
- (ontable e)
- (handempty)
- (clear f)
- (ontable f)
- (ontable d)
- (clear b)
- (ontable a)
- (clear c)
- (on b a)
- (on c d)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : c 
-?X1 - block : d 
-Preconditions:
-(and (handempty)
-  (clear c)
-  (on c d))
-Effects:
-(and (clear d)
-  (holding c)
-  (not (handempty)
-  (not (clear c)
-  (not (on c d))
-
-## New State:
-(and (clear e)
- (ontable e)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (holding c)
- (on b a)
-)
-
-
-
-Making random move
 ## Action Made:
 Action stack
 Instantiations:
@@ -778,7 +264,6 @@ Effects:
 
 
 
-Making Optimal move
 ## Action Made:
 Action unstack
 Instantiations:
@@ -810,259 +295,6 @@ Effects:
 
 
 
-Making random move
-## Action Made:
-Action put-down
-Instantiations:
-?X0 - block : c 
-Preconditions:
-(and (holding c))
-Effects:
-(and (handempty)
-  (clear c)
-  (ontable c)
-  (not (holding c))
-
-## New State:
-(and (clear e)
- (ontable e)
- (handempty)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (clear c)
- (ontable c)
- (on b a)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action pick-up
-Instantiations:
-?X0 - block : c 
-Preconditions:
-(and (handempty)
-  (clear c)
-  (ontable c))
-Effects:
-(and (holding c)
-  (not (handempty)
-  (not (clear c)
-  (not (ontable c))
-
-## New State:
-(and (clear e)
- (ontable e)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (holding c)
- (on b a)
-)
-
-
-
-Making random move
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : c 
-?X1 - block : e 
-Preconditions:
-(and (clear e)
-  (holding c))
-Effects:
-(and (handempty)
-  (clear c)
-  (on c e)
-  (not (clear e)
-  (not (holding c))
-
-## New State:
-(and (ontable e)
- (handempty)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (clear c)
- (on b a)
- (on c e)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : c 
-?X1 - block : e 
-Preconditions:
-(and (handempty)
-  (clear c)
-  (on c e))
-Effects:
-(and (clear e)
-  (holding c)
-  (not (handempty)
-  (not (clear c)
-  (not (on c e))
-
-## New State:
-(and (clear e)
- (ontable e)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (holding c)
- (on b a)
-)
-
-
-
-Making random move
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : c 
-?X1 - block : f 
-Preconditions:
-(and (clear f)
-  (holding c))
-Effects:
-(and (handempty)
-  (clear c)
-  (on c f)
-  (not (clear f)
-  (not (holding c))
-
-## New State:
-(and (clear e)
- (ontable e)
- (handempty)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (clear c)
- (on b a)
- (on c f)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : c 
-?X1 - block : f 
-Preconditions:
-(and (handempty)
-  (clear c)
-  (on c f))
-Effects:
-(and (clear f)
-  (holding c)
-  (not (handempty)
-  (not (clear c)
-  (not (on c f))
-
-## New State:
-(and (clear e)
- (ontable e)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (holding c)
- (on b a)
-)
-
-
-
-Making random move
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : c 
-?X1 - block : f 
-Preconditions:
-(and (clear f)
-  (holding c))
-Effects:
-(and (handempty)
-  (clear c)
-  (on c f)
-  (not (clear f)
-  (not (holding c))
-
-## New State:
-(and (clear e)
- (ontable e)
- (handempty)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (clear c)
- (on b a)
- (on c f)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : c 
-?X1 - block : f 
-Preconditions:
-(and (handempty)
-  (clear c)
-  (on c f))
-Effects:
-(and (clear f)
-  (holding c)
-  (not (handempty)
-  (not (clear c)
-  (not (on c f))
-
-## New State:
-(and (clear e)
- (ontable e)
- (clear f)
- (ontable f)
- (clear d)
- (ontable d)
- (clear b)
- (ontable a)
- (holding c)
- (on b a)
-)
-
-
-
-Making random move
 ## Action Made:
 Action stack
 Instantiations:
@@ -1094,27 +326,26 @@ Effects:
 
 
 
-Making Optimal move
 ## Action Made:
 Action pick-up
 Instantiations:
-?X0 - block : d 
+?X0 - block : f 
 Preconditions:
 (and (handempty)
-  (clear d)
-  (ontable d))
+  (clear f)
+  (ontable f))
 Effects:
-(and (holding d)
+(and (holding f)
   (not (handempty)
-  (not (clear d)
-  (not (ontable d))
+  (not (clear f)
+  (not (ontable f))
 
 ## New State:
 (and (clear e)
  (ontable e)
- (clear f)
- (ontable f)
- (holding d)
+ (holding f)
+ (clear d)
+ (ontable d)
  (ontable a)
  (clear c)
  (on b a)
@@ -1123,18 +354,17 @@ Effects:
 
 
 
-Making random move
 ## Action Made:
 Action put-down
 Instantiations:
-?X0 - block : d 
+?X0 - block : f 
 Preconditions:
-(and (holding d))
+(and (holding f))
 Effects:
 (and (handempty)
-  (clear d)
-  (ontable d)
-  (not (holding d))
+  (clear f)
+  (ontable f)
+  (not (holding f))
 
 ## New State:
 (and (clear e)
@@ -1152,7 +382,1218 @@ Effects:
 
 
 
-Making Optimal move
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : b 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c b))
+Effects:
+(and (clear b)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c b))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (ontable c)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (ontable c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (ontable c))
+Effects:
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : b 
+Preconditions:
+(and (clear b)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c b)
+  (not (clear b)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c b)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : b 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c b))
+Effects:
+(and (clear b)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c b))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : e 
+Preconditions:
+(and (clear e)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c e)
+  (not (clear e)
+  (not (holding c))
+
+## New State:
+(and (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c e)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : e 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c e))
+Effects:
+(and (clear e)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c e))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : d 
+Preconditions:
+(and (clear d)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c d)
+  (not (clear d)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : d 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c d))
+Effects:
+(and (clear d)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c d))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : d 
+Preconditions:
+(and (clear d)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c d)
+  (not (clear d)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : d 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c d))
+Effects:
+(and (clear d)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c d))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (ontable c)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (ontable c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (ontable c))
+Effects:
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (ontable c)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (ontable c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (ontable c))
+Effects:
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (ontable c)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (ontable c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (ontable c))
+Effects:
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : d 
+Preconditions:
+(and (clear d)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c d)
+  (not (clear d)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : d 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c d))
+Effects:
+(and (clear d)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c d))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : f 
+Preconditions:
+(and (clear f)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c f)
+  (not (clear f)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c f)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : f 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c f))
+Effects:
+(and (clear f)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c f))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : d 
+Preconditions:
+(and (clear d)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c d)
+  (not (clear d)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : d 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c d))
+Effects:
+(and (clear d)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c d))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : f 
+Preconditions:
+(and (clear f)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c f)
+  (not (clear f)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c f)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : f 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c f))
+Effects:
+(and (clear f)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c f))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : d 
+Preconditions:
+(and (clear d)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c d)
+  (not (clear d)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c d)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : d 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c d))
+Effects:
+(and (clear d)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c d))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (ontable c)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (ontable c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (ontable c))
+Effects:
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : f 
+Preconditions:
+(and (clear f)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c f)
+  (not (clear f)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c f)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : f 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c f))
+Effects:
+(and (clear f)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c f))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (ontable c)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (ontable c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (ontable c))
+Effects:
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (ontable c)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (ontable c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (ontable c))
+Effects:
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : f 
+Preconditions:
+(and (clear f)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c f)
+  (not (clear f)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c f)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : f 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c f))
+Effects:
+(and (clear f)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c f))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : b 
+Preconditions:
+(and (clear b)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c b)
+  (not (clear b)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c b)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : b 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c b))
+Effects:
+(and (clear b)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c b))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (clear b)
+ (ontable a)
+ (holding c)
+ (on b a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : b 
+Preconditions:
+(and (clear b)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c b)
+  (not (clear b)
+  (not (holding c))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (handempty)
+ (clear f)
+ (ontable f)
+ (clear d)
+ (ontable d)
+ (ontable a)
+ (clear c)
+ (on b a)
+ (on c b)
+)
+
+
+
 ## Action Made:
 Action pick-up
 Instantiations:
@@ -1181,7 +1622,6 @@ Effects:
 
 
 
-Making random move
 ## Action Made:
 Action stack
 Instantiations:
@@ -1212,7 +1652,6 @@ Effects:
 
 
 
-Making Optimal move
 ## Action Made:
 Action pick-up
 Instantiations:
@@ -1240,63 +1679,6 @@ Effects:
 
 
 
-Making random move
-## Action Made:
-Action put-down
-Instantiations:
-?X0 - block : e 
-Preconditions:
-(and (holding e))
-Effects:
-(and (clear e)
-  (ontable e)
-  (handempty)
-  (not (holding e))
-
-## New State:
-(and (clear e)
- (ontable e)
- (handempty)
- (clear f)
- (ontable f)
- (clear d)
- (ontable a)
- (on d c)
- (on b a)
- (on c b)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action pick-up
-Instantiations:
-?X0 - block : e 
-Preconditions:
-(and (clear e)
-  (ontable e)
-  (handempty))
-Effects:
-(and (holding e)
-  (not (clear e)
-  (not (ontable e)
-  (not (handempty))
-
-## New State:
-(and (holding e)
- (clear f)
- (ontable f)
- (clear d)
- (ontable a)
- (on d c)
- (on b a)
- (on c b)
-)
-
-
-
-Making random move
 ## Action Made:
 Action stack
 Instantiations:
@@ -1326,7 +1708,6 @@ Effects:
 
 
 
-Making Optimal move
 ## Action Made:
 Action pick-up
 Instantiations:
@@ -1353,61 +1734,6 @@ Effects:
 
 
 
-Making random move
-## Action Made:
-Action put-down
-Instantiations:
-?X0 - block : f 
-Preconditions:
-(and (holding f))
-Effects:
-(and (handempty)
-  (clear f)
-  (ontable f)
-  (not (holding f))
-
-## New State:
-(and (clear e)
- (handempty)
- (clear f)
- (ontable f)
- (ontable a)
- (on e d)
- (on d c)
- (on b a)
- (on c b)
-)
-
-
-
-Making Optimal move
-## Action Made:
-Action pick-up
-Instantiations:
-?X0 - block : f 
-Preconditions:
-(and (handempty)
-  (clear f)
-  (ontable f))
-Effects:
-(and (holding f)
-  (not (handempty)
-  (not (clear f)
-  (not (ontable f))
-
-## New State:
-(and (clear e)
- (holding f)
- (ontable a)
- (on e d)
- (on d c)
- (on b a)
- (on c b)
-)
-
-
-
-Making random move
 ## Action Made:
 Action stack
 Instantiations:
@@ -1436,7 +1762,6 @@ Effects:
 
 
 
-Making Optimal move
 Execution terminated: No more valid actions
 Final state:
 (and (handempty)
