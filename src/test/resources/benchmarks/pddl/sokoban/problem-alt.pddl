@@ -324,7 +324,7 @@
     (clear pos-9-3)
     (clear pos-9-5)
   )
-  (:goal (or
+  (:goal (and
     (at stone-01 pos-8-5)
     (at stone-02 pos-8-5)
   ))
