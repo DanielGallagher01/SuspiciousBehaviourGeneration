@@ -1,10 +1,10 @@
 ;; #####
 ;; #   ##
 ;; # $  #
-;; ## $ ####
-;;  ###@.  #
-;;   #  .# #
-;;   #     #
+;; ## $  #
+;;  ###@ ##
+;;   #.   #
+;;   #.   #
 ;;   #######
 
 (define (problem p012-microban-sequential)
@@ -91,8 +91,8 @@
     stone-02 - stone
   )
   (:init
-    (IS-GOAL pos-6-5)
-    (IS-GOAL pos-6-6)
+    (IS-GOAL pos-4-7)
+    (IS-GOAL pos-4-6)
     (IS-NONGOAL pos-1-1)
     (IS-NONGOAL pos-1-2)
     (IS-NONGOAL pos-1-3)
@@ -122,8 +122,8 @@
     (IS-NONGOAL pos-4-3)
     (IS-NONGOAL pos-4-4)
     (IS-NONGOAL pos-4-5)
-    (IS-NONGOAL pos-4-6)
-    (IS-NONGOAL pos-4-7)
+;    (IS-NONGOAL pos-4-6)
+;    (IS-NONGOAL pos-4-7)
     (IS-NONGOAL pos-4-8)
     (IS-NONGOAL pos-5-1)
     (IS-NONGOAL pos-5-2)
@@ -137,6 +137,8 @@
     (IS-NONGOAL pos-6-2)
     (IS-NONGOAL pos-6-3)
     (IS-NONGOAL pos-6-4)
+    (IS-NONGOAL pos-6-5)
+    (IS-NONGOAL pos-6-6)
     (IS-NONGOAL pos-6-7)
     (IS-NONGOAL pos-6-8)
     (IS-NONGOAL pos-7-1)
@@ -210,6 +212,7 @@
     (MOVE-DIR pos-5-4 pos-4-4 dir-left)
     (MOVE-DIR pos-5-4 pos-5-3 dir-up)
     (MOVE-DIR pos-5-4 pos-5-5 dir-down)
+    (MOVE-DIR pos-5-4 pos-6-4 dir-right)
     (MOVE-DIR pos-5-5 pos-5-4 dir-up)
     (MOVE-DIR pos-5-5 pos-5-6 dir-down)
     (MOVE-DIR pos-5-5 pos-6-5 dir-right)
@@ -221,12 +224,17 @@
     (MOVE-DIR pos-5-7 pos-5-6 dir-up)
     (MOVE-DIR pos-5-7 pos-6-7 dir-right)
     (MOVE-DIR pos-6-1 pos-7-1 dir-right)
+    (MOVE-DIR pos-6-4 pos-6-3 dir-up)
+    (MOVE-DIR pos-6-4 pos-5-4 dir-left)
+    (MOVE-DIR pos-6-4 pos-6-4 dir-down)
     (MOVE-DIR pos-6-5 pos-5-5 dir-left)
     (MOVE-DIR pos-6-5 pos-6-6 dir-down)
     (MOVE-DIR pos-6-5 pos-7-5 dir-right)
+    (MOVE-DIR pos-6-5 pos-6-4 dir-up)
     (MOVE-DIR pos-6-6 pos-5-6 dir-left)
     (MOVE-DIR pos-6-6 pos-6-5 dir-up)
     (MOVE-DIR pos-6-6 pos-6-7 dir-down)
+    (MOVE-DIR pos-6-6 pos-7-6 dir-right)
     (MOVE-DIR pos-6-7 pos-5-7 dir-left)
     (MOVE-DIR pos-6-7 pos-6-6 dir-up)
     (MOVE-DIR pos-6-7 pos-7-7 dir-right)
@@ -240,8 +248,14 @@
     (MOVE-DIR pos-7-3 pos-8-3 dir-right)
     (MOVE-DIR pos-7-5 pos-6-5 dir-left)
     (MOVE-DIR pos-7-5 pos-8-5 dir-right)
+    (MOVE-DIR pos-7-5 pos-7-6 dir-down)
+    (MOVE-DIR pos-7-6 pos-6-6 dir-left)
+    (MOVE-DIR pos-7-6 pos-7-5 dir-up)
+    (MOVE-DIR pos-7-6 pos-7-7 dir-down)
+    (MOVE-DIR pos-7-6 pos-8-6 dir-right)
     (MOVE-DIR pos-7-7 pos-6-7 dir-left)
     (MOVE-DIR pos-7-7 pos-8-7 dir-right)
+    (MOVE-DIR pos-7-7 pos-7-6 dir-up)
     (MOVE-DIR pos-8-1 pos-7-1 dir-left)
     (MOVE-DIR pos-8-1 pos-8-2 dir-down)
     (MOVE-DIR pos-8-1 pos-9-1 dir-right)
@@ -256,6 +270,7 @@
     (MOVE-DIR pos-8-5 pos-8-6 dir-down)
     (MOVE-DIR pos-8-6 pos-8-5 dir-up)
     (MOVE-DIR pos-8-6 pos-8-7 dir-down)
+    (MOVE-DIR pos-8-6 pos-7-6 dir-left)
     (MOVE-DIR pos-8-7 pos-7-7 dir-left)
     (MOVE-DIR pos-8-7 pos-8-6 dir-up)
     (MOVE-DIR pos-9-1 pos-8-1 dir-left)
@@ -288,6 +303,7 @@
     (clear pos-5-6)
     (clear pos-5-7)
     (clear pos-6-1)
+    (clear pos-6-4)
     (clear pos-6-5)
     (clear pos-6-6)
     (clear pos-6-7)
@@ -295,6 +311,7 @@
     (clear pos-7-2)
     (clear pos-7-3)
     (clear pos-7-5)
+    (clear pos-7-6)
     (clear pos-7-7)
     (clear pos-8-1)
     (clear pos-8-2)
@@ -305,9 +322,10 @@
     (clear pos-9-1)
     (clear pos-9-2)
     (clear pos-9-3)
+    (clear pos-9-5)
   )
-  (:goal (and
-    (at-goal stone-01)
-    (at player-01 pos-2-2)
+  (:goal (or
+    (at stone-01 pos-8-5)
+    (at stone-02 pos-8-5)
   ))
 )
