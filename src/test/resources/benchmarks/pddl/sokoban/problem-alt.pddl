@@ -326,6 +326,5 @@
   )
   (:goal (and
     (at stone-01 pos-8-5)
-    (at stone-02 pos-8-5)
   ))
 )

@@ -21,69 +21,89 @@ import java.io.IOException;
 
 public class Main {
 
-    public static void main(final String[] args) {
-        // Create Logger instance
-        Logger logger = new Logger();
-        if (args.length < 2) {
-            System.out.println("Invalid command line");
-            return;
-        }
+  public static void main(final String[] args) {
+    // Create Logger instance
+    if (args.length < 2) {
+        System.out.println("Invalid command line");
+        return;
+    }
 	
+	  ArrayList<DefaultProblem> problems = ParseProblems(args);
 
-	
-	logger = new Logger();
+    Logger logger = new Logger();
+	  logger.initialize("outputs/stats-simple.log", "outputs/stats-detailed.log", "outputs/stats-plan.plan");
+    try {
+      StatisticsGenerator sg = new StatisticsGenerator(problems, logger);
+      System.out.println(sg.getShortestPath(0));
+      System.out.println(sg.getShortestPath(1));
+      System.out.println(sg.getMinimumPossibleDistance(0));
+      System.out.println(sg.getMinimumPossibleDistance(1));
+      System.out.println(sg.getNumberOfOptimalPaths(0));
+      System.out.println(sg.getNumberOfOptimalPaths(1));
+      System.out.println(sg.getMinimumDistanceNPathsRational(0,2));
+      System.out.println(sg.getMinimumDistanceNPathsRational(1,2));
+    } catch (Throwable e) {
 
-	ArrayList<DefaultProblem> problems = ParseProblems(args);
-	logger.initialize("outputs/directed-simple.log", "outputs/directed-detailed.log", "outputs/directed-plan.plan");
-	generateBehaviour(problems, 
+    }
+    return;
+  }
+
+
+  private static void generateAllBehaviour(final String[] args) {
+
+    Logger logger = new Logger();
+
+	  ArrayList<DefaultProblem> problems = ParseProblems(args);
+	  logger.initialize("outputs/directed-simple.log", "outputs/directed-detailed.log", "outputs/directed-plan.plan");
+	  generateBehaviour(problems, 
 			new DirectedBehaviourGenerator(problems), 
 			logger);
 
-	problems = ParseProblems(args);
-	BehaviourRecogniser br = new SelfModulatingRecogniser(problems);
-	logger = new Logger();
-	logger.initialize("outputs/purposefulSuspicious-simple.log", "outputs/purposefulSuspicious-detailed.log", "outputs/purposefulSuspicious-plan.plan");
-	generateBehaviour(problems, 
+	  problems = ParseProblems(args);
+	  BehaviourRecogniser br = new SelfModulatingRecogniser(problems);
+	  logger = new Logger();
+	  logger.initialize("outputs/purposefulSuspicious-simple.log", "outputs/purposefulSuspicious-detailed.log", "outputs/purposefulSuspicious-plan.plan");
+	  generateBehaviour(problems, 
 			new PurposefulSuspiciousBehaviourGenerator(problems, 0.35, 30, br), 
 			logger);
 	
-	problems = ParseProblems(args);
-	logger = new Logger();
-	logger.initialize("outputs/purposelessSuspicious-goal1-simple.log", "outputs/purposelessSuspicious-goal1-detailed.log", "outputs/purposelessSuspicious-goal1-plan.plan");
-	generateBehaviour(problems, 
+	  problems = ParseProblems(args);
+	  logger = new Logger();
+	  logger.initialize("outputs/purposelessSuspicious-goal1-simple.log", "outputs/purposelessSuspicious-goal1-detailed.log", "outputs/purposelessSuspicious-goal1-plan.plan");
+	  generateBehaviour(problems, 
 			new PurposelessSuspiciousBehaviourGenerator(problems, 8, 30, 0), 
 			logger);
 
-	problems = ParseProblems(args);
-	logger = new Logger();
-	logger.initialize("outputs/purposelessSuspicious-goal2-simple.log", "outputs/purposelessSuspicious-goal2-detailed.log", "outputs/purposelessSuspicious-goal2-plan.plan");
-	generateBehaviour(problems, 
+	  problems = ParseProblems(args);
+	  logger = new Logger();
+	  logger.initialize("outputs/purposelessSuspicious-goal2-simple.log", "outputs/purposelessSuspicious-goal2-detailed.log", "outputs/purposelessSuspicious-goal2-plan.plan");
+	  generateBehaviour(problems, 
 			new PurposelessSuspiciousBehaviourGenerator(problems, 8, 30, 1), 
 			logger);
 
-	problems = ParseProblems(args);
-	logger = new Logger();
-	logger.initialize("outputs/semidirected-goal1-simple.log", "outputs/semidirected-goal1-detailed.log", "outputs/semidirected-goal1-plan.plan");
-	generateBehaviour(problems, 
+	  problems = ParseProblems(args);
+	  logger = new Logger();
+	  logger.initialize("outputs/semidirected-goal1-simple.log", "outputs/semidirected-goal1-detailed.log", "outputs/semidirected-goal1-plan.plan");
+	  generateBehaviour(problems, 
 			new SemidirectedBehaviourGenerator(problems, 2, 0), 
 			logger);	
 
 
-	problems = ParseProblems(args);
-	logger = new Logger();
-	logger.initialize("outputs/semidirected-goal2-simple.log", "outputs/semidirected-goal2-detailed.log", "outputs/semidirected-goal2-plan.plan");
-	generateBehaviour(problems, 
+	  problems = ParseProblems(args);
+	  logger = new Logger();
+	  logger.initialize("outputs/semidirected-goal2-simple.log", "outputs/semidirected-goal2-detailed.log", "outputs/semidirected-goal2-plan.plan");
+	  generateBehaviour(problems, 
 			new SemidirectedBehaviourGenerator(problems, 2, 1), 
 			logger);
 
-  problems = ParseProblems(args);
-	logger = new Logger();
-	logger.initialize("outputs/unexpectedlySuspicious-goal1-simple.log", "outputs/unexpectedlySuspicious-goal1-detailed.log", "outputs/unexpectedlySuspicious-goal1-plan.plan");
-	generateBehaviour(problems, 
-			new UnexpectedlySuspiciousBehaviourGenerator(problems, 5, 1, new SemidirectedBehaviourGenerator(problems, 2, 0)), 
+    problems = ParseProblems(args);
+	  logger = new Logger();
+	  logger.initialize("outputs/unexpectedlySuspicious-goal1-simple.log", "outputs/unexpectedlySuspicious-goal1-detailed.log", "outputs/unexpectedlySuspicious-goal1-plan.plan");
+	  generateBehaviour(problems, 
+			new UnexpectedlySuspiciousBehaviourGenerator(problems, 10, 0, 1, new SemidirectedBehaviourGenerator(problems, 1, 1)), 
 			logger);
 
-	logger.close();
+	  logger.close();
 
     }
 

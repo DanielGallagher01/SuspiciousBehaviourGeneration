@@ -15,14 +15,15 @@ public class UnexpectedlySuspiciousBehaviourGenerator implements BehaviourGenera
 	private int epsilon;
 	private int stepCount = 0;
   private boolean reachedEpsilon = false;
-	private int goalID;
+	private int goalID, secondaryGoalID;
 	private HSP planner;
   private BehaviourGenerator secondaryGenerator;
 
-	public UnexpectedlySuspiciousBehaviourGenerator(List<DefaultProblem> problems, int epsilon, int goalID, BehaviourGenerator secondaryGenerator) {
+	public UnexpectedlySuspiciousBehaviourGenerator(List<DefaultProblem> problems, int epsilon, int goalID, int secondaryGoalID, BehaviourGenerator secondaryGenerator) {
 		this.problems = problems;
 		this.epsilon = epsilon;
 		this.goalID = goalID;
+    this.secondaryGoalID = secondaryGoalID;
 		this.planner = new HSP();
     this.secondaryGenerator = secondaryGenerator;
 	}
@@ -34,27 +35,64 @@ public class UnexpectedlySuspiciousBehaviourGenerator implements BehaviourGenera
       return this.secondaryGenerator.generateAction(state, logger);
     }
 
-		logger.logSimple("Acting Optimally");
+		logger.logSimple("Acting Rationally towards original goal");
 
-    Plan plan = GeneratePlan(state);
-    if (plan.cost() < epsilon ) {
+    Plan originalPlan = GeneratePlan(state, goalID);
+    if (originalPlan.cost() < epsilon ) {
       reachedEpsilon = true;
     }
 
-    return plan.actions().get(0);
-		
-	}
+    Collections.shuffle(problems.get(0).getActions());
+    for (Action a : problems.get(0).getActions()) {
+      State tempState = (State)state.clone();
+      if (a.isApplicable(tempState)) {
+        logger.logDetailed("Chosen Action: \n" + problems.get(0).toString(a));
+				logger.logDetailed("Action is applicable to state");
+				logger.logDetailed("Applying action to temporary state");
+				tempState.apply(a.getConditionalEffects());
+				logger.logDetailed("Temporary state after action: " + problems.get(0).toString(tempState));
 
-	private Plan GeneratePlan(State state)  throws NoValidActionException {
-		Problem problem = problems.get(goalID);
+        logger.logSimple("Checking if action is rational");
+        Plan newPlan = GeneratePlan(tempState, goalID);
+        if (newPlan == null || newPlan.cost() >= originalPlan.cost()) {
+          logger.logSimple("Action is irrational");
+          continue;
+        }
+
+        logger.logSimple("Checking if action makes secondary goal immpossible");
+        
+        Plan secondaryPlan = GeneratePlan(tempState, secondaryGoalID);
+        if (secondaryPlan == null) {
+          logger.logSimple("Action makes secondary goal immpossible");
+          continue;
+        }
+
+        return a;
+      }
+    }
+	
+    reachedEpsilon = true;
+
+    logger.logDetailed("No action avalable, switched to other action");
+    return this.secondaryGenerator.generateAction(state, logger);
+  }
+
+	private Plan GeneratePlan(State state, int goal)  throws NoValidActionException {
+		Problem problem = problems.get(goal);
+    State initialState = (State)(new State(problem.getInitialState())).clone();
 		problem.getInitialState().getPositiveFluents().clear();
 		problem.getInitialState().getPositiveFluents().or(state);
 
 
 		try {
-			return planner.solve(problems.get(goalID));
+			Plan plan = planner.solve(problems.get(goal));
+	    problem.getInitialState().getPositiveFluents().clear();
+		  problem.getInitialState().getPositiveFluents().or(initialState);
+      return plan;
 		}
 		catch (Exception e) {
+      problem.getInitialState().getPositiveFluents().clear();
+		  problem.getInitialState().getPositiveFluents().or(initialState);
 			throw new NoValidActionException("Planner error");
 		}
 
