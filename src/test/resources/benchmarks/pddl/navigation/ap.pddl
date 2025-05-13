@@ -26,21 +26,21 @@
         :effect(
 
             (assign (?p x y) (function distribute_grid_around_point (objects ?p)) )
-            (equal (?p prefabImage) img-circle)
-            (equal (?p color) #FAA2B5)
+            (equal (?p prefabImage) img-road)
+            (equal (?p color) #00FF00)
             )
         )
         
-        ; (:predicate is-goal-dangerous
-        ; :parameters (?p)
-        ; :priority 5
-        ; :effect(
+        (:predicate is-goal-dangerous
+        :parameters (?p)
+        :priority 5
+        :effect(
 
-        ;     (assign (?p x y) (function distribute_grid_around_point (objects ?p)) )
-        ;     (equal (?p prefabImage) img-circle)
-        ;     (equal (?p color) red)
-        ;     )
-        ; )
+            (assign (?p x y) (function distribute_grid_around_point (objects ?p)) )
+            (equal (?p prefabImage) img-road)
+            (equal (?p color) red)
+            )
+        )
         
         
         
