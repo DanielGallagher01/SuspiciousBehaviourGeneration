@@ -16,7 +16,7 @@ import fr.uga.pddl4j.planners.ProblemNotSupportedException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
-
+import java.util.Stack;
 
 public class StatisticsGenerator {
 
@@ -42,7 +42,8 @@ public class StatisticsGenerator {
       throw new NoValidActionException("No Solution");
     }
 
-    return plan.actions().size();
+    logger.logSimple("Distance to goal " + problemID + ": " + plan.cost());
+    return (int)plan.cost();
   }
 
   public int getMinimumPossibleDistance(int problemID) {
@@ -73,6 +74,7 @@ public class StatisticsGenerator {
   public int getMinimumDistanceNPathsRational(int problemID, int n) {
     DefaultProblem problem = problems.get(problemID);
 
+
     int out = (int)getMinimumDistanceNPathsRationaRecursive(
         new ArrayList<State>(),
         100,
@@ -82,6 +84,92 @@ public class StatisticsGenerator {
         );
     logger.logSimple("Minimum distance to goal " + problemID + " while there are multiple rational paths: " + out);
     return out;
+  }
+
+  public int getMinimumDistrancMultipleDirectedPaths(int problemID) {
+    DefaultProblem problem = problems.get(problemID);
+
+    Stack<State> directed = new Stack();
+    State init = new State(problem.getInitialState());
+    directed.push(init);
+
+    Pair<Integer, Boolean> out = getMinimumDistrancMultipleDirectedPathsRecursive(
+      directed,
+      init,
+      problem,
+      Integer.MAX_VALUE
+      );
+
+    if (!out.getValueOf1()) {
+      logger.logSimple("Minimum distance to goal " + problemID + " while there are multiple directed paths: " + Integer.MAX_VALUE);
+      return Integer.MAX_VALUE;
+    } 
+
+    logger.logSimple("Minimum distance to goal " + problemID + " while there are multiple directed paths: " + out);
+    return out.getValueOf0();
+  }
+
+  private Pair<Integer, Boolean> getMinimumDistrancMultipleDirectedPathsRecursive(Stack<State> directed, State curState, Problem problem, int prevCost) {
+    logger.logDetailed("\n\n\n" + problem.toString(curState));
+
+    Plan plan;
+    try {
+      plan = GeneratePlan(curState, problem);
+    } catch (Throwable e) {
+      logger.logDetailed("Goal impossible");
+      return new Pair(Integer.MAX_VALUE, false);
+    } 
+
+    if (plan == null) {
+      logger.logDetailed("Goal impossible");
+      return new Pair(Integer.MAX_VALUE, false);
+    } else if (plan.cost() == 0) {
+      logger.logDetailed("Action Achieves goal");
+      return new Pair(1, false);
+    } else if (plan.cost() > prevCost) {
+      logger.logDetailed("Action irrational");
+      return new Pair(Integer.MAX_VALUE, false);
+    }
+
+    logger.logDetailed("Cost to goal: " + plan.cost());
+
+    Boolean foundOne = false;
+    for (Action a : problem.getActions()) {
+      if (a.isApplicable(curState)) {
+        logger.logDetailed("\n\n\n" + "ACTION:\n" +  problem.toString(a));
+
+        State newState = (State)curState.clone();
+        newState.apply(a.getConditionalEffects());
+
+        if (directed.contains(newState)) {
+          continue;
+        }
+
+        directed.push(newState);
+        Pair<Integer, Boolean> tempPair = getMinimumDistrancMultipleDirectedPathsRecursive(directed, newState, problem, (int)plan.cost());
+        directed.pop();
+        logger.logDetailed("Stack Size: " + directed.size());
+
+        int temp = tempPair.getValueOf0();
+
+        logger.logDetailed("Return value of action: " + temp + ", " + tempPair.getValueOf1());
+
+        if (tempPair.getValueOf1()) {
+          logger.logDetailed("Chosen action has two directed path to the goal!");
+          return new Pair(temp, true);
+        } else if (temp < Integer.MAX_VALUE && foundOne) {
+          logger.logDetailed("Chosen action is a second (or more) path to the goal");
+          logger.logDetailed("\n\n\n" + problem.toString(curState));
+          return new Pair((int)plan.cost(), true);
+        } else if (temp < Integer.MAX_VALUE) {
+          foundOne = true;
+        }
+     }
+    }
+
+    logger.logDetailed("Two paths not found");
+    return new Pair((int)plan.cost(), false);
+
   }
 
 
@@ -140,7 +228,11 @@ public class StatisticsGenerator {
   private double getMinimumPossibleDistanceRecursive(List<State> observedStates, double curMin, Problem problem, State curState) {
     observedStates.add(curState);
     logger.logDetailed("\n\n\n" + problem.toString(curState));
-    
+
+    if (curMin == 0) {
+      return 0;
+    }
+ 
     //Check if all goals are possible
     double tempMin = 0;
     for (DefaultProblem p : problems) {
@@ -161,8 +253,11 @@ public class StatisticsGenerator {
       }
     }
 
+    logger.logDetailed("Distance: " + curMin);
 
-    if (curMin > tempMin) {
+    if (tempMin == 0) {
+      return 0;
+    } else if (tempMin < curMin) {
       curMin = tempMin;
       logger.logDetailed("New closest distance: " + curMin);
     }
@@ -174,7 +269,10 @@ public class StatisticsGenerator {
 
         if (!observedStates.contains(newState)) {
           tempMin = getMinimumPossibleDistanceRecursive(observedStates, curMin, problem, newState);
-          if (tempMin < curMin) {
+
+          if (tempMin == 0) {
+            return 0;
+          } else if (tempMin < curMin) {
             curMin = tempMin;
           }
         }

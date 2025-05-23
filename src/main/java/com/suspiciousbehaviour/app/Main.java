@@ -36,12 +36,14 @@ public class Main {
       StatisticsGenerator sg = new StatisticsGenerator(problems, logger);
       System.out.println(sg.getShortestPath(0));
       System.out.println(sg.getShortestPath(1));
-      System.out.println(sg.getMinimumPossibleDistance(0));
-      System.out.println(sg.getMinimumPossibleDistance(1));
-      System.out.println(sg.getNumberOfOptimalPaths(0));
-      System.out.println(sg.getNumberOfOptimalPaths(1));
-      System.out.println(sg.getMinimumDistanceNPathsRational(0,2));
-      System.out.println(sg.getMinimumDistanceNPathsRational(1,2));
+      //System.out.println(sg.getMinimumPossibleDistance(0));
+      //System.out.println(sg.getMinimumPossibleDistance(1));
+      //System.out.println(sg.getNumberOfOptimalPaths(0));
+      //System.out.println(sg.getNumberOfOptimalPaths(1));
+      //System.out.println(sg.getMinimumDistanceNPathsRational(0,2));
+      //System.out.println(sg.getMinimumDistanceNPathsRational(1,2));
+      System.out.println(sg.getMinimumDistrancMultipleDirectedPaths(0));
+      System.out.println(sg.getMinimumDistrancMultipleDirectedPaths(1));
     } catch (Throwable e) {
 
     }
