@@ -64,55 +64,10 @@
 ;               )
 ;   )
   
-  ; Visual Object for the Block (default object)
-  (:visual block_A
-              :type predefine
-              :objects (A1 A2 A3 )
-              :properties(
-                (prefabImage img-block)
-                (showLabel TRUE)
-                (label A)
-                (x Null)
-                (y Null)
-                (color #93db6f)
-                (width 80)
-                (height 80)
-              )
-  )
-  
-    (:visual block_T
-              :type predefine
-              :objects (T1 T2 )
-              :properties(
-                (prefabImage img-block)
-                (showLabel TRUE)
-                (label T)
-                (x Null)
-                (y Null)
-                (color #89e8da)
-                (width 80)
-                (height 80)
-              )
-  )
-  
-    (:visual block_S
-              :type predefine
-              :objects (S1 S2)
-              :properties(
-                (prefabImage img-block)
-                (showLabel TRUE)
-                (label S)
-                (x Null)
-                (y Null)
-                (color #dff06a)
-                (width 80)
-                (height 80)
-              )
-  )
   
     (:visual block_other
               :type predefine
-              :objects (E P H Y R O)
+              :objects (E A S T P H Y R O D G C L Z I)
               :properties(
                 (prefabImage img-block)
                 (showName TRUE)
