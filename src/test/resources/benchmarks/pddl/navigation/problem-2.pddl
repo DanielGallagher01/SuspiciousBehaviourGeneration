@@ -21,7 +21,6 @@
     (is-goal node10-10)
     (is-goal node10-0)
     (is-goal node2-8)
-    (is-goal node2-8)
     (is-goal node6-0)
     (is-goal-dangerous node10-6)
 
