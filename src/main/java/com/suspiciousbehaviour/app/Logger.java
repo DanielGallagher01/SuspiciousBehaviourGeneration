@@ -18,12 +18,23 @@ import fr.uga.pddl4j.plan.Plan;
 import fr.uga.pddl4j.problem.State;
 import fr.uga.pddl4j.problem.InitialState;
 import java.time.format.DateTimeFormatter;
+import java.io.File;
+import java.nio.file.Path;
 
 public class Logger {
     private PrintWriter simpleLogWriter;
     private PrintWriter detailedLogWriter;
     private PrintWriter planLogWriter;
     private boolean initialized = false;
+
+
+    public boolean initialize(File outputFolder, String simpleLogPath, String detailedLogPath, String planPath) {
+        Path simpleLog    = outputFolder.toPath().resolve(simpleLogPath);
+        Path detailedLog  = outputFolder.toPath().resolve(detailedLogPath);
+        Path planLog      = outputFolder.toPath().resolve(planPath);
+  
+        return initialize(simpleLog.toString(), detailedLog.toString(), planLog.toString());
+    }
 
     public boolean initialize(String simpleLogPath, String detailedLogPath, String planPath) {
         try {

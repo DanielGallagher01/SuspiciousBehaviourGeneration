@@ -10,7 +10,6 @@
 	       (clear ?x - block)
 	       (handempty)
 	       (holding ?x - block)
-	       (name ?x - block ?y - name)
 	       )
 
   (:action pick-up

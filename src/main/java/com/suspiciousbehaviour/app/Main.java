@@ -17,99 +17,168 @@ import java.util.ArrayList;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import picocli.CommandLine;
+import picocli.CommandLine.Option;
+import picocli.CommandLine.Parameters;
+import java.io.File;
+import java.util.List;
+import java.nio.file.Path;
+
+public class Main implements Runnable {
+
+  @Option(names = {"-a", "--analyze"}, description = "Only run analysis")
+  boolean analyze;
+
+  @Option(names = {"-o", "--output"}, description = "Output folder", required = true)
+  File outputFolder;
+
+  @Option(names = {"-d", "--domain"}, description = "Domain File", required = true)
+  File domainFile;
+
+  @Option(names = {"--purposefulE"}, defaultValue = "0.35",
+  description = "Epsilon threashold for Purposeful Suspicious Behaviour")
+  double purposefulE;
 
 
-public class Main {
+  @Option(names = {"--purposelessE"}, defaultValue = "6",
+  description = "Epsilon threashold for Purposeless Suspicious Behaviour")
+  int purposelessE;
 
-  public static void main(final String[] args) {
-    // Create Logger instance
-    if (args.length < 2) {
-        System.out.println("Invalid command line");
-        return;
-    }
-	
-	  ArrayList<DefaultProblem> problems = ParseProblems(args);
+  @Option(names = {"-n", "--numsteps"}, defaultValue = "30",
+  description = "Maximum number of steps of simulation")
+  int numsteps;
+
+
+
+  @Parameters(arity = "1..*", paramLabel = "INPUT", description = "Input file(s)")
+  List<File> inputFiles;
+
+
+  public static void main(String[] args) {
+      CommandLine.run(new Main(), args);
+  }
+
+  @Override
+  public void run() {
+      System.out.println("Analyze? " + analyze);
+      System.out.println("Output folder: " + outputFolder.getAbsolutePath());
+      System.out.println("Input files:");
+      for (File file : inputFiles) {
+          System.out.println(" - " + file.getAbsolutePath());
+      }
+
+
+      if (analyze) {
+        runAnalysis();
+      } else {
+        generateAllBehaviour();
+      }
+  }
+
+  private void runAnalysis() {
+    ArrayList<DefaultProblem> problems = ParseProblems();
 
     Logger logger = new Logger();
-	  logger.initialize("outputs/stats-simple.log", "outputs/stats-detailed.log", "outputs/stats-plan.plan");
+    Path simpleLog    = outputFolder.toPath().resolve("stats-simple.log");
+    Path detailedLog  = outputFolder.toPath().resolve("stats-detailed.log");
+    Path planLog      = outputFolder.toPath().resolve("stats-plan.plan");
+
+    logger.initialize(
+        simpleLog.toString(),
+        detailedLog.toString(),
+        planLog.toString()
+    );
+
+	  logger.initialize(outputFolder.getPath() + "/stats-simple.log", outputFolder.getPath() + "/stats-detailed.log", outputFolder.getPath() + "/stats-plan.plan");
     try {
       StatisticsGenerator sg = new StatisticsGenerator(problems, logger);
-      System.out.println(sg.getShortestPath(0));
-      System.out.println(sg.getShortestPath(1));
-      //System.out.println(sg.getMinimumPossibleDistance(0));
-      //System.out.println(sg.getMinimumPossibleDistance(1));
-      //System.out.println(sg.getNumberOfOptimalPaths(0));
-      //System.out.println(sg.getNumberOfOptimalPaths(1));
-      //System.out.println(sg.getMinimumDistanceNPathsRational(0,2));
-      //System.out.println(sg.getMinimumDistanceNPathsRational(1,2));
-      System.out.println(sg.getMinimumDistrancMultipleDirectedPaths(0));
-      System.out.println(sg.getMinimumDistrancMultipleDirectedPaths(1));
+
+      for (int i = 0; i < problems.size(); i++) {
+        //System.out.println(sg.getShortestPath(i));
+      }
+
+
+      for (int i = 0; i < problems.size(); i++) {
+        //System.out.println(sg.getMinimumPossibleDistance(i));
+      }
+
+
+      for (int i = 4; i < problems.size(); i++) {
+        System.out.println(sg.getNumberOfOptimalPaths(i));
+      }
+
+
+      for (int i = 0; i < problems.size(); i++) {
+        System.out.println(sg.getMinimumDistanceNPathsRational(i,2));
+      }
+
+
+      for (int i = 0; i < problems.size(); i++) {
+        //System.out.println(sg.getMinimumDistrancMultipleDirectedPaths(0));
+      }
     } catch (Throwable e) {
 
     }
-    return;
   }
 
-
-  private static void generateAllBehaviour(final String[] args) {
+  private void generateAllBehaviour() {
 
     Logger logger = new Logger();
 
-	  ArrayList<DefaultProblem> problems = ParseProblems(args);
-	  logger.initialize("outputs/directed-simple.log", "outputs/directed-detailed.log", "outputs/directed-plan.plan");
+    // DIRECTED BEHAVIOUR
+	  ArrayList<DefaultProblem> problems;
+	  problems = ParseProblems();
+    logger.initialize(outputFolder, 
+        "directed-simple.log", 
+        "directed-detailed.log", 
+        "directed-plan.plan");
 	  generateBehaviour(problems, 
-			new DirectedBehaviourGenerator(problems), 
-			logger);
+		 new DirectedBehaviourGenerator(problems), 
+		 logger);
 
-	  problems = ParseProblems(args);
+    // PURPOSEFUL BEHAVIUOUR 
+	  problems = ParseProblems();
 	  BehaviourRecogniser br = new SelfModulatingRecogniser(problems);
 	  logger = new Logger();
-	  logger.initialize("outputs/purposefulSuspicious-simple.log", "outputs/purposefulSuspicious-detailed.log", "outputs/purposefulSuspicious-plan.plan");
+	  logger.initialize(outputFolder, "purposefulSuspicious-simple.log", "purposefulSuspicious-detailed.log", "purposefulSuspicious-plan.plan");
 	  generateBehaviour(problems, 
-			new PurposefulSuspiciousBehaviourGenerator(problems, 0.35, 30, br), 
-			logger);
-	
-	  problems = ParseProblems(args);
-	  logger = new Logger();
-	  logger.initialize("outputs/purposelessSuspicious-goal1-simple.log", "outputs/purposelessSuspicious-goal1-detailed.log", "outputs/purposelessSuspicious-goal1-plan.plan");
-	  generateBehaviour(problems, 
-			new PurposelessSuspiciousBehaviourGenerator(problems, 8, 30, 0), 
+			new PurposefulSuspiciousBehaviourGenerator(problems, purposefulE, numsteps, br), 
 			logger);
 
-	  problems = ParseProblems(args);
-	  logger = new Logger();
-	  logger.initialize("outputs/purposelessSuspicious-goal2-simple.log", "outputs/purposelessSuspicious-goal2-detailed.log", "outputs/purposelessSuspicious-goal2-plan.plan");
-	  generateBehaviour(problems, 
-			new PurposelessSuspiciousBehaviourGenerator(problems, 8, 30, 1), 
-			logger);
 
-	  problems = ParseProblems(args);
-	  logger = new Logger();
-	  logger.initialize("outputs/semidirected-goal1-simple.log", "outputs/semidirected-goal1-detailed.log", "outputs/semidirected-goal1-plan.plan");
-	  generateBehaviour(problems, 
-			new SemidirectedBehaviourGenerator(problems, 2, 0), 
-			logger);	
+	  // PURPOSELESS BEHAVIOUR
+    for (int i = 0; i < problems.size(); i++) {
+	    problems = ParseProblems();
+	    logger = new Logger();
+	    logger.initialize(outputFolder, 
+          String.format("purposelessSuspicious-goal%d-simple.log", i), 
+          String.format("purposelessSuspicious-goal%d-detailed.log", i), 
+          String.format("purposelessSuspicious-goal%d-plan.plan", i)
+        );
+	    generateBehaviour(problems, 
+		  	new PurposelessSuspiciousBehaviourGenerator(problems, purposelessE, numsteps, i), 
+		  	logger);
+    }
 
-
-	  problems = ParseProblems(args);
-	  logger = new Logger();
-	  logger.initialize("outputs/semidirected-goal2-simple.log", "outputs/semidirected-goal2-detailed.log", "outputs/semidirected-goal2-plan.plan");
-	  generateBehaviour(problems, 
-			new SemidirectedBehaviourGenerator(problems, 2, 1), 
-			logger);
-
-    problems = ParseProblems(args);
-	  logger = new Logger();
-	  logger.initialize("outputs/unexpectedlySuspicious-goal1-simple.log", "outputs/unexpectedlySuspicious-goal1-detailed.log", "outputs/unexpectedlySuspicious-goal1-plan.plan");
-	  generateBehaviour(problems, 
-			new UnexpectedlySuspiciousBehaviourGenerator(problems, 10, 0, 1, new SemidirectedBehaviourGenerator(problems, 1, 1)), 
-			logger);
+    // UNEXPECTEDLY SUSPICUOUS
+    for (int i = 0; i < problems.size() - 1; i++) {
+      problems = ParseProblems();
+	    logger = new Logger();
+	    logger.initialize(outputFolder,
+          String.format("unexpectedlySuspicious-goal%d-simple.log", i), 
+          String.format("unexpectedlySuspicious-goal%d-detailed.log", i), 
+          String.format("unexpectedlySuspicious-goal%d-plan.plan", i)
+      );
+	    generateBehaviour(problems, 
+			  new UnexpectedlySuspiciousBehaviourGenerator(problems, 10, i, problems.size() - 1, new SemidirectedBehaviourGenerator(problems, 1, 1)), 
+			  logger);
+    }
 
 	  logger.close();
 
     }
 
-  private static void generateBehaviour(ArrayList<DefaultProblem> problems, BehaviourGenerator bg, Logger logger) {
+  private void generateBehaviour(ArrayList<DefaultProblem> problems, BehaviourGenerator bg, Logger logger) {
 	State state = new State(problems.get(0).getInitialState());
 
 	logger.logSimple("## Behaviour Generator: " + bg.toString() + "\n\n\n");
@@ -139,21 +208,21 @@ public class Main {
 	logger.logSimple("Final state:\n" + problems.get(0).toString(state));
   }
 
-  private static ArrayList<DefaultProblem> ParseProblems(final String[] args) {
+  private ArrayList<DefaultProblem> ParseProblems() {
 	  try {
 	    final Parser parser = new Parser();
 
-	    final ParsedDomain parsedDomain = parser.parseDomain(args[0]);
+	    final ParsedDomain parsedDomain = parser.parseDomain(domainFile);
 
       System.out.println("Domain Parsed");
 	    ArrayList<DefaultProblem> problems = new ArrayList<DefaultProblem>();
   
-	    for (int i = 1; i < args.length; i++) {
-		    ParsedProblem parsedProblem = parser.parseProblem(args[i]);
-      final ErrorManager errorManager = parser.getErrorManager();
-      if (!errorManager.isEmpty()) {
-        for (Message m : errorManager.getMessages()) {
-           System.out.println(m.toString());
+	    for (File f : inputFiles) {
+		    ParsedProblem parsedProblem = parser.parseProblem(f);
+        final ErrorManager errorManager = parser.getErrorManager();
+        if (!errorManager.isEmpty()) {
+          for (Message m : errorManager.getMessages()) {
+            System.out.println(m.toString());
         }
       }
 

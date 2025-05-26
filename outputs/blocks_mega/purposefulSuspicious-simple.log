@@ -1,0 +1,116 @@
+=== Log started at 2025-05-26 20:51:27 ===
+## Behaviour Generator: PurposefulSuspiciousBehaviourGenerator{type=Purposeful, epsilon=0.35, stepsBeforeOptimal=30}
+
+
+
+## Initial state:
+(and (ontable a)
+ (handempty)
+ (ontable p)
+ (ontable s)
+ (clear t)
+ (clear h)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear r)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on o a)
+ (on l y)
+ (on z c)
+ (on r g)
+ (on i e)
+)
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : i 
+?X1 - block : e 
+Preconditions:
+(and (handempty)
+  (clear i)
+  (on i e))
+Effects:
+(and (clear e)
+  (holding i)
+  (not (handempty)
+  (not (clear i)
+  (not (on i e))
+
+## New State:
+(and (ontable a)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (clear t)
+ (clear h)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear r)
+ (holding i)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on o a)
+ (on l y)
+ (on z c)
+ (on r g)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : i 
+?X1 - block : z 
+Preconditions:
+(and (clear z)
+  (holding i))
+Effects:
+(and (handempty)
+  (clear i)
+  (on i z)
+  (not (clear z)
+  (not (holding i))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (clear t)
+ (clear h)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear r)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on o a)
+ (on l y)
+ (on z c)
+ (on r g)
+ (on i z)
+)
+
+
+
