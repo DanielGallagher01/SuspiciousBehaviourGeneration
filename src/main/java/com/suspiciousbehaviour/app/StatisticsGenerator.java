@@ -4,7 +4,7 @@ import fr.uga.pddl4j.parser.DefaultParsedProblem;
 import fr.uga.pddl4j.parser.ErrorManager;
 import fr.uga.pddl4j.parser.Message;
 import fr.uga.pddl4j.parser.Parser;
-import fr.uga.pddl4j.planners.statespace.HSP;
+import fr.uga.pddl4j.planners.statespace.GSP;
 import fr.uga.pddl4j.problem.Problem;
 import fr.uga.pddl4j.problem.DefaultProblem;
 import fr.uga.pddl4j.problem.operator.Action;
@@ -13,20 +13,24 @@ import fr.uga.pddl4j.problem.State;
 import fr.uga.pddl4j.problem.InitialState;
 import fr.uga.pddl4j.problem.operator.Condition;
 import fr.uga.pddl4j.planners.ProblemNotSupportedException;
+import fr.uga.pddl4j.heuristics.state.StateHeuristic;
+import fr.uga.pddl4j.planners.SearchStrategy;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Stack;
+import java.util.Arrays;
 
 public class StatisticsGenerator {
 
   private List<DefaultProblem> problems;
-  private HSP planner;
+  private GSP planner;
   private Logger logger;
 
 	public StatisticsGenerator(List<DefaultProblem> problems, Logger logger) {
     this.problems = problems;
-    this.planner = new HSP();
+    this.planner = new GSP();
+    this.planner.setSearchStrategies(new ArrayList<SearchStrategy.Name>(Arrays.asList(SearchStrategy.Name.BREADTH_FIRST)));
     this.logger = logger;
   }
 
@@ -46,7 +50,7 @@ public class StatisticsGenerator {
     return (int)plan.cost();
   }
 
-  public int getMinimumPossibleDistance(int problemID) {
+  public int getMinimumPossibleDistance(int problemID, Boolean onlyRational) {
     //Closest we can get to goal problemID such that all other goals are possible
     DefaultProblem problem = problems.get(problemID);
 
@@ -54,7 +58,9 @@ public class StatisticsGenerator {
       new ArrayList<State>(), 
       100, 
       problem, 
-      new State(problem.getInitialState()));
+      new State(problem.getInitialState()),
+      onlyRational,
+      100);
 
     logger.logSimple("Minimum distance to goal " + problemID + " while all other goals are possible: " + out);
     return out;
@@ -71,7 +77,7 @@ public class StatisticsGenerator {
     return out;
   }
 
-  public int getMinimumDistanceNPathsRational(int problemID, int n) {
+  public int getMinimumDistanceNPathsRational(int problemID, int n, Boolean onlyRational) {
     DefaultProblem problem = problems.get(problemID);
 
 
@@ -80,7 +86,9 @@ public class StatisticsGenerator {
         100,
         problem,
         new State(problem.getInitialState()),
-        n
+        n,
+        onlyRational,
+        100
         );
     logger.logSimple("Minimum distance to goal " + problemID + " while there are multiple rational paths: " + out);
     return out;
@@ -173,7 +181,13 @@ public class StatisticsGenerator {
   }
 
 
-  private double getMinimumDistanceNPathsRationaRecursive(List<State> observedStates, double curMin, Problem problem, State curState, int n) {
+  private double getMinimumDistanceNPathsRationaRecursive(List<State> observedStates, 
+                                                          double curMin, 
+                                                          Problem problem, 
+                                                          State curState, 
+                                                          int n,
+                                                          Boolean onlyRational,
+                                                          int prevCost) {
     observedStates.add(curState);
     logger.logDetailed("\n\n\n" + problem.toString(curState));
     
@@ -188,6 +202,11 @@ public class StatisticsGenerator {
 
     if (plan == null) {
       logger.logDetailed("Goal impossible");
+      return Integer.MAX_VALUE;
+    }
+
+    if (onlyRational && (int)plan.cost() > prevCost) {
+      logger.logDetailed("Action is irrational. Skipping");
       return Integer.MAX_VALUE;
     }
 
@@ -209,7 +228,14 @@ public class StatisticsGenerator {
         newState.apply(a.getConditionalEffects());
 
         if (!observedStates.contains(newState)) {
-          double tempMin = getMinimumDistanceNPathsRationaRecursive(observedStates, curMin, problem, newState, n);
+          double tempMin = getMinimumDistanceNPathsRationaRecursive(
+                              observedStates, 
+                              curMin, 
+                              problem, 
+                              newState, 
+                              n,
+                              onlyRational,
+                              (int)plan.cost());
           if (tempMin < curMin) {
             curMin = tempMin;
           }
@@ -225,7 +251,12 @@ public class StatisticsGenerator {
 
 
 
-  private double getMinimumPossibleDistanceRecursive(List<State> observedStates, double curMin, Problem problem, State curState) {
+  private double getMinimumPossibleDistanceRecursive(List<State> observedStates,
+                                                      double curMin, 
+                                                      Problem problem, 
+                                                      State curState,
+                                                      Boolean onlyRational,
+                                                      int prevCost) { 
     observedStates.add(curState);
     logger.logDetailed("\n\n\n" + problem.toString(curState));
 
@@ -253,6 +284,10 @@ public class StatisticsGenerator {
       }
     }
 
+    if (onlyRational && (int)tempMin > prevCost) {
+      logger.logDetailed("Action is irrational. Skipping");
+    }
+
     logger.logDetailed("Distance: " + curMin);
 
     if (tempMin == 0) {
@@ -268,7 +303,12 @@ public class StatisticsGenerator {
         newState.apply(a.getConditionalEffects());
 
         if (!observedStates.contains(newState)) {
-          tempMin = getMinimumPossibleDistanceRecursive(observedStates, curMin, problem, newState);
+          tempMin = getMinimumPossibleDistanceRecursive(observedStates, 
+                                        curMin, 
+                                        problem, 
+                                        newState,
+                                        onlyRational,
+                                        (int)tempMin);
 
           if (tempMin == 0) {
             return 0;
@@ -293,7 +333,7 @@ public class StatisticsGenerator {
     try {
       plan = GeneratePlan(curState, problem);
     } catch (Throwable e) {
-      logger.logDetailed("Goal impossible");
+      logger.logDetailed("Planning error: " +  e.getMessage());
       return 0;
     }
 
@@ -315,9 +355,11 @@ public class StatisticsGenerator {
       return 1;
     }
 
-
+    int i = 0;
     for (Action a : problem.getActions()) {
       if (a.isApplicable(curState)) {
+        logger.logDetailed("Action num: " + i);
+        i++;
         State newState = (State)curState.clone();
         newState.apply(a.getConditionalEffects());
         count += getNumberOfOptimalPathsRecursive(problem, newState, (int)plan.cost());

@@ -1,0 +1,7 @@
+=== Log started at 2025-05-26 21:51:00 ===
+Number of rational paths to goal 4: 1
+Minimum distance to goal 0 while there are multiple rational paths: 26
+Minimum distance to goal 1 while there are multiple rational paths: 2147483647
+Minimum distance to goal 2 while there are multiple rational paths: 2147483647
+Minimum distance to goal 3 while there are multiple rational paths: 2147483647
+Minimum distance to goal 4 while there are multiple rational paths: 2147483647

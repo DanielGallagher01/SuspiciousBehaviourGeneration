@@ -96,17 +96,17 @@ public class Main implements Runnable {
 
 
       for (int i = 0; i < problems.size(); i++) {
-        //System.out.println(sg.getMinimumPossibleDistance(i));
+        //System.out.println(sg.getMinimumPossibleDistance(i, true));
       }
 
 
-      for (int i = 0; i < problems.size(); i++) {
-        //System.out.println(sg.getNumberOfOptimalPaths(i));
-      }
+      //for (int i = 0; i < problems.size(); i++) {
+       System.out.println(sg.getNumberOfOptimalPaths(0));
+      //}
 
 
       for (int i = 0; i < problems.size(); i++) {
-        System.out.println(sg.getMinimumDistanceNPathsRational(i,2));
+        //System.out.println(sg.getMinimumDistanceNPathsRational(i,2, true));
       }
 
 

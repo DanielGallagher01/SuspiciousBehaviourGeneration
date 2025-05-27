@@ -1,4 +1,2938 @@
-=== Log started at 2025-05-26 20:51:22 ===
+=== Log started at 2025-05-27 17:20:52 ===
+## Behaviour Generator: DirectedBehaviourGenerator{type=Directed}
+
+
+
+## Initial state:
+(and (ontable a)
+ (handempty)
+ (ontable p)
+ (ontable s)
+ (clear t)
+ (clear h)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear r)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on o a)
+ (on l y)
+ (on z c)
+ (on r g)
+ (on i e)
+)
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : l 
+?X1 - block : y 
+Preconditions:
+(and (handempty)
+  (clear l)
+  (on l y))
+Effects:
+(and (clear y)
+  (holding l)
+  (not (handempty)
+  (not (clear l)
+  (not (on l y))
+
+## New State:
+(and (ontable a)
+ (ontable p)
+ (ontable s)
+ (clear t)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (holding l)
+ (clear z)
+ (clear r)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on o a)
+ (on z c)
+ (on r g)
+ (on i e)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : l 
+?X1 - block : t 
+Preconditions:
+(and (clear t)
+  (holding l))
+Effects:
+(and (handempty)
+  (clear l)
+  (on l t)
+  (not (clear t)
+  (not (holding l))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear r)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on o a)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i e)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : i 
+?X1 - block : e 
+Preconditions:
+(and (handempty)
+  (clear i)
+  (on i e))
+Effects:
+(and (clear e)
+  (holding i)
+  (not (handempty)
+  (not (clear i)
+  (not (on i e))
+
+## New State:
+(and (ontable a)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear r)
+ (holding i)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on o a)
+ (on l t)
+ (on z c)
+ (on r g)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : i 
+?X1 - block : r 
+Preconditions:
+(and (clear r)
+  (holding i))
+Effects:
+(and (handempty)
+  (clear i)
+  (on i r)
+  (not (clear r)
+  (not (holding i))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on o a)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i r)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : o 
+?X1 - block : a 
+Preconditions:
+(and (handempty)
+  (clear o)
+  (on o a))
+Effects:
+(and (clear a)
+  (holding o)
+  (not (handempty)
+  (not (clear o)
+  (not (on o a))
+
+## New State:
+(and (clear a)
+ (ontable a)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (holding o)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i r)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : o 
+?X1 - block : z 
+Preconditions:
+(and (holding o)
+  (clear z))
+Effects:
+(and (handempty)
+  (clear o)
+  (on o z)
+  (not (holding o)
+  (not (clear z))
+
+## New State:
+(and (clear a)
+ (ontable a)
+ (handempty)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on o z)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i r)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : i 
+?X1 - block : r 
+Preconditions:
+(and (handempty)
+  (clear i)
+  (on i r))
+Effects:
+(and (clear r)
+  (holding i)
+  (not (handempty)
+  (not (clear i)
+  (not (on i r))
+
+## New State:
+(and (clear a)
+ (ontable a)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear r)
+ (holding i)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on o z)
+ (on l t)
+ (on z c)
+ (on r g)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : i 
+?X1 - block : e 
+Preconditions:
+(and (clear e)
+  (holding i))
+Effects:
+(and (handempty)
+  (clear i)
+  (on i e)
+  (not (clear e)
+  (not (holding i))
+
+## New State:
+(and (clear a)
+ (ontable a)
+ (handempty)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear r)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on o z)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i e)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : h 
+?X1 - block : d 
+Preconditions:
+(and (handempty)
+  (clear h)
+  (on h d))
+Effects:
+(and (holding h)
+  (clear d)
+  (not (handempty)
+  (not (clear h)
+  (not (on h d))
+
+## New State:
+(and (clear a)
+ (ontable a)
+ (ontable p)
+ (ontable s)
+ (holding h)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear r)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on o z)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i e)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : h 
+?X1 - block : r 
+Preconditions:
+(and (holding h)
+  (clear r))
+Effects:
+(and (handempty)
+  (clear h)
+  (on h r)
+  (not (holding h)
+  (not (clear r))
+
+## New State:
+(and (clear a)
+ (ontable a)
+ (handempty)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on h r)
+ (on o z)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i e)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : i 
+?X1 - block : e 
+Preconditions:
+(and (handempty)
+  (clear i)
+  (on i e))
+Effects:
+(and (clear e)
+  (holding i)
+  (not (handempty)
+  (not (clear i)
+  (not (on i e))
+
+## New State:
+(and (clear a)
+ (ontable a)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (holding i)
+ (on e p)
+ (on t s)
+ (on h r)
+ (on o z)
+ (on l t)
+ (on z c)
+ (on r g)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : i 
+?X1 - block : a 
+Preconditions:
+(and (clear a)
+  (holding i))
+Effects:
+(and (handempty)
+  (clear i)
+  (on i a)
+  (not (clear a)
+  (not (holding i))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on h r)
+ (on o z)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : o 
+?X1 - block : z 
+Preconditions:
+(and (handempty)
+  (clear o)
+  (on o z))
+Effects:
+(and (holding o)
+  (clear z)
+  (not (handempty)
+  (not (clear o)
+  (not (on o z))
+
+## New State:
+(and (ontable a)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (holding o)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on h r)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : o 
+?X1 - block : h 
+Preconditions:
+(and (clear h)
+  (holding o))
+Effects:
+(and (handempty)
+  (clear o)
+  (on o h)
+  (not (clear h)
+  (not (holding o))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear i)
+ (on e p)
+ (on t s)
+ (on h r)
+ (on o h)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : e 
+?X1 - block : p 
+Preconditions:
+(and (handempty)
+  (clear e)
+  (on e p))
+Effects:
+(and (holding e)
+  (clear p)
+  (not (handempty)
+  (not (clear e)
+  (not (on e p))
+
+## New State:
+(and (ontable a)
+ (holding e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear i)
+ (on t s)
+ (on h r)
+ (on o h)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : e 
+?X1 - block : i 
+Preconditions:
+(and (holding e)
+  (clear i))
+Effects:
+(and (handempty)
+  (clear e)
+  (on e i)
+  (not (holding e)
+  (not (clear i))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (on e i)
+ (on t s)
+ (on h r)
+ (on o h)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : o 
+?X1 - block : h 
+Preconditions:
+(and (handempty)
+  (clear o)
+  (on o h))
+Effects:
+(and (clear h)
+  (holding o)
+  (not (handempty)
+  (not (clear o)
+  (not (on o h))
+
+## New State:
+(and (ontable a)
+ (clear e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (holding o)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (on e i)
+ (on t s)
+ (on h r)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : o 
+?X1 - block : y 
+Preconditions:
+(and (clear y)
+  (holding o))
+Effects:
+(and (handempty)
+  (clear o)
+  (on o y)
+  (not (clear y)
+  (not (holding o))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (on e i)
+ (on t s)
+ (on h r)
+ (on o y)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : h 
+?X1 - block : r 
+Preconditions:
+(and (handempty)
+  (clear h)
+  (on h r))
+Effects:
+(and (holding h)
+  (clear r)
+  (not (handempty)
+  (not (clear h)
+  (not (on h r))
+
+## New State:
+(and (ontable a)
+ (clear e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (holding h)
+ (ontable y)
+ (clear o)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on o y)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : h 
+?X1 - block : o 
+Preconditions:
+(and (holding h)
+  (clear o))
+Effects:
+(and (handempty)
+  (clear h)
+  (on h o)
+  (not (holding h)
+  (not (clear o))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h o)
+ (on o y)
+ (on l t)
+ (on z c)
+ (on r g)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : r 
+?X1 - block : g 
+Preconditions:
+(and (handempty)
+  (clear r)
+  (on r g))
+Effects:
+(and (clear g)
+  (holding r)
+  (not (handempty)
+  (not (clear r)
+  (not (on r g))
+
+## New State:
+(and (ontable a)
+ (clear e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear g)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (holding r)
+ (on e i)
+ (on t s)
+ (on h o)
+ (on o y)
+ (on l t)
+ (on z c)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : r 
+?X1 - block : l 
+Preconditions:
+(and (clear l)
+  (holding r))
+Effects:
+(and (handempty)
+  (clear r)
+  (on r l)
+  (not (clear l)
+  (not (holding r))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear g)
+ (ontable g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h o)
+ (on o y)
+ (on l t)
+ (on z c)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : g 
+Preconditions:
+(and (handempty)
+  (clear g)
+  (ontable g))
+Effects:
+(and (holding g)
+  (not (handempty)
+  (not (clear g)
+  (not (ontable g))
+
+## New State:
+(and (ontable a)
+ (clear e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (holding g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h o)
+ (on o y)
+ (on l t)
+ (on z c)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : g 
+?X1 - block : r 
+Preconditions:
+(and (holding g)
+  (clear r))
+Effects:
+(and (handempty)
+  (clear g)
+  (on g r)
+  (not (holding g)
+  (not (clear r))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (on e i)
+ (on t s)
+ (on h o)
+ (on o y)
+ (on g r)
+ (on l t)
+ (on z c)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : h 
+?X1 - block : o 
+Preconditions:
+(and (handempty)
+  (clear h)
+  (on h o))
+Effects:
+(and (holding h)
+  (clear o)
+  (not (handempty)
+  (not (clear h)
+  (not (on h o))
+
+## New State:
+(and (ontable a)
+ (clear e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (holding h)
+ (ontable y)
+ (clear o)
+ (clear g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (on e i)
+ (on t s)
+ (on o y)
+ (on g r)
+ (on l t)
+ (on z c)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : h 
+?X1 - block : e 
+Preconditions:
+(and (clear e)
+  (holding h))
+Effects:
+(and (handempty)
+  (clear h)
+  (on h e)
+  (not (clear e)
+  (not (holding h))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear o)
+ (clear g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (on e i)
+ (on t s)
+ (on h e)
+ (on o y)
+ (on g r)
+ (on l t)
+ (on z c)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : d 
+Preconditions:
+(and (handempty)
+  (clear d)
+  (ontable d))
+Effects:
+(and (holding d)
+  (not (handempty)
+  (not (clear d)
+  (not (ontable d))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear o)
+ (clear g)
+ (holding d)
+ (ontable c)
+ (clear z)
+ (on e i)
+ (on t s)
+ (on h e)
+ (on o y)
+ (on g r)
+ (on l t)
+ (on z c)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : d 
+?X1 - block : o 
+Preconditions:
+(and (clear o)
+  (holding d))
+Effects:
+(and (handempty)
+  (clear d)
+  (on d o)
+  (not (clear o)
+  (not (holding d))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear g)
+ (clear d)
+ (ontable c)
+ (clear z)
+ (on e i)
+ (on t s)
+ (on h e)
+ (on o y)
+ (on g r)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : g 
+?X1 - block : r 
+Preconditions:
+(and (handempty)
+  (clear g)
+  (on g r))
+Effects:
+(and (holding g)
+  (clear r)
+  (not (handempty)
+  (not (clear g)
+  (not (on g r))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (holding g)
+ (clear d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h e)
+ (on o y)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : g 
+?X1 - block : h 
+Preconditions:
+(and (clear h)
+  (holding g))
+Effects:
+(and (handempty)
+  (clear g)
+  (on g h)
+  (not (clear h)
+  (not (holding g))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (ontable y)
+ (clear g)
+ (clear d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h e)
+ (on o y)
+ (on g h)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : r 
+?X1 - block : l 
+Preconditions:
+(and (handempty)
+  (clear r)
+  (on r l))
+Effects:
+(and (clear l)
+  (holding r)
+  (not (handempty)
+  (not (clear r)
+  (not (on r l))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (ontable y)
+ (clear g)
+ (clear d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (holding r)
+ (on e i)
+ (on t s)
+ (on h e)
+ (on o y)
+ (on g h)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : r 
+?X1 - block : z 
+Preconditions:
+(and (clear z)
+  (holding r))
+Effects:
+(and (handempty)
+  (clear r)
+  (on r z)
+  (not (clear z)
+  (not (holding r))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (ontable y)
+ (clear g)
+ (clear d)
+ (ontable c)
+ (clear l)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h e)
+ (on o y)
+ (on g h)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : g 
+?X1 - block : h 
+Preconditions:
+(and (handempty)
+  (clear g)
+  (on g h))
+Effects:
+(and (clear h)
+  (holding g)
+  (not (handempty)
+  (not (clear g)
+  (not (on g h))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (holding g)
+ (clear d)
+ (ontable c)
+ (clear l)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h e)
+ (on o y)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : g 
+?X1 - block : p 
+Preconditions:
+(and (clear p)
+  (holding g))
+Effects:
+(and (handempty)
+  (clear g)
+  (on g p)
+  (not (clear p)
+  (not (holding g))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear g)
+ (clear d)
+ (ontable c)
+ (clear l)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h e)
+ (on o y)
+ (on g p)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : h 
+?X1 - block : e 
+Preconditions:
+(and (handempty)
+  (clear h)
+  (on h e))
+Effects:
+(and (clear e)
+  (holding h)
+  (not (handempty)
+  (not (clear h)
+  (not (on h e))
+
+## New State:
+(and (ontable a)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (holding h)
+ (ontable y)
+ (clear g)
+ (clear d)
+ (ontable c)
+ (clear l)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on o y)
+ (on g p)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : h 
+?X1 - block : l 
+Preconditions:
+(and (holding h)
+  (clear l))
+Effects:
+(and (handempty)
+  (clear h)
+  (on h l)
+  (not (holding h)
+  (not (clear l))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear g)
+ (clear d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h l)
+ (on o y)
+ (on g p)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : g 
+?X1 - block : p 
+Preconditions:
+(and (handempty)
+  (clear g)
+  (on g p))
+Effects:
+(and (clear p)
+  (holding g)
+  (not (handempty)
+  (not (clear g)
+  (not (on g p))
+
+## New State:
+(and (ontable a)
+ (clear e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (holding g)
+ (clear d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h l)
+ (on o y)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : g 
+?X1 - block : e 
+Preconditions:
+(and (clear e)
+  (holding g))
+Effects:
+(and (handempty)
+  (clear g)
+  (on g e)
+  (not (clear e)
+  (not (holding g))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear g)
+ (clear d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h l)
+ (on o y)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : d 
+?X1 - block : o 
+Preconditions:
+(and (handempty)
+  (clear d)
+  (on d o))
+Effects:
+(and (clear o)
+  (holding d)
+  (not (handempty)
+  (not (clear d)
+  (not (on d o))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear o)
+ (clear g)
+ (holding d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h l)
+ (on o y)
+ (on g e)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : d 
+?X1 - block : p 
+Preconditions:
+(and (clear p)
+  (holding d))
+Effects:
+(and (handempty)
+  (clear d)
+  (on d p)
+  (not (clear p)
+  (not (holding d))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear o)
+ (clear g)
+ (clear d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h l)
+ (on o y)
+ (on g e)
+ (on d p)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : o 
+?X1 - block : y 
+Preconditions:
+(and (handempty)
+  (clear o)
+  (on o y))
+Effects:
+(and (clear y)
+  (holding o)
+  (not (handempty)
+  (not (clear o)
+  (not (on o y))
+
+## New State:
+(and (ontable a)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (clear y)
+ (ontable y)
+ (holding o)
+ (clear g)
+ (clear d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h l)
+ (on g e)
+ (on d p)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : o 
+?X1 - block : h 
+Preconditions:
+(and (clear h)
+  (holding o))
+Effects:
+(and (handempty)
+  (clear o)
+  (on o h)
+  (not (clear h)
+  (not (holding o))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (ontable p)
+ (ontable s)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (clear g)
+ (clear d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h l)
+ (on o h)
+ (on g e)
+ (on d p)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : d 
+?X1 - block : p 
+Preconditions:
+(and (handempty)
+  (clear d)
+  (on d p))
+Effects:
+(and (clear p)
+  (holding d)
+  (not (handempty)
+  (not (clear d)
+  (not (on d p))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (clear g)
+ (holding d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h l)
+ (on o h)
+ (on g e)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : d 
+?X1 - block : g 
+Preconditions:
+(and (clear g)
+  (holding d))
+Effects:
+(and (handempty)
+  (clear d)
+  (on d g)
+  (not (clear g)
+  (not (holding d))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (clear d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h l)
+ (on o h)
+ (on g e)
+ (on d g)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : p 
+Preconditions:
+(and (handempty)
+  (clear p)
+  (ontable p))
+Effects:
+(and (holding p)
+  (not (handempty)
+  (not (clear p)
+  (not (ontable p))
+
+## New State:
+(and (ontable a)
+ (holding p)
+ (ontable s)
+ (clear y)
+ (ontable y)
+ (clear o)
+ (clear d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on t s)
+ (on h l)
+ (on o h)
+ (on g e)
+ (on d g)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : p 
+?X1 - block : y 
+Preconditions:
+(and (holding p)
+  (clear y))
+Effects:
+(and (handempty)
+  (clear p)
+  (on p y)
+  (not (holding p)
+  (not (clear y))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (clear o)
+ (clear d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h l)
+ (on o h)
+ (on g e)
+ (on d g)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : d 
+?X1 - block : g 
+Preconditions:
+(and (handempty)
+  (clear d)
+  (on d g))
+Effects:
+(and (clear g)
+  (holding d)
+  (not (handempty)
+  (not (clear d)
+  (not (on d g))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (clear o)
+ (clear g)
+ (holding d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h l)
+ (on o h)
+ (on g e)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : d 
+Preconditions:
+(and (holding d))
+Effects:
+(and (handempty)
+  (clear d)
+  (ontable d)
+  (not (holding d))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (clear o)
+ (clear g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h l)
+ (on o h)
+ (on g e)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : o 
+?X1 - block : h 
+Preconditions:
+(and (handempty)
+  (clear o)
+  (on o h))
+Effects:
+(and (clear h)
+  (holding o)
+  (not (handempty)
+  (not (clear o)
+  (not (on o h))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (holding o)
+ (clear g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h l)
+ (on g e)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : o 
+?X1 - block : g 
+Preconditions:
+(and (holding o)
+  (clear g))
+Effects:
+(and (handempty)
+  (clear o)
+  (on o g)
+  (not (holding o)
+  (not (clear g))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear o)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h l)
+ (on o g)
+ (on g e)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : d 
+Preconditions:
+(and (handempty)
+  (clear d)
+  (ontable d))
+Effects:
+(and (holding d)
+  (not (handempty)
+  (not (clear d)
+  (not (ontable d))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear o)
+ (holding d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h l)
+ (on o g)
+ (on g e)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : d 
+?X1 - block : o 
+Preconditions:
+(and (clear o)
+  (holding d))
+Effects:
+(and (handempty)
+  (clear d)
+  (on d o)
+  (not (clear o)
+  (not (holding d))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear d)
+ (ontable c)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h l)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : h 
+?X1 - block : l 
+Preconditions:
+(and (handempty)
+  (clear h)
+  (on h l))
+Effects:
+(and (holding h)
+  (clear l)
+  (not (handempty)
+  (not (clear h)
+  (not (on h l))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable s)
+ (holding h)
+ (ontable y)
+ (clear d)
+ (ontable c)
+ (clear l)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : h 
+?X1 - block : d 
+Preconditions:
+(and (holding h)
+  (clear d))
+Effects:
+(and (handempty)
+  (clear h)
+  (on h d)
+  (not (holding h)
+  (not (clear d))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (ontable c)
+ (clear l)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h d)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r z)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : r 
+?X1 - block : z 
+Preconditions:
+(and (handempty)
+  (clear r)
+  (on r z))
+Effects:
+(and (clear z)
+  (holding r)
+  (not (handempty)
+  (not (clear r)
+  (not (on r z))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (holding r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h d)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : r 
+?X1 - block : l 
+Preconditions:
+(and (clear l)
+  (holding r))
+Effects:
+(and (handempty)
+  (clear r)
+  (on r l)
+  (not (clear l)
+  (not (holding r))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h d)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on z c)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : z 
+?X1 - block : c 
+Preconditions:
+(and (handempty)
+  (clear z)
+  (on z c))
+Effects:
+(and (clear c)
+  (holding z)
+  (not (handempty)
+  (not (clear z)
+  (not (on z c))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear c)
+ (ontable c)
+ (holding z)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h d)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : z 
+Preconditions:
+(and (holding z))
+Effects:
+(and (handempty)
+  (clear z)
+  (ontable z)
+  (not (holding z))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear c)
+ (ontable c)
+ (clear z)
+ (ontable z)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h d)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : h 
+?X1 - block : d 
+Preconditions:
+(and (handempty)
+  (clear h)
+  (on h d))
+Effects:
+(and (holding h)
+  (clear d)
+  (not (handempty)
+  (not (clear h)
+  (not (on h d))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable s)
+ (holding h)
+ (ontable y)
+ (clear d)
+ (clear c)
+ (ontable c)
+ (clear z)
+ (ontable z)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : h 
+Preconditions:
+(and (holding h))
+Effects:
+(and (handempty)
+  (clear h)
+  (ontable h)
+  (not (holding h))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable h)
+ (ontable y)
+ (clear d)
+ (clear c)
+ (ontable c)
+ (clear z)
+ (ontable z)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on r l)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : r 
+?X1 - block : l 
+Preconditions:
+(and (handempty)
+  (clear r)
+  (on r l))
+Effects:
+(and (clear l)
+  (holding r)
+  (not (handempty)
+  (not (clear r)
+  (not (on r l))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable h)
+ (ontable y)
+ (clear d)
+ (clear c)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (ontable z)
+ (holding r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : r 
+?X1 - block : c 
+Preconditions:
+(and (clear c)
+  (holding r))
+Effects:
+(and (handempty)
+  (clear r)
+  (on r c)
+  (not (clear c)
+  (not (holding r))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable h)
+ (ontable y)
+ (clear d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (ontable z)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on r c)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : z 
+Preconditions:
+(and (handempty)
+  (clear z)
+  (ontable z))
+Effects:
+(and (holding z)
+  (not (handempty)
+  (not (clear z)
+  (not (ontable z))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable h)
+ (ontable y)
+ (clear d)
+ (ontable c)
+ (clear l)
+ (holding z)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on r c)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : z 
+?X1 - block : l 
+Preconditions:
+(and (clear l)
+  (holding z))
+Effects:
+(and (handempty)
+  (clear z)
+  (on z l)
+  (not (clear l)
+  (not (holding z))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (clear p)
+ (ontable s)
+ (clear h)
+ (ontable h)
+ (ontable y)
+ (clear d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on z l)
+ (on r c)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : h 
+Preconditions:
+(and (handempty)
+  (clear h)
+  (ontable h))
+Effects:
+(and (holding h)
+  (not (handempty)
+  (not (clear h)
+  (not (ontable h))
+
+## New State:
+(and (ontable a)
+ (clear p)
+ (ontable s)
+ (holding h)
+ (ontable y)
+ (clear d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on z l)
+ (on r c)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : h 
+?X1 - block : p 
+Preconditions:
+(and (clear p)
+  (holding h))
+Effects:
+(and (handempty)
+  (clear h)
+  (on h p)
+  (not (clear p)
+  (not (holding h))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h p)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on z l)
+ (on r c)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : z 
+?X1 - block : l 
+Preconditions:
+(and (handempty)
+  (clear z)
+  (on z l))
+Effects:
+(and (clear l)
+  (holding z)
+  (not (handempty)
+  (not (clear z)
+  (not (on z l))
+
+## New State:
+(and (ontable a)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear d)
+ (ontable c)
+ (clear l)
+ (holding z)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h p)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on r c)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : z 
+?X1 - block : h 
+Preconditions:
+(and (clear h)
+  (holding z))
+Effects:
+(and (handempty)
+  (clear z)
+  (on z h)
+  (not (clear h)
+  (not (holding z))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h p)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on z h)
+ (on r c)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : r 
+?X1 - block : c 
+Preconditions:
+(and (handempty)
+  (clear r)
+  (on r c))
+Effects:
+(and (clear c)
+  (holding r)
+  (not (handempty)
+  (not (clear r)
+  (not (on r c))
+
+## New State:
+(and (ontable a)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (clear c)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (holding r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h p)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on z h)
+ (on i a)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : r 
+Preconditions:
+(and (holding r))
+Effects:
+(and (handempty)
+  (clear r)
+  (ontable r)
+  (not (holding r))
+
+## New State:
+(and (ontable a)
+ (handempty)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (clear c)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear r)
+ (ontable r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h p)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on z h)
+ (on i a)
+)
+
+
+
+Final state:
+(and (ontable a)
+ (handempty)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (clear c)
+ (ontable c)
+ (clear l)
+ (clear z)
+ (clear r)
+ (ontable r)
+ (on e i)
+ (on p y)
+ (on t s)
+ (on h p)
+ (on o g)
+ (on g e)
+ (on d o)
+ (on l t)
+ (on z h)
+ (on i a)
+)
 ## Behaviour Generator: DirectedBehaviourGenerator{type=Directed}
 
 
@@ -75,15 +3009,15 @@ Effects:
 Action stack
 Instantiations:
 ?X0 - block : z 
-?X1 - block : l 
+?X1 - block : h 
 Preconditions:
-(and (clear l)
+(and (clear h)
   (holding z))
 Effects:
 (and (handempty)
   (clear z)
-  (on z l)
-  (not (clear l)
+  (on z h)
+  (not (clear h)
   (not (holding z))
 
 ## New State:
@@ -92,13 +3026,13 @@ Effects:
  (ontable p)
  (ontable s)
  (clear t)
- (clear h)
  (ontable y)
  (clear o)
  (ontable g)
  (ontable d)
  (clear c)
  (ontable c)
+ (clear l)
  (clear z)
  (clear r)
  (clear i)
@@ -107,680 +3041,8 @@ Effects:
  (on h d)
  (on o a)
  (on l y)
- (on z l)
+ (on z h)
  (on r g)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : r 
-?X1 - block : g 
-Preconditions:
-(and (handempty)
-  (clear r)
-  (on r g))
-Effects:
-(and (clear g)
-  (holding r)
-  (not (handempty)
-  (not (clear r)
-  (not (on r g))
-
-## New State:
-(and (ontable a)
- (ontable p)
- (ontable s)
- (clear t)
- (clear h)
- (ontable y)
- (clear o)
- (clear g)
- (ontable g)
- (ontable d)
- (clear c)
- (ontable c)
- (clear z)
- (holding r)
- (clear i)
- (on e p)
- (on t s)
- (on h d)
- (on o a)
- (on l y)
- (on z l)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : r 
-?X1 - block : c 
-Preconditions:
-(and (clear c)
-  (holding r))
-Effects:
-(and (handempty)
-  (clear r)
-  (on r c)
-  (not (clear c)
-  (not (holding r))
-
-## New State:
-(and (ontable a)
- (handempty)
- (ontable p)
- (ontable s)
- (clear t)
- (clear h)
- (ontable y)
- (clear o)
- (clear g)
- (ontable g)
- (ontable d)
- (ontable c)
- (clear z)
- (clear r)
- (clear i)
- (on e p)
- (on t s)
- (on h d)
- (on o a)
- (on l y)
- (on z l)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : h 
-?X1 - block : d 
-Preconditions:
-(and (handempty)
-  (clear h)
-  (on h d))
-Effects:
-(and (holding h)
-  (clear d)
-  (not (handempty)
-  (not (clear h)
-  (not (on h d))
-
-## New State:
-(and (ontable a)
- (ontable p)
- (ontable s)
- (clear t)
- (holding h)
- (ontable y)
- (clear o)
- (clear g)
- (ontable g)
- (clear d)
- (ontable d)
- (ontable c)
- (clear z)
- (clear r)
- (clear i)
- (on e p)
- (on t s)
- (on o a)
- (on l y)
- (on z l)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : h 
-?X1 - block : z 
-Preconditions:
-(and (holding h)
-  (clear z))
-Effects:
-(and (handempty)
-  (clear h)
-  (on h z)
-  (not (holding h)
-  (not (clear z))
-
-## New State:
-(and (ontable a)
- (handempty)
- (ontable p)
- (ontable s)
- (clear t)
- (clear h)
- (ontable y)
- (clear o)
- (clear g)
- (ontable g)
- (clear d)
- (ontable d)
- (ontable c)
- (clear r)
- (clear i)
- (on e p)
- (on t s)
- (on h z)
- (on o a)
- (on l y)
- (on z l)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action pick-up
-Instantiations:
-?X0 - block : d 
-Preconditions:
-(and (handempty)
-  (clear d)
-  (ontable d))
-Effects:
-(and (holding d)
-  (not (handempty)
-  (not (clear d)
-  (not (ontable d))
-
-## New State:
-(and (ontable a)
- (ontable p)
- (ontable s)
- (clear t)
- (clear h)
- (ontable y)
- (clear o)
- (clear g)
- (ontable g)
- (holding d)
- (ontable c)
- (clear r)
- (clear i)
- (on e p)
- (on t s)
- (on h z)
- (on o a)
- (on l y)
- (on z l)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : d 
-?X1 - block : g 
-Preconditions:
-(and (clear g)
-  (holding d))
-Effects:
-(and (handempty)
-  (clear d)
-  (on d g)
-  (not (clear g)
-  (not (holding d))
-
-## New State:
-(and (ontable a)
- (handempty)
- (ontable p)
- (ontable s)
- (clear t)
- (clear h)
- (ontable y)
- (clear o)
- (ontable g)
- (clear d)
- (ontable c)
- (clear r)
- (clear i)
- (on e p)
- (on t s)
- (on h z)
- (on o a)
- (on d g)
- (on l y)
- (on z l)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : h 
-?X1 - block : z 
-Preconditions:
-(and (handempty)
-  (clear h)
-  (on h z))
-Effects:
-(and (holding h)
-  (clear z)
-  (not (handempty)
-  (not (clear h)
-  (not (on h z))
-
-## New State:
-(and (ontable a)
- (ontable p)
- (ontable s)
- (clear t)
- (holding h)
- (ontable y)
- (clear o)
- (ontable g)
- (clear d)
- (ontable c)
- (clear z)
- (clear r)
- (clear i)
- (on e p)
- (on t s)
- (on o a)
- (on d g)
- (on l y)
- (on z l)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action put-down
-Instantiations:
-?X0 - block : h 
-Preconditions:
-(and (holding h))
-Effects:
-(and (handempty)
-  (clear h)
-  (ontable h)
-  (not (holding h))
-
-## New State:
-(and (ontable a)
- (handempty)
- (ontable p)
- (ontable s)
- (clear t)
- (clear h)
- (ontable h)
- (ontable y)
- (clear o)
- (ontable g)
- (clear d)
- (ontable c)
- (clear z)
- (clear r)
- (clear i)
- (on e p)
- (on t s)
- (on o a)
- (on d g)
- (on l y)
- (on z l)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : z 
-?X1 - block : l 
-Preconditions:
-(and (handempty)
-  (clear z)
-  (on z l))
-Effects:
-(and (clear l)
-  (holding z)
-  (not (handempty)
-  (not (clear z)
-  (not (on z l))
-
-## New State:
-(and (ontable a)
- (ontable p)
- (ontable s)
- (clear t)
- (clear h)
- (ontable h)
- (ontable y)
- (clear o)
- (ontable g)
- (clear d)
- (ontable c)
- (clear l)
- (holding z)
- (clear r)
- (clear i)
- (on e p)
- (on t s)
- (on o a)
- (on d g)
- (on l y)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : z 
-?X1 - block : r 
-Preconditions:
-(and (holding z)
-  (clear r))
-Effects:
-(and (handempty)
-  (clear z)
-  (on z r)
-  (not (holding z)
-  (not (clear r))
-
-## New State:
-(and (ontable a)
- (handempty)
- (ontable p)
- (ontable s)
- (clear t)
- (clear h)
- (ontable h)
- (ontable y)
- (clear o)
- (ontable g)
- (clear d)
- (ontable c)
- (clear l)
- (clear z)
- (clear i)
- (on e p)
- (on t s)
- (on o a)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action pick-up
-Instantiations:
-?X0 - block : h 
-Preconditions:
-(and (handempty)
-  (clear h)
-  (ontable h))
-Effects:
-(and (holding h)
-  (not (handempty)
-  (not (clear h)
-  (not (ontable h))
-
-## New State:
-(and (ontable a)
- (ontable p)
- (ontable s)
- (clear t)
- (holding h)
- (ontable y)
- (clear o)
- (ontable g)
- (clear d)
- (ontable c)
- (clear l)
- (clear z)
- (clear i)
- (on e p)
- (on t s)
- (on o a)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : h 
-?X1 - block : d 
-Preconditions:
-(and (holding h)
-  (clear d))
-Effects:
-(and (handempty)
-  (clear h)
-  (on h d)
-  (not (holding h)
-  (not (clear d))
-
-## New State:
-(and (ontable a)
- (handempty)
- (ontable p)
- (ontable s)
- (clear t)
- (clear h)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear l)
- (clear z)
- (clear i)
- (on e p)
- (on t s)
- (on h d)
- (on o a)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : t 
-?X1 - block : s 
-Preconditions:
-(and (handempty)
-  (clear t)
-  (on t s))
-Effects:
-(and (clear s)
-  (holding t)
-  (not (handempty)
-  (not (clear t)
-  (not (on t s))
-
-## New State:
-(and (ontable a)
- (ontable p)
- (clear s)
- (ontable s)
- (holding t)
- (clear h)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear l)
- (clear z)
- (clear i)
- (on e p)
- (on h d)
- (on o a)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : t 
-?X1 - block : l 
-Preconditions:
-(and (holding t)
-  (clear l))
-Effects:
-(and (handempty)
-  (clear t)
-  (on t l)
-  (not (holding t)
-  (not (clear l))
-
-## New State:
-(and (ontable a)
- (handempty)
- (ontable p)
- (clear s)
- (ontable s)
- (clear t)
- (clear h)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear z)
- (clear i)
- (on e p)
- (on t l)
- (on h d)
- (on o a)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : h 
-?X1 - block : d 
-Preconditions:
-(and (handempty)
-  (clear h)
-  (on h d))
-Effects:
-(and (holding h)
-  (clear d)
-  (not (handempty)
-  (not (clear h)
-  (not (on h d))
-
-## New State:
-(and (ontable a)
- (ontable p)
- (clear s)
- (ontable s)
- (clear t)
- (holding h)
- (ontable y)
- (clear o)
- (ontable g)
- (clear d)
- (ontable c)
- (clear z)
- (clear i)
- (on e p)
- (on t l)
- (on o a)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : h 
-?X1 - block : i 
-Preconditions:
-(and (holding h)
-  (clear i))
-Effects:
-(and (handempty)
-  (clear h)
-  (on h i)
-  (not (holding h)
-  (not (clear i))
-
-## New State:
-(and (ontable a)
- (handempty)
- (ontable p)
- (clear s)
- (ontable s)
- (clear t)
- (clear h)
- (ontable y)
- (clear o)
- (ontable g)
- (clear d)
- (ontable c)
- (clear z)
- (on e p)
- (on t l)
- (on h i)
- (on o a)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
  (on i e)
 )
 
@@ -806,23 +3068,24 @@ Effects:
 (and (clear a)
  (ontable a)
  (ontable p)
- (clear s)
  (ontable s)
  (clear t)
- (clear h)
  (ontable y)
  (holding o)
  (ontable g)
- (clear d)
+ (ontable d)
+ (clear c)
  (ontable c)
+ (clear l)
  (clear z)
+ (clear r)
+ (clear i)
  (on e p)
- (on t l)
- (on h i)
- (on d g)
+ (on t s)
+ (on h d)
  (on l y)
- (on z r)
- (on r c)
+ (on z h)
+ (on r g)
  (on i e)
 )
 
@@ -832,39 +3095,40 @@ Effects:
 Action stack
 Instantiations:
 ?X0 - block : o 
-?X1 - block : d 
+?X1 - block : l 
 Preconditions:
 (and (holding o)
-  (clear d))
+  (clear l))
 Effects:
 (and (handempty)
   (clear o)
-  (on o d)
+  (on o l)
   (not (holding o)
-  (not (clear d))
+  (not (clear l))
 
 ## New State:
 (and (clear a)
  (ontable a)
  (handempty)
  (ontable p)
- (clear s)
  (ontable s)
  (clear t)
- (clear h)
  (ontable y)
  (clear o)
  (ontable g)
+ (ontable d)
+ (clear c)
  (ontable c)
  (clear z)
+ (clear r)
+ (clear i)
  (on e p)
- (on t l)
- (on h i)
- (on o d)
- (on d g)
+ (on t s)
+ (on h d)
+ (on o l)
  (on l y)
- (on z r)
- (on r c)
+ (on z h)
+ (on r g)
  (on i e)
 )
 
@@ -887,23 +3151,24 @@ Effects:
 ## New State:
 (and (holding a)
  (ontable p)
- (clear s)
  (ontable s)
  (clear t)
- (clear h)
  (ontable y)
  (clear o)
  (ontable g)
+ (ontable d)
+ (clear c)
  (ontable c)
  (clear z)
+ (clear r)
+ (clear i)
  (on e p)
- (on t l)
- (on h i)
- (on o d)
- (on d g)
+ (on t s)
+ (on h d)
+ (on o l)
  (on l y)
- (on z r)
- (on r c)
+ (on z h)
+ (on r g)
  (on i e)
 )
 
@@ -913,1562 +3178,39 @@ Effects:
 Action stack
 Instantiations:
 ?X0 - block : a 
-?X1 - block : z 
-Preconditions:
-(and (holding a)
-  (clear z))
-Effects:
-(and (clear a)
-  (handempty)
-  (on a z)
-  (not (holding a)
-  (not (clear z))
-
-## New State:
-(and (clear a)
- (handempty)
- (ontable p)
- (clear s)
- (ontable s)
- (clear t)
- (clear h)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (on a z)
- (on e p)
- (on t l)
- (on h i)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : t 
-?X1 - block : l 
-Preconditions:
-(and (handempty)
-  (clear t)
-  (on t l))
-Effects:
-(and (holding t)
-  (clear l)
-  (not (handempty)
-  (not (clear t)
-  (not (on t l))
-
-## New State:
-(and (clear a)
- (ontable p)
- (clear s)
- (ontable s)
- (holding t)
- (clear h)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear l)
- (on a z)
- (on e p)
- (on h i)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : t 
-?X1 - block : h 
-Preconditions:
-(and (holding t)
-  (clear h))
-Effects:
-(and (handempty)
-  (clear t)
-  (on t h)
-  (not (holding t)
-  (not (clear h))
-
-## New State:
-(and (clear a)
- (handempty)
- (ontable p)
- (clear s)
- (ontable s)
- (clear t)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear l)
- (on a z)
- (on e p)
- (on t h)
- (on h i)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : a 
-?X1 - block : z 
-Preconditions:
-(and (clear a)
-  (handempty)
-  (on a z))
-Effects:
-(and (holding a)
-  (clear z)
-  (not (clear a)
-  (not (handempty)
-  (not (on a z))
-
-## New State:
-(and (holding a)
- (ontable p)
- (clear s)
- (ontable s)
- (clear t)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear l)
- (clear z)
- (on e p)
- (on t h)
- (on h i)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : a 
-?X1 - block : l 
-Preconditions:
-(and (holding a)
-  (clear l))
-Effects:
-(and (clear a)
-  (handempty)
-  (on a l)
-  (not (holding a)
-  (not (clear l))
-
-## New State:
-(and (clear a)
- (handempty)
- (ontable p)
- (clear s)
- (ontable s)
- (clear t)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear z)
- (on a l)
- (on e p)
- (on t h)
- (on h i)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : t 
-?X1 - block : h 
-Preconditions:
-(and (handempty)
-  (clear t)
-  (on t h))
-Effects:
-(and (holding t)
-  (clear h)
-  (not (handempty)
-  (not (clear t)
-  (not (on t h))
-
-## New State:
-(and (clear a)
- (ontable p)
- (clear s)
- (ontable s)
- (holding t)
- (clear h)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear z)
- (on a l)
- (on e p)
- (on h i)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action put-down
-Instantiations:
-?X0 - block : t 
-Preconditions:
-(and (holding t))
-Effects:
-(and (handempty)
-  (clear t)
-  (ontable t)
-  (not (holding t))
-
-## New State:
-(and (clear a)
- (handempty)
- (ontable p)
- (clear s)
- (ontable s)
- (clear t)
- (ontable t)
- (clear h)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear z)
- (on a l)
- (on e p)
- (on h i)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : h 
-?X1 - block : i 
-Preconditions:
-(and (handempty)
-  (clear h)
-  (on h i))
-Effects:
-(and (holding h)
-  (clear i)
-  (not (handempty)
-  (not (clear h)
-  (not (on h i))
-
-## New State:
-(and (clear a)
- (ontable p)
- (clear s)
- (ontable s)
- (clear t)
- (ontable t)
- (holding h)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear z)
- (clear i)
- (on a l)
- (on e p)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : h 
-?X1 - block : z 
-Preconditions:
-(and (holding h)
-  (clear z))
-Effects:
-(and (handempty)
-  (clear h)
-  (on h z)
-  (not (holding h)
-  (not (clear z))
-
-## New State:
-(and (clear a)
- (handempty)
- (ontable p)
- (clear s)
- (ontable s)
- (clear t)
- (ontable t)
- (clear h)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear i)
- (on a l)
- (on e p)
- (on h z)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : a 
-?X1 - block : l 
-Preconditions:
-(and (clear a)
-  (handempty)
-  (on a l))
-Effects:
-(and (holding a)
-  (clear l)
-  (not (clear a)
-  (not (handempty)
-  (not (on a l))
-
-## New State:
-(and (holding a)
- (ontable p)
- (clear s)
- (ontable s)
- (clear t)
- (ontable t)
- (clear h)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear l)
- (clear i)
- (on e p)
- (on h z)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : a 
-?X1 - block : h 
-Preconditions:
-(and (holding a)
-  (clear h))
-Effects:
-(and (clear a)
-  (handempty)
-  (on a h)
-  (not (holding a)
-  (not (clear h))
-
-## New State:
-(and (clear a)
- (handempty)
- (ontable p)
- (clear s)
- (ontable s)
- (clear t)
- (ontable t)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear l)
- (clear i)
- (on a h)
- (on e p)
- (on h z)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action pick-up
-Instantiations:
-?X0 - block : s 
-Preconditions:
-(and (handempty)
-  (clear s)
-  (ontable s))
-Effects:
-(and (holding s)
-  (not (handempty)
-  (not (clear s)
-  (not (ontable s))
-
-## New State:
-(and (clear a)
- (ontable p)
- (holding s)
- (clear t)
- (ontable t)
- (ontable y)
- (clear o)
- (ontable g)
- (ontable c)
- (clear l)
- (clear i)
- (on a h)
- (on e p)
- (on h z)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : s 
 ?X1 - block : o 
 Preconditions:
-(and (holding s)
+(and (holding a)
   (clear o))
 Effects:
-(and (handempty)
-  (clear s)
-  (on s o)
-  (not (holding s)
+(and (clear a)
+  (handempty)
+  (on a o)
+  (not (holding a)
   (not (clear o))
 
 ## New State:
 (and (clear a)
  (handempty)
  (ontable p)
- (clear s)
+ (ontable s)
  (clear t)
- (ontable t)
  (ontable y)
  (ontable g)
+ (ontable d)
+ (clear c)
  (ontable c)
- (clear l)
+ (clear z)
+ (clear r)
  (clear i)
- (on a h)
+ (on a o)
  (on e p)
- (on s o)
- (on h z)
- (on o d)
- (on d g)
+ (on t s)
+ (on h d)
+ (on o l)
  (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : a 
-?X1 - block : h 
-Preconditions:
-(and (clear a)
-  (handempty)
-  (on a h))
-Effects:
-(and (holding a)
-  (clear h)
-  (not (clear a)
-  (not (handempty)
-  (not (on a h))
-
-## New State:
-(and (holding a)
- (ontable p)
- (clear s)
- (clear t)
- (ontable t)
- (clear h)
- (ontable y)
- (ontable g)
- (ontable c)
- (clear l)
- (clear i)
- (on e p)
- (on s o)
- (on h z)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action put-down
-Instantiations:
-?X0 - block : a 
-Preconditions:
-(and (holding a))
-Effects:
-(and (clear a)
-  (ontable a)
-  (handempty)
-  (not (holding a))
-
-## New State:
-(and (clear a)
- (ontable a)
- (handempty)
- (ontable p)
- (clear s)
- (clear t)
- (ontable t)
- (clear h)
- (ontable y)
- (ontable g)
- (ontable c)
- (clear l)
- (clear i)
- (on e p)
- (on s o)
- (on h z)
- (on o d)
- (on d g)
- (on l y)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : l 
-?X1 - block : y 
-Preconditions:
-(and (handempty)
-  (clear l)
-  (on l y))
-Effects:
-(and (clear y)
-  (holding l)
-  (not (handempty)
-  (not (clear l)
-  (not (on l y))
-
-## New State:
-(and (clear a)
- (ontable a)
- (ontable p)
- (clear s)
- (clear t)
- (ontable t)
- (clear h)
- (clear y)
- (ontable y)
- (ontable g)
- (ontable c)
- (holding l)
- (clear i)
- (on e p)
- (on s o)
- (on h z)
- (on o d)
- (on d g)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : l 
-?X1 - block : i 
-Preconditions:
-(and (holding l)
-  (clear i))
-Effects:
-(and (handempty)
-  (clear l)
-  (on l i)
-  (not (holding l)
-  (not (clear i))
-
-## New State:
-(and (clear a)
- (ontable a)
- (handempty)
- (ontable p)
- (clear s)
- (clear t)
- (ontable t)
- (clear h)
- (clear y)
- (ontable y)
- (ontable g)
- (ontable c)
- (clear l)
- (on e p)
- (on s o)
- (on h z)
- (on o d)
- (on d g)
- (on l i)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : h 
-?X1 - block : z 
-Preconditions:
-(and (handempty)
-  (clear h)
-  (on h z))
-Effects:
-(and (holding h)
-  (clear z)
-  (not (handempty)
-  (not (clear h)
-  (not (on h z))
-
-## New State:
-(and (clear a)
- (ontable a)
- (ontable p)
- (clear s)
- (clear t)
- (ontable t)
- (holding h)
- (clear y)
- (ontable y)
- (ontable g)
- (ontable c)
- (clear l)
- (clear z)
- (on e p)
- (on s o)
- (on o d)
- (on d g)
- (on l i)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : h 
-?X1 - block : s 
-Preconditions:
-(and (clear s)
-  (holding h))
-Effects:
-(and (handempty)
-  (clear h)
-  (on h s)
-  (not (clear s)
-  (not (holding h))
-
-## New State:
-(and (clear a)
- (ontable a)
- (handempty)
- (ontable p)
- (clear t)
- (ontable t)
- (clear h)
- (clear y)
- (ontable y)
- (ontable g)
- (ontable c)
- (clear l)
- (clear z)
- (on e p)
- (on s o)
- (on h s)
- (on o d)
- (on d g)
- (on l i)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action pick-up
-Instantiations:
-?X0 - block : t 
-Preconditions:
-(and (handempty)
-  (clear t)
-  (ontable t))
-Effects:
-(and (holding t)
-  (not (handempty)
-  (not (clear t)
-  (not (ontable t))
-
-## New State:
-(and (clear a)
- (ontable a)
- (ontable p)
- (holding t)
- (clear h)
- (clear y)
- (ontable y)
- (ontable g)
- (ontable c)
- (clear l)
- (clear z)
- (on e p)
- (on s o)
- (on h s)
- (on o d)
- (on d g)
- (on l i)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : t 
-?X1 - block : y 
-Preconditions:
-(and (holding t)
-  (clear y))
-Effects:
-(and (handempty)
-  (clear t)
-  (on t y)
-  (not (holding t)
-  (not (clear y))
-
-## New State:
-(and (clear a)
- (ontable a)
- (handempty)
- (ontable p)
- (clear t)
- (clear h)
- (ontable y)
- (ontable g)
- (ontable c)
- (clear l)
- (clear z)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on l i)
- (on z r)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : z 
-?X1 - block : r 
-Preconditions:
-(and (handempty)
-  (clear z)
-  (on z r))
-Effects:
-(and (holding z)
-  (clear r)
-  (not (handempty)
-  (not (clear z)
-  (not (on z r))
-
-## New State:
-(and (clear a)
- (ontable a)
- (ontable p)
- (clear t)
- (clear h)
- (ontable y)
- (ontable g)
- (ontable c)
- (clear l)
- (holding z)
- (clear r)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on l i)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : z 
-?X1 - block : t 
-Preconditions:
-(and (clear t)
-  (holding z))
-Effects:
-(and (handempty)
-  (clear z)
-  (on z t)
-  (not (clear t)
-  (not (holding z))
-
-## New State:
-(and (clear a)
- (ontable a)
- (handempty)
- (ontable p)
- (clear h)
- (ontable y)
- (ontable g)
- (ontable c)
- (clear l)
- (clear z)
- (clear r)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on l i)
- (on z t)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action pick-up
-Instantiations:
-?X0 - block : a 
-Preconditions:
-(and (clear a)
-  (ontable a)
-  (handempty))
-Effects:
-(and (holding a)
-  (not (clear a)
-  (not (ontable a)
-  (not (handempty))
-
-## New State:
-(and (holding a)
- (ontable p)
- (clear h)
- (ontable y)
- (ontable g)
- (ontable c)
- (clear l)
- (clear z)
- (clear r)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on l i)
- (on z t)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : a 
-?X1 - block : z 
-Preconditions:
-(and (holding a)
-  (clear z))
-Effects:
-(and (clear a)
-  (handempty)
-  (on a z)
-  (not (holding a)
-  (not (clear z))
-
-## New State:
-(and (clear a)
- (handempty)
- (ontable p)
- (clear h)
- (ontable y)
- (ontable g)
- (ontable c)
- (clear l)
- (clear r)
- (on a z)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on l i)
- (on z t)
- (on r c)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : r 
-?X1 - block : c 
-Preconditions:
-(and (handempty)
-  (clear r)
-  (on r c))
-Effects:
-(and (clear c)
-  (holding r)
-  (not (handempty)
-  (not (clear r)
-  (not (on r c))
-
-## New State:
-(and (clear a)
- (ontable p)
- (clear h)
- (ontable y)
- (ontable g)
- (clear c)
- (ontable c)
- (clear l)
- (holding r)
- (on a z)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on l i)
- (on z t)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : r 
-?X1 - block : h 
-Preconditions:
-(and (clear h)
-  (holding r))
-Effects:
-(and (handempty)
-  (clear r)
-  (on r h)
-  (not (clear h)
-  (not (holding r))
-
-## New State:
-(and (clear a)
- (handempty)
- (ontable p)
- (ontable y)
- (ontable g)
- (clear c)
- (ontable c)
- (clear l)
- (clear r)
- (on a z)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on l i)
- (on z t)
- (on r h)
- (on i e)
-)
-
-
-
-## Action Made:
-Action pick-up
-Instantiations:
-?X0 - block : c 
-Preconditions:
-(and (handempty)
-  (clear c)
-  (ontable c))
-Effects:
-(and (holding c)
-  (not (handempty)
-  (not (clear c)
-  (not (ontable c))
-
-## New State:
-(and (clear a)
- (ontable p)
- (ontable y)
- (ontable g)
- (holding c)
- (clear l)
- (clear r)
- (on a z)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on l i)
- (on z t)
- (on r h)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : c 
-?X1 - block : r 
-Preconditions:
-(and (holding c)
-  (clear r))
-Effects:
-(and (handempty)
-  (clear c)
-  (on c r)
-  (not (holding c)
-  (not (clear r))
-
-## New State:
-(and (clear a)
- (handempty)
- (ontable p)
- (ontable y)
- (ontable g)
- (clear c)
- (clear l)
- (on a z)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c r)
- (on l i)
- (on z t)
- (on r h)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : a 
-?X1 - block : z 
-Preconditions:
-(and (clear a)
-  (handempty)
-  (on a z))
-Effects:
-(and (holding a)
-  (clear z)
-  (not (clear a)
-  (not (handempty)
-  (not (on a z))
-
-## New State:
-(and (holding a)
- (ontable p)
- (ontable y)
- (ontable g)
- (clear c)
- (clear l)
- (clear z)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c r)
- (on l i)
- (on z t)
- (on r h)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : a 
-?X1 - block : c 
-Preconditions:
-(and (holding a)
-  (clear c))
-Effects:
-(and (clear a)
-  (handempty)
-  (on a c)
-  (not (holding a)
-  (not (clear c))
-
-## New State:
-(and (clear a)
- (handempty)
- (ontable p)
- (ontable y)
- (ontable g)
- (clear l)
- (clear z)
- (on a c)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c r)
- (on l i)
- (on z t)
- (on r h)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : l 
-?X1 - block : i 
-Preconditions:
-(and (handempty)
-  (clear l)
-  (on l i))
-Effects:
-(and (holding l)
-  (clear i)
-  (not (handempty)
-  (not (clear l)
-  (not (on l i))
-
-## New State:
-(and (clear a)
- (ontable p)
- (ontable y)
- (ontable g)
- (holding l)
- (clear z)
- (clear i)
- (on a c)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c r)
- (on z t)
- (on r h)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : l 
-?X1 - block : z 
-Preconditions:
-(and (holding l)
-  (clear z))
-Effects:
-(and (handempty)
-  (clear l)
-  (on l z)
-  (not (holding l)
-  (not (clear z))
-
-## New State:
-(and (clear a)
- (handempty)
- (ontable p)
- (ontable y)
- (ontable g)
- (clear l)
- (clear i)
- (on a c)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c r)
- (on l z)
- (on z t)
- (on r h)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : a 
-?X1 - block : c 
-Preconditions:
-(and (clear a)
-  (handempty)
-  (on a c))
-Effects:
-(and (holding a)
-  (clear c)
-  (not (clear a)
-  (not (handempty)
-  (not (on a c))
-
-## New State:
-(and (holding a)
- (ontable p)
- (ontable y)
- (ontable g)
- (clear c)
- (clear l)
- (clear i)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c r)
- (on l z)
- (on z t)
- (on r h)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : a 
-?X1 - block : i 
-Preconditions:
-(and (holding a)
-  (clear i))
-Effects:
-(and (clear a)
-  (handempty)
-  (on a i)
-  (not (holding a)
-  (not (clear i))
-
-## New State:
-(and (clear a)
- (handempty)
- (ontable p)
- (ontable y)
- (ontable g)
- (clear c)
- (clear l)
- (on a i)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c r)
- (on l z)
- (on z t)
- (on r h)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : c 
-?X1 - block : r 
-Preconditions:
-(and (handempty)
-  (clear c)
-  (on c r))
-Effects:
-(and (holding c)
-  (clear r)
-  (not (handempty)
-  (not (clear c)
-  (not (on c r))
-
-## New State:
-(and (clear a)
- (ontable p)
- (ontable y)
- (ontable g)
- (holding c)
- (clear l)
- (clear r)
- (on a i)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on l z)
- (on z t)
- (on r h)
- (on i e)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : c 
-?X1 - block : l 
-Preconditions:
-(and (holding c)
-  (clear l))
-Effects:
-(and (handempty)
-  (clear c)
-  (on c l)
-  (not (holding c)
-  (not (clear l))
-
-## New State:
-(and (clear a)
- (handempty)
- (ontable p)
- (ontable y)
- (ontable g)
- (clear c)
- (clear r)
- (on a i)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
- (on r h)
- (on i e)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : a 
-?X1 - block : i 
-Preconditions:
-(and (clear a)
-  (handempty)
-  (on a i))
-Effects:
-(and (holding a)
-  (clear i)
-  (not (clear a)
-  (not (handempty)
-  (not (on a i))
-
-## New State:
-(and (holding a)
- (ontable p)
- (ontable y)
- (ontable g)
- (clear c)
- (clear r)
- (clear i)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
- (on r h)
- (on i e)
-)
-
-
-
-## Action Made:
-Action put-down
-Instantiations:
-?X0 - block : a 
-Preconditions:
-(and (holding a))
-Effects:
-(and (clear a)
-  (ontable a)
-  (handempty)
-  (not (holding a))
-
-## New State:
-(and (clear a)
- (ontable a)
- (handempty)
- (ontable p)
- (ontable y)
- (ontable g)
- (clear c)
- (clear r)
- (clear i)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
- (on r h)
+ (on z h)
+ (on r g)
  (on i e)
 )
 
@@ -2492,24 +3234,26 @@ Effects:
 
 ## New State:
 (and (clear a)
- (ontable a)
  (clear e)
  (ontable p)
+ (ontable s)
+ (clear t)
  (ontable y)
  (ontable g)
+ (ontable d)
  (clear c)
+ (ontable c)
+ (clear z)
  (clear r)
  (holding i)
+ (on a o)
  (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
- (on r h)
+ (on t s)
+ (on h d)
+ (on o l)
+ (on l y)
+ (on z h)
+ (on r g)
 )
 
 
@@ -2518,38 +3262,2340 @@ Effects:
 Action stack
 Instantiations:
 ?X0 - block : i 
-?X1 - block : c 
+?X1 - block : t 
 Preconditions:
-(and (clear c)
+(and (clear t)
   (holding i))
 Effects:
 (and (handempty)
   (clear i)
-  (on i c)
-  (not (clear c)
+  (on i t)
+  (not (clear t)
   (not (holding i))
 
 ## New State:
 (and (clear a)
- (ontable a)
  (handempty)
  (clear e)
  (ontable p)
+ (ontable s)
  (ontable y)
  (ontable g)
+ (ontable d)
+ (clear c)
+ (ontable c)
+ (clear z)
  (clear r)
  (clear i)
+ (on a o)
  (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
+ (on t s)
+ (on h d)
+ (on o l)
+ (on l y)
+ (on z h)
+ (on r g)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : r 
+?X1 - block : g 
+Preconditions:
+(and (handempty)
+  (clear r)
+  (on r g))
+Effects:
+(and (clear g)
+  (holding r)
+  (not (handempty)
+  (not (clear r)
+  (not (on r g))
+
+## New State:
+(and (clear a)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (ontable y)
+ (clear g)
+ (ontable g)
+ (ontable d)
+ (clear c)
+ (ontable c)
+ (clear z)
+ (holding r)
+ (clear i)
+ (on a o)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on o l)
+ (on l y)
+ (on z h)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : r 
+?X1 - block : c 
+Preconditions:
+(and (clear c)
+  (holding r))
+Effects:
+(and (handempty)
+  (clear r)
+  (on r c)
+  (not (clear c)
+  (not (holding r))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (clear e)
+ (ontable p)
+ (ontable s)
+ (ontable y)
+ (clear g)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (clear i)
+ (on a o)
+ (on e p)
+ (on t s)
+ (on h d)
+ (on o l)
+ (on l y)
+ (on z h)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : e 
+?X1 - block : p 
+Preconditions:
+(and (handempty)
+  (clear e)
+  (on e p))
+Effects:
+(and (holding e)
+  (clear p)
+  (not (handempty)
+  (not (clear e)
+  (not (on e p))
+
+## New State:
+(and (clear a)
+ (holding e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (ontable y)
+ (clear g)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (clear i)
+ (on a o)
+ (on t s)
+ (on h d)
+ (on o l)
+ (on l y)
+ (on z h)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : e 
+Preconditions:
+(and (holding e))
+Effects:
+(and (handempty)
+  (clear e)
+  (ontable e)
+  (not (holding e))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (clear e)
+ (ontable e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (ontable y)
+ (clear g)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (clear i)
+ (on a o)
+ (on t s)
+ (on h d)
+ (on o l)
+ (on l y)
+ (on z h)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : z 
+?X1 - block : h 
+Preconditions:
+(and (handempty)
+  (clear z)
+  (on z h))
+Effects:
+(and (clear h)
+  (holding z)
+  (not (handempty)
+  (not (clear z)
+  (not (on z h))
+
+## New State:
+(and (clear a)
+ (clear e)
+ (ontable e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear g)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (holding z)
+ (clear r)
+ (clear i)
+ (on a o)
+ (on t s)
+ (on h d)
+ (on o l)
+ (on l y)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : z 
+?X1 - block : e 
+Preconditions:
+(and (clear e)
+  (holding z))
+Effects:
+(and (handempty)
+  (clear z)
+  (on z e)
+  (not (clear e)
+  (not (holding z))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (ontable e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear g)
+ (ontable g)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (clear i)
+ (on a o)
+ (on t s)
+ (on h d)
+ (on o l)
+ (on l y)
+ (on z e)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : g 
+Preconditions:
+(and (handempty)
+  (clear g)
+  (ontable g))
+Effects:
+(and (holding g)
+  (not (handempty)
+  (not (clear g)
+  (not (ontable g))
+
+## New State:
+(and (clear a)
+ (ontable e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (holding g)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (clear i)
+ (on a o)
+ (on t s)
+ (on h d)
+ (on o l)
+ (on l y)
+ (on z e)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : g 
+?X1 - block : i 
+Preconditions:
+(and (holding g)
+  (clear i))
+Effects:
+(and (handempty)
+  (clear g)
+  (on g i)
+  (not (holding g)
+  (not (clear i))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (ontable e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear g)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on a o)
+ (on t s)
+ (on h d)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z e)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : h 
+?X1 - block : d 
+Preconditions:
+(and (handempty)
+  (clear h)
+  (on h d))
+Effects:
+(and (holding h)
+  (clear d)
+  (not (handempty)
+  (not (clear h)
+  (not (on h d))
+
+## New State:
+(and (clear a)
+ (ontable e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (holding h)
+ (ontable y)
+ (clear g)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on a o)
+ (on t s)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z e)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : h 
+?X1 - block : g 
+Preconditions:
+(and (holding h)
+  (clear g))
+Effects:
+(and (handempty)
+  (clear h)
+  (on h g)
+  (not (holding h)
+  (not (clear g))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (ontable e)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on a o)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z e)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : p 
+Preconditions:
+(and (handempty)
+  (clear p)
+  (ontable p))
+Effects:
+(and (holding p)
+  (not (handempty)
+  (not (clear p)
+  (not (ontable p))
+
+## New State:
+(and (clear a)
+ (ontable e)
+ (holding p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on a o)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z e)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : p 
+?X1 - block : h 
+Preconditions:
+(and (holding p)
+  (clear h))
+Effects:
+(and (handempty)
+  (clear p)
+  (on p h)
+  (not (holding p)
+  (not (clear h))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (ontable e)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on a o)
+ (on p h)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z e)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : a 
+?X1 - block : o 
+Preconditions:
+(and (clear a)
+  (handempty)
+  (on a o))
+Effects:
+(and (holding a)
+  (clear o)
+  (not (clear a)
+  (not (handempty)
+  (not (on a o))
+
+## New State:
+(and (holding a)
+ (ontable e)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (clear o)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (clear r)
+ (on p h)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z e)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : a 
+?X1 - block : r 
+Preconditions:
+(and (holding a)
+  (clear r))
+Effects:
+(and (clear a)
+  (handempty)
+  (on a r)
+  (not (holding a)
+  (not (clear r))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (ontable e)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (clear o)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (on a r)
+ (on p h)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z e)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : z 
+?X1 - block : e 
+Preconditions:
+(and (handempty)
+  (clear z)
+  (on z e))
+Effects:
+(and (clear e)
+  (holding z)
+  (not (handempty)
+  (not (clear z)
+  (not (on z e))
+
+## New State:
+(and (clear a)
+ (clear e)
+ (ontable e)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (clear o)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (holding z)
+ (on a r)
+ (on p h)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : z 
+?X1 - block : o 
+Preconditions:
+(and (clear o)
+  (holding z))
+Effects:
+(and (handempty)
+  (clear z)
+  (on z o)
+  (not (clear o)
+  (not (holding z))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (clear e)
+ (ontable e)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (on a r)
+ (on p h)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z o)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : e 
+Preconditions:
+(and (handempty)
+  (clear e)
+  (ontable e))
+Effects:
+(and (holding e)
+  (not (handempty)
+  (not (clear e)
+  (not (ontable e))
+
+## New State:
+(and (clear a)
+ (holding e)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear z)
+ (on a r)
+ (on p h)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z o)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : e 
+?X1 - block : z 
+Preconditions:
+(and (holding e)
+  (clear z))
+Effects:
+(and (handempty)
+  (clear e)
+  (on e z)
+  (not (holding e)
+  (not (clear z))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (clear e)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (on a r)
+ (on e z)
+ (on p h)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z o)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : a 
+?X1 - block : r 
+Preconditions:
+(and (clear a)
+  (handempty)
+  (on a r))
+Effects:
+(and (holding a)
+  (clear r)
+  (not (clear a)
+  (not (handempty)
+  (not (on a r))
+
+## New State:
+(and (holding a)
+ (clear e)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (ontable c)
+ (clear r)
+ (on e z)
+ (on p h)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z o)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : a 
+?X1 - block : d 
+Preconditions:
+(and (holding a)
+  (clear d))
+Effects:
+(and (clear a)
+  (handempty)
+  (on a d)
+  (not (holding a)
+  (not (clear d))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (clear e)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (ontable d)
+ (ontable c)
+ (clear r)
+ (on a d)
+ (on e z)
+ (on p h)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z o)
+ (on r c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : r 
+?X1 - block : c 
+Preconditions:
+(and (handempty)
+  (clear r)
+  (on r c))
+Effects:
+(and (clear c)
+  (holding r)
+  (not (handempty)
+  (not (clear r)
+  (not (on r c))
+
+## New State:
+(and (clear a)
+ (clear e)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (ontable d)
+ (clear c)
+ (ontable c)
+ (holding r)
+ (on a d)
+ (on e z)
+ (on p h)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z o)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : r 
+?X1 - block : e 
+Preconditions:
+(and (clear e)
+  (holding r))
+Effects:
+(and (handempty)
+  (clear r)
+  (on r e)
+  (not (clear e)
+  (not (holding r))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (ontable d)
+ (clear c)
+ (ontable c)
+ (clear r)
+ (on a d)
+ (on e z)
+ (on p h)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : p 
+?X1 - block : h 
+Preconditions:
+(and (handempty)
+  (clear p)
+  (on p h))
+Effects:
+(and (holding p)
+  (clear h)
+  (not (handempty)
+  (not (clear p)
+  (not (on p h))
+
+## New State:
+(and (clear a)
+ (holding p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (ontable d)
+ (clear c)
+ (ontable c)
+ (clear r)
+ (on a d)
+ (on e z)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : p 
+Preconditions:
+(and (holding p))
+Effects:
+(and (handempty)
+  (clear p)
+  (ontable p)
+  (not (holding p))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (ontable d)
+ (clear c)
+ (ontable c)
+ (clear r)
+ (on a d)
+ (on e z)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : a 
+?X1 - block : d 
+Preconditions:
+(and (clear a)
+  (handempty)
+  (on a d))
+Effects:
+(and (holding a)
+  (clear d)
+  (not (clear a)
+  (not (handempty)
+  (not (on a d))
+
+## New State:
+(and (holding a)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (clear c)
+ (ontable c)
+ (clear r)
+ (on e z)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : a 
+?X1 - block : h 
+Preconditions:
+(and (holding a)
+  (clear h))
+Effects:
+(and (clear a)
+  (handempty)
+  (on a h)
+  (not (holding a)
+  (not (clear h))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (clear c)
+ (ontable c)
+ (clear r)
+ (on a h)
+ (on e z)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : c 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (ontable c))
+Effects:
+(and (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (ontable c))
+
+## New State:
+(and (clear a)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (holding c)
+ (clear r)
+ (on a h)
+ (on e z)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : p 
+Preconditions:
+(and (clear p)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c p)
+  (not (clear p)
+  (not (holding c))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (ontable p)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (clear c)
+ (clear r)
+ (on a h)
+ (on e z)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on c p)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : a 
+?X1 - block : h 
+Preconditions:
+(and (clear a)
+  (handempty)
+  (on a h))
+Effects:
+(and (holding a)
+  (clear h)
+  (not (clear a)
+  (not (handempty)
+  (not (on a h))
+
+## New State:
+(and (holding a)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (clear c)
+ (clear r)
+ (on e z)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on c p)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : a 
+?X1 - block : d 
+Preconditions:
+(and (holding a)
+  (clear d))
+Effects:
+(and (clear a)
+  (handempty)
+  (on a d)
+  (not (holding a)
+  (not (clear d))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (ontable d)
+ (clear c)
+ (clear r)
+ (on a d)
+ (on e z)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on c p)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : p 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c p))
+Effects:
+(and (clear p)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c p))
+
+## New State:
+(and (clear a)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (ontable d)
+ (holding c)
+ (clear r)
+ (on a d)
+ (on e z)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : a 
+Preconditions:
+(and (clear a)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c a)
+  (not (clear a)
+  (not (holding c))
+
+## New State:
+(and (handempty)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (ontable d)
+ (clear c)
+ (clear r)
+ (on a d)
+ (on e z)
+ (on t s)
+ (on h g)
+ (on o l)
+ (on g i)
+ (on c a)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : h 
+?X1 - block : g 
+Preconditions:
+(and (handempty)
+  (clear h)
+  (on h g))
+Effects:
+(and (holding h)
+  (clear g)
+  (not (handempty)
+  (not (clear h)
+  (not (on h g))
+
+## New State:
+(and (clear p)
+ (ontable p)
+ (ontable s)
+ (holding h)
+ (ontable y)
+ (clear g)
+ (ontable d)
+ (clear c)
+ (clear r)
+ (on a d)
+ (on e z)
+ (on t s)
+ (on o l)
+ (on g i)
+ (on c a)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : h 
+?X1 - block : r 
+Preconditions:
+(and (holding h)
+  (clear r))
+Effects:
+(and (handempty)
+  (clear h)
+  (on h r)
+  (not (holding h)
+  (not (clear r))
+
+## New State:
+(and (handempty)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear g)
+ (ontable d)
+ (clear c)
+ (on a d)
+ (on e z)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g i)
+ (on c a)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : g 
+?X1 - block : i 
+Preconditions:
+(and (handempty)
+  (clear g)
+  (on g i))
+Effects:
+(and (holding g)
+  (clear i)
+  (not (handempty)
+  (not (clear g)
+  (not (on g i))
+
+## New State:
+(and (clear p)
+ (ontable p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (holding g)
+ (ontable d)
+ (clear c)
+ (clear i)
+ (on a d)
+ (on e z)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on c a)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : g 
+?X1 - block : h 
+Preconditions:
+(and (clear h)
+  (holding g))
+Effects:
+(and (handempty)
+  (clear g)
+  (on g h)
+  (not (clear h)
+  (not (holding g))
+
+## New State:
+(and (handempty)
+ (clear p)
+ (ontable p)
+ (ontable s)
+ (ontable y)
+ (clear g)
+ (ontable d)
+ (clear c)
+ (clear i)
+ (on a d)
+ (on e z)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g h)
+ (on c a)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : p 
+Preconditions:
+(and (handempty)
+  (clear p)
+  (ontable p))
+Effects:
+(and (holding p)
+  (not (handempty)
+  (not (clear p)
+  (not (ontable p))
+
+## New State:
+(and (holding p)
+ (ontable s)
+ (ontable y)
+ (clear g)
+ (ontable d)
+ (clear c)
+ (clear i)
+ (on a d)
+ (on e z)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g h)
+ (on c a)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : p 
+?X1 - block : g 
+Preconditions:
+(and (holding p)
+  (clear g))
+Effects:
+(and (handempty)
+  (clear p)
+  (on p g)
+  (not (holding p)
+  (not (clear g))
+
+## New State:
+(and (handempty)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (ontable d)
+ (clear c)
+ (clear i)
+ (on a d)
+ (on e z)
+ (on p g)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g h)
+ (on c a)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : a 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c a))
+Effects:
+(and (clear a)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c a))
+
+## New State:
+(and (clear a)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (ontable d)
+ (holding c)
+ (clear i)
+ (on a d)
+ (on e z)
+ (on p g)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g h)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : p 
+Preconditions:
+(and (clear p)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c p)
+  (not (clear p)
+  (not (holding c))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (ontable s)
+ (ontable y)
+ (ontable d)
+ (clear c)
+ (clear i)
+ (on a d)
+ (on e z)
+ (on p g)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g h)
+ (on c p)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : a 
+?X1 - block : d 
+Preconditions:
+(and (clear a)
+  (handempty)
+  (on a d))
+Effects:
+(and (holding a)
+  (clear d)
+  (not (clear a)
+  (not (handempty)
+  (not (on a d))
+
+## New State:
+(and (holding a)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (clear c)
+ (clear i)
+ (on e z)
+ (on p g)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g h)
+ (on c p)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : a 
+?X1 - block : i 
+Preconditions:
+(and (holding a)
+  (clear i))
+Effects:
+(and (clear a)
+  (handempty)
+  (on a i)
+  (not (holding a)
+  (not (clear i))
+
+## New State:
+(and (clear a)
+ (handempty)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (ontable d)
+ (clear c)
+ (on a i)
+ (on e z)
+ (on p g)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g h)
+ (on c p)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action pick-up
+Instantiations:
+?X0 - block : d 
+Preconditions:
+(and (handempty)
+  (clear d)
+  (ontable d))
+Effects:
+(and (holding d)
+  (not (handempty)
+  (not (clear d)
+  (not (ontable d))
+
+## New State:
+(and (clear a)
+ (ontable s)
+ (ontable y)
+ (holding d)
+ (clear c)
+ (on a i)
+ (on e z)
+ (on p g)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g h)
+ (on c p)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : d 
+?X1 - block : a 
+Preconditions:
+(and (clear a)
+  (holding d))
+Effects:
+(and (handempty)
+  (clear d)
+  (on d a)
+  (not (clear a)
+  (not (holding d))
+
+## New State:
+(and (handempty)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (clear c)
+ (on a i)
+ (on e z)
+ (on p g)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g h)
+ (on d a)
+ (on c p)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : c 
+?X1 - block : p 
+Preconditions:
+(and (handempty)
+  (clear c)
+  (on c p))
+Effects:
+(and (clear p)
+  (holding c)
+  (not (handempty)
+  (not (clear c)
+  (not (on c p))
+
+## New State:
+(and (clear p)
+ (ontable s)
+ (ontable y)
+ (clear d)
+ (holding c)
+ (on a i)
+ (on e z)
+ (on p g)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g h)
+ (on d a)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : c 
+?X1 - block : d 
+Preconditions:
+(and (clear d)
+  (holding c))
+Effects:
+(and (handempty)
+  (clear c)
+  (on c d)
+  (not (clear d)
+  (not (holding c))
+
+## New State:
+(and (handempty)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (clear c)
+ (on a i)
+ (on e z)
+ (on p g)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g h)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : p 
+?X1 - block : g 
+Preconditions:
+(and (handempty)
+  (clear p)
+  (on p g))
+Effects:
+(and (holding p)
+  (clear g)
+  (not (handempty)
+  (not (clear p)
+  (not (on p g))
+
+## New State:
+(and (holding p)
+ (ontable s)
+ (ontable y)
+ (clear g)
+ (clear c)
+ (on a i)
+ (on e z)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g h)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : p 
+?X1 - block : c 
+Preconditions:
+(and (holding p)
+  (clear c))
+Effects:
+(and (handempty)
+  (clear p)
+  (on p c)
+  (not (holding p)
+  (not (clear c))
+
+## New State:
+(and (handempty)
+ (clear p)
+ (ontable s)
+ (ontable y)
+ (clear g)
+ (on a i)
+ (on e z)
+ (on p c)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g h)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : g 
+?X1 - block : h 
+Preconditions:
+(and (handempty)
+  (clear g)
+  (on g h))
+Effects:
+(and (clear h)
+  (holding g)
+  (not (handempty)
+  (not (clear g)
+  (not (on g h))
+
+## New State:
+(and (clear p)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (holding g)
+ (on a i)
+ (on e z)
+ (on p c)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : g 
+?X1 - block : p 
+Preconditions:
+(and (clear p)
+  (holding g))
+Effects:
+(and (handempty)
+  (clear g)
+  (on g p)
+  (not (clear p)
+  (not (holding g))
+
+## New State:
+(and (handempty)
+ (ontable s)
+ (clear h)
+ (ontable y)
+ (clear g)
+ (on a i)
+ (on e z)
+ (on p c)
+ (on t s)
+ (on h r)
+ (on o l)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : h 
+?X1 - block : r 
+Preconditions:
+(and (handempty)
+  (clear h)
+  (on h r))
+Effects:
+(and (holding h)
+  (clear r)
+  (not (handempty)
+  (not (clear h)
+  (not (on h r))
+
+## New State:
+(and (ontable s)
+ (holding h)
+ (ontable y)
+ (clear g)
+ (clear r)
+ (on a i)
+ (on e z)
+ (on p c)
+ (on t s)
+ (on o l)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : h 
+Preconditions:
+(and (holding h))
+Effects:
+(and (handempty)
+  (clear h)
+  (ontable h)
+  (not (holding h))
+
+## New State:
+(and (handempty)
+ (ontable s)
+ (clear h)
+ (ontable h)
+ (ontable y)
+ (clear g)
+ (clear r)
+ (on a i)
+ (on e z)
+ (on p c)
+ (on t s)
+ (on o l)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z o)
+ (on r e)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : r 
+?X1 - block : e 
+Preconditions:
+(and (handempty)
+  (clear r)
+  (on r e))
+Effects:
+(and (clear e)
+  (holding r)
+  (not (handempty)
+  (not (clear r)
+  (not (on r e))
+
+## New State:
+(and (clear e)
+ (ontable s)
+ (clear h)
+ (ontable h)
+ (ontable y)
+ (clear g)
+ (holding r)
+ (on a i)
+ (on e z)
+ (on p c)
+ (on t s)
+ (on o l)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z o)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : r 
+?X1 - block : h 
+Preconditions:
+(and (clear h)
+  (holding r))
+Effects:
+(and (handempty)
+  (clear r)
+  (on r h)
+  (not (clear h)
+  (not (holding r))
+
+## New State:
+(and (handempty)
+ (clear e)
+ (ontable s)
+ (ontable h)
+ (ontable y)
+ (clear g)
+ (clear r)
+ (on a i)
+ (on e z)
+ (on p c)
+ (on t s)
+ (on o l)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z o)
  (on r h)
- (on i c)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : e 
+?X1 - block : z 
+Preconditions:
+(and (handempty)
+  (clear e)
+  (on e z))
+Effects:
+(and (holding e)
+  (clear z)
+  (not (handempty)
+  (not (clear e)
+  (not (on e z))
+
+## New State:
+(and (holding e)
+ (ontable s)
+ (ontable h)
+ (ontable y)
+ (clear g)
+ (clear z)
+ (clear r)
+ (on a i)
+ (on p c)
+ (on t s)
+ (on o l)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z o)
+ (on r h)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action put-down
+Instantiations:
+?X0 - block : e 
+Preconditions:
+(and (holding e))
+Effects:
+(and (handempty)
+  (clear e)
+  (ontable e)
+  (not (holding e))
+
+## New State:
+(and (handempty)
+ (clear e)
+ (ontable e)
+ (ontable s)
+ (ontable h)
+ (ontable y)
+ (clear g)
+ (clear z)
+ (clear r)
+ (on a i)
+ (on p c)
+ (on t s)
+ (on o l)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z o)
+ (on r h)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action unstack
+Instantiations:
+?X0 - block : z 
+?X1 - block : o 
+Preconditions:
+(and (handempty)
+  (clear z)
+  (on z o))
+Effects:
+(and (clear o)
+  (holding z)
+  (not (handempty)
+  (not (clear z)
+  (not (on z o))
+
+## New State:
+(and (clear e)
+ (ontable e)
+ (ontable s)
+ (ontable h)
+ (ontable y)
+ (clear o)
+ (clear g)
+ (holding z)
+ (clear r)
+ (on a i)
+ (on p c)
+ (on t s)
+ (on o l)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on r h)
+ (on i t)
+)
+
+
+
+## Action Made:
+Action stack
+Instantiations:
+?X0 - block : z 
+?X1 - block : g 
+Preconditions:
+(and (clear g)
+  (holding z))
+Effects:
+(and (handempty)
+  (clear z)
+  (on z g)
+  (not (clear g)
+  (not (holding z))
+
+## New State:
+(and (handempty)
+ (clear e)
+ (ontable e)
+ (ontable s)
+ (ontable h)
+ (ontable y)
+ (clear o)
+ (clear z)
+ (clear r)
+ (on a i)
+ (on p c)
+ (on t s)
+ (on o l)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z g)
+ (on r h)
+ (on i t)
 )
 
 
@@ -2571,184 +5617,25 @@ Effects:
   (not (on r h))
 
 ## New State:
-(and (clear a)
- (ontable a)
- (clear e)
- (ontable p)
- (clear h)
- (ontable y)
- (ontable g)
- (holding r)
- (clear i)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
- (on i c)
-)
-
-
-
-## Action Made:
-Action stack
-Instantiations:
-?X0 - block : r 
-?X1 - block : i 
-Preconditions:
-(and (holding r)
-  (clear i))
-Effects:
-(and (handempty)
-  (clear r)
-  (on r i)
-  (not (holding r)
-  (not (clear i))
-
-## New State:
-(and (clear a)
- (ontable a)
- (handempty)
- (clear e)
- (ontable p)
- (clear h)
- (ontable y)
- (ontable g)
- (clear r)
- (on e p)
- (on s o)
- (on t y)
- (on h s)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
- (on r i)
- (on i c)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : h 
-?X1 - block : s 
-Preconditions:
-(and (handempty)
-  (clear h)
-  (on h s))
-Effects:
-(and (clear s)
-  (holding h)
-  (not (handempty)
-  (not (clear h)
-  (not (on h s))
-
-## New State:
-(and (clear a)
- (ontable a)
- (clear e)
- (ontable p)
- (clear s)
- (holding h)
- (ontable y)
- (ontable g)
- (clear r)
- (on e p)
- (on s o)
- (on t y)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
- (on r i)
- (on i c)
-)
-
-
-
-## Action Made:
-Action put-down
-Instantiations:
-?X0 - block : h 
-Preconditions:
-(and (holding h))
-Effects:
-(and (handempty)
-  (clear h)
-  (ontable h)
-  (not (holding h))
-
-## New State:
-(and (clear a)
- (ontable a)
- (handempty)
- (clear e)
- (ontable p)
- (clear s)
+(and (clear e)
+ (ontable e)
+ (ontable s)
  (clear h)
  (ontable h)
  (ontable y)
- (ontable g)
- (clear r)
- (on e p)
- (on s o)
- (on t y)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
- (on r i)
- (on i c)
-)
-
-
-
-## Action Made:
-Action unstack
-Instantiations:
-?X0 - block : r 
-?X1 - block : i 
-Preconditions:
-(and (handempty)
-  (clear r)
-  (on r i))
-Effects:
-(and (holding r)
-  (clear i)
-  (not (handempty)
-  (not (clear r)
-  (not (on r i))
-
-## New State:
-(and (clear a)
- (ontable a)
- (clear e)
- (ontable p)
- (clear s)
- (clear h)
- (ontable h)
- (ontable y)
- (ontable g)
+ (clear o)
+ (clear z)
  (holding r)
- (clear i)
- (on e p)
- (on s o)
- (on t y)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
- (on i c)
+ (on a i)
+ (on p c)
+ (on t s)
+ (on o l)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z g)
+ (on i t)
 )
 
 
@@ -2766,28 +5653,27 @@ Effects:
   (not (holding r))
 
 ## New State:
-(and (clear a)
- (ontable a)
- (handempty)
+(and (handempty)
  (clear e)
- (ontable p)
- (clear s)
+ (ontable e)
+ (ontable s)
  (clear h)
  (ontable h)
  (ontable y)
- (ontable g)
+ (clear o)
+ (clear z)
  (clear r)
  (ontable r)
- (clear i)
- (on e p)
- (on s o)
- (on t y)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
- (on i c)
+ (on a i)
+ (on p c)
+ (on t s)
+ (on o l)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z g)
+ (on i t)
 )
 
 
@@ -2795,107 +5681,105 @@ Effects:
 ## Action Made:
 Action unstack
 Instantiations:
-?X0 - block : i 
-?X1 - block : c 
+?X0 - block : o 
+?X1 - block : l 
 Preconditions:
 (and (handempty)
-  (clear i)
-  (on i c))
+  (clear o)
+  (on o l))
 Effects:
-(and (clear c)
-  (holding i)
+(and (holding o)
+  (clear l)
   (not (handempty)
-  (not (clear i)
-  (not (on i c))
+  (not (clear o)
+  (not (on o l))
 
 ## New State:
-(and (clear a)
- (ontable a)
- (clear e)
- (ontable p)
- (clear s)
+(and (clear e)
+ (ontable e)
+ (ontable s)
  (clear h)
  (ontable h)
  (ontable y)
- (ontable g)
- (clear c)
+ (holding o)
+ (clear l)
+ (clear z)
  (clear r)
  (ontable r)
- (holding i)
- (on e p)
- (on s o)
- (on t y)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
+ (on a i)
+ (on p c)
+ (on t s)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z g)
+ (on i t)
 )
 
 
 
 ## Action Made:
-Action put-down
+Action stack
 Instantiations:
-?X0 - block : i 
+?X0 - block : o 
+?X1 - block : h 
 Preconditions:
-(and (holding i))
+(and (clear h)
+  (holding o))
 Effects:
 (and (handempty)
-  (clear i)
-  (ontable i)
-  (not (holding i))
+  (clear o)
+  (on o h)
+  (not (clear h)
+  (not (holding o))
 
 ## New State:
-(and (clear a)
- (ontable a)
- (handempty)
+(and (handempty)
  (clear e)
- (ontable p)
- (clear s)
- (clear h)
+ (ontable e)
+ (ontable s)
  (ontable h)
  (ontable y)
- (ontable g)
- (clear c)
+ (clear o)
+ (clear l)
+ (clear z)
  (clear r)
  (ontable r)
- (clear i)
- (ontable i)
- (on e p)
- (on s o)
- (on t y)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
+ (on a i)
+ (on p c)
+ (on t s)
+ (on o h)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z g)
+ (on i t)
 )
 
 
 
 Final state:
-(and (clear a)
- (ontable a)
- (handempty)
+(and (handempty)
  (clear e)
- (ontable p)
- (clear s)
- (clear h)
+ (ontable e)
+ (ontable s)
  (ontable h)
  (ontable y)
- (ontable g)
- (clear c)
+ (clear o)
+ (clear l)
+ (clear z)
  (clear r)
  (ontable r)
- (clear i)
- (ontable i)
- (on e p)
- (on s o)
- (on t y)
- (on o d)
- (on d g)
- (on c l)
- (on l z)
- (on z t)
+ (on a i)
+ (on p c)
+ (on t s)
+ (on o h)
+ (on g p)
+ (on d a)
+ (on c d)
+ (on l y)
+ (on z g)
+ (on i t)
 )
