@@ -35,20 +35,17 @@ public class Main implements Runnable {
   @Option(names = {"-d", "--domain"}, description = "Domain File", required = true)
   File domainFile;
 
-  @Option(names = {"--purposefulE"}, defaultValue = "0.35",
-  description = "Epsilon threashold for Purposeful Suspicious Behaviour")
-  double purposefulE;
-
-
-  @Option(names = {"--purposelessE"}, defaultValue = "6",
-  description = "Epsilon threashold for Purposeless Suspicious Behaviour")
+  @Option(names = {"--purposelessE"}, description = "Espilon Threashold for Purposless Suspicious Behaviour",
+  defaultValue = "8")
   int purposelessE;
 
-  @Option(names = {"-n", "--numsteps"}, defaultValue = "30",
-  description = "Maximum number of steps of simulation")
+  @Option(names = {"--purposefulE"}, description = "Espilon Threashold for Purposful Suspicious Behaviour",
+  defaultValue = "0.35")
+  double purposefulE;
+
+  @Option(names = {"--numsteps"}, description = "Maximum number of steps",
+  defaultValue = "30")
   int numsteps;
-
-
 
   @Parameters(arity = "1..*", paramLabel = "INPUT", description = "Input file(s)")
   List<File> inputFiles;
@@ -103,8 +100,8 @@ public class Main implements Runnable {
       }
 
 
-      for (int i = 4; i < problems.size(); i++) {
-        System.out.println(sg.getNumberOfOptimalPaths(i));
+      for (int i = 0; i < problems.size(); i++) {
+        //System.out.println(sg.getNumberOfOptimalPaths(i));
       }
 
 
@@ -132,6 +129,9 @@ public class Main implements Runnable {
         "directed-simple.log", 
         "directed-detailed.log", 
         "directed-plan.plan");
+	  generateBehaviour(problems, 
+		    new DirectedBehaviourGenerator(problems), 
+        logger);
 	  generateBehaviour(problems, 
 		 new DirectedBehaviourGenerator(problems), 
 		 logger);
@@ -208,6 +208,7 @@ public class Main implements Runnable {
 	logger.logSimple("Final state:\n" + problems.get(0).toString(state));
   }
 
+  
   private ArrayList<DefaultProblem> ParseProblems() {
 	  try {
 	    final Parser parser = new Parser();
@@ -216,29 +217,24 @@ public class Main implements Runnable {
 
       System.out.println("Domain Parsed");
 	    ArrayList<DefaultProblem> problems = new ArrayList<DefaultProblem>();
-  
+ 
 	    for (File f : inputFiles) {
 		    ParsedProblem parsedProblem = parser.parseProblem(f);
         final ErrorManager errorManager = parser.getErrorManager();
         if (!errorManager.isEmpty()) {
           for (Message m : errorManager.getMessages()) {
             System.out.println(m.toString());
+          }
         }
-      }
-
 
         System.out.println("Problem Parsed");
 		    DefaultParsedProblem defaultParsedProblem = new DefaultParsedProblem(parsedDomain, parsedProblem);
 		    DefaultProblem defaultProblem = new DefaultProblem(defaultParsedProblem);
 		    defaultProblem.instantiate();
 	    	problems.add(defaultProblem);
-	    }
 
-      final ErrorManager errorManager = parser.getErrorManager();
-      if (!errorManager.isEmpty()) {
-        for (Message m : errorManager.getMessages()) {
-           System.out.println(m.toString());
-        }
+
+
       }
 
 	    return problems;
@@ -250,3 +246,4 @@ public class Main implements Runnable {
         }
     }
 }
+
