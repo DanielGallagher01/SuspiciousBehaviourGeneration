@@ -1,4 +1,0 @@
-(move player-01 pos-5-5 pos-5-4 dir-up)
-(move player-01 pos-5-4 pos-5-3 dir-up)
-(move player-01 pos-5-3 pos-4-3 dir-left)
-(push-to-nongoal player-01 stone-01 pos-4-3 pos-3-3 pos-2-3 dir-left)

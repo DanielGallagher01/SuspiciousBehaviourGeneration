@@ -1,5 +1,5 @@
 (define (domain grid)
-(:requirements :strips)
+(:requirements :strips :typing)
 (:predicates (conn ?x ?y)
              (at ?r ?x )
 	           (at-robot ?x ?r)
@@ -18,7 +18,5 @@
     (not (at-robot ?curpos ?robot)) 
     (at-robot ?nextpos ?robot)
   )
-
-
 )
 )

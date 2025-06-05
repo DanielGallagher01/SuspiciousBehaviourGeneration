@@ -14,9 +14,6 @@
     pos-1-6 - location
     pos-1-7 - location
     pos-1-8 - location
-    pos-1-9 - location
-    pos-1-10 - location
-    pos-1-11 - location
     pos-2-1 - location
     pos-2-2 - location
     pos-2-3 - location
@@ -25,9 +22,6 @@
     pos-2-6 - location
     pos-2-7 - location
     pos-2-8 - location
-    pos-2-9 - location
-    pos-2-10 - location
-    pos-2-11 - location
     pos-3-1 - location
     pos-3-2 - location
     pos-3-3 - location
@@ -36,9 +30,6 @@
     pos-3-6 - location
     pos-3-7 - location
     pos-3-8 - location
-    pos-3-9 - location
-    pos-3-10 - location
-    pos-3-11 - location
     pos-4-1 - location
     pos-4-2 - location
     pos-4-3 - location
@@ -47,9 +38,6 @@
     pos-4-6 - location
     pos-4-7 - location
     pos-4-8 - location
-    pos-4-9 - location
-    pos-4-10 - location
-    pos-4-11 - location
     pos-5-1 - location
     pos-5-2 - location
     pos-5-3 - location
@@ -58,9 +46,6 @@
     pos-5-6 - location
     pos-5-7 - location
     pos-5-8 - location
-    pos-5-9 - location
-    pos-5-10 - location
-    pos-5-11 - location
     pos-6-1 - location
     pos-6-2 - location
     pos-6-3 - location
@@ -69,9 +54,6 @@
     pos-6-6 - location
     pos-6-7 - location
     pos-6-8 - location
-    pos-6-9 - location
-    pos-6-10 - location
-    pos-6-11 - location
     pos-7-1 - location
     pos-7-2 - location
     pos-7-3 - location
@@ -80,9 +62,6 @@
     pos-7-6 - location
     pos-7-7 - location
     pos-7-8 - location
-    pos-7-9 - location
-    pos-7-10 - location
-    pos-7-11 - location
     pos-8-1 - location
     pos-8-2 - location
     pos-8-3 - location
@@ -91,9 +70,6 @@
     pos-8-6 - location
     pos-8-7 - location
     pos-8-8 - location
-    pos-8-9 - location
-    pos-8-10 - location
-    pos-8-11 - location
     pos-9-1 - location
     pos-9-2 - location
     pos-9-3 - location
@@ -102,9 +78,6 @@
     pos-9-6 - location
     pos-9-7 - location
     pos-9-8 - location
-    pos-9-9 - location
-    pos-9-10 - location
-    pos-9-11 - location
     pos-10-1 - location
     pos-10-2 - location
     pos-10-3 - location
@@ -113,9 +86,6 @@
     pos-10-6 - location
     pos-10-7 - location
     pos-10-8 - location
-    pos-10-9 - location
-    pos-10-10 - location
-    pos-10-11 - location
     pos-11-1 - location
     pos-11-2 - location
     pos-11-3 - location
@@ -124,9 +94,6 @@
     pos-11-6 - location
     pos-11-7 - location
     pos-11-8 - location
-    pos-11-9 - location
-    pos-11-10 - location
-    pos-11-11 - location
     pos-12-1 - location
     pos-12-2 - location
     pos-12-3 - location
@@ -135,9 +102,6 @@
     pos-12-6 - location
     pos-12-7 - location
     pos-12-8 - location
-    pos-12-9 - location
-    pos-12-10 - location
-    pos-12-11 - location
     pos-13-1 - location
     pos-13-2 - location
     pos-13-3 - location
@@ -146,31 +110,28 @@
     pos-13-6 - location
     pos-13-7 - location
     pos-13-8 - location
-    pos-13-9 - location
-    pos-13-10 - location
-    pos-13-11 - location
     stone-01 - stone
     stone-02 - stone
     stone-03 - stone
     stone-04 - stone
   )
   (:init
-    (IS-GOAL pos-12-8)
-    (IS-GOAL pos-8-2)
-    (IS-GOAL pos-3-2)
-    (IS-GOAL pos-7-10)
-    (IS-GOAL pos-4-2)
-    (IS-GOAL pos-5-10)
-    (IS-GOAL pos-2-2)
-    (IS-GOAL pos-7-2)
-    (IS-GOAL pos-9-2)
-    (IS-GOAL pos-12-7)
-    (IS-GOAL pos-4-10)
+    (IS-GOAL pos-12-3)
+    (IS-GOAL pos-12-4)
+    (IS-GOAL pos-12-5)
     (IS-GOAL pos-12-6)
-    (IS-GOAL pos-6-10)
-    (IS-GOAL pos-12-9)
-    (IS-GOAL pos-10-2)
+    (IS-GOAL pos-2-2)
+    (IS-GOAL pos-3-2)
+    (IS-GOAL pos-4-2)
     (IS-GOAL pos-5-2)
+    (IS-GOAL pos-4-7)
+    (IS-GOAL pos-5-7)
+    (IS-GOAL pos-6-7)
+    (IS-GOAL pos-7-7)
+    (IS-GOAL pos-7-2)
+    (IS-GOAL pos-8-2)
+    (IS-GOAL pos-9-2)
+    (IS-GOAL pos-10-2)
     (IS-NONGOAL pos-1-1)
     (IS-NONGOAL pos-1-2)
     (IS-NONGOAL pos-1-3)
@@ -179,9 +140,6 @@
     (IS-NONGOAL pos-1-6)
     (IS-NONGOAL pos-1-7)
     (IS-NONGOAL pos-1-8)
-    (IS-NONGOAL pos-1-9)
-    (IS-NONGOAL pos-1-10)
-    (IS-NONGOAL pos-1-11)
     (IS-NONGOAL pos-2-1)
     (IS-NONGOAL pos-2-3)
     (IS-NONGOAL pos-2-4)
@@ -189,9 +147,6 @@
     (IS-NONGOAL pos-2-6)
     (IS-NONGOAL pos-2-7)
     (IS-NONGOAL pos-2-8)
-    (IS-NONGOAL pos-2-9)
-    (IS-NONGOAL pos-2-10)
-    (IS-NONGOAL pos-2-11)
     (IS-NONGOAL pos-3-1)
     (IS-NONGOAL pos-3-3)
     (IS-NONGOAL pos-3-4)
@@ -199,46 +154,31 @@
     (IS-NONGOAL pos-3-6)
     (IS-NONGOAL pos-3-7)
     (IS-NONGOAL pos-3-8)
-    (IS-NONGOAL pos-3-9)
-    (IS-NONGOAL pos-3-10)
-    (IS-NONGOAL pos-3-11)
     (IS-NONGOAL pos-4-1)
     (IS-NONGOAL pos-4-3)
     (IS-NONGOAL pos-4-4)
     (IS-NONGOAL pos-4-5)
     (IS-NONGOAL pos-4-6)
-    (IS-NONGOAL pos-4-7)
     (IS-NONGOAL pos-4-8)
-    (IS-NONGOAL pos-4-9)
-    (IS-NONGOAL pos-4-11)
     (IS-NONGOAL pos-5-1)
     (IS-NONGOAL pos-5-3)
     (IS-NONGOAL pos-5-4)
     (IS-NONGOAL pos-5-5)
     (IS-NONGOAL pos-5-6)
-    (IS-NONGOAL pos-5-7)
     (IS-NONGOAL pos-5-8)
-    (IS-NONGOAL pos-5-9)
-    (IS-NONGOAL pos-5-11)
     (IS-NONGOAL pos-6-1)
     (IS-NONGOAL pos-6-2)
     (IS-NONGOAL pos-6-3)
     (IS-NONGOAL pos-6-4)
     (IS-NONGOAL pos-6-5)
     (IS-NONGOAL pos-6-6)
-    (IS-NONGOAL pos-6-7)
     (IS-NONGOAL pos-6-8)
-    (IS-NONGOAL pos-6-9)
-    (IS-NONGOAL pos-6-11)
     (IS-NONGOAL pos-7-1)
     (IS-NONGOAL pos-7-3)
     (IS-NONGOAL pos-7-4)
     (IS-NONGOAL pos-7-5)
     (IS-NONGOAL pos-7-6)
-    (IS-NONGOAL pos-7-7)
     (IS-NONGOAL pos-7-8)
-    (IS-NONGOAL pos-7-9)
-    (IS-NONGOAL pos-7-11)
     (IS-NONGOAL pos-8-1)
     (IS-NONGOAL pos-8-3)
     (IS-NONGOAL pos-8-4)
@@ -246,9 +186,6 @@
     (IS-NONGOAL pos-8-6)
     (IS-NONGOAL pos-8-7)
     (IS-NONGOAL pos-8-8)
-    (IS-NONGOAL pos-8-9)
-    (IS-NONGOAL pos-8-10)
-    (IS-NONGOAL pos-8-11)
     (IS-NONGOAL pos-9-1)
     (IS-NONGOAL pos-9-3)
     (IS-NONGOAL pos-9-4)
@@ -256,9 +193,6 @@
     (IS-NONGOAL pos-9-6)
     (IS-NONGOAL pos-9-7)
     (IS-NONGOAL pos-9-8)
-    (IS-NONGOAL pos-9-9)
-    (IS-NONGOAL pos-9-10)
-    (IS-NONGOAL pos-9-11)
     (IS-NONGOAL pos-10-1)
     (IS-NONGOAL pos-10-3)
     (IS-NONGOAL pos-10-4)
@@ -266,9 +200,6 @@
     (IS-NONGOAL pos-10-6)
     (IS-NONGOAL pos-10-7)
     (IS-NONGOAL pos-10-8)
-    (IS-NONGOAL pos-10-9)
-    (IS-NONGOAL pos-10-10)
-    (IS-NONGOAL pos-10-11)
     (IS-NONGOAL pos-11-1)
     (IS-NONGOAL pos-11-2)
     (IS-NONGOAL pos-11-3)
@@ -277,16 +208,10 @@
     (IS-NONGOAL pos-11-6)
     (IS-NONGOAL pos-11-7)
     (IS-NONGOAL pos-11-8)
-    (IS-NONGOAL pos-11-9)
-    (IS-NONGOAL pos-11-10)
-    (IS-NONGOAL pos-11-11)
     (IS-NONGOAL pos-12-1)
     (IS-NONGOAL pos-12-2)
-    (IS-NONGOAL pos-12-3)
-    (IS-NONGOAL pos-12-4)
-    (IS-NONGOAL pos-12-5)
-    (IS-NONGOAL pos-12-10)
-    (IS-NONGOAL pos-12-11)
+    (IS-NONGOAL pos-12-7)
+    (IS-NONGOAL pos-12-8)
     (IS-NONGOAL pos-13-1)
     (IS-NONGOAL pos-13-2)
     (IS-NONGOAL pos-13-3)
@@ -295,9 +220,6 @@
     (IS-NONGOAL pos-13-6)
     (IS-NONGOAL pos-13-7)
     (IS-NONGOAL pos-13-8)
-    (IS-NONGOAL pos-13-9)
-    (IS-NONGOAL pos-13-10)
-    (IS-NONGOAL pos-13-11)
     (MOVE-DIR pos-1-1 pos-2-1 dir-down)
     (MOVE-DIR pos-1-1 pos-1-2 dir-right)
     (MOVE-DIR pos-1-2 pos-2-2 dir-down)
@@ -320,15 +242,6 @@
     (MOVE-DIR pos-1-7 pos-1-8 dir-right)
     (MOVE-DIR pos-1-8 pos-2-8 dir-down)
     (MOVE-DIR pos-1-8 pos-1-7 dir-left)
-    (MOVE-DIR pos-1-8 pos-1-9 dir-right)
-    (MOVE-DIR pos-1-9 pos-2-9 dir-down)
-    (MOVE-DIR pos-1-9 pos-1-8 dir-left)
-    (MOVE-DIR pos-1-9 pos-1-10 dir-right)
-    (MOVE-DIR pos-1-10 pos-2-10 dir-down)
-    (MOVE-DIR pos-1-10 pos-1-9 dir-left)
-    (MOVE-DIR pos-1-10 pos-1-11 dir-right)
-    (MOVE-DIR pos-1-11 pos-2-11 dir-down)
-    (MOVE-DIR pos-1-11 pos-1-10 dir-left)
     (MOVE-DIR pos-2-1 pos-1-1 dir-up)
     (MOVE-DIR pos-2-1 pos-3-1 dir-down)
     (MOVE-DIR pos-2-1 pos-2-2 dir-right)
@@ -359,18 +272,6 @@
     (MOVE-DIR pos-2-8 pos-1-8 dir-up)
     (MOVE-DIR pos-2-8 pos-3-8 dir-down)
     (MOVE-DIR pos-2-8 pos-2-7 dir-left)
-    (MOVE-DIR pos-2-8 pos-2-9 dir-right)
-    (MOVE-DIR pos-2-9 pos-1-9 dir-up)
-    (MOVE-DIR pos-2-9 pos-3-9 dir-down)
-    (MOVE-DIR pos-2-9 pos-2-8 dir-left)
-    (MOVE-DIR pos-2-9 pos-2-10 dir-right)
-    (MOVE-DIR pos-2-10 pos-1-10 dir-up)
-    (MOVE-DIR pos-2-10 pos-3-10 dir-down)
-    (MOVE-DIR pos-2-10 pos-2-9 dir-left)
-    (MOVE-DIR pos-2-10 pos-2-11 dir-right)
-    (MOVE-DIR pos-2-11 pos-1-11 dir-up)
-    (MOVE-DIR pos-2-11 pos-3-11 dir-down)
-    (MOVE-DIR pos-2-11 pos-2-10 dir-left)
     (MOVE-DIR pos-3-1 pos-2-1 dir-up)
     (MOVE-DIR pos-3-1 pos-4-1 dir-down)
     (MOVE-DIR pos-3-1 pos-3-2 dir-right)
@@ -401,18 +302,6 @@
     (MOVE-DIR pos-3-8 pos-2-8 dir-up)
     (MOVE-DIR pos-3-8 pos-4-8 dir-down)
     (MOVE-DIR pos-3-8 pos-3-7 dir-left)
-    (MOVE-DIR pos-3-8 pos-3-9 dir-right)
-    (MOVE-DIR pos-3-9 pos-2-9 dir-up)
-    (MOVE-DIR pos-3-9 pos-4-9 dir-down)
-    (MOVE-DIR pos-3-9 pos-3-8 dir-left)
-    (MOVE-DIR pos-3-9 pos-3-10 dir-right)
-    (MOVE-DIR pos-3-10 pos-2-10 dir-up)
-    (MOVE-DIR pos-3-10 pos-4-10 dir-down)
-    (MOVE-DIR pos-3-10 pos-3-9 dir-left)
-    (MOVE-DIR pos-3-10 pos-3-11 dir-right)
-    (MOVE-DIR pos-3-11 pos-2-11 dir-up)
-    (MOVE-DIR pos-3-11 pos-4-11 dir-down)
-    (MOVE-DIR pos-3-11 pos-3-10 dir-left)
     (MOVE-DIR pos-4-1 pos-3-1 dir-up)
     (MOVE-DIR pos-4-1 pos-5-1 dir-down)
     (MOVE-DIR pos-4-1 pos-4-2 dir-right)
@@ -443,18 +332,6 @@
     (MOVE-DIR pos-4-8 pos-3-8 dir-up)
     (MOVE-DIR pos-4-8 pos-5-8 dir-down)
     (MOVE-DIR pos-4-8 pos-4-7 dir-left)
-    (MOVE-DIR pos-4-8 pos-4-9 dir-right)
-    (MOVE-DIR pos-4-9 pos-3-9 dir-up)
-    (MOVE-DIR pos-4-9 pos-5-9 dir-down)
-    (MOVE-DIR pos-4-9 pos-4-8 dir-left)
-    (MOVE-DIR pos-4-9 pos-4-10 dir-right)
-    (MOVE-DIR pos-4-10 pos-3-10 dir-up)
-    (MOVE-DIR pos-4-10 pos-5-10 dir-down)
-    (MOVE-DIR pos-4-10 pos-4-9 dir-left)
-    (MOVE-DIR pos-4-10 pos-4-11 dir-right)
-    (MOVE-DIR pos-4-11 pos-3-11 dir-up)
-    (MOVE-DIR pos-4-11 pos-5-11 dir-down)
-    (MOVE-DIR pos-4-11 pos-4-10 dir-left)
     (MOVE-DIR pos-5-1 pos-4-1 dir-up)
     (MOVE-DIR pos-5-1 pos-6-1 dir-down)
     (MOVE-DIR pos-5-1 pos-5-2 dir-right)
@@ -485,18 +362,6 @@
     (MOVE-DIR pos-5-8 pos-4-8 dir-up)
     (MOVE-DIR pos-5-8 pos-6-8 dir-down)
     (MOVE-DIR pos-5-8 pos-5-7 dir-left)
-    (MOVE-DIR pos-5-8 pos-5-9 dir-right)
-    (MOVE-DIR pos-5-9 pos-4-9 dir-up)
-    (MOVE-DIR pos-5-9 pos-6-9 dir-down)
-    (MOVE-DIR pos-5-9 pos-5-8 dir-left)
-    (MOVE-DIR pos-5-9 pos-5-10 dir-right)
-    (MOVE-DIR pos-5-10 pos-4-10 dir-up)
-    (MOVE-DIR pos-5-10 pos-6-10 dir-down)
-    (MOVE-DIR pos-5-10 pos-5-9 dir-left)
-    (MOVE-DIR pos-5-10 pos-5-11 dir-right)
-    (MOVE-DIR pos-5-11 pos-4-11 dir-up)
-    (MOVE-DIR pos-5-11 pos-6-11 dir-down)
-    (MOVE-DIR pos-5-11 pos-5-10 dir-left)
     (MOVE-DIR pos-6-1 pos-5-1 dir-up)
     (MOVE-DIR pos-6-1 pos-7-1 dir-down)
     (MOVE-DIR pos-6-1 pos-6-2 dir-right)
@@ -527,18 +392,6 @@
     (MOVE-DIR pos-6-8 pos-5-8 dir-up)
     (MOVE-DIR pos-6-8 pos-7-8 dir-down)
     (MOVE-DIR pos-6-8 pos-6-7 dir-left)
-    (MOVE-DIR pos-6-8 pos-6-9 dir-right)
-    (MOVE-DIR pos-6-9 pos-5-9 dir-up)
-    (MOVE-DIR pos-6-9 pos-7-9 dir-down)
-    (MOVE-DIR pos-6-9 pos-6-8 dir-left)
-    (MOVE-DIR pos-6-9 pos-6-10 dir-right)
-    (MOVE-DIR pos-6-10 pos-5-10 dir-up)
-    (MOVE-DIR pos-6-10 pos-7-10 dir-down)
-    (MOVE-DIR pos-6-10 pos-6-9 dir-left)
-    (MOVE-DIR pos-6-10 pos-6-11 dir-right)
-    (MOVE-DIR pos-6-11 pos-5-11 dir-up)
-    (MOVE-DIR pos-6-11 pos-7-11 dir-down)
-    (MOVE-DIR pos-6-11 pos-6-10 dir-left)
     (MOVE-DIR pos-7-1 pos-6-1 dir-up)
     (MOVE-DIR pos-7-1 pos-8-1 dir-down)
     (MOVE-DIR pos-7-1 pos-7-2 dir-right)
@@ -569,18 +422,6 @@
     (MOVE-DIR pos-7-8 pos-6-8 dir-up)
     (MOVE-DIR pos-7-8 pos-8-8 dir-down)
     (MOVE-DIR pos-7-8 pos-7-7 dir-left)
-    (MOVE-DIR pos-7-8 pos-7-9 dir-right)
-    (MOVE-DIR pos-7-9 pos-6-9 dir-up)
-    (MOVE-DIR pos-7-9 pos-8-9 dir-down)
-    (MOVE-DIR pos-7-9 pos-7-8 dir-left)
-    (MOVE-DIR pos-7-9 pos-7-10 dir-right)
-    (MOVE-DIR pos-7-10 pos-6-10 dir-up)
-    (MOVE-DIR pos-7-10 pos-8-10 dir-down)
-    (MOVE-DIR pos-7-10 pos-7-9 dir-left)
-    (MOVE-DIR pos-7-10 pos-7-11 dir-right)
-    (MOVE-DIR pos-7-11 pos-6-11 dir-up)
-    (MOVE-DIR pos-7-11 pos-8-11 dir-down)
-    (MOVE-DIR pos-7-11 pos-7-10 dir-left)
     (MOVE-DIR pos-8-1 pos-7-1 dir-up)
     (MOVE-DIR pos-8-1 pos-9-1 dir-down)
     (MOVE-DIR pos-8-1 pos-8-2 dir-right)
@@ -611,18 +452,6 @@
     (MOVE-DIR pos-8-8 pos-7-8 dir-up)
     (MOVE-DIR pos-8-8 pos-9-8 dir-down)
     (MOVE-DIR pos-8-8 pos-8-7 dir-left)
-    (MOVE-DIR pos-8-8 pos-8-9 dir-right)
-    (MOVE-DIR pos-8-9 pos-7-9 dir-up)
-    (MOVE-DIR pos-8-9 pos-9-9 dir-down)
-    (MOVE-DIR pos-8-9 pos-8-8 dir-left)
-    (MOVE-DIR pos-8-9 pos-8-10 dir-right)
-    (MOVE-DIR pos-8-10 pos-7-10 dir-up)
-    (MOVE-DIR pos-8-10 pos-9-10 dir-down)
-    (MOVE-DIR pos-8-10 pos-8-9 dir-left)
-    (MOVE-DIR pos-8-10 pos-8-11 dir-right)
-    (MOVE-DIR pos-8-11 pos-7-11 dir-up)
-    (MOVE-DIR pos-8-11 pos-9-11 dir-down)
-    (MOVE-DIR pos-8-11 pos-8-10 dir-left)
     (MOVE-DIR pos-9-1 pos-8-1 dir-up)
     (MOVE-DIR pos-9-1 pos-10-1 dir-down)
     (MOVE-DIR pos-9-1 pos-9-2 dir-right)
@@ -653,18 +482,6 @@
     (MOVE-DIR pos-9-8 pos-8-8 dir-up)
     (MOVE-DIR pos-9-8 pos-10-8 dir-down)
     (MOVE-DIR pos-9-8 pos-9-7 dir-left)
-    (MOVE-DIR pos-9-8 pos-9-9 dir-right)
-    (MOVE-DIR pos-9-9 pos-8-9 dir-up)
-    (MOVE-DIR pos-9-9 pos-10-9 dir-down)
-    (MOVE-DIR pos-9-9 pos-9-8 dir-left)
-    (MOVE-DIR pos-9-9 pos-9-10 dir-right)
-    (MOVE-DIR pos-9-10 pos-8-10 dir-up)
-    (MOVE-DIR pos-9-10 pos-10-10 dir-down)
-    (MOVE-DIR pos-9-10 pos-9-9 dir-left)
-    (MOVE-DIR pos-9-10 pos-9-11 dir-right)
-    (MOVE-DIR pos-9-11 pos-8-11 dir-up)
-    (MOVE-DIR pos-9-11 pos-10-11 dir-down)
-    (MOVE-DIR pos-9-11 pos-9-10 dir-left)
     (MOVE-DIR pos-10-1 pos-9-1 dir-up)
     (MOVE-DIR pos-10-1 pos-11-1 dir-down)
     (MOVE-DIR pos-10-1 pos-10-2 dir-right)
@@ -695,18 +512,6 @@
     (MOVE-DIR pos-10-8 pos-9-8 dir-up)
     (MOVE-DIR pos-10-8 pos-11-8 dir-down)
     (MOVE-DIR pos-10-8 pos-10-7 dir-left)
-    (MOVE-DIR pos-10-8 pos-10-9 dir-right)
-    (MOVE-DIR pos-10-9 pos-9-9 dir-up)
-    (MOVE-DIR pos-10-9 pos-11-9 dir-down)
-    (MOVE-DIR pos-10-9 pos-10-8 dir-left)
-    (MOVE-DIR pos-10-9 pos-10-10 dir-right)
-    (MOVE-DIR pos-10-10 pos-9-10 dir-up)
-    (MOVE-DIR pos-10-10 pos-11-10 dir-down)
-    (MOVE-DIR pos-10-10 pos-10-9 dir-left)
-    (MOVE-DIR pos-10-10 pos-10-11 dir-right)
-    (MOVE-DIR pos-10-11 pos-9-11 dir-up)
-    (MOVE-DIR pos-10-11 pos-11-11 dir-down)
-    (MOVE-DIR pos-10-11 pos-10-10 dir-left)
     (MOVE-DIR pos-11-1 pos-10-1 dir-up)
     (MOVE-DIR pos-11-1 pos-12-1 dir-down)
     (MOVE-DIR pos-11-1 pos-11-2 dir-right)
@@ -737,18 +542,6 @@
     (MOVE-DIR pos-11-8 pos-10-8 dir-up)
     (MOVE-DIR pos-11-8 pos-12-8 dir-down)
     (MOVE-DIR pos-11-8 pos-11-7 dir-left)
-    (MOVE-DIR pos-11-8 pos-11-9 dir-right)
-    (MOVE-DIR pos-11-9 pos-10-9 dir-up)
-    (MOVE-DIR pos-11-9 pos-12-9 dir-down)
-    (MOVE-DIR pos-11-9 pos-11-8 dir-left)
-    (MOVE-DIR pos-11-9 pos-11-10 dir-right)
-    (MOVE-DIR pos-11-10 pos-10-10 dir-up)
-    (MOVE-DIR pos-11-10 pos-12-10 dir-down)
-    (MOVE-DIR pos-11-10 pos-11-9 dir-left)
-    (MOVE-DIR pos-11-10 pos-11-11 dir-right)
-    (MOVE-DIR pos-11-11 pos-10-11 dir-up)
-    (MOVE-DIR pos-11-11 pos-12-11 dir-down)
-    (MOVE-DIR pos-11-11 pos-11-10 dir-left)
     (MOVE-DIR pos-12-1 pos-11-1 dir-up)
     (MOVE-DIR pos-12-1 pos-13-1 dir-down)
     (MOVE-DIR pos-12-1 pos-12-2 dir-right)
@@ -779,18 +572,6 @@
     (MOVE-DIR pos-12-8 pos-11-8 dir-up)
     (MOVE-DIR pos-12-8 pos-13-8 dir-down)
     (MOVE-DIR pos-12-8 pos-12-7 dir-left)
-    (MOVE-DIR pos-12-8 pos-12-9 dir-right)
-    (MOVE-DIR pos-12-9 pos-11-9 dir-up)
-    (MOVE-DIR pos-12-9 pos-13-9 dir-down)
-    (MOVE-DIR pos-12-9 pos-12-8 dir-left)
-    (MOVE-DIR pos-12-9 pos-12-10 dir-right)
-    (MOVE-DIR pos-12-10 pos-11-10 dir-up)
-    (MOVE-DIR pos-12-10 pos-13-10 dir-down)
-    (MOVE-DIR pos-12-10 pos-12-9 dir-left)
-    (MOVE-DIR pos-12-10 pos-12-11 dir-right)
-    (MOVE-DIR pos-12-11 pos-11-11 dir-up)
-    (MOVE-DIR pos-12-11 pos-13-11 dir-down)
-    (MOVE-DIR pos-12-11 pos-12-10 dir-left)
     (MOVE-DIR pos-13-1 pos-12-1 dir-up)
     (MOVE-DIR pos-13-1 pos-13-2 dir-right)
     (MOVE-DIR pos-13-2 pos-12-2 dir-up)
@@ -813,104 +594,63 @@
     (MOVE-DIR pos-13-7 pos-13-8 dir-right)
     (MOVE-DIR pos-13-8 pos-12-8 dir-up)
     (MOVE-DIR pos-13-8 pos-13-7 dir-left)
-    (MOVE-DIR pos-13-8 pos-13-9 dir-right)
-    (MOVE-DIR pos-13-9 pos-12-9 dir-up)
-    (MOVE-DIR pos-13-9 pos-13-8 dir-left)
-    (MOVE-DIR pos-13-9 pos-13-10 dir-right)
-    (MOVE-DIR pos-13-10 pos-12-10 dir-up)
-    (MOVE-DIR pos-13-10 pos-13-9 dir-left)
-    (MOVE-DIR pos-13-10 pos-13-11 dir-right)
-    (MOVE-DIR pos-13-11 pos-12-11 dir-up)
-    (MOVE-DIR pos-13-11 pos-13-10 dir-left)
-    (at player-01 pos-1-8)
-    (at stone-01 pos-7-7)
-    (at stone-02 pos-8-4)
-    (at stone-03 pos-9-7)
-    (at stone-04 pos-9-8)
+    (at player-01 pos-1-6)
+    (at stone-01 pos-4-5)
+    (at stone-02 pos-8-3)
+    (at stone-03 pos-9-5)
+    (at stone-04 pos-10-3)
     (clear pos-2-2)
     (clear pos-2-3)
-    (clear pos-2-4)
+    (clear pos-2-5)
     (clear pos-2-6)
-    (clear pos-2-7)
-    (clear pos-2-8)
-    (clear pos-2-9)
     (clear pos-3-2)
     (clear pos-3-3)
-    (clear pos-3-4)
+    (clear pos-3-5)
     (clear pos-3-6)
-    (clear pos-3-7)
-    (clear pos-3-8)
-    (clear pos-3-9)
     (clear pos-4-2)
     (clear pos-4-3)
     (clear pos-4-4)
-    (clear pos-4-5)
     (clear pos-4-6)
     (clear pos-4-7)
-    (clear pos-4-8)
-    (clear pos-4-9)
-    (clear pos-4-10)
     (clear pos-5-2)
     (clear pos-5-3)
     (clear pos-5-4)
     (clear pos-5-5)
     (clear pos-5-6)
     (clear pos-5-7)
-    (clear pos-5-8)
-    (clear pos-5-9)
-    (clear pos-5-10)
+    (clear pos-6-5)
+    (clear pos-6-6)
     (clear pos-6-7)
-    (clear pos-6-8)
-    (clear pos-6-9)
-    (clear pos-6-10)
     (clear pos-7-2)
     (clear pos-7-3)
     (clear pos-7-4)
     (clear pos-7-5)
     (clear pos-7-6)
-    (clear pos-7-8)
-    (clear pos-7-9)
-    (clear pos-7-10)
+    (clear pos-7-7)
     (clear pos-8-2)
-    (clear pos-8-3)
+    (clear pos-8-4)
     (clear pos-8-5)
-    (clear pos-8-6)
-    (clear pos-8-7)
-    (clear pos-8-8)
-    (clear pos-8-9)
     (clear pos-9-2)
     (clear pos-9-3)
     (clear pos-9-4)
-    (clear pos-9-5)
     (clear pos-9-6)
-    (clear pos-9-9)
     (clear pos-10-2)
-    (clear pos-10-3)
     (clear pos-10-4)
     (clear pos-10-5)
     (clear pos-10-6)
     (clear pos-10-7)
-    (clear pos-10-8)
-    (clear pos-10-9)
+    (clear pos-11-2)
     (clear pos-11-3)
-    (clear pos-11-4)
+    (clear pos-12-2)
     (clear pos-12-3)
     (clear pos-12-4)
     (clear pos-12-5)
     (clear pos-12-6)
-    (clear pos-12-7)
-    (clear pos-12-8)
-    (clear pos-12-9)
   )
   (:goal (and
-    ;(at-goal stone-01)
-    ;(at-goal stone-02)
-    ;(at-goal stone-03)
-    ;(at-goal stone-04)
-    (at stone-01 pos-4-10)
-    (at stone-02 pos-5-10)
-    (at stone-03 pos-6-10)
-    (at stone-04 pos-7-10)
+    (at stone-01 pos-2-2)
+    (at stone-02 pos-3-2)
+    (at stone-03 pos-4-2)
+    (at stone-04 pos-5-2)
   ))
 )
-

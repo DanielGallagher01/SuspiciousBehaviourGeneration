@@ -1,4 +1,5 @@
 java -cp out:lib/*:. com.suspiciousbehaviour.app.Main \
+  -a \
   -o outputs/blocks_mega \
   -d PDDL/blocks_mega/domain.pddl \
   PDDL/blocks_mega/problem-1.pddl \
