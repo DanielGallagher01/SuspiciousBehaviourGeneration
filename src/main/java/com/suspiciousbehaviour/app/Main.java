@@ -36,7 +36,7 @@ public class Main implements Runnable {
   File domainFile;
 
   @Option(names = {
-      "--purposelessE" }, description = "Espilon Threashold for Purposless Suspicious Behaviour", defaultValue = "8")
+      "--purposelessE" }, description = "Espilon Threashold for Purposless Suspicious Behaviour", defaultValue = "5")
   int purposelessE;
 
   @Option(names = {
@@ -126,23 +126,24 @@ public class Main implements Runnable {
     // DIRECTED BEHAVIOUR
     ArrayList<DefaultProblem> problems;
     problems = ParseProblems();
-    logger.initialize(outputFolder,
-        "directed-simple.log",
-        "directed-detailed.log",
-        "directed-plan.plan");
-    generateBehaviour(problems,
-        new DirectedBehaviourGenerator(problems),
-        logger);
+    // logger.initialize(outputFolder,
+    // "directed-simple.log",
+    // "directed-detailed.log",
+    // "directed-plan.plan");
+    // generateBehaviour(problems,
+    // new DirectedBehaviourGenerator(problems),
+    // logger);
     // generateBehaviour(problems,
     // new DirectedBehaviourGenerator(problems),
     // logger);
 
     // PURPOSEFUL BEHAVIUOUR
-    problems = ParseProblems();
-    BehaviourRecogniser br = new SelfModulatingRecogniser(problems);
-    logger = new Logger();
-    logger.initialize(outputFolder, "purposefulSuspicious-simple.log", "purposefulSuspicious-detailed.log",
-        "purposefulSuspicious-plan.plan");
+    // problems = ParseProblems();
+    // BehaviourRecogniser br = new SelfModulatingRecogniser(problems);
+    // logger = new Logger();
+    // logger.initialize(outputFolder, "purposefulSuspicious-simple.log",
+    // "purposefulSuspicious-detailed.log",
+    // "purposefulSuspicious-plan.plan");
     // generateBehaviour(problems,
     // new PurposefulSuspiciousBehaviourGenerator(problems, purposefulE, numsteps,
     // br),
@@ -150,30 +151,34 @@ public class Main implements Runnable {
 
     // PURPOSELESS BEHAVIOUR
     // for (int i = 0; i < problems.size(); i++) {
-    problems = ParseProblems();
-    logger = new Logger();
-    logger.initialize(outputFolder,
-        String.format("purposelessSuspicious-goal%d-simple.log", problems.size() - 1),
-        String.format("purposelessSuspicious-goal%d-detailed.log", problems.size() - 1),
-        String.format("purposelessSuspicious-goal%d-plan.plan", problems.size() - 1));
-    generateBehaviour(problems,
-        new PurposelessSuspiciousBehaviourGenerator(problems, purposelessE, numsteps, problems.size() - 1),
-        logger);
+    // problems = ParseProblems();
+    // logger = new Logger();
+    // logger.initialize(outputFolder,
+    // String.format("purposelessSuspicious-goal%d-simple.log", problems.size() -
+    // 1),
+    // String.format("purposelessSuspicious-goal%d-detailed.log", problems.size() -
+    // 1),
+    // String.format("purposelessSuspicious-goal%d-plan.plan", problems.size() -
+    // 1));
+    // generateBehaviour(problems,
+    // new PurposelessSuspiciousBehaviourGenerator(problems, purposelessE, numsteps,
+    // problems.size() - 1),
+    // logger);
     // }
 
     // UNEXPECTEDLY SUSPICUOUS
-    for (int i = 0; i < problems.size() - 1; i++) {
-      problems = ParseProblems();
-      logger = new Logger();
-      logger.initialize(outputFolder,
-          String.format("unexpectedlySuspicious-goal%d-simple.log", i),
-          String.format("unexpectedlySuspicious-goal%d-detailed.log", i),
-          String.format("unexpectedlySuspicious-goal%d-plan.plan", i));
-      generateBehaviour(problems,
-          new UnexpectedlySuspiciousBehaviourGenerator(problems, 6, i, problems.size() - 1,
-              new SemidirectedBehaviourGenerator(problems, 1, problems.size() - 1)),
-          logger);
-    }
+    // for (int i = 0; i < problems.size() - 1; i++) {
+    problems = ParseProblems();
+    logger = new Logger();
+    logger.initialize(outputFolder,
+        String.format("unexpectedlySuspicious-goal%d-simple.log", 1),
+        String.format("unexpectedlySuspicious-goal%d-detailed.log", 1),
+        String.format("unexpectedlySuspicious-goal%d-plan.plan", 1));
+    generateBehaviour(problems,
+        new UnexpectedlySuspiciousBehaviourGenerator(problems, 6, 1, problems.size() - 1,
+            new SemidirectedBehaviourGenerator(problems, 2, problems.size() - 1)),
+        logger);
+    // }
 
     logger.close();
 
@@ -186,7 +191,7 @@ public class Main implements Runnable {
 
     logger.logSimple("## Initial state:\n" + problems.get(0).toString(state));
 
-    for (int i = 0; i < 70; i++) {
+    for (int i = 0; i < 100; i++) {
       try {
         Action chosen = bg.generateAction(state, logger);
         bg.actionTaken(state, chosen);
