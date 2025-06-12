@@ -6,11 +6,17 @@ import fr.uga.pddl4j.problem.operator.Action;
 public class Node extends State {
   public double cost; // Cost to reach the Node
   public int numOptimalPaths; // number of optimal paths to reach the Node
+  public Action action;
+  public Node parent;
 
   public Node(State state, double cost, int numOptimalPaths) {
     super(state);
     this.cost = cost;
     this.numOptimalPaths = numOptimalPaths;
+  }
+
+  public Node(State state) {
+    super(state);
   }
 
   public Node(Node parent, Action action) {
@@ -21,6 +27,8 @@ public class Node extends State {
 
     this.cost = parent.cost + action.getCost().getValue();
     this.numOptimalPaths = parent.numOptimalPaths;
+    this.action = action;
+    this.parent = parent;
   }
 
   @Override

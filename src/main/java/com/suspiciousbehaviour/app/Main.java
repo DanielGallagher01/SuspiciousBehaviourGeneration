@@ -14,6 +14,8 @@ import fr.uga.pddl4j.plan.Plan;
 import fr.uga.pddl4j.problem.State;
 import fr.uga.pddl4j.problem.InitialState;
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.HashMap;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,6 +24,13 @@ import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 import java.io.File;
 import java.util.List;
+import java.util.Map;
+
+import com.suspiciousbehaviour.app.ModularLoitering;
+import com.suspiciousbehaviour.app.modularGenerators.ModularGenerator;
+import com.suspiciousbehaviour.app.modularGenerators.OptimalPlanner;
+import com.suspiciousbehaviour.app.modularGenerators.SuboptimalPlanner;
+
 import java.nio.file.Path;
 
 public class Main implements Runnable {
@@ -168,17 +177,35 @@ public class Main implements Runnable {
 
     // UNEXPECTEDLY SUSPICUOUS
     // for (int i = 0; i < problems.size() - 1; i++) {
+    // problems = ParseProblems();
+    // logger = new Logger();
+    // logger.initialize(outputFolder,
+    // String.format("unexpectedlySuspicious-goal%d-simple.log", 1),
+    // String.format("unexpectedlySuspicious-goal%d-detailed.log", 1),
+    // String.format("unexpectedlySuspicious-goal%d-plan.plan", 1));
+    // generateBehaviour(problems,
+    // new UnexpectedlySuspiciousBehaviourGenerator(problems, 6, 1, problems.size()
+    // - 1,
+    // new SemidirectedBehaviourGenerator(problems, 2, problems.size() - 1)),
+    // logger);
+    // }
+    //
+
+    Map<ModularLoitering.CurrentStage, ModularGenerator> generators = new HashMap<ModularLoitering.CurrentStage, ModularGenerator>();
+
+    generators.put(ModularLoitering.CurrentStage.APPROACHING, new OptimalPlanner());
+    generators.put(ModularLoitering.CurrentStage.LOITERING, new SuboptimalPlanner(5));
+    generators.put(ModularLoitering.CurrentStage.ENDING, new OptimalPlanner());
+
     problems = ParseProblems();
     logger = new Logger();
     logger.initialize(outputFolder,
-        String.format("unexpectedlySuspicious-goal%d-simple.log", 1),
-        String.format("unexpectedlySuspicious-goal%d-detailed.log", 1),
-        String.format("unexpectedlySuspicious-goal%d-plan.plan", 1));
+        String.format("modularLoitering-goal%d-simple.log", 4),
+        String.format("modularLoitering-goal%d-detailed.log", 4),
+        String.format("modularLoitering-goal%d-plan.plan", 4));
     generateBehaviour(problems,
-        new UnexpectedlySuspiciousBehaviourGenerator(problems, 6, 1, problems.size() - 1,
-            new SemidirectedBehaviourGenerator(problems, 2, problems.size() - 1)),
+        new ModularLoitering(problems, 8, 4, generators),
         logger);
-    // }
 
     logger.close();
 
