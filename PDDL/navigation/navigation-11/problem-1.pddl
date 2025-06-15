@@ -21,7 +21,7 @@
     (is-goal node10-10)
     (is-goal node10-0)
     (is-goal node2-8)
-    (is-goal node6-0)
+    (is-goal-dangerous node6-0)
     (is-goal-dangerous node10-6)
 
     (place node0-0) (place node0-1) (place node0-2) (place node0-3) (place node0-4) (place node0-5) (place node0-6) (place node0-7) (place node0-8) (place node0-9) (place node0-10)
