@@ -21,13 +21,13 @@
          (HANDEMPTY)
 )
 (:goal (AND 
-        ; S P I D E R
-        (ONTABLE R)
-        (ON E R)
-        (ON D E)
-        (ON I D)
-        (ON P I)
-        (ON S P)
-        )   
+        ; S C R I P T
+        (ONTABLE T)
+        (ON P T)
+        (ON I P)
+        (ON R I)
+        (ON C R)
+        (ON S C)
+        )
     )
 )
