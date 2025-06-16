@@ -34,6 +34,7 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
   private List<Node> plan;
   private BehaviourRecogniser recogniser;
   private int ambigRadius;
+  private int rand;
 
   public AmbiguousSuboptimalPlanner(double epsilon, int ambigRadius) {
     isInitialised = false;
@@ -90,11 +91,9 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
       plan.add(node);
     }
 
-    for (int j = 0; j < 20; j++) {
+    for (int j = 0; j < 1; j++) {
       try {
-        int currentAmbiguousRadius = 0;
-        boolean valid = true;
-        for (int i = 1; i < plan.size() - ambigRadius; i++) {
+        for (int i = 4; i < Math.min(plan.size() - ambigRadius, 80); i++) {
           Map<Problem, Double> probabilities = recogniser.recognise(plan.get(i), i, logger);
 
           System.out.println(probabilities);
@@ -113,22 +112,42 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
 
           System.out.println(i + ": " + (highest - second));
           if (highest - second > epsilon) {
-            valid = false;
-            currentAmbiguousRadius = i;
             System.out.println("Outside epsilon");
-            // System.out.println(highest - second);
-            break;
+            while (true) {
+              boolean allValid = true;
+              List<Node> oldPlan = new ArrayList<>(plan);
+              if (addUnoptimalPath(logger, i)) {
+                for (int k = rand; k <= i; k++) {
+                  highest = 0;
+                  second = 0;
+
+                  probabilities = recogniser.recognise(plan.get(i), i, logger);
+                  for (Problem p : probabilities.keySet()) {
+                    Double prob = probabilities.get(p);
+                    if (prob > highest) {
+                      second = highest;
+                      highest = prob;
+                    } else if (prob > second) {
+                      second = prob;
+                    }
+                  }
+
+                  System.out.println("s   " + k + ": " + (highest - second));
+                  if (highest - second > epsilon) {
+                    allValid = false;
+                    plan = oldPlan;
+                    break;
+                  }
+                }
+
+                if (allValid) {
+                  break;
+                }
+              }
+            }
           }
 
         }
-
-        if (valid) {
-          break;
-        }
-
-        while (!addUnoptimalPath(logger, currentAmbiguousRadius)) {
-        }
-
       } catch (Exception e) {
         System.out.println(e);
         break;
@@ -140,7 +159,7 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
   private boolean addUnoptimalPath(Logger logger, int currentAmbiguousRadius) {
     System.out.println("Adding suboptimal behaviour");
     Random r = new Random();
-    int rand = r.nextInt(Math.max(0, currentAmbiguousRadius - 10), currentAmbiguousRadius);
+    rand = r.nextInt(Math.max(0, currentAmbiguousRadius - 10), currentAmbiguousRadius);
     System.out.println(rand);
 
     Set<Node> visited = new HashSet<>(plan);
