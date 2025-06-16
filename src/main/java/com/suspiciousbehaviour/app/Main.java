@@ -30,6 +30,7 @@ import com.suspiciousbehaviour.app.ModularLoitering;
 import com.suspiciousbehaviour.app.modularGenerators.ModularGenerator;
 import com.suspiciousbehaviour.app.modularGenerators.OptimalPlanner;
 import com.suspiciousbehaviour.app.modularGenerators.SuboptimalPlanner;
+import com.suspiciousbehaviour.app.modularGenerators.AmbiguousSuboptimalPlanner;
 
 import java.nio.file.Path;
 
@@ -191,11 +192,19 @@ public class Main implements Runnable {
     // }
     //
 
-    Map<ModularLoitering.CurrentStage, ModularGenerator> generators = new HashMap<ModularLoitering.CurrentStage, ModularGenerator>();
+    // Map<ModularLoitering.CurrentStage, ModularGenerator> generators = new
+    // HashMap<ModularLoitering.CurrentStage, ModularGenerator>();
 
-    generators.put(ModularLoitering.CurrentStage.APPROACHING, new OptimalPlanner());
-    generators.put(ModularLoitering.CurrentStage.LOITERING, new SuboptimalPlanner(5));
-    generators.put(ModularLoitering.CurrentStage.ENDING, new OptimalPlanner());
+    // generators.put(ModularLoitering.CurrentStage.APPROACHING, new
+    // OptimalPlanner());
+    // generators.put(ModularLoitering.CurrentStage.LOITERING, new
+    // SuboptimalPlanner(5));
+    // generators.put(ModularLoitering.CurrentStage.ENDING, new OptimalPlanner());
+
+    Map<ModularAmbiguous.CurrentStage, ModularGenerator> generators = new HashMap<ModularAmbiguous.CurrentStage, ModularGenerator>();
+
+    generators.put(ModularAmbiguous.CurrentStage.AMBIGUOUS, new AmbiguousSuboptimalPlanner(0.4, 20));
+    generators.put(ModularAmbiguous.CurrentStage.ENDING, new OptimalPlanner());
 
     problems = ParseProblems();
     logger = new Logger();
@@ -204,7 +213,8 @@ public class Main implements Runnable {
         String.format("modularLoitering-goal%d-detailed.log", 4),
         String.format("modularLoitering-goal%d-plan.plan", 4));
     generateBehaviour(problems,
-        new ModularLoitering(problems, 8, 4, generators),
+        // new ModularLoitering(problems, 8, 4, generators),
+        new ModularAmbiguous(problems, 9, 4, generators),
         logger);
 
     logger.close();
