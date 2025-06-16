@@ -113,9 +113,11 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
           System.out.println(i + ": " + (highest - second));
           if (highest - second > epsilon) {
             System.out.println("Outside epsilon");
+            int attempts = 0;
             while (true) {
               boolean allValid = true;
               List<Node> oldPlan = new ArrayList<>(plan);
+              attempts++;
               if (addUnoptimalPath(logger, i)) {
                 for (int k = rand; k <= i; k++) {
                   highest = 0;
@@ -143,6 +145,10 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
                 if (allValid) {
                   break;
                 }
+              }
+
+              if (attempts > 500) {
+                return;
               }
             }
           }
