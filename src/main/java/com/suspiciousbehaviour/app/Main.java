@@ -203,7 +203,7 @@ public class Main implements Runnable {
 
     Map<ModularAmbiguous.CurrentStage, ModularGenerator> generators = new HashMap<ModularAmbiguous.CurrentStage, ModularGenerator>();
 
-    generators.put(ModularAmbiguous.CurrentStage.AMBIGUOUS, new AmbiguousSuboptimalPlanner(0.5, 8));
+    generators.put(ModularAmbiguous.CurrentStage.AMBIGUOUS, new AmbiguousSuboptimalPlanner(0.6, 6));
     generators.put(ModularAmbiguous.CurrentStage.ENDING, new OptimalPlanner());
 
     problems = ParseProblems();
@@ -214,7 +214,7 @@ public class Main implements Runnable {
         String.format("modularLoitering-goal%d-plan.plan", 4));
     generateBehaviour(problems,
         // new ModularLoitering(problems, 8, 4, generators),
-        new ModularAmbiguous(problems, 8, 3, generators),
+        new ModularAmbiguous(problems, 1, 3, generators),
         logger);
 
     logger.close();

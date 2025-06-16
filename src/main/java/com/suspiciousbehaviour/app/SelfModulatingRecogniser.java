@@ -31,6 +31,7 @@ public class SelfModulatingRecogniser implements BehaviourRecogniser {
   public SelfModulatingRecogniser(List<DefaultProblem> problems) {
     this.problems = problems;
     this.planner = new HSP();
+    planner.setTimeout(10);
     this.initialPlans = new Hashtable<>();
     this.initialState = problems.get(0).getInitialState();
 
