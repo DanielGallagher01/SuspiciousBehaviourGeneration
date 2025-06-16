@@ -35,7 +35,7 @@ public class SelfModulatingRecogniser implements BehaviourRecogniser {
     this.initialState = problems.get(0).getInitialState();
 
     // Use a thread-safe map for concurrent updates
-    Map<Problem, Plan> initialPlans = new ConcurrentHashMap<>();
+    initialPlans = new ConcurrentHashMap<>();
 
     ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
     List<Future<?>> futures = new ArrayList<>();
