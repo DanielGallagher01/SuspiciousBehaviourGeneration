@@ -203,7 +203,7 @@ public class Main implements Runnable {
 
     Map<ModularAmbiguous.CurrentStage, ModularGenerator> generators = new HashMap<ModularAmbiguous.CurrentStage, ModularGenerator>();
 
-    generators.put(ModularAmbiguous.CurrentStage.AMBIGUOUS, new AmbiguousSuboptimalPlanner(0.6, 6));
+    generators.put(ModularAmbiguous.CurrentStage.AMBIGUOUS, new AmbiguousSuboptimalPlanner(0.8, 10));
     generators.put(ModularAmbiguous.CurrentStage.ENDING, new OptimalPlanner());
 
     problems = ParseProblems();

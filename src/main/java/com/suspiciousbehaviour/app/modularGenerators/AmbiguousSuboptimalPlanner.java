@@ -36,6 +36,7 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
   private BehaviourRecogniser recogniser;
   private int ambigRadius;
   private int subpathStart, subpathEnd;
+  private boolean useRandom = false;
 
   public AmbiguousSuboptimalPlanner(double epsilon, int ambigRadius) {
     isInitialised = false;
@@ -118,15 +119,34 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
           System.out.println(i + ": " + (highest - second));
           if (highest - second > epsilon) {
             System.out.println("Outside epsilon");
+            System.out.println(problem.toString(plan.get(i)));
+
             int attempts = 0;
+
+            // Setup variables for search
+            visited = new HashSet<>(plan);
+            current = new HashSet<>();
+            next = new HashSet<>();
+            for (Node n : plan) {
+              n.parent = null;
+            }
+
+            int currentStep = i - 1;
             while (true) {
               boolean allValid = true;
               List<Node> oldPlan = new ArrayList<>(plan);
               attempts++;
+
+              if (!useRandom) {
+                subpathStart = currentStep;
+              }
+
               if (addUnoptimalPath(logger, i)) {
-                for (int k = subpathStart; k <= i; k++) {
+                for (int k = subpathStart; k <= subpathEnd; k++) {
                   highest = 0;
                   second = 0;
+                  logger.logDetailed("\n\nRecognising for: " + k);
+                  logger.logDetailed("Action:" + problem.toString(plan.get(k).action));
 
                   probabilities = recogniser.recognise(plan.get(k), k, logger);
                   for (Problem p : probabilities.keySet()) {
@@ -148,11 +168,30 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
                 }
 
                 if (allValid) {
-                  break;
+                  i = subpathEnd;
+                  System.out.println(problem.toString(plan.get(i)));
+
+                  // Setup variables for search
+                  visited = new HashSet<>(plan);
+                  current = new HashSet<>();
+                  next = new HashSet<>();
+                  for (Node n : plan) {
+                    n.parent = null;
+                  }
+                  return;
+                  // break;
+                }
+              } else if (!useRandom) {
+                currentStep--;
+
+                if (currentStep == -1) {
+                  System.out.println("Reached end without working");
+                  return;
                 }
               }
 
               if (attempts > 5000) {
+                System.out.println("Out of attempts");
                 return;
               }
             }
@@ -167,20 +206,23 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
 
   }
 
+  Set<Node> visited;
+  Set<Node> current;
+  Set<Node> next;
+
   private boolean addUnoptimalPath(Logger logger, int currentAmbiguousRadius) {
     System.out.println("Adding suboptimal behaviour");
-    Random r = new Random();
-    subpathStart = r.nextInt(Math.max(0, currentAmbiguousRadius - 10), currentAmbiguousRadius);
-    System.out.println(subpathStart);
-
-    Set<Node> visited = new HashSet<>(plan);
-    Set<Node> current = new HashSet<>();
-    Set<Node> next = new HashSet<>();
-
-    logger.logSimple("InitialState: \n" + problem.toString(plan.get(subpathStart)));
+    // Random r = new Random();
+    // if (useRandom) {
+    // subpathStart = r.nextInt(Math.max(0, currentAmbiguousRadius - 10),
+    // currentAmbiguousRadius);
+    // }
+    // System.out.println("Path start: " + subpathStart);
+    // int curSkip = 0;
+    // logger.logSimple("InitialState: \n" +
+    // problem.toString(plan.get(subpathStart)));
     current.add(plan.get(subpathStart));
-    int curDepth = 1;
-    while (current.size() > 0 && curDepth < 10) {
+    while (current.size() > 0) {
       logger.logSimple("\n\n\n");
       logger.logSimple("***** Next Outer Loop *****");
       logger.logSimple("Number of visited nodes: " + visited.size());
@@ -192,98 +234,110 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
           if (action.isApplicable(node)) {
             logger.logDetailed("Next applicable action: " + problem.toString(action) + "\n");
             Node newNode = new Node(node, action);
-            logger.logDetailed("New state: " + problem.toString(newNode));
+            // logger.logDetailed("New state: " + problem.toString(newNode));
 
-            if (!visited.contains(newNode)) {
-              visited.add(newNode);
-              next.add(newNode);
-              logger.logDetailed("Node is a new state!");
-            } else {
+            if (visited.contains(newNode)) {
+              logger.logDetailed("Node aleady seen");
+              continue;
+            }
+            visited.add(newNode);
+            logger.logDetailed("Node is a new state!");
 
-              State initialState = (State) (new State(problem.getInitialState())).clone();
+            State initialState = (State) (new State(problem.getInitialState())).clone();
+            problem.getInitialState().getPositiveFluents().clear();
+            problem.getInitialState().getPositiveFluents().or(newNode);
+
+            Plan continuePlan;
+            try {
+              continuePlan = planner.solve(problems.get(goalID));
               problem.getInitialState().getPositiveFluents().clear();
-              problem.getInitialState().getPositiveFluents().or(newNode);
-
-              Plan continuePlan;
-              try {
-                continuePlan = planner.solve(problems.get(goalID));
-                problem.getInitialState().getPositiveFluents().clear();
-                problem.getInitialState().getPositiveFluents().or(initialState);
-              } catch (Exception e) {
-                problem.getInitialState().getPositiveFluents().clear();
-                problem.getInitialState().getPositiveFluents().or(initialState);
-                continue;
-              }
-
-              int diff = (subpathStart + curDepth + (int) continuePlan.cost()) - plan.size();
-              logger.logDetailed("Path difference is: " + diff);
-
-              // if (diff <= 1) {
-              // break;
-              // }
-
-              logger.logDetailed("***** We found a suboptimal path! ****");
-              logger.logDetailed("Plan start: " + subpathStart);
-
-              // We have a 2*diff / length chance of using the path
-              int continueRand = r.nextInt(optimalPlan.actions().size());
-              if (continueRand < Math.max(diff * 2, 1) || true) {
-                logger.logDetailed("***** Using the suboptimal plan! *****");
-
-                // Add new found path to plan
-                // Start by creating plan up to start of new path
-                List<Node> newPlan = new ArrayList<>();
-                for (int j = 0; j < subpathStart; j++) {
-                  newPlan.add(plan.get(j));
-                }
-
-                // Collect nodes in reverse (backwards from newNode to subpathStart)
-                List<Node> reversedSegment = new ArrayList<>();
-                Node backIterNode = newNode;
-                while (true) {
-                  logger.logDetailed(".\n");
-                  reversedSegment.add(backIterNode);
-                  backIterNode = backIterNode.parent;
-
-                  if (backIterNode == plan.get(subpathStart)) {
-                    break;
-                  }
-                }
-                reversedSegment.add(backIterNode); // include subpathStart node
-
-                // Now reverse and add to newPlan
-                Collections.reverse(reversedSegment);
-                newPlan.addAll(reversedSegment);
-
-                Boolean isActuallyNew = true;
-                Node tempNode = newPlan.getLast();
-                for (int a = 0; a < continuePlan.actions().size(); a++) {
-                  tempNode = new Node(tempNode, continuePlan.actions().get(a));
-                  if (newPlan.contains(tempNode)) {
-                    isActuallyNew = false;
-                    break;
-                  }
-                  newPlan.add(tempNode);
-                }
-
-                if (!isActuallyNew) {
-                  continue;
-                }
-
-                this.plan = newPlan;
-                System.out.println("Path extended: " + plan.size());
-                subpathEnd = subpathStart + curDepth;
-                return true;
-              } else {
-                logger.logDetailed("Plan was unlucky");
-              }
+              problem.getInitialState().getPositiveFluents().or(initialState);
+            } catch (Exception e) {
+              problem.getInitialState().getPositiveFluents().clear();
+              problem.getInitialState().getPositiveFluents().or(initialState);
+              logger.logDetailed("Action makes goal impossible");
+              continue;
             }
 
+            if (continuePlan == null) {
+              logger.logDetailed("Action makes goal impossible");
+              continue;
+            }
+
+            next.add(newNode);
+
+            logger.logDetailed("***** We found a suboptimal path! ****");
+            logger.logDetailed("Plan start: " + subpathStart);
+
+            logger.logDetailed("***** Using the suboptimal plan! *****");
+
+            // Add new found path to plan
+            // Start by creating plan up to start of new path
+            List<Node> newPlan = new ArrayList<>();
+            for (int j = 0; j < subpathStart; j++) {
+              newPlan.add(plan.get(j));
+            }
+            logger.logDetailed("Built new plan up to subpathStart");
+
+            // Collect nodes in reverse (backwards from newNode to subpathStart)
+            List<Node> reversedSegment = new ArrayList<>();
+            Node backIterNode = newNode;
+            while (true) {
+              reversedSegment.add(backIterNode);
+              backIterNode = backIterNode.parent;
+
+              if (backIterNode == plan.get(subpathStart)) {
+                break;
+              }
+            }
+            reversedSegment.add(backIterNode); // include subpathStart node
+            logger.logDetailed("Built detour out");
+
+            // Now reverse and add to newPlan
+            Collections.reverse(reversedSegment);
+            newPlan.addAll(reversedSegment);
+
+            Boolean isActuallyNew = true;
+            Node tempNode = newPlan.getLast();
+            int rejoin = 0;
+            for (int a = 0; a < continuePlan.actions().size(); a++) {
+              tempNode = new Node(tempNode, continuePlan.actions().get(a));
+              if (newPlan.contains(tempNode) || reversedSegment.contains(tempNode)) {
+                isActuallyNew = false;
+                logger.logDetailed("Loops back on self");
+                break;
+              }
+              if (rejoin == 0 && plan.contains(tempNode)) {
+                rejoin = subpathStart + reversedSegment.size() + a + 1;
+                logger.logDetailed("Rejoining point found!");
+                logger.logDetailed("subpathStart:" + subpathStart + ", detour out: " + reversedSegment.size()
+                    + ", actions to rejoin: " + (a + 1) + ", original path length: " + plan.size()
+                    + ", completion path length: " + continuePlan.size());
+              }
+              newPlan.add(tempNode);
+            }
+            int diff = (subpathStart + reversedSegment.size() + (int) continuePlan.size()) - plan.size() - 1;
+            logger.logDetailed("Path difference is: " + diff);
+            System.out.println("Path difference is: " + diff);
+            logger.logDetailed("Built continuouing path");
+
+            if (!isActuallyNew) {
+              continue;
+            }
+
+            this.plan = newPlan;
+            System.out.println("Path extended: " + plan.size());
+            subpathEnd = Math.max(subpathStart + diff,
+                rejoin);
+            // subpathEnd = subpathStart + diff;
+            subpathEnd = plan.size();
+            return true;
+          } else {
+            logger.logDetailed("Plan was unlucky");
           }
         }
       }
 
-      curDepth++;
       current = next;
       next = new HashSet<>();
     }
@@ -293,10 +347,6 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
     }
 
     return false;
-
-    // if (curDepth == 10) {
-    // logger.logSimple("Exited because reached depth limit");
-    // }
   }
 
   public int distanceToGoal(State state) {
