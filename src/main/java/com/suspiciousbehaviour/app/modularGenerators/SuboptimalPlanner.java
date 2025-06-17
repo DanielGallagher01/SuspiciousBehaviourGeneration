@@ -28,12 +28,22 @@ public class SuboptimalPlanner implements ModularGenerator {
   private List<DefaultProblem> problems;
   private Problem problem;
   private List<Node> plan;
+  private boolean setGoalID;
 
   public SuboptimalPlanner(double suboptimality) {
     isInitialised = false;
     planner = new HSP();
     this.suboptimality = suboptimality;
     this.stepID = 1;
+  }
+
+  public SuboptimalPlanner(double suboptimality, int goalID) {
+    isInitialised = false;
+    planner = new HSP();
+    this.suboptimality = suboptimality;
+    this.stepID = 1;
+    this.goalID = goalID;
+    this.setGoalID = true;
   }
 
   public Action generateAction(State state, Logger logger) throws NoValidActionException {
@@ -49,16 +59,18 @@ public class SuboptimalPlanner implements ModularGenerator {
   }
 
   public void initialise(List<DefaultProblem> problems, int goalID, State state, Logger logger) {
-    this.goalID = goalID;
+    if (!setGoalID) {
+      this.goalID = goalID;
+    }
     this.problems = problems;
-    this.problem = problems.get(goalID);
+    this.problem = problems.get(this.goalID);
 
     State initialState = (State) (new State(problem.getInitialState())).clone();
     problem.getInitialState().getPositiveFluents().clear();
     problem.getInitialState().getPositiveFluents().or(state);
 
     try {
-      Plan plan = planner.solve(problems.get(goalID));
+      Plan plan = planner.solve(problems.get(this.goalID));
       problem.getInitialState().getPositiveFluents().clear();
       problem.getInitialState().getPositiveFluents().or(initialState);
       this.optimalPlan = plan;
@@ -82,13 +94,13 @@ public class SuboptimalPlanner implements ModularGenerator {
       plan.add(node);
     }
 
-    // while (plan.size() < suboptimality * optimalPlan.size()) {
-    try {
-      // addUnoptimalPath(logger);
-    } catch (Exception e) {
-      System.out.println(e);
+    while (plan.size() < suboptimality * optimalPlan.size()) {
+      try {
+        addUnoptimalPath(logger);
+      } catch (Exception e) {
+        System.out.println(e);
+      }
     }
-    // }
 
   }
 
@@ -196,7 +208,8 @@ public class SuboptimalPlanner implements ModularGenerator {
       return Integer.MAX_VALUE;
     }
 
-    return (int) (plan.getLast().cost - plan.get(stepID).cost);
+    return plan.size() - stepID;
+    // return (int) (plan.getLast().cost - plan.get(stepID).cost);
   }
 
 }

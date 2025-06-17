@@ -510,6 +510,6 @@
     (clear pos-9-5)
   )
   (:goal (and
-    (at stone-01 pos-1-2)
+    (at stone-02 pos-1-2)
   ))
 )

@@ -46,14 +46,14 @@ public class Main implements Runnable {
   File domainFile;
 
   @Option(names = {
-      "--purposelessE" }, description = "Espilon Threashold for Purposless Suspicious Behaviour", defaultValue = "5")
+      "--purposelessE" }, description = "Espilon Threashold for Purposless Suspicious Behaviour", defaultValue = "9")
   int purposelessE;
 
   @Option(names = {
       "--purposefulE" }, description = "Espilon Threashold for Purposful Suspicious Behaviour", defaultValue = "0.35")
   double purposefulE;
 
-  @Option(names = { "--numsteps" }, description = "Maximum number of steps", defaultValue = "20")
+  @Option(names = { "--numsteps" }, description = "Maximum number of steps", defaultValue = "30")
   int numsteps;
 
   @Parameters(arity = "1..*", paramLabel = "INPUT", description = "Input file(s)")
@@ -161,19 +161,19 @@ public class Main implements Runnable {
 
     // PURPOSELESS BEHAVIOUR
     // for (int i = 0; i < problems.size(); i++) {
-    // problems = ParseProblems();
-    // logger = new Logger();
-    // logger.initialize(outputFolder,
-    // String.format("purposelessSuspicious-goal%d-simple.log", problems.size() -
-    // 1),
-    // String.format("purposelessSuspicious-goal%d-detailed.log", problems.size() -
-    // 1),
-    // String.format("purposelessSuspicious-goal%d-plan.plan", problems.size() -
-    // 1));
-    // generateBehaviour(problems,
-    // new PurposelessSuspiciousBehaviourGenerator(problems, purposelessE, numsteps,
-    // problems.size() - 1),
-    // logger);
+    problems = ParseProblems();
+    logger = new Logger();
+    logger.initialize(outputFolder,
+        String.format("purposelessSuspicious-goal%d-simple.log", problems.size() -
+            1),
+        String.format("purposelessSuspicious-goal%d-detailed.log", problems.size() -
+            1),
+        String.format("purposelessSuspicious-goal%d-plan.plan", problems.size() -
+            1));
+    generateBehaviour(problems,
+        new PurposelessSuspiciousBehaviourGenerator(problems, purposelessE, numsteps,
+            problems.size() - 1),
+        logger);
     // }
 
     // UNEXPECTEDLY SUSPICUOUS
@@ -187,7 +187,7 @@ public class Main implements Runnable {
     // generateBehaviour(problems,
     // new UnexpectedlySuspiciousBehaviourGenerator(problems, 6, 1, problems.size()
     // - 1,
-    // new SemidirectedBehaviourGenerator(problems, 2, problems.size() - 1)),
+    // new SemidirectedBehaviourGenerator(problems, 2, problems.size() - 2)),
     // logger);
     // }
     //
@@ -200,21 +200,35 @@ public class Main implements Runnable {
     // generators.put(ModularLoitering.CurrentStage.LOITERING, new
     // SuboptimalPlanner(5));
     // generators.put(ModularLoitering.CurrentStage.ENDING, new OptimalPlanner());
+    Map<ModularUnexpected.CurrentStage, ModularGenerator> unexgenerators = new HashMap<ModularUnexpected.CurrentStage, ModularGenerator>();
 
-    Map<ModularAmbiguous.CurrentStage, ModularGenerator> generators = new HashMap<ModularAmbiguous.CurrentStage, ModularGenerator>();
-
-    generators.put(ModularAmbiguous.CurrentStage.AMBIGUOUS, new AmbiguousSuboptimalPlanner(0.8, 10));
-    generators.put(ModularAmbiguous.CurrentStage.ENDING, new OptimalPlanner());
+    unexgenerators.put(ModularUnexpected.CurrentStage.APPROACHING, new SuboptimalPlanner(1, 0));
+    unexgenerators.put(ModularUnexpected.CurrentStage.UNEXPECTED, new SuboptimalPlanner(4));
 
     problems = ParseProblems();
     logger = new Logger();
     logger.initialize(outputFolder,
-        String.format("modularLoitering-goal%d-simple.log", 4),
-        String.format("modularLoitering-goal%d-detailed.log", 4),
-        String.format("modularLoitering-goal%d-plan.plan", 4));
+        String.format("ModularUnexpected-goal%d-simple.log", 4),
+        String.format("ModularUnexpected-goal%d-detailed.log", 4),
+        String.format("ModularUnexpected-goal%d-plan.plan", 4));
+
     generateBehaviour(problems,
-        // new ModularLoitering(problems, 8, 4, generators),
-        new ModularAmbiguous(problems, 1, 3, generators),
+        new ModularUnexpected(problems, 8, 3, unexgenerators),
+        logger);
+
+    Map<ModularAmbiguous.CurrentStage, ModularGenerator> ambgenerators = new HashMap<ModularAmbiguous.CurrentStage, ModularGenerator>();
+
+    ambgenerators.put(ModularAmbiguous.CurrentStage.AMBIGUOUS, new AmbiguousSuboptimalPlanner(0.8, 8));
+    ambgenerators.put(ModularAmbiguous.CurrentStage.ENDING, new OptimalPlanner());
+
+    problems = ParseProblems();
+    logger = new Logger();
+    logger.initialize(outputFolder, String.format("ModularAmbiguous-goal%d-simple.log", 4),
+        String.format("ModularAmbiguous-goal%d-detailed.log", 4),
+        String.format("ModularAmbiguous-goal%d-plan.plan", 4));
+
+    generateBehaviour(problems,
+        new ModularAmbiguous(problems, 1, 4, ambgenerators),
         logger);
 
     logger.close();

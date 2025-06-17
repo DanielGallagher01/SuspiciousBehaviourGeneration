@@ -131,7 +131,7 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
               n.parent = null;
             }
 
-            int currentStep = i - 1;
+            int currentStep = 12;
             while (true) {
               boolean allValid = true;
               List<Node> oldPlan = new ArrayList<>(plan);
@@ -329,11 +329,9 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
             System.out.println("Path extended: " + plan.size());
             subpathEnd = Math.max(subpathStart + diff,
                 rejoin);
-            // subpathEnd = subpathStart + diff;
-            subpathEnd = plan.size();
+            subpathEnd = subpathStart + diff;
+            // subpathEnd = plan.size();
             return true;
-          } else {
-            logger.logDetailed("Plan was unlucky");
           }
         }
       }

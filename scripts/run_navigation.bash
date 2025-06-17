@@ -1,4 +1,4 @@
-java -cp out:lib/*:. com.suspiciousbehaviour.app.Main \
+java -cp out:lib/*:. -Xmx8G com.suspiciousbehaviour.app.Main \
   -o outputs/navigation \
   -d PDDL/navigation/domain.pddl \
   PDDL/navigation/navigation-15/problem-1.pddl \
