@@ -13,8 +13,9 @@ import java.util.prefs.PreferenceChangeListener;
 import com.suspiciousbehaviour.app.Logger;
 import com.suspiciousbehaviour.app.NoValidActionException;
 import com.suspiciousbehaviour.app.Node;
-import com.suspiciousbehaviour.app.SelfModulatingRecogniser;
-import com.suspiciousbehaviour.app.BehaviourRecogniser;
+import com.suspiciousbehaviour.app.behaviourRecogniser.SelfModulatingRecogniser;
+import com.suspiciousbehaviour.app.behaviourRecogniser.BehaviourRecogniser;
+import com.suspiciousbehaviour.app.PlannerUtils;
 
 import fr.uga.pddl4j.plan.Plan;
 import fr.uga.pddl4j.planners.statespace.HSP;
@@ -63,22 +64,9 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
     this.problems = problems;
     this.problem = problems.get(goalID);
 
+    isInitialised = true;
     this.recogniser = new SelfModulatingRecogniser(problems);
-    State initialState = (State) (new State(problem.getInitialState())).clone();
-    problem.getInitialState().getPositiveFluents().clear();
-    problem.getInitialState().getPositiveFluents().or(state);
-
-    try {
-      Plan plan = planner.solve(problems.get(goalID));
-      problem.getInitialState().getPositiveFluents().clear();
-      problem.getInitialState().getPositiveFluents().or(initialState);
-      this.optimalPlan = plan;
-      isInitialised = true;
-      generateUnoptimality(logger, state);
-    } catch (Exception e) {
-      problem.getInitialState().getPositiveFluents().clear();
-      problem.getInitialState().getPositiveFluents().or(initialState);
-    }
+    generateUnoptimality(logger, state);
   }
 
   private void generateUnoptimality(Logger logger, State state) {
@@ -100,24 +88,7 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
     for (int j = 0; j < 1; j++) {
       try {
         for (int i = 4; i < Math.min(plan.size() - ambigRadius, 80); i++) {
-          Map<Problem, Double> probabilities = recogniser.recognise(plan.get(i), i, logger);
-
-          System.out.println(probabilities);
-          double highest = 0;
-          double second = 0;
-
-          for (Problem p : probabilities.keySet()) {
-            Double prob = probabilities.get(p);
-            if (prob > highest) {
-              second = highest;
-              highest = prob;
-            } else if (prob > second) {
-              second = prob;
-            }
-          }
-
-          System.out.println(i + ": " + (highest - second));
-          if (highest - second > epsilon) {
+          if (recogniser.isAmbiguous(state, problems, epsilon, logger, 0)) {
             System.out.println("Outside epsilon");
             System.out.println(problem.toString(plan.get(i)));
 
@@ -143,24 +114,7 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
 
               if (addUnoptimalPath(logger, i)) {
                 for (int k = subpathStart; k <= subpathEnd; k++) {
-                  highest = 0;
-                  second = 0;
-                  logger.logDetailed("\n\nRecognising for: " + k);
-                  logger.logDetailed("Action:" + problem.toString(plan.get(k).action));
-
-                  probabilities = recogniser.recognise(plan.get(k), k, logger);
-                  for (Problem p : probabilities.keySet()) {
-                    Double prob = probabilities.get(p);
-                    if (prob > highest) {
-                      second = highest;
-                      highest = prob;
-                    } else if (prob > second) {
-                      second = prob;
-                    }
-                  }
-
-                  System.out.println("s   " + k + ": " + (highest - second));
-                  if (highest - second > epsilon) {
+                  if (recogniser.isAmbiguous(state, problems, epsilon, logger, 0)) {
                     allValid = false;
                     plan = oldPlan;
                     break;
@@ -243,22 +197,7 @@ public class AmbiguousSuboptimalPlanner implements ModularGenerator {
             visited.add(newNode);
             logger.logDetailed("Node is a new state!");
 
-            State initialState = (State) (new State(problem.getInitialState())).clone();
-            problem.getInitialState().getPositiveFluents().clear();
-            problem.getInitialState().getPositiveFluents().or(newNode);
-
-            Plan continuePlan;
-            try {
-              continuePlan = planner.solve(problems.get(goalID));
-              problem.getInitialState().getPositiveFluents().clear();
-              problem.getInitialState().getPositiveFluents().or(initialState);
-            } catch (Exception e) {
-              problem.getInitialState().getPositiveFluents().clear();
-              problem.getInitialState().getPositiveFluents().or(initialState);
-              logger.logDetailed("Action makes goal impossible");
-              continue;
-            }
-
+            Plan continuePlan = PlannerUtils.GeneratePlanFromState(newNode, problems.get(goalID));
             if (continuePlan == null) {
               logger.logDetailed("Action makes goal impossible");
               continue;

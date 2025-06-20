@@ -1,4 +1,6 @@
-package com.suspiciousbehaviour.app;
+package com.suspiciousbehaviour.app.behaviourRecogniser;
+
+import com.suspiciousbehaviour.app.Logger;
 
 import fr.uga.pddl4j.parser.DefaultParsedProblem;
 import fr.uga.pddl4j.parser.ErrorManager;
@@ -21,7 +23,7 @@ import java.util.Map;
 import java.util.*;
 import java.util.concurrent.*;
 
-public class SelfModulatingRecogniser implements BehaviourRecogniser {
+public class SelfModulatingRecogniser extends BehaviourRecogniser {
   private List<DefaultProblem> problems;
   private HSP planner;
   private InitialState initialState;
