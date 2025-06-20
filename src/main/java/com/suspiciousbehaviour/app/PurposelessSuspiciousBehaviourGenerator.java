@@ -32,7 +32,7 @@ public class PurposelessSuspiciousBehaviourGenerator implements BehaviourGenerat
 
   public Action generateAction(State state, Logger logger) throws NoValidActionException {
     logger.logDetailed("Generating plan");
-    Plan plan = GeneratePlan(state);
+    Plan plan = PlannerUtils.GeneratePlanFromState(state, problems.get(goalID));
 
     if (plan == null || plan.actions().size() == 0) {
       logger.logDetailed("Already at goal");
@@ -60,10 +60,10 @@ public class PurposelessSuspiciousBehaviourGenerator implements BehaviourGenerat
         logger.logDetailed("Temporary state after action: " + problems.get(0).toString(tempState));
 
         logger.logDetailed("Generating Plan");
-        plan = GeneratePlan(tempState);
+        plan = PlannerUtils.GeneratePlanFromState(state, problems.get(goalID));
         if (plan == null) {
           logger.logDetailed("Action is a dead end");
-        } else if (plan.cost() > 0 && plan.cost() <= epsilon) {
+        } else if (plan.cost() > 1 && plan.cost() <= epsilon) {
           logger.logDetailed("Action does not achieve goal and maintains close proximity to goal. Choosing action.");
           currentStep++;
           return a;
@@ -76,19 +76,6 @@ public class PurposelessSuspiciousBehaviourGenerator implements BehaviourGenerat
     }
 
     throw new NoValidActionException("No valid action");
-
-  }
-
-  private Plan GeneratePlan(State state) throws NoValidActionException {
-    Problem problem = problems.get(goalID);
-    problem.getInitialState().getPositiveFluents().clear();
-    problem.getInitialState().getPositiveFluents().or(state);
-
-    try {
-      return planner.solve(problems.get(goalID));
-    } catch (Exception e) {
-      throw new NoValidActionException("Planner error");
-    }
 
   }
 

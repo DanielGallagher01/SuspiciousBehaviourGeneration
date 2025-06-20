@@ -1,4 +1,6 @@
-package com.suspiciousbehaviour.app;
+package com.suspiciousbehaviour.app.behaviourRecogniser;
+
+import com.suspiciousbehaviour.app.Logger;
 
 import fr.uga.pddl4j.parser.DefaultParsedProblem;
 import fr.uga.pddl4j.parser.ErrorManager;
@@ -17,7 +19,7 @@ import java.util.List;
 import java.util.Hashtable;
 import java.util.Map;
 
-public class MirroringController implements BehaviourRecogniser {
+public class MirroringController extends BehaviourRecogniser {
   private List<DefaultProblem> problems;
   private HSP planner;
   private InitialState initialState;
@@ -93,32 +95,5 @@ public class MirroringController implements BehaviourRecogniser {
     logger.logDetailed("Mirroring Complete!");
     return P;
   }
-
-  // public Map<Action, Double> run(State state, double prefixCost) {
-  // Map<Action, Double> P = new Hashtable<>();
-  //
-  // for (Action a : problems.get(0).getActions()) {
-  // State tempState = (State)state.clone();
-  //
-  // if (a.isApplicable(tempState)) {
-  // tempState.apply(a.getConditionalEffects());
-  // System.out.println(problems.get(0).toString(a));
-  //
-  // double delta = prefixCost + a.getCost().getValue();
-  //
-  // Map<Problem, Double> probabilities = mirroring(tempState, delta);
-  //
-  // System.out.println(probabilities);
-  //
-  // } else {
-  // //System.out.println("Not Applicable");
-  // }
-  //
-  //
-  //
-  // }
-  //
-  // return P;
-  // }
 
 }

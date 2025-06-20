@@ -1,5 +1,8 @@
 package com.suspiciousbehaviour.app;
 
+import com.suspiciousbehaviour.app.behaviourRecogniser.BehaviourRecogniser;
+import com.suspiciousbehaviour.app.behaviourRecogniser.SelfModulatingRecogniser;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,129 +14,126 @@ import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.planners.statespace.HSP;
 import fr.uga.pddl4j.plan.Plan;
 
-
 public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerator {
-	private List<DefaultProblem> problems;
-	private Double epsilon;
-	private Double prefixCost;
-	private BehaviourRecogniser br;
-	private int stepsBeforeOptimal;
-	private int currentStep;
-	private HSP planner;
-	private List<State> observedStates;
+  private List<DefaultProblem> problems;
+  private double epsilon;
+  private double prefixCost;
+  private BehaviourRecogniser br;
+  private int stepsBeforeOptimal;
+  private int currentStep;
+  private HSP planner;
+  private List<State> observedStates;
 
-	public PurposefulSuspiciousBehaviourGenerator (List<DefaultProblem> problems, Double epsilon, int stepsBeforeOptimal, BehaviourRecogniser br) {
-		this.problems = problems;
-		this.epsilon = epsilon;
-		this.br = br;
-		this.stepsBeforeOptimal = stepsBeforeOptimal;
-		this.currentStep = 1;
-		this.planner = new HSP();
-		this.prefixCost = 0d;
-		this.observedStates = new ArrayList<State>();
-	}
+  public PurposefulSuspiciousBehaviourGenerator(List<DefaultProblem> problems, double epsilon, int stepsBeforeOptimal,
+      BehaviourRecogniser br) {
+    this.problems = problems;
+    this.epsilon = epsilon;
+    this.br = br;
+    this.stepsBeforeOptimal = stepsBeforeOptimal;
+    this.currentStep = 1;
+    this.planner = new HSP();
+    this.prefixCost = 0d;
+    this.observedStates = new ArrayList<State>();
+  }
 
-	public Action generateAction(State state, Logger logger) throws NoValidActionException {
-		logger.logDetailed("Checking if completed enough steps to act optimal");
-		if (currentStep >= stepsBeforeOptimal) {
-			logger.logDetailed("Acting Optimally");
-			Problem problem = problems.get(0);
-			problem.getInitialState().getPositiveFluents().clear();
-			problem.getInitialState().getPositiveFluents().or(state);
+  public Action generateAction(State state, Logger logger) throws NoValidActionException {
+    logger.logDetailed("Checking if completed enough steps to act optimal");
+    if (currentStep >= stepsBeforeOptimal) {
+      logger.logDetailed("Acting Optimally");
+      Problem problem = problems.get(0);
+      problem.getInitialState().getPositiveFluents().clear();
+      problem.getInitialState().getPositiveFluents().or(state);
 
-			Plan plan;
+      Plan plan;
 
-			try {
-				plan = planner.solve(problems.get(0));
-			}
-			catch (Exception e) {
-				throw new NoValidActionException("Planner error");
-			}
+      try {
+        plan = planner.solve(problems.get(0));
+      } catch (Exception e) {
+        throw new NoValidActionException("Planner error");
+      }
 
-			if (plan.actions().size() == 0) {
-				throw new NoValidActionException("Achieved Goal");
-			}
+      if (plan.actions().size() == 0) {
+        throw new NoValidActionException("Achieved Goal");
+      }
 
-			return plan.actions().get(0);
-		}
+      return plan.actions().get(0);
+    }
 
+    logger.logDetailed("Still acting suspicious");
+    logger.logDetailed("Randomising actions");
+    Collections.shuffle(problems.get(0).getActions());
+    for (Action a : problems.get(0).getActions()) {
+      // logger.logDetailed("Chosen Action: \n" + problems.get(0).toString(a));
+      State tempState = (State) state.clone();
 
-		logger.logDetailed("Still acting suspicious");
-		logger.logDetailed("Randomising actions");
-		Collections.shuffle(problems.get(0).getActions());
-		for (Action a : problems.get(0).getActions()) {
-			//logger.logDetailed("Chosen Action: \n" + problems.get(0).toString(a));
-			State tempState = (State)state.clone();
+      // logger.logDetailed("Checking if action is applicable to state");
+      if (a.isApplicable(tempState)) {
+        logger.logDetailed("Chosen Action: \n" + problems.get(0).toString(a));
+        logger.logDetailed("Action is applicable to state");
+        logger.logDetailed("Applying action to temporary state");
+        tempState.apply(a.getConditionalEffects());
+        logger.logDetailed("Temporary state after action: " + problems.get(0).toString(tempState));
 
-			//logger.logDetailed("Checking if action is applicable to state");
-			if (a.isApplicable(tempState)) {
-				logger.logDetailed("Chosen Action: \n" + problems.get(0).toString(a));
-				logger.logDetailed("Action is applicable to state");
-				logger.logDetailed("Applying action to temporary state");
-				tempState.apply(a.getConditionalEffects());
-				logger.logDetailed("Temporary state after action: " + problems.get(0).toString(tempState));
-				
         logger.logDetailed("Checking if state has already been observed");
 
-				if (observedStates.contains(tempState)) {
-				  logger.logDetailed("State has been observed. Choosing another action");
-					continue;
-        } 
-				logger.logDetailed("State has not been observed");
-				
-				double delta = prefixCost + a.getCost().getValue();
-				logger.logDetailed("Mirroing delta: " + delta);
+        if (observedStates.contains(tempState)) {
+          logger.logDetailed("State has been observed. Choosing another action");
+          continue;
+        }
+        logger.logDetailed("State has not been observed");
 
-				Map<Problem, Double> probabilities = br.recognise(tempState, delta, logger);
+        double delta = prefixCost + a.getCost().getValue();
+        logger.logDetailed("Mirroing delta: " + delta);
 
-				double highest = 0;
-				double second = 0;
+        boolean isAmbiguous = br.isAmbiguous(state, problems, epsilon, logger, (int) prefixCost);
 
-				for ( Problem p : probabilities.keySet()) {
-					Double prob = probabilities.get(p);
-					if (prob > highest) {
+        Map<Problem, Double> probabilities = br.recognise(tempState, delta, logger);
+
+        double highest = 0;
+        double second = 0;
+
+        for (Problem p : probabilities.keySet()) {
+          Double prob = probabilities.get(p);
+          if (prob > highest) {
             second = highest;
-						highest = prob;
-					} else if (prob > second) {
-						second = prob;
-					}
-				}
+            highest = prob;
+          } else if (prob > second) {
+            second = prob;
+          }
+        }
 
-				logger.logDetailed("Highest probability: " + highest);
-				logger.logDetailed("Second highest: " + second);
+        logger.logDetailed("Highest probability: " + highest);
+        logger.logDetailed("Second highest: " + second);
 
-				if (highest - second < epsilon) {
-					logger.logDetailed("Difference between probabilities is less than epsilon. Choosing action.");
-					return a;
-				}
+        if (highest - second < epsilon) {
+          logger.logDetailed("Difference between probabilities is less than epsilon. Choosing action.");
+          return a;
+        }
 
-					logger.logDetailed("Difference between probabilities is greater than epsilon. Skipping action.");
+        logger.logDetailed("Difference between probabilities is greater than epsilon. Skipping action.");
 
-			} else {
-				//logger.logDetailed("Action is not applicable to state");
-			}
-		}
+      } else {
+        // logger.logDetailed("Action is not applicable to state");
+      }
+    }
 
-		throw new NoValidActionException("No valid action");
-	}
+    throw new NoValidActionException("No valid action");
+  }
 
+  public void actionTaken(State state, Action action) {
+    prefixCost += action.getCost().getValue();
+    currentStep++;
+    State tempState = (State) state.clone();
+    tempState.apply(action.getConditionalEffects());
+    observedStates.add(tempState);
+  }
 
-
-
-	public void actionTaken(State state, Action action) {
-		prefixCost += action.getCost().getValue();
-		currentStep++;
-    State tempState = (State)state.clone();
-		tempState.apply(action.getConditionalEffects());
-		observedStates.add(tempState);
-	}
-	
-	@Override
-	public String toString() {
-		return "PurposefulSuspiciousBehaviourGenerator{" +
-			"type=Purposeful, " +
-			"epsilon=" + epsilon + ", " +
-			"stepsBeforeOptimal=" + stepsBeforeOptimal + 
-			"}";
-	}
+  @Override
+  public String toString() {
+    return "PurposefulSuspiciousBehaviourGenerator{" +
+        "type=Purposeful, " +
+        "epsilon=" + epsilon + ", " +
+        "stepsBeforeOptimal=" + stepsBeforeOptimal +
+        "}";
+  }
 }

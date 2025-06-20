@@ -46,7 +46,7 @@ public class Main implements Runnable {
   File domainFile;
 
   @Option(names = {
-      "--purposelessE" }, description = "Espilon Threashold for Purposless Suspicious Behaviour", defaultValue = "9")
+      "--purposelessE" }, description = "Espilon Threashold for Purposless Suspicious Behaviour", defaultValue = "5")
   int purposelessE;
 
   @Option(names = {
@@ -135,7 +135,7 @@ public class Main implements Runnable {
 
     // DIRECTED BEHAVIOUR
     ArrayList<DefaultProblem> problems;
-    problems = ParseProblems();
+    // problems = ParseProblems();
     // logger.initialize(outputFolder,
     // "directed-simple.log",
     // "directed-detailed.log",
