@@ -63,4 +63,10 @@
                       (at-goal ?s)
                       )
    )
+
+(:action wait
+ :parameters ()
+ :precondition (and)
+ :effect (and)
+)
 )
