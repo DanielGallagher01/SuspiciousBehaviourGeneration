@@ -41,14 +41,21 @@
 (:action DRIVE-TRUCK
   :parameters (?truck - truck ?loc-from - place ?loc-to - place ?city - city)
   :precondition
-   (and (at ?truck ?loc-from) (in-city ?loc-from ?city) (in-city ?loc-to ?city))
+   (and (at ?truck ?loc-from) (not (at ?truck ?loc-to)) (in-city ?loc-from ?city) (in-city ?loc-to ?city))
   :effect
    (and (not (at ?truck ?loc-from)) (at ?truck ?loc-to)))
 
 (:action FLY-AIRPLANE
   :parameters (?airplane - airplane ?loc-from - airport ?loc-to - airport)
   :precondition
-   (at ?airplane ?loc-from)
+   (and (at ?airplane ?loc-from) (not (at ?airplane ?loc-to)))
   :effect
    (and (not (at ?airplane ?loc-from)) (at ?airplane ?loc-to)))
+
+(:action wait
+ :parameters ()
+ :precondition (and)
+ :effect (and)
+)
+
 )
