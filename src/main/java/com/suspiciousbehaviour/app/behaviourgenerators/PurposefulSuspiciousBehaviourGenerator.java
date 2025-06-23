@@ -2,7 +2,8 @@ package com.suspiciousbehaviour.app.behaviourgenerators;
 
 import com.suspiciousbehaviour.app.behaviourrecogniser.*;
 import com.suspiciousbehaviour.app.Logger;
-import com.suspiciousbehaviour.app.behaviourrecogniser.*;
+import com.suspiciousbehaviour.app.PlannerUtils;
+
 
 import java.util.List;
 import java.util.ArrayList;
@@ -41,14 +42,10 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
     logger.logDetailed("Checking if completed enough steps to act optimal");
     if (currentStep >= stepsBeforeOptimal) {
       logger.logDetailed("Acting Optimally");
-      Problem problem = problems.get(0);
-      problem.getInitialState().getPositiveFluents().clear();
-      problem.getInitialState().getPositiveFluents().or(state);
-
       Plan plan;
 
       try {
-        plan = planner.solve(problems.get(0));
+        plan = PlannerUtils.GeneratePlanFromState(state, problem);
       } catch (Exception e) {
         throw new NoValidActionException("Planner error");
       }
@@ -72,7 +69,9 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
         logger.logDetailed("Chosen Action: \n" + problems.get(0).toString(a));
         logger.logDetailed("Action is applicable to state");
         logger.logDetailed("Applying action to temporary state");
-        tempState.apply(a.getConditionalEffects());
+        action.getConditionalEffects().stream().filter(ce -> tempState.satisfy(ce.getCondition()))
+            .forEach(ce -> tempState.apply(ce.getEffect()));
+        // tempState.apply(a.getConditionalEffects());
         logger.logDetailed("Temporary state after action: " + problems.get(0).toString(tempState));
 
         logger.logDetailed("Checking if state has already been observed");
@@ -88,25 +87,7 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
 
         boolean isAmbiguous = br.isAmbiguous(state, problems, epsilon, logger, (int) prefixCost);
 
-        Map<Problem, Double> probabilities = br.recognise(tempState, delta, logger);
-
-        double highest = 0;
-        double second = 0;
-
-        for (Problem p : probabilities.keySet()) {
-          Double prob = probabilities.get(p);
-          if (prob > highest) {
-            second = highest;
-            highest = prob;
-          } else if (prob > second) {
-            second = prob;
-          }
-        }
-
-        logger.logDetailed("Highest probability: " + highest);
-        logger.logDetailed("Second highest: " + second);
-
-        if (highest - second < epsilon) {
+        if (isAmbiguous) {
           logger.logDetailed("Difference between probabilities is less than epsilon. Choosing action.");
           return a;
         }
