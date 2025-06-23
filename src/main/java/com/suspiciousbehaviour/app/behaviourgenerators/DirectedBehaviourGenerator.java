@@ -1,4 +1,6 @@
-package com.suspiciousbehaviour.app;
+package com.suspiciousbehaviour.app.behaviourgenerators;
+
+import com.suspiciousbehaviour.app.Logger;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -6,6 +8,8 @@ import java.util.Collections;
 import fr.uga.pddl4j.problem.DefaultProblem;
 import fr.uga.pddl4j.problem.State;
 import fr.uga.pddl4j.problem.operator.Action;
+
+import com.suspiciousbehaviour.app.Logger;
 
 public class DirectedBehaviourGenerator implements BehaviourGenerator {
 	private List<DefaultProblem> problems;

@@ -1,16 +1,17 @@
-package com.suspiciousbehaviour.app.modularGenerators;
+package com.suspiciousbehaviour.app.behaviourgenerators.modulargenerators;
 
 import java.util.List;
-
-import com.suspiciousbehaviour.app.Logger;
-import com.suspiciousbehaviour.app.NoValidActionException;
-
 import fr.uga.pddl4j.plan.Plan;
 import fr.uga.pddl4j.planners.statespace.HSP;
 import fr.uga.pddl4j.problem.DefaultProblem;
 import fr.uga.pddl4j.problem.Problem;
 import fr.uga.pddl4j.problem.State;
 import fr.uga.pddl4j.problem.operator.Action;
+
+
+import com.suspiciousbehaviour.app.behaviourgenerators.modulargenerators.*;
+import com.suspiciousbehaviour.app.behaviourgenerators.*;
+import com.suspiciousbehaviour.app.*;
 
 public class OptimalPlanner implements ModularGenerator {
   private boolean isInitialised;

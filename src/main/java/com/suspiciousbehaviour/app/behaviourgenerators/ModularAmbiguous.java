@@ -1,6 +1,8 @@
-package com.suspiciousbehaviour.app;
+package com.suspiciousbehaviour.app.behaviourgenerators;
 
-import com.suspiciousbehaviour.app.modularGenerators.ModularGenerator;
+import com.suspiciousbehaviour.app.behaviourgenerators.modulargenerators.ModularGenerator;
+import com.suspiciousbehaviour.app.Logger;
+
 
 import java.util.List;
 import java.util.ArrayList;
@@ -15,47 +17,42 @@ import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.planners.statespace.HSP;
 import fr.uga.pddl4j.plan.Plan;
 
-public class ModularLoitering implements BehaviourGenerator {
+public class ModularAmbiguous implements BehaviourGenerator {
 
   private HSP planner;
   private List<DefaultProblem> problems;
-  private int epsilon;
   private CurrentStage currentStage;
   private int goalID;
   private Map<CurrentStage, ModularGenerator> generators;
+  private int ambigRadius;
 
-  enum CurrentStage {
-    APPROACHING,
-    LOITERING,
+  public enum CurrentStage {
+    AMBIGUOUS,
     ENDING
   }
 
-  public ModularLoitering(List<DefaultProblem> problems, int epsilon, int goalID,
+  public ModularAmbiguous(List<DefaultProblem> problems, int ambigRadius, int goalID,
       Map<CurrentStage, ModularGenerator> generators) {
     this.problems = problems;
-    this.epsilon = epsilon;
+    this.ambigRadius = ambigRadius;
     this.planner = new HSP();
     this.goalID = goalID;
     this.generators = generators;
-    this.currentStage = CurrentStage.APPROACHING;
+    this.currentStage = CurrentStage.AMBIGUOUS;
   }
 
   public Action generateAction(State state, Logger logger) throws NoValidActionException {
     logger.logSimple("\n\n\nGenerating Action!");
 
     switch (currentStage) {
-      case CurrentStage.APPROACHING:
+      case CurrentStage.AMBIGUOUS:
         logger.logSimple("Current stage: Approaching goal");
 
-        if (generators.get(CurrentStage.APPROACHING).distanceToGoal(state) <= epsilon) {
-          logger.logSimple("Reached Epsilon. Switching to loitering!");
-          currentStage = CurrentStage.LOITERING;
+        if (generators.get(CurrentStage.AMBIGUOUS).distanceToGoal(state) <= ambigRadius) {
+          logger.logSimple("Reached Radius. Switching to Ending!");
+          currentStage = CurrentStage.ENDING;
         }
 
-        break;
-
-      case CurrentStage.LOITERING:
-        logger.logSimple("Current stage: Loitering at goal");
         break;
 
       case CurrentStage.ENDING:

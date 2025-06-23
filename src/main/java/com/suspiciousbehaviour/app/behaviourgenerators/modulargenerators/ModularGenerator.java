@@ -1,9 +1,9 @@
-package com.suspiciousbehaviour.app.modularGenerators;
+package com.suspiciousbehaviour.app.behaviourgenerators.modulargenerators;
 
 import java.util.List;
 
 import com.suspiciousbehaviour.app.Logger;
-import com.suspiciousbehaviour.app.NoValidActionException;
+import com.suspiciousbehaviour.app.behaviourgenerators.NoValidActionException;
 
 import fr.uga.pddl4j.problem.DefaultProblem;
 import fr.uga.pddl4j.problem.State;

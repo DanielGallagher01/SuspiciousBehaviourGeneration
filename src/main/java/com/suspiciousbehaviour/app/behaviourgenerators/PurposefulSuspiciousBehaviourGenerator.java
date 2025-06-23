@@ -1,7 +1,8 @@
-package com.suspiciousbehaviour.app;
+package com.suspiciousbehaviour.app.behaviourgenerators;
 
-import com.suspiciousbehaviour.app.behaviourRecogniser.BehaviourRecogniser;
-import com.suspiciousbehaviour.app.behaviourRecogniser.SelfModulatingRecogniser;
+import com.suspiciousbehaviour.app.behaviourrecogniser.*;
+import com.suspiciousbehaviour.app.Logger;
+import com.suspiciousbehaviour.app.behaviourrecogniser.*;
 
 import java.util.List;
 import java.util.ArrayList;
