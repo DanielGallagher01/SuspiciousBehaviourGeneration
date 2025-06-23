@@ -47,4 +47,11 @@
 		   (clear ?y)
 		   (not (clear ?x))
 		   (not (handempty))
-		   (not (on ?x ?y)))))
+		   (not (on ?x ?y))))
+(:action wait
+ :parameters ()
+ :precondition (and)
+ :effect (and)
+)
+
+)
