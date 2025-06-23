@@ -12,6 +12,7 @@
   (:action move
    :parameters (?p - player ?from ?to - location ?dir - direction)
    :precondition (and (at ?p ?from)
+		      (not (at ?p ?to))
                       (clear ?to)
                       (MOVE-DIR ?from ?to ?dir)
                       )
@@ -27,6 +28,7 @@
                 ?np ?from ?to - location
                 ?dir - direction)
    :precondition (and (at ?p ?np)
+		      (not (at ?p ?from))
                       (at ?s ?from)
                       (clear ?to)
                       (MOVE-DIR ?np ?from ?dir)
@@ -49,6 +51,7 @@
                 ?dir - direction)
    :precondition (and (at ?p ?np)
                       (at ?s ?from)
+		      (not (at ?p ?from))
                       (clear ?to)
                       (MOVE-DIR ?np ?from ?dir)
                       (MOVE-DIR ?from ?to ?dir)
