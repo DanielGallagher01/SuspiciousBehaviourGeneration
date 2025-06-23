@@ -19,4 +19,12 @@
     (at-robot ?nextpos ?robot)
   )
 )
+
+(:action wait
+ :parameters ()
+ :precondition (and)
+ :effect (and)
+)
+
+
 )
