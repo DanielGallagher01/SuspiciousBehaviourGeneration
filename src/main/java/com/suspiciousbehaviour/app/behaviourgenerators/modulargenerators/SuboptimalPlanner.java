@@ -1,4 +1,4 @@
-package com.suspiciousbehaviour.app.modularGenerators;
+package com.suspiciousbehaviour.app.behaviourgenerators.modulargenerators;
 
 import java.lang.System.LoggerFinder;
 import java.util.ArrayList;
@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import com.suspiciousbehaviour.app.Logger;
-import com.suspiciousbehaviour.app.NoValidActionException;
-import com.suspiciousbehaviour.app.Node;
+import com.suspiciousbehaviour.app.behaviourgenerators.modulargenerators.*;
+import com.suspiciousbehaviour.app.behaviourgenerators.*;
+import com.suspiciousbehaviour.app.*;
 
 import fr.uga.pddl4j.plan.Plan;
 import fr.uga.pddl4j.planners.statespace.HSP;

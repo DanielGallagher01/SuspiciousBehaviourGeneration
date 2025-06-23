@@ -1,4 +1,6 @@
-package com.suspiciousbehaviour.app;
+package com.suspiciousbehaviour.app.behaviourgenerators;
+
+import com.suspiciousbehaviour.app.Logger;
 
 import java.util.List;
 import java.util.ArrayList;

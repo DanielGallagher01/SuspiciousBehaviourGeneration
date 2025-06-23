@@ -1,5 +1,7 @@
 package com.suspiciousbehaviour.app;
 
+import com.suspiciousbehaviour.app.behaviourgenerators.*;
+
 import fr.uga.pddl4j.parser.DefaultParsedProblem;
 import fr.uga.pddl4j.parser.ErrorManager;
 import fr.uga.pddl4j.parser.Message;

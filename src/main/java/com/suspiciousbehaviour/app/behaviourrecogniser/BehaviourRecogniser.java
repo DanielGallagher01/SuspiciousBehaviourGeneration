@@ -1,4 +1,4 @@
-package com.suspiciousbehaviour.app.behaviourRecogniser;
+package com.suspiciousbehaviour.app.behaviourrecogniser;
 
 import com.suspiciousbehaviour.app.Logger;
 

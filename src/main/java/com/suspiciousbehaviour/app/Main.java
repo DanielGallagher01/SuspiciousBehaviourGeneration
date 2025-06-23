@@ -26,11 +26,9 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 
-import com.suspiciousbehaviour.app.ModularLoitering;
-import com.suspiciousbehaviour.app.modularGenerators.ModularGenerator;
-import com.suspiciousbehaviour.app.modularGenerators.OptimalPlanner;
-import com.suspiciousbehaviour.app.modularGenerators.SuboptimalPlanner;
-import com.suspiciousbehaviour.app.modularGenerators.AmbiguousSuboptimalPlanner;
+import com.suspiciousbehaviour.app.behaviourgenerators.BehaviourGenerator;
+import com.suspiciousbehaviour.app.behaviourgenerators.*;
+import com.suspiciousbehaviour.app.behaviourgenerators.modulargenerators.*;
 
 import java.nio.file.Path;
 

@@ -1,6 +1,8 @@
-package com.suspiciousbehaviour.app;
+package com.suspiciousbehaviour.app.behaviourgenerators;
 
-import com.suspiciousbehaviour.app.modularGenerators.ModularGenerator;
+import com.suspiciousbehaviour.app.behaviourgenerators.modulargenerators.ModularGenerator;
+import com.suspiciousbehaviour.app.Logger;
+
 
 import java.util.List;
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ public class ModularUnexpected implements BehaviourGenerator {
   private Map<CurrentStage, ModularGenerator> generators;
   private int radius;
 
-  enum CurrentStage {
+  public enum CurrentStage {
     APPROACHING,
     UNEXPECTED
   }
