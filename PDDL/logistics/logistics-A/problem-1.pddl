@@ -41,6 +41,6 @@
     (city city4)
 )
 (:goal 
-	(and (at pkg5 pos2_3) (at pkg6 pos2_3))
+	(and (at pkg3 pos2_3) (at pkg4 pos2_3))
 )
 )
