@@ -4,6 +4,7 @@ import fr.uga.pddl4j.parser.DefaultParsedProblem;
 import fr.uga.pddl4j.parser.ParsedDomain;
 import fr.uga.pddl4j.parser.ParsedProblem;
 import fr.uga.pddl4j.problem.DefaultProblem;
+import fr.uga.pddl4j.problem.Goal;
 import fr.uga.pddl4j.parser.ErrorManager;
 import fr.uga.pddl4j.parser.Message;
 import fr.uga.pddl4j.parser.Parser;
@@ -57,6 +58,9 @@ public class Main implements Runnable {
   @Parameters(arity = "1..*", paramLabel = "INPUT", description = "Input file(s)")
   List<File> inputFiles;
 
+  List<Goal> goals;
+  DefaultProblem baseProblem;
+
   public static void main(String[] args) {
     CommandLine.run(new Main(), args);
   }
@@ -80,7 +84,7 @@ public class Main implements Runnable {
   }
 
   private void runAnalysis() {
-    ArrayList<DefaultProblem> problems = ParseProblems();
+    ParseProblems();
 
     Logger logger = new Logger();
     Path simpleLog = outputFolder.toPath().resolve("stats-simple.log");
@@ -96,30 +100,30 @@ public class Main implements Runnable {
         outputFolder.getPath() + "/stats-plan.plan");
     try {
 
-      BFSStatsController bfs = new BFSStatsController(problems, logger);
-      bfs.generateStats();
+      // BFSStatsController bfs = new BFSStatsController(problems, logger);
+      // bfs.generateStats();
 
-      StatisticsGenerator sg = new StatisticsGenerator(problems, logger);
+      // StatisticsGenerator sg = new StatisticsGenerator(problems, logger);
 
-      for (int i = 0; i < problems.size(); i++) {
+      for (int i = 0; i < goals.size(); i++) {
         // System.out.println(sg.getShortestPath(i));
       }
 
-      for (int i = 0; i < problems.size(); i++) {
+      for (int i = 0; i < goals.size(); i++) {
         // System.out.println(sg.getMinimumPossibleDistance(i, true));
       }
 
-      for (int i = 0; i < problems.size(); i++) {
+      for (int i = 0; i < goals.size(); i++) {
         // System.out.println(sg.getNumberOfOptimalPaths(i));
       }
 
-      for (int i = 0; i < problems.size(); i++) {
+      for (int i = 0; i < goals.size(); i++) {
         // System.out.println(sg.getMinimumDistanceNPathsRational(i,2, true));
       }
 
       // System.out.println(sg.getMinimumDistanceNPathsRational(1, 2, true));
 
-      for (int i = 0; i < problems.size(); i++) {
+      for (int i = 0; i < goals.size(); i++) {
         // System.out.println(sg.getMinimumDistrancMultipleDirectedPaths(0));
       }
     } catch (Throwable e) {
@@ -132,7 +136,7 @@ public class Main implements Runnable {
     Logger logger = new Logger();
 
     // DIRECTED BEHAVIOUR
-    ArrayList<DefaultProblem> problems;
+    
     // problems = ParseProblems();
     // logger.initialize(outputFolder,
     // "directed-simple.log",
@@ -155,38 +159,39 @@ public class Main implements Runnable {
     // generateBehaviour(problems,
     // new PurposefulSuspiciousBehaviourGenerator(problems, purposefulE, numsteps,
     // br),
-    // logger);
+    // logger);      return new ArrayList<DefaultProblem>();
+
 
     // PURPOSELESS BEHAVIOUR
     // for (int i = 0; i < problems.size(); i++) {
-    problems = ParseProblems();
-    logger = new Logger();
-    logger.initialize(outputFolder,
-        String.format("purposelessSuspicious-goal%d-simple.log", problems.size() -
-            1),
-        String.format("purposelessSuspicious-goal%d-detailed.log", problems.size() -
-            1),
-        String.format("purposelessSuspicious-goal%d-plan.plan", problems.size() -
-            1));
-    generateBehaviour(problems,
-        new PurposelessSuspiciousBehaviourGenerator(problems, purposelessE, numsteps,
-            problems.size() - 1),
-        logger);
+    // problems = ParseProblems();
+    // logger = new Logger();
+    // logger.initialize(outputFolder,
+    //     String.format("purposelessSuspicious-goal%d-simple.log", problems.size() -
+    //         1),
+    //     String.format("purposelessSuspicious-goal%d-detailed.log", problems.size() -
+    //         1),
+    //     String.format("purposelessSuspicious-goal%d-plan.plan", problems.size() -
+    //         1));
+    // generateBehaviour(problems,
+    //     new PurposelessSuspiciousBehaviourGenerator(problems, purposelessE, numsteps,
+    //         problems.size() - 1),
+    //     logger);
     // }
 
     // UNEXPECTEDLY SUSPICUOUS
     // for (int i = 0; i < problems.size() - 1; i++) {
-    // problems = ParseProblems();
-    // logger = new Logger();
-    // logger.initialize(outputFolder,
-    // String.format("unexpectedlySuspicious-goal%d-simple.log", 1),
-    // String.format("unexpectedlySuspicious-goal%d-detailed.log", 1),
-    // String.format("unexpectedlySuspicious-goal%d-plan.plan", 1));
-    // generateBehaviour(problems,
-    // new UnexpectedlySuspiciousBehaviourGenerator(problems, 6, 1, problems.size()
-    // - 1,
-    // new SemidirectedBehaviourGenerator(problems, 2, problems.size() - 2)),
-    // logger);
+    ParseProblems();
+    logger = new Logger();
+    logger.initialize(outputFolder,
+    String.format("unexpectedlySuspicious-goal%d-simple.log", 1),
+    String.format("unexpectedlySuspicious-goal%d-detailed.log", 1),
+    String.format("unexpectedlySuspicious-goal%d-plan.plan", 1));
+    generateBehaviour(
+    new UnexpectedlySuspiciousBehaviourGenerator(goals, baseProblem, 6, 1, goals.size()
+    - 1,
+    new SemidirectedBehaviourGenerator(baseProblem, goals, 2, goals.size() - 2)),
+    logger);
     // }
     //
 
@@ -198,47 +203,48 @@ public class Main implements Runnable {
     // generators.put(ModularLoitering.CurrentStage.LOITERING, new
     // SuboptimalPlanner(5));
     // generators.put(ModularLoitering.CurrentStage.ENDING, new OptimalPlanner());
-    Map<ModularUnexpected.CurrentStage, ModularGenerator> unexgenerators = new HashMap<ModularUnexpected.CurrentStage, ModularGenerator>();
+    // Map<ModularUnexpected.CurrentStage, ModularGenerator> unexgenerators = new HashMap<ModularUnexpected.CurrentStage, ModularGenerator>();
+      // return new ArrayList<DefaultProblem>();
 
-    unexgenerators.put(ModularUnexpected.CurrentStage.APPROACHING, new SuboptimalPlanner(1, 0));
-    unexgenerators.put(ModularUnexpected.CurrentStage.UNEXPECTED, new SuboptimalPlanner(4));
+    // unexgenerators.put(ModularUnexpected.CurrentStage.APPROACHING, new SuboptimalPlanner(1, 0));
+    // unexgenerators.put(ModularUnexpected.CurrentStage.UNEXPECTED, new SuboptimalPlanner(4));
 
-    problems = ParseProblems();
-    logger = new Logger();
-    logger.initialize(outputFolder,
-        String.format("ModularUnexpected-goal%d-simple.log", 4),
-        String.format("ModularUnexpected-goal%d-detailed.log", 4),
-        String.format("ModularUnexpected-goal%d-plan.plan", 4));
+    // problems = ParseProblems();
+    // logger = new Logger();
+    // logger.initialize(outputFolder,
+    //     String.format("ModularUnexpected-goal%d-simple.log", 4),
+    //     String.format("ModularUnexpected-goal%d-detailed.log", 4),
+    //     String.format("ModularUnexpected-goal%d-plan.plan", 4));
 
-    generateBehaviour(problems,
-        new ModularUnexpected(problems, 8, 3, unexgenerators),
-        logger);
+    // generateBehaviour(problems,
+    //     new ModularUnexpected(problems, 8, 3, unexgenerators),
+    //     logger);
 
-    Map<ModularAmbiguous.CurrentStage, ModularGenerator> ambgenerators = new HashMap<ModularAmbiguous.CurrentStage, ModularGenerator>();
+    // Map<ModularAmbiguous.CurrentStage, ModularGenerator> ambgenerators = new HashMap<ModularAmbiguous.CurrentStage, ModularGenerator>();
 
-    ambgenerators.put(ModularAmbiguous.CurrentStage.AMBIGUOUS, new AmbiguousSuboptimalPlanner(0.8, 8));
-    ambgenerators.put(ModularAmbiguous.CurrentStage.ENDING, new OptimalPlanner());
+    // ambgenerators.put(ModularAmbiguous.CurrentStage.AMBIGUOUS, new AmbiguousSuboptimalPlanner(0.8, 8));
+    // ambgenerators.put(ModularAmbiguous.CurrentStage.ENDING, new OptimalPlanner());
 
-    problems = ParseProblems();
-    logger = new Logger();
-    logger.initialize(outputFolder, String.format("ModularAmbiguous-goal%d-simple.log", 4),
-        String.format("ModularAmbiguous-goal%d-detailed.log", 4),
-        String.format("ModularAmbiguous-goal%d-plan.plan", 4));
+    // problems = ParseProblems();
+    // logger = new Logger();
+    // logger.initialize(outputFolder, String.format("ModularAmbiguous-goal%d-simple.log", 4),
+    //     String.format("ModularAmbiguous-goal%d-detailed.log", 4),
+    //     String.format("ModularAmbiguous-goal%d-plan.plan", 4));
 
-    generateBehaviour(problems,
-        new ModularAmbiguous(problems, 1, 4, ambgenerators),
-        logger);
+    // generateBehaviour(problems,
+    //     new ModularAmbiguous(problems, 1, 4, ambgenerators),
+    //     logger);
 
     logger.close();
 
   }
 
-  private void generateBehaviour(ArrayList<DefaultProblem> problems, BehaviourGenerator bg, Logger logger) {
-    State state = new State(problems.get(0).getInitialState());
+  private void generateBehaviour(BehaviourGenerator bg, Logger logger) {
+    State state = new State(baseProblem.getInitialState());
 
     logger.logSimple("## Behaviour Generator: " + bg.toString() + "\n\n\n");
 
-    logger.logSimple("## Initial state:\n" + problems.get(0).toString(state));
+    logger.logSimple("## Initial state:\n" + baseProblem.toString(state));
 
     for (int i = 0; i < 100; i++) {
       try {
@@ -246,9 +252,9 @@ public class Main implements Runnable {
         bg.actionTaken(state, chosen);
         state.apply(chosen.getConditionalEffects());
 
-        logger.logAction(chosen, problems.get(0));
-        logger.logSimple("## Action Made:\n" + problems.get(0).toString(chosen));
-        logger.logSimple("## New State:\n" + problems.get(0).toString(state) + "\n\n\n");
+        logger.logAction(chosen, baseProblem);
+        logger.logSimple("## Action Made:\n" + baseProblem.toString(chosen));
+        logger.logSimple("## New State:\n" + baseProblem.toString(state) + "\n\n\n");
       } catch (NoValidActionException e) {
         logger.logSimple("Execution terminated: No more valid actions");
         break;
@@ -259,41 +265,32 @@ public class Main implements Runnable {
       }
     }
 
-    logger.logSimple("Final state:\n" + problems.get(0).toString(state));
+    logger.logSimple("Final state:\n" + baseProblem.toString(state));
   }
 
-  private ArrayList<DefaultProblem> ParseProblems() {
+  private void ParseProblems() {
     try {
+
       final Parser parser = new Parser();
 
       final ParsedDomain parsedDomain = parser.parseDomain(domainFile);
+      final ParsedProblem parsedProblem = parser.parseProblemWithoutGoal(inputFiles.get(0));
+      DefaultParsedProblem defaultParsedProblem = new DefaultParsedProblem(parsedDomain, parsedProblem);
+      this.baseProblem = new DefaultProblem(defaultParsedProblem);
 
-      System.out.println("Domain Parsed");
-      ArrayList<DefaultProblem> problems = new ArrayList<DefaultProblem>();
+      goals = new ArrayList<Goal>();
 
-      for (File f : inputFiles) {
-        ParsedProblem parsedProblem = parser.parseProblem(f);
-        final ErrorManager errorManager = parser.getErrorManager();
-        if (!errorManager.isEmpty()) {
-          for (Message m : errorManager.getMessages()) {
-            System.out.println(m.toString());
-          }
-        }
+      for (int i = 1; i < inputFiles.size(); i++) {
+        File f = inputFiles.get(i);
+        ParsedProblem parsedproblemGoal = parser.parseGoal(f);
+        System.out.println(parsedproblemGoal.getGoal());
 
-        System.out.println("Problem Parsed");
-        DefaultParsedProblem defaultParsedProblem = new DefaultParsedProblem(parsedDomain, parsedProblem);
-        DefaultProblem defaultProblem = new DefaultProblem(defaultParsedProblem);
-        defaultProblem.instantiate();
-        problems.add(defaultProblem);
-
+        // goals.add(parsedGoal);
       }
-
-      return problems;
     }
 
     catch (Throwable t) {
       t.printStackTrace();
-      return new ArrayList<DefaultProblem>();
     }
   }
 }

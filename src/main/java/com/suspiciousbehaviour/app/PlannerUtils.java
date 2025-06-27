@@ -4,10 +4,11 @@ import fr.uga.pddl4j.parser.DefaultParsedProblem;
 import fr.uga.pddl4j.parser.ParsedDomain;
 import fr.uga.pddl4j.parser.ParsedProblem;
 import fr.uga.pddl4j.problem.DefaultProblem;
+import fr.uga.pddl4j.problem.Goal;
 import fr.uga.pddl4j.parser.ErrorManager;
 import fr.uga.pddl4j.parser.Message;
 import fr.uga.pddl4j.parser.Parser;
-import fr.uga.pddl4j.planners.statespace.HSP;
+import fr.uga.pddl4j.planners.statespace.FF;
 import fr.uga.pddl4j.problem.Problem;
 import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.plan.Plan;
@@ -28,7 +29,7 @@ import java.util.Map;
 
 public class PlannerUtils {
 
-  static HSP planner = new HSP();
+  static FF planner = new FF();
 
   public static Plan GeneratePlanFromState(State state, Problem problem) {
     // Save the initial state
@@ -44,6 +45,7 @@ public class PlannerUtils {
       plan = planner.solve(problem);
     } catch (Exception e) {
       // If we have an error, still rest the state
+      System.out.println(e);
       problem.getInitialState().getPositiveFluents().clear();
       problem.getInitialState().getPositiveFluents().or(initialState);
       return null;
@@ -52,7 +54,23 @@ public class PlannerUtils {
     problem.getInitialState().getPositiveFluents().clear();
     problem.getInitialState().getPositiveFluents().or(initialState);
     return plan;
+  }
 
+  public static Plan GeneratePlanFromStateToGoal(State state, DefaultProblem problem, Goal goal) {
+      // Goal originalGoal = problem.getGoal();
+      // problem.setGoal(goal);
+
+      Plan plan;
+      try {
+        plan = GeneratePlanFromState(state, problem);
+      } catch (Exception e) {
+        System.out.println("Planing error");
+        // problem.setGoal(originalGoal);
+        return null;
+      }
+
+      // problem.setGoal(originalGoal);
+      return plan;
   }
 
 }

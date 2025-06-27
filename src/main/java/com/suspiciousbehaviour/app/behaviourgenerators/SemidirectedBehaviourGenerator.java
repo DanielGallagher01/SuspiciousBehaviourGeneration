@@ -1,26 +1,31 @@
 package com.suspiciousbehaviour.app.behaviourgenerators;
 
 import com.suspiciousbehaviour.app.Logger;
+import com.suspiciousbehaviour.app.PlannerUtils;
+
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 import fr.uga.pddl4j.problem.DefaultProblem;
 import fr.uga.pddl4j.problem.State;
+import fr.uga.pddl4j.problem.Goal;
 import fr.uga.pddl4j.plan.Plan;
 import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.planners.statespace.HSP;
 import fr.uga.pddl4j.problem.Problem;
 
 public class SemidirectedBehaviourGenerator implements BehaviourGenerator {
-	private List<DefaultProblem> problems;
+	private DefaultProblem baseProblem;
+	private List<Goal> goals;
 	private int lambda;
 	private int stepCount = 0;
 	private int goalID;
 	private HSP planner;
 
-	public SemidirectedBehaviourGenerator(List<DefaultProblem> problems, int lambda, int goalID) {
-		this.problems = problems;
+	public SemidirectedBehaviourGenerator(DefaultProblem baseProblem, List<Goal> goals, int lambda, int goalID) {
+		this.baseProblem = baseProblem;
+		this.goals = goals;
 		this.lambda = lambda;
 		this.goalID = goalID;
 		this.planner = new HSP();
@@ -29,7 +34,7 @@ public class SemidirectedBehaviourGenerator implements BehaviourGenerator {
 	public Action generateAction(State state, Logger logger) throws NoValidActionException {
 		if (stepCount % lambda == 0) {
 			logger.logSimple("Making Optimal move");
-			Plan plan = GeneratePlan(state);
+			Plan plan = PlannerUtils.GeneratePlanFromStateToGoal(state, baseProblem, goals.get(goalID));
 
 			if (plan == null || plan.actions().size() == 0) {
 				throw new NoValidActionException("Achieved Goal");
@@ -44,9 +49,9 @@ public class SemidirectedBehaviourGenerator implements BehaviourGenerator {
 
 
 		logger.logDetailed("Randomising actions");
-		Collections.shuffle(problems.get(0).getActions());
-		for (Action a : problems.get(0).getActions()) {
-			logger.logDetailed("Chosen Action: \n" + problems.get(0).toString(a));
+		Collections.shuffle(baseProblem.getActions());
+		for (Action a : baseProblem.getActions()) {
+			logger.logDetailed("Chosen Action: \n" + baseProblem.toString(a));
 			State tempState = (State)state.clone();
 
 			logger.logDetailed("Checking if action is applicable to state");
@@ -66,20 +71,6 @@ public class SemidirectedBehaviourGenerator implements BehaviourGenerator {
 		
 	}
 
-	private Plan GeneratePlan(State state)  throws NoValidActionException {
-		Problem problem = problems.get(goalID);
-		problem.getInitialState().getPositiveFluents().clear();
-		problem.getInitialState().getPositiveFluents().or(state);
-
-
-		try {
-			return planner.solve(problems.get(goalID));
-		}
-		catch (Exception e) {
-			throw new NoValidActionException("Planner error");
-		}
-
-	}
 
 	public void actionTaken(State state, Action action) {
 		stepCount++;
