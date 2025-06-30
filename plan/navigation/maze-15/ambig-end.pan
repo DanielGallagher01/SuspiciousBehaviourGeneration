@@ -1,0 +1,5 @@
+(move node1-1 node2-1 robot)
+(wait)
+(move node2-1 node1-1 robot)
+(move node1-1 node1-2 robot)
+(move node1-2 node1-1 robot)
