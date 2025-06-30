@@ -12,7 +12,6 @@ import fr.uga.pddl4j.problem.State;
 import fr.uga.pddl4j.problem.Goal;
 import fr.uga.pddl4j.plan.Plan;
 import fr.uga.pddl4j.problem.operator.Action;
-import fr.uga.pddl4j.planners.statespace.HSP;
 import fr.uga.pddl4j.problem.Problem;
 
 public class UnexpectedlySuspiciousBehaviourGenerator implements BehaviourGenerator {
@@ -20,7 +19,6 @@ public class UnexpectedlySuspiciousBehaviourGenerator implements BehaviourGenera
   private int stepCount = 0;
   private boolean reachedEpsilon = false;
   private int goalID, secondaryGoalID;
-  private HSP planner;
   private BehaviourGenerator secondaryGenerator;
   private DefaultProblem baseProblem;
   private List<Goal> goals;
@@ -30,7 +28,6 @@ public class UnexpectedlySuspiciousBehaviourGenerator implements BehaviourGenera
     this.epsilon = epsilon;
     this.goalID = goalID;
     this.secondaryGoalID = secondaryGoalID;
-    this.planner = new HSP();
     this.secondaryGenerator = secondaryGenerator;
     this.baseProblem = baseProblem;
     this.goals = goals;
@@ -68,16 +65,18 @@ public class UnexpectedlySuspiciousBehaviourGenerator implements BehaviourGenera
         }
         else if (newPlan.cost() >= originalPlan.cost()) {
           logger.logSimple("Action is irrational");
+          logger.logSimple("Original cost: " + originalPlan.cost());
+          logger.logSimple("New cost: " + newPlan.cost());
           continue;
         }
 
-        logger.logSimple("Checking if action makes secondary goal immpossible");
+        // logger.logSimple("Checking if action makes secondary goal immpossible");
 
-        Plan secondaryPlan = PlannerUtils.GeneratePlanFromStateToGoal(tempState, baseProblem, goals.get(secondaryGoalID));
-        if (secondaryPlan == null) {
-          logger.logSimple("Action makes secondary goal immpossible");
-          continue;
-        }
+        // Plan secondaryPlan = PlannerUtils.GeneratePlanFromStateToGoal(tempState, baseProblem, goals.get(secondaryGoalID));
+        // if (secondaryPlan == null) {
+        //   logger.logSimple("Action makes secondary goal immpossible");
+        //   continue;
+        // }
 
         return a;
       }

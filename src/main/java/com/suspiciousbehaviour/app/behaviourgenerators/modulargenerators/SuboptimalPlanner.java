@@ -25,9 +25,10 @@ public class SuboptimalPlanner implements ModularGenerator {
   private int stepID;
   private double suboptimality;
   private int goalID;
-  private List<DefaultProblem> problems;
+  private DefaultProblem problem;
   private Problem problem;
-  private List<Node> plan;
+  List<Goal> goals;
+  private Plan plan;
   private boolean setGoalID;
 
   public SuboptimalPlanner(double suboptimality) {
@@ -47,7 +48,7 @@ public class SuboptimalPlanner implements ModularGenerator {
   }
 
   public Action generateAction(State state, Logger logger) throws NoValidActionException {
-    return plan.get(stepID).action;
+    return plan.actions().get(stepID);
   }
 
   public void actionTaken(State state, Action action) {
@@ -58,150 +59,132 @@ public class SuboptimalPlanner implements ModularGenerator {
     return isInitialised;
   }
 
-  public void initialise(List<DefaultProblem> problems, int goalID, State state, Logger logger) {
-    if (!setGoalID) {
-      this.goalID = goalID;
-    }
-    this.problems = problems;
-    this.problem = problems.get(this.goalID);
-
-    State initialState = (State) (new State(problem.getInitialState())).clone();
-    problem.getInitialState().getPositiveFluents().clear();
-    problem.getInitialState().getPositiveFluents().or(state);
-
-    try {
-      Plan plan = planner.solve(problems.get(this.goalID));
-      problem.getInitialState().getPositiveFluents().clear();
-      problem.getInitialState().getPositiveFluents().or(initialState);
-      this.optimalPlan = plan;
-      isInitialised = true;
-      generateUnoptimality(logger, state);
-    } catch (Exception e) {
-      problem.getInitialState().getPositiveFluents().clear();
-      problem.getInitialState().getPositiveFluents().or(initialState);
-    }
+  public void initialise(DefaultProblem problem, List<Goal> goals, int goalID, State state, Logger logger) {
+    this.problem = problems;
+    this.goals = goals;
+    this.plan = PlannerUtils.GeneratePlanFromStateToGoal(state, problems, goals.get(goalID));
   }
 
-  private void generateUnoptimality(Logger logger, State state) {
-    logger.logDetailed("\n\n\nGenerating Unoptimality");
-    this.plan = new ArrayList<>();
+  // private void generateUnoptimality(Logger logger, State state) {
+  //   logger.logDetailed("\n\n\nGenerating Unoptimality");
+  //   this.plan = new ArrayList<>();
 
-    Node initialState = new Node(state);
-    plan.add(initialState);
+  //   Node initialState = new Node(state);
+  //   plan.add(initialState);
 
-    for (int i = 0; i < this.optimalPlan.actions().size(); i++) {
-      Node node = new Node(plan.get(i), this.optimalPlan.actions().get(i));
-      plan.add(node);
-    }
+  //   for (int i = 0; i < this.optimalPlan.actions().size(); i++) {
+  //     Node node = new Node(plan.get(i), this.optimalPlan.actions().get(i));
+  //     plan.add(node);
+  //   }
 
-    while (plan.size() < suboptimality * optimalPlan.size()) {
-      try {
-        addUnoptimalPath(logger);
-      } catch (Exception e) {
-        System.out.println(e);
-      }
-    }
+  //   while (plan.size() < suboptimality * optimalPlan.size()) {
+  //     try {
+  //       addUnoptimalPath(logger);
+  //     } catch (Exception e) {
+  //       System.out.println(e);
+  //     }
+  //   }
 
-  }
+  // }
 
-  private void addUnoptimalPath(Logger logger) {
-    Random r = new Random();
-    int rand = r.nextInt(plan.size() - 3);
+  // private void addUnoptimalPath(Logger logger) {
+  //   Random r = new Random();
+  //   int rand = r.nextInt(plan.size() - 3);
 
-    Set<Node> visited = new HashSet<>(plan);
-    Set<Node> current = new HashSet<>();
-    Set<Node> next = new HashSet<>();
+  //   Set<Node> visited = new HashSet<>(plan);
+  //   Set<Node> current = new HashSet<>();
+  //   Set<Node> next = new HashSet<>();
 
-    logger.logSimple("InitialState: \n" + problem.toString(plan.get(rand)));
-    current.add(plan.get(rand));
-    int curDepth = 1;
-    while (current.size() > 0 && curDepth < 10) {
-      logger.logSimple("\n\n\n");
-      logger.logSimple("***** Next Outer Loop *****");
-      logger.logSimple("Number of visited nodes: " + visited.size());
-      logger.logSimple("Number of nodes to explore this loop: " + current.size());
-      logger.logSimple("\n\n\n");
+  //   logger.logSimple("InitialState: \n" + problem.toString(plan.get(rand)));
+  //   current.add(plan.get(rand));
+  //   int curDepth = 1;
+  //   while (current.size() > 0 && curDepth < 10) {
+  //     logger.logSimple("\n\n\n");
+  //     logger.logSimple("***** Next Outer Loop *****");
+  //     logger.logSimple("Number of visited nodes: " + visited.size());
+  //     logger.logSimple("Number of nodes to explore this loop: " + current.size());
+  //     logger.logSimple("\n\n\n");
 
-      for (Node node : current) {
-        for (Action action : problem.getActions()) {
-          if (action.isApplicable(node)) {
-            logger.logDetailed("Next applicable action: " + problem.toString(action) + "\n");
-            Node newNode = new Node(node, action);
-            logger.logDetailed("New state: " + problem.toString(newNode));
+  //     for (Node node : current) {
+  //       for (Action action : problem.getActions()) {
+  //         if (action.isApplicable(node)) {
+  //           logger.logDetailed("Next applicable action: " + problem.toString(action) + "\n");
+  //           Node newNode = new Node(node, action);
+  //           logger.logDetailed("New state: " + problem.toString(newNode));
 
-            if (!visited.contains(newNode)) {
-              visited.add(newNode);
-              next.add(newNode);
-              logger.logDetailed("Node is a new state!");
+  //           if (!visited.contains(newNode)) {
+  //             visited.add(newNode);
+  //             next.add(newNode);
+  //             logger.logDetailed("Node is a new state!");
 
-            } else {
-              logger.logDetailed("State already seen");
-              for (int i = rand; i < this.plan.size(); i++) {
-                if (this.plan.get(i).equals(newNode)) {
-                  logger.logDetailed("Node is on the main plan!");
-                  int diff = (rand + curDepth) - i;
-                  logger.logDetailed("Path difference is: " + diff);
+  //           } else {
+  //             logger.logDetailed("State already seen");
+  //             for (int i = rand; i < this.plan.size(); i++) {
+  //               if (this.plan.get(i).equals(newNode)) {
+  //                 logger.logDetailed("Node is on the main plan!");
+  //                 int diff = (rand + curDepth) - i;
+  //                 logger.logDetailed("Path difference is: " + diff);
 
-                  if (diff <= 1) {
-                    break;
-                  }
+  //                 if (diff <= 1) {
+  //                   break;
+  //                 }
 
-                  logger.logDetailed("***** We found a suboptimal path! ****");
-                  logger.logDetailed("Plan start: " + rand);
-                  logger.logDetailed("Plan end: " + i);
-                  logger.logDetailed("Plan depth: " + curDepth);
+  //                 logger.logDetailed("***** We found a suboptimal path! ****");
+  //                 logger.logDetailed("Plan start: " + rand);
+  //                 logger.logDetailed("Plan end: " + i);
+  //                 logger.logDetailed("Plan depth: " + curDepth);
 
-                  // We have a diff / (suboptimal - 1) * length chance of using the path
-                  int continueRand = r.nextInt((int) ((suboptimality - 1) * optimalPlan.actions().size()));
-                  if (continueRand < diff) {
-                    logger.logDetailed("***** Using the suboptimal plan! *****");
+  //                 // We have a diff / (suboptimal - 1) * length chance of using the path
+  //                 int continueRand = r.nextInt((int) ((suboptimality - 1) * optimalPlan.actions().size()));
+  //                 if (continueRand < diff) {
+  //                   logger.logDetailed("***** Using the suboptimal plan! *****");
 
-                    // Add new found path to plan
-                    // Start by creating plan up to start of new path
-                    List<Node> newPlan = new ArrayList<>();
-                    for (int j = plan.size() - 1; j > i; j--) {
-                      newPlan.add(plan.get(j));
-                    }
+  //                   // Add new found path to plan
+  //                   // Start by creating plan up to start of new path
+  //                   List<Node> newPlan = new ArrayList<>();
+  //                   for (int j = plan.size() - 1; j > i; j--) {
+  //                     newPlan.add(plan.get(j));
+  //                   }
 
-                    Node backIterNode = newNode;
-                    while (true) {
-                      logger.logDetailed(".\n");
-                      newPlan.add(backIterNode);
-                      backIterNode = backIterNode.parent;
+  //                   Node backIterNode = newNode;
+  //                   while (true) {
+  //                     logger.logDetailed(".\n");
+  //                     newPlan.add(backIterNode);
+  //                     backIterNode = backIterNode.parent;
 
-                      if (backIterNode == plan.get(rand)) {
-                        break;
-                      }
-                    }
+  //                     if (backIterNode == plan.get(rand)) {
+  //                       break;
+  //                     }
+  //                   }
 
-                    for (int j = rand; j >= 0; j--) {
-                      newPlan.add(plan.get(j));
-                    }
+  //                   for (int j = rand; j >= 0; j--) {
+  //                     newPlan.add(plan.get(j));
+  //                   }
 
-                    this.plan = newPlan.reversed();
-                    return;
-                  } else {
-                    logger.logDetailed("Plan was unlucky");
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+  //                   this.plan = newPlan.reversed();
+  //                   return;
+  //                 } else {
+  //                   logger.logDetailed("Plan was unlucky");
+  //                 }
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
 
-      curDepth++;
-      current = next;
-      next = new HashSet<>();
-    }
-    if (current.size() == 0) {
-      logger.logSimple("Exited because no solution found");
-    }
+  //     curDepth++;
+  //     current = next;
+  //     next = new HashSet<>();
+  //   }
+  //   if (current.size() == 0) {
+  //     logger.logSimple("Exited because no solution found");
+  //   }
 
-    if (curDepth == 10) {
-      logger.logSimple("Exited because reached depth limit");
-    }
-  }
+  //   if (curDepth == 10) {
+  //     logger.logSimple("Exited because reached depth limit");
+  //   }
+  // }
 
   public int distanceToGoal(State state) {
     if (!isInitialised) {

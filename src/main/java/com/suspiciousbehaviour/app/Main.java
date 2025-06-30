@@ -29,6 +29,7 @@ import java.util.Map;
 
 import com.suspiciousbehaviour.app.behaviourgenerators.BehaviourGenerator;
 import com.suspiciousbehaviour.app.behaviourgenerators.*;
+import com.suspiciousbehaviour.app.behaviourrecogniser.*;
 import com.suspiciousbehaviour.app.behaviourgenerators.modulargenerators.*;
 
 import java.nio.file.Path;
@@ -44,6 +45,27 @@ public class Main implements Runnable {
   @Option(names = { "-d", "--domain" }, description = "Domain File", required = true)
   File domainFile;
 
+  @Option(names = { "-p", "--problem" }, description = "Problem File", required = true)
+  File problemFile;
+
+  @Option(names = {"--primary_goal" }, description = "Primary Goal ID", required = true)
+  int primaryGoalID;
+
+  @Option(names = {"--secondary_goal" }, description = "Secondary Goal ID", defaultValue = "0")
+  int SecondaryGoalID;
+
+  @Option(names = {"--loitering" }, description = "Generate Loitering Behaviour")
+  boolean loitering;
+
+  @Option(names = {"--obfuscating" }, description = "Generate Obfuscating Behaviour")
+  boolean obfuscating;
+
+  @Option(names = {"--unexpected" }, description = "Generate Unexpected Behaviour")
+  boolean unexpected;
+
+  @Option(names = {"--directed" }, description = "Directed Obfuscating Behaviour")
+  boolean directed;
+
   @Option(names = {
       "--purposelessE" }, description = "Espilon Threashold for Purposless Suspicious Behaviour", defaultValue = "5")
   int purposelessE;
@@ -52,7 +74,7 @@ public class Main implements Runnable {
       "--purposefulE" }, description = "Espilon Threashold for Purposful Suspicious Behaviour", defaultValue = "0.35")
   double purposefulE;
 
-  @Option(names = { "--numsteps" }, description = "Maximum number of steps", defaultValue = "30")
+  @Option(names = { "--numsteps" }, description = "Maximum number of steps", defaultValue = "100")
   int numsteps;
 
   @Parameters(arity = "1..*", paramLabel = "INPUT", description = "Input file(s)")
@@ -132,34 +154,32 @@ public class Main implements Runnable {
   }
 
   private void generateAllBehaviour() {
-
+    ParseProblems();
     Logger logger = new Logger();
 
     // DIRECTED BEHAVIOUR
     
-    // problems = ParseProblems();
-    // logger.initialize(outputFolder,
-    // "directed-simple.log",
-    // "directed-detailed.log",
-    // "directed-plan.plan");
-    // generateBehaviour(problems,
-    // new DirectedBehaviourGenerator(problems),
-    // logger);
-    // generateBehaviour(problems,
-    // new DirectedBehaviourGenerator(problems),
-    // logger);
+    if (directed) {
+      logger.initialize(outputFolder,
+      "directed-simple.log",
+      "directed-detailed.log",
+      "directed-plan.plan");
+      generateBehaviour(
+        new DirectedBehaviourGenerator(baseProblem, goals),
+        logger);
+    }
 
     // PURPOSEFUL BEHAVIUOUR
-    // problems = ParseProblems();
-    // BehaviourRecogniser br = new SelfModulatingRecogniser(problems);
-    // logger = new Logger();
-    // logger.initialize(outputFolder, "purposefulSuspicious-simple.log",
-    // "purposefulSuspicious-detailed.log",
-    // "purposefulSuspicious-plan.plan");
-    // generateBehaviour(problems,
-    // new PurposefulSuspiciousBehaviourGenerator(problems, purposefulE, numsteps,
-    // br),
-    // logger);      return new ArrayList<DefaultProblem>();
+    if (obfuscating) {
+      BehaviourRecogniser br = new SelfModulatingRecogniser(baseProblem, goals);
+      logger = new Logger();
+      logger.initialize(outputFolder, "purposefulSuspicious-simple.log",
+      "purposefulSuspicious-detailed.log",
+      "purposefulSuspicious-plan.plan");
+      generateBehaviour(
+        new PurposefulSuspiciousBehaviourGenerator(baseProblem, goals, purposefulE, numsteps, br, primaryGoalID),
+        logger);      
+    }
 
 
     // PURPOSELESS BEHAVIOUR
@@ -181,14 +201,14 @@ public class Main implements Runnable {
 
     // UNEXPECTEDLY SUSPICUOUS
     // for (int i = 0; i < problems.size() - 1; i++) {
-    ParseProblems();
+    // ParseProblems();
     // logger = new Logger();
     // logger.initialize(outputFolder,
     // String.format("unexpectedlySuspicious-goal%d-simple.log", 1),
     // String.format("unexpectedlySuspicious-goal%d-detailed.log", 1),
     // String.format("unexpectedlySuspicious-goal%d-plan.plan", 1));
     // generateBehaviour(
-    // new UnexpectedlySuspiciousBehaviourGenerator(goals, baseProblem, 6, 1, goals.size()
+    // new UnexpectedlySuspactioniciousBehaviourGenerator(goals, baseProblem, 6, 1, goals.size()
     // - 1,
     // new SemidirectedBehaviourGenerator(baseProblem, goals, 2, goals.size() - 2)),
     // logger);
@@ -246,7 +266,7 @@ public class Main implements Runnable {
 
     logger.logSimple("## Initial state:\n" + baseProblem.toString(state));
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < numsteps; i++) {
       try {
         Action chosen = bg.generateAction(state, logger);
         bg.actionTaken(state, chosen);
@@ -273,7 +293,7 @@ public class Main implements Runnable {
       final Parser parser = new Parser();
 
       final ParsedDomain parsedDomain = parser.parseDomain(domainFile);
-      final ParsedProblem parsedProblem = parser.parseProblemWithoutGoal(inputFiles.get(0));
+      final ParsedProblem parsedProblem = parser.parseProblemWithoutGoal(problemFile);
       DefaultParsedProblem defaultParsedProblem = new DefaultParsedProblem(parsedDomain, parsedProblem);
       this.baseProblem = new DefaultProblem(defaultParsedProblem);
       this.baseProblem.instantiate();

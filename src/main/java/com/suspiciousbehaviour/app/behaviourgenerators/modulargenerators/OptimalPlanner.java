@@ -18,6 +18,8 @@ public class OptimalPlanner implements ModularGenerator {
   private HSP planner;
   private Plan plan;
   private int stepID;
+  DefaultProblem problem;
+  List<Goal> goals;
 
   public OptimalPlanner() {
     isInitialised = false;
@@ -36,22 +38,10 @@ public class OptimalPlanner implements ModularGenerator {
     return isInitialised;
   }
 
-  public void initialise(List<DefaultProblem> problems, int goalID, State state, Logger logger) {
-    Problem problem = problems.get(goalID);
-    State initialState = (State) (new State(problem.getInitialState())).clone();
-    problem.getInitialState().getPositiveFluents().clear();
-    problem.getInitialState().getPositiveFluents().or(state);
-
-    try {
-      Plan plan = planner.solve(problems.get(goalID));
-      problem.getInitialState().getPositiveFluents().clear();
-      problem.getInitialState().getPositiveFluents().or(initialState);
-      this.plan = plan;
-      isInitialised = true;
-    } catch (Exception e) {
-      problem.getInitialState().getPositiveFluents().clear();
-      problem.getInitialState().getPositiveFluents().or(initialState);
-    }
+  public void initialise(DefaultProblem problem, List<Goal> goals, int goalID, State state, Logger logger) {
+    this.problem = problems;
+    this.goals = goals;
+    this.plan = PlannerUtils.GeneratePlanFromStateToGoal(state, problems, goals.get(goalID));
 
   }
 

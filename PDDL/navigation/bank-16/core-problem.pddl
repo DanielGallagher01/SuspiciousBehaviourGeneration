@@ -5,7 +5,7 @@
     node0-0 node0-1 node0-2 node0-3 node0-4 node0-5 node0-6 node0-7 node0-8 node0-9 node0-10 node0-11 node0-12 node0-13 node0-14 node0-15 node0-16 node1-0 node1-1 node1-2 node1-3 node1-4 node1-5 node1-6 node1-7 node1-8 node1-9 node1-10 node1-11 node1-12 node1-13 node1-14 node1-15 node1-16 node2-0 node2-1 node2-2 node2-3 node2-4 node2-5 node2-6 node2-7 node2-8 node2-9 node2-10 node2-11 node2-12 node2-13 node2-14 node2-15 node2-16 node3-0 node3-1 node3-2 node3-3 node3-4 node3-5 node3-6 node3-7 node3-8 node3-9 node3-10 node3-11 node3-12 node3-13 node3-14 node3-15 node3-16 node4-0 node4-1 node4-2 node4-3 node4-4 node4-5 node4-6 node4-7 node4-8 node4-9 node4-10 node4-11 node4-12 node4-13 node4-14 node4-15 node4-16 node5-0 node5-1 node5-2 node5-3 node5-4 node5-5 node5-6 node5-7 node5-8 node5-9 node5-10 node5-11 node5-12 node5-13 node5-14 node5-15 node5-16 node6-0 node6-1 node6-2 node6-3 node6-4 node6-5 node6-6 node6-7 node6-8 node6-9 node6-10 node6-11 node6-12 node6-13 node6-14 node6-15 node6-16 node7-0 node7-1 node7-2 node7-3 node7-4 node7-5 node7-6 node7-7 node7-8 node7-9 node7-10 node7-11 node7-12 node7-13 node7-14 node7-15 node7-16 node8-0 node8-1 node8-2 node8-3 node8-4 node8-5 node8-6 node8-7 node8-8 node8-9 node8-10 node8-11 node8-12 node8-13 node8-14 node8-15 node8-16 node9-0 node9-1 node9-2 node9-3 node9-4 node9-5 node9-6 node9-7 node9-8 node9-9 node9-10 node9-11 node9-12 node9-13 node9-14 node9-15 node9-16 node10-0 node10-1 node10-2 node10-3 node10-4 node10-5 node10-6 node10-7 node10-8 node10-9 node10-10 node10-11 node10-12 node10-13 node10-14 node10-15 node10-16 node11-0 node11-1 node11-2 node11-3 node11-4 node11-5 node11-6 node11-7 node11-8 node11-9 node11-10 node11-11 node11-12 node11-13 node11-14 node11-15 node11-16 node12-0 node12-1 node12-2 node12-3 node12-4 node12-5 node12-6 node12-7 node12-8 node12-9 node12-10 node12-11 node12-12 node12-13 node12-14 node12-15 node12-16 node13-0 node13-1 node13-2 node13-3 node13-4 node13-5 node13-6 node13-7 node13-8 node13-9 node13-10 node13-11 node13-12 node13-13 node13-14 node13-15 node13-16 node14-0 node14-1 node14-2 node14-3 node14-4 node14-5 node14-6 node14-7 node14-8 node14-9 node14-10 node14-11 node14-12 node14-13 node14-14 node14-15 node14-16 node15-0 node15-1 node15-2 node15-3 node15-4 node15-5 node15-6 node15-7 node15-8 node15-9 node15-10 node15-11 node15-12 node15-13 node15-14 node15-15 node15-16 node16-0 node16-1 node16-2 node16-3 node16-4 node16-5 node16-6 node16-7 node16-8 node16-9 node16-10 node16-11 node16-12 node16-13 node16-14 node16-15 node16-16
   )
   (:init
-    (at-robot node0-1 robot)
+    (at-robot node1-1 robot)
     (is-goal node2-13)
     (is-goal node9-13)
     (is-goal node13-9)
@@ -300,7 +300,6 @@
     (place node16-14)
     (place node16-15)
     (place node16-16)
-    (open node0-1)
     (open node0-15)
     (open node0-16)
     (open node1-1)

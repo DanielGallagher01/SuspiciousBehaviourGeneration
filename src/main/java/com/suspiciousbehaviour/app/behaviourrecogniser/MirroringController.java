@@ -1,6 +1,7 @@
 package com.suspiciousbehaviour.app.behaviourrecogniser;
 
 import com.suspiciousbehaviour.app.Logger;
+import com.suspiciousbehaviour.app.PlannerUtils;
 
 import fr.uga.pddl4j.parser.DefaultParsedProblem;
 import fr.uga.pddl4j.parser.ErrorManager;
@@ -19,22 +20,24 @@ import java.util.List;
 import java.util.Hashtable;
 import java.util.Map;
 
+
 public class MirroringController extends BehaviourRecogniser {
-  private List<DefaultProblem> problems;
+  private DefaultProblem problem;
+  private List<Goal> goals;
   private HSP planner;
   private InitialState initialState;
 
-  private Map<Problem, Plan> initialPlans;
+  private Map<Goal, Plan> initialPlans;
 
-  public MirroringController(List<DefaultProblem> problems) {
-    this.problems = problems;
-    this.planner = new HSP();
+  public MirroringController(DefaultProblem problem, List<Goal> goals) {
+    this.problem = problem;
+    this.goals = goal;
     this.initialPlans = new Hashtable<>();
-    this.initialState = problems.get(0).getInitialState();
+    this.initialState = problem.getInitialState();
 
-    for (Problem p : problems) {
+    for (Goal g : goals) {
       try {
-        Plan plan = planner.solve(p);
+        Plan plan = PlannerUtils.GeneratePlanFromStateToGoal(new State(this.initialState), problem, g);
         this.initialPlans.put(p, plan);
       } catch (ProblemNotSupportedException e) {
         System.out.println(e.toString());
@@ -42,54 +45,43 @@ public class MirroringController extends BehaviourRecogniser {
     }
   }
 
-  public Map<Problem, Double> recognise(State state, double prefixCost, Logger logger) {
+  public Map<Goal, Double> recognise(State state, double prefixCost, Logger logger) {
     logger.logDetailed("Starting mirroring");
 
-    Map<Problem, Double> cost = new Hashtable<>();
+    Map<Goal, Double> cost = new Hashtable<>();
 
     int i = 1;
-    for (Problem problem : problems) {
-      logger.logDetailed("Planning for problem " + i + " starting");
-      logger.logDetailed("Setting initial state to current state");
-      problem.getInitialState().getPositiveFluents().clear();
-      problem.getInitialState().getPositiveFluents().or(state);
-
-      try {
-        logger.logDetailed("Generating plan");
-        Plan plan = planner.solve(problem);
-        logger.logDetailed("Plan's cost: " + plan.cost());
-        cost.put(problem, plan.cost());
-      } catch (ProblemNotSupportedException e) {
-        logger.logSimple("Error in generating plan for mirroring: " + e.toString());
-        System.out.println(e.toString());
+    for (Goal g : goals) {
+      Plan plan = PlannerUtils.GeneratePlanFromStateToGoal(this.initialState, problem, g);
+      if (plan == null) {
+        cost.put(g, Double.POSITIVE_INFINITY);
+      } else {
+        cost.put(g, plan.cost());
       }
-
-      logger.logDetailed("Reseting initial state of problem");
-      problem.getInitialState().getPositiveFluents().clear();
-      problem.getInitialState().getPositiveFluents().or(initialState.getPositiveFluents());
-      i++;
     }
-    Map<Problem, Double> scores = new Hashtable<>();
 
-    logger.logDetailed("Generating scores for problems");
+
+    Map<Goal, Double> scores = new Hashtable<>();
+
+    logger.logDetailed("Generating scores for goals");
     i = 1;
-    for (Problem problem : problems) {
-      Double score = initialPlans.get(problem).cost() / (prefixCost + cost.get(problem));
-      logger.logDetailed("Score for problem " + i + ": " + score);
-      scores.put(problem, score);
+    for (Goal g : goals) {
+      Double score = initialPlans.get(g).cost() / (prefixCost + cost.get(g));
+      logger.logDetailed("Score for goal " + i + ": " + score);
+      scores.put(g, score);
       i++;
     }
 
     double totalScore = 0;
     logger.logDetailed("Calculating summed score");
-    for (Problem problem : problems) {
-      totalScore += scores.get(problem);
+    for (Goal g : goals) {
+      totalScore += scores.get(g);
     }
     logger.logDetailed("Total score: " + totalScore);
 
-    Map<Problem, Double> P = new Hashtable<>();
-    for (Problem problem : problems) {
-      P.put(problem, scores.get(problem) / totalScore);
+    Map<Goal, Double> P = new Hashtable<>();
+    for (Goal g : goals) {
+      P.put(g, scores.get(g) / totalScore);
     }
 
     logger.logDetailed("Mirroring Complete!");

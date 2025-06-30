@@ -9,6 +9,7 @@ import fr.uga.pddl4j.parser.ErrorManager;
 import fr.uga.pddl4j.parser.Message;
 import fr.uga.pddl4j.parser.Parser;
 import fr.uga.pddl4j.planners.statespace.FF;
+import fr.uga.pddl4j.planners.statespace.HSP;
 import fr.uga.pddl4j.problem.Problem;
 import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.plan.Plan;
@@ -29,7 +30,7 @@ import java.util.Map;
 
 public class PlannerUtils {
 
-  static FF planner = new FF();
+  static HSP planner = new HSP();
 
   public static Plan GeneratePlanFromState(State state, Problem problem) {
     // Save the initial state
@@ -58,7 +59,7 @@ public class PlannerUtils {
 
   public static Plan GeneratePlanFromStateToGoal(State state, DefaultProblem problem, Goal goal) {
       // Goal originalGoal = problem.getGoal();
-      // problem.setGoal(goal);
+      problem.setGoal(goal);
 
       Plan plan;
       try {
