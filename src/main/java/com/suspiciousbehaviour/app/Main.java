@@ -182,16 +182,16 @@ public class Main implements Runnable {
     // UNEXPECTEDLY SUSPICUOUS
     // for (int i = 0; i < problems.size() - 1; i++) {
     ParseProblems();
-    logger = new Logger();
-    logger.initialize(outputFolder,
-    String.format("unexpectedlySuspicious-goal%d-simple.log", 1),
-    String.format("unexpectedlySuspicious-goal%d-detailed.log", 1),
-    String.format("unexpectedlySuspicious-goal%d-plan.plan", 1));
-    generateBehaviour(
-    new UnexpectedlySuspiciousBehaviourGenerator(goals, baseProblem, 6, 1, goals.size()
-    - 1,
-    new SemidirectedBehaviourGenerator(baseProblem, goals, 2, goals.size() - 2)),
-    logger);
+    // logger = new Logger();
+    // logger.initialize(outputFolder,
+    // String.format("unexpectedlySuspicious-goal%d-simple.log", 1),
+    // String.format("unexpectedlySuspicious-goal%d-detailed.log", 1),
+    // String.format("unexpectedlySuspicious-goal%d-plan.plan", 1));
+    // generateBehaviour(
+    // new UnexpectedlySuspiciousBehaviourGenerator(goals, baseProblem, 6, 1, goals.size()
+    // - 1,
+    // new SemidirectedBehaviourGenerator(baseProblem, goals, 2, goals.size() - 2)),
+    // logger);
     // }
     //
 
@@ -270,22 +270,26 @@ public class Main implements Runnable {
 
   private void ParseProblems() {
     try {
-
       final Parser parser = new Parser();
 
       final ParsedDomain parsedDomain = parser.parseDomain(domainFile);
       final ParsedProblem parsedProblem = parser.parseProblemWithoutGoal(inputFiles.get(0));
       DefaultParsedProblem defaultParsedProblem = new DefaultParsedProblem(parsedDomain, parsedProblem);
       this.baseProblem = new DefaultProblem(defaultParsedProblem);
+      this.baseProblem.instantiate();
 
       goals = new ArrayList<Goal>();
 
       for (int i = 1; i < inputFiles.size(); i++) {
         File f = inputFiles.get(i);
         ParsedProblem parsedproblemGoal = parser.parseGoal(f);
-        System.out.println(parsedproblemGoal.getGoal());
+        // System.out.println(parsedproblemGoal.getGoal());
 
-        // goals.add(parsedGoal);
+        Goal goal = Goal.GoalFromExistingProblem(baseProblem, parsedproblemGoal.getGoal());
+
+        goals.add(goal);
+        System.out.println(goal);
+        System.out.println(baseProblem.toString(goal));
       }
     }
 
