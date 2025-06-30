@@ -1,6 +1,7 @@
 package com.suspiciousbehaviour.app.behaviourrecogniser;
 
 import com.suspiciousbehaviour.app.Logger;
+import com.suspiciousbehaviour.app.PlannerUtils;
 
 import fr.uga.pddl4j.parser.DefaultParsedProblem;
 import fr.uga.pddl4j.parser.ErrorManager;
@@ -8,6 +9,7 @@ import fr.uga.pddl4j.parser.Message;
 import fr.uga.pddl4j.parser.Parser;
 import fr.uga.pddl4j.planners.statespace.HSP;
 import fr.uga.pddl4j.problem.Problem;
+import fr.uga.pddl4j.problem.Goal;
 import fr.uga.pddl4j.problem.DefaultProblem;
 import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.plan.Plan;
@@ -24,122 +26,67 @@ import java.util.*;
 import java.util.concurrent.*;
 
 public class SelfModulatingRecogniser extends BehaviourRecogniser {
-  private List<DefaultProblem> problems;
+  private DefaultProblem problem;
+  private List<Goal> goals;
   private HSP planner;
   private InitialState initialState;
 
-  private Map<Problem, Plan> initialPlans;
+  private Map<Goal, Plan> initialPlans;
 
-  public SelfModulatingRecogniser(List<DefaultProblem> problems) {
-    this.problems = problems;
-    this.planner = new HSP();
-    planner.setTimeout(10);
+  public SelfModulatingRecogniser(DefaultProblem problem, List<Goal> goals) {
+    this.problem = problem;
+    this.goals = goals;
+
     this.initialPlans = new Hashtable<>();
-    this.initialState = problems.get(0).getInitialState();
+    this.initialState = problem.getInitialState();
 
-    // Use a thread-safe map for concurrent updates
     initialPlans = new ConcurrentHashMap<>();
 
     ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
     List<Future<?>> futures = new ArrayList<>();
 
-    for (Problem p : problems) {
-      futures.add(executor.submit(() -> {
-        try {
-          Plan plan = planner.solve(p);
-          initialPlans.put(p, plan);
-        } catch (ProblemNotSupportedException e) {
-          System.out.println(e.toString());
-        }
-      }));
+    for (Goal g : goals) {
+      Plan plan = PlannerUtils.GeneratePlanFromStateToGoal(new State(this.initialState), problem, g);
+      initialPlans.put(g, plan);
     }
-
-    // Wait for all threads to finish
-    for (Future<?> f : futures) {
-      try {
-        f.get();
-      } catch (InterruptedException | ExecutionException e) {
-        e.printStackTrace();
-      }
-    }
-
-    executor.shutdown();
-
   }
 
-  public Map<Problem, Double> recognise(State state, double prefixCost, Logger logger) {
+  public Map<Goal, Double> recognise(State state, double prefixCost, Logger logger) {
     logger.logDetailed("Starting recognising");
 
-    Map<Problem, Double> cost = new ConcurrentHashMap<>();
+    Map<Goal, Double> cost = new ConcurrentHashMap<>();
 
-    ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-    List<Future<?>> futures = new ArrayList<>();
-
-    for (Problem problem : problems) {
-      futures.add(executor.submit(() -> {
-        // Make a copy of the problem's initial state if needed to avoid race conditions
-        BitVector originalState = (BitVector) problem.getInitialState().getPositiveFluents().clone();
-        synchronized (problem) {
-          problem.getInitialState().getPositiveFluents().clear();
-          problem.getInitialState().getPositiveFluents().or(state);
-        }
-
-        try {
-          logger.logDetailed("Generating plan");
-          Plan plan = planner.solve(problem);
-          if (plan == null) {
-            logger.logDetailed("Action makes goal impossible");
-            cost.put(problem, Double.POSITIVE_INFINITY);
-          } else {
-            logger.logDetailed("Plan's cost: " + plan.cost());
-            cost.put(problem, plan.cost());
-          }
-        } catch (ProblemNotSupportedException e) {
-          logger.logSimple("Error in generating plan for mirroring: " + e.toString());
-          System.out.println(e.toString());
-        }
-
-        // Reset problem state after planning
-        synchronized (problem) {
-          problem.getInitialState().getPositiveFluents().clear();
-          problem.getInitialState().getPositiveFluents().or(initialState.getPositiveFluents());
-        }
-      }));
-    }
-
-    // Wait for all tasks to complete
-    for (Future<?> f : futures) {
-      try {
-        f.get(); // wait for thread completion
-      } catch (InterruptedException | ExecutionException e) {
-        e.printStackTrace();
+    for (Goal g : goals) {
+      Plan plan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, g);
+      if (plan == null) {
+        cost.put(g, Double.POSITIVE_INFINITY);
+      } else {
+        cost.put(g, plan.cost());
       }
     }
 
-    executor.shutdown();
+    Map<Goal, Double> scores = new Hashtable<>();
 
-    Map<Problem, Double> scores = new Hashtable<>();
-
-    logger.logDetailed("Generating scores for problems");
+    logger.logDetailed("Generating scores for goals");
     int i = 1;
-    for (Problem problem : problems) {
-      Double score = Math.exp(initialPlans.get(problem).cost() - cost.get(problem));
-      logger.logDetailed("Score for problem " + i + ": " + score);
-      scores.put(problem, score);
+    for (Goal g : goals) {
+      Double score = Math.exp(initialPlans.get(g).cost() - cost.get(g));
+      logger.logDetailed("Score for goal " + i + ": " + score);
+      scores.put(g, score);
       i++;
     }
 
     double totalScore = 0;
     logger.logDetailed("Calculating summed score");
-    for (Problem problem : problems) {
-      totalScore += scores.get(problem);
+    for (Goal g : goals) {
+      totalScore += scores.get(g);
     }
     logger.logDetailed("Total score: " + totalScore);
 
-    Map<Problem, Double> P = new Hashtable<>();
-    for (Problem problem : problems) {
-      P.put(problem, scores.get(problem) / totalScore);
-      logger.logDetailed("Final probability: " + scores.get(problem) / totalScore);
+    Map<Goal, Double> P = new Hashtable<>();
+    for (Goal g : goals) {
+      P.put(g, scores.get(g) / totalScore);
+      logger.logDetailed("Final probability: " + scores.get(g) / totalScore);
     }
 
     logger.logDetailed("Recognising Complete!");
