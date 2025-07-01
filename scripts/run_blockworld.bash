@@ -1,5 +1,5 @@
 #! /bin/bash
-problem='blockworld-3'
+problem='blockworld-5'
 domain='blockworld'
 
 mkdir outputs/$domain/$problem -p
@@ -11,6 +11,7 @@ java -cp out:lib/*:. -Xmx10G com.suspiciousbehaviour.app.Main \
   --purposefulE 0.4 \
   --unexpected \
   --secondary_goal 1 \
+  --loitering \
   -o outputs/$domain/$problem \
   -d PDDL/$domain/domain.pddl \
   -p PDDL/$domain/$problem/core-problem.pddl \
