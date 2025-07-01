@@ -6,6 +6,8 @@ import com.suspiciousbehaviour.app.PlannerUtils;
 
 
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
@@ -25,7 +27,7 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
   private BehaviourRecogniser br;
   private int stepsBeforeOptimal;
   private int currentStep;
-  private List<DirectedBehaviourGenerator.ActionState> observedStates;
+  private Set<DirectedBehaviourGenerator.ActionState> observedStates;
   private int secondaryGoalID;
   private Plan secondaryPlan;
 
@@ -39,7 +41,7 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
     this.currentStep = 1;
     this.prefixCost = 0d;
     this.secondaryGoalID = secondaryGoalID;
-    this.observedStates = new ArrayList<DirectedBehaviourGenerator.ActionState>();
+    this.observedStates = new HashSet<DirectedBehaviourGenerator.ActionState>();
   }
 
   public Action generateAction(State state, Logger logger) throws NoValidActionException {
@@ -76,18 +78,18 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
       if (a.isApplicable(tempState)) {
         logger.logDetailed("Chosen Action: \n" + problem.toString(a));
         logger.logDetailed("Action is applicable to state");
+        logger.logDetailed("Checking if State-Action Pair has already been observed");
+
+        if (observedStates.contains(new DirectedBehaviourGenerator.ActionState(a, state))) {
+          logger.logDetailed("State-Action Pair has been observed. Choosing another action");
+          continue;
+        }
+        logger.logDetailed("State-Action Pair has not been observed");
+
         logger.logDetailed("Applying action to temporary state");
         a.getConditionalEffects().stream().filter(ce -> tempState.satisfy(ce.getCondition()))
             .forEach(ce -> tempState.apply(ce.getEffect()));
         logger.logDetailed("Temporary state after action: " + problem.toString(tempState));
-
-        logger.logDetailed("Checking if state has already been observed");
-
-        if (observedStates.contains(tempState)) {
-          logger.logDetailed("State has been observed. Choosing another action");
-          continue;
-        }
-        logger.logDetailed("State has not been observed");
 
         double delta = prefixCost + a.getCost().getValue();
         logger.logDetailed("Mirroing delta: " + delta);
