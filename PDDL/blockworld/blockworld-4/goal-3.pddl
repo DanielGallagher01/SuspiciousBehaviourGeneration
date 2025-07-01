@@ -1,0 +1,10 @@
+(define (problem BLOCKS)
+  (:domain BLOCKS)
+(:goal (AND 
+        (ONTABLE R)
+        (ON A R)
+        (ON T A)
+        (ON S T)
+        )
+    )
+)
