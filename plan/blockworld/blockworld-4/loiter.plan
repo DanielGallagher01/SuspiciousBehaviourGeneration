@@ -1,0 +1,8 @@
+# Approaching goal
+(stack i h)
+(unstack e p)
+(stack e o)
+(unstack i h)
+(stack i p)
+(unstack l y)
+(stack l y)
