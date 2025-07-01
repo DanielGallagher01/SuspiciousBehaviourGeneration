@@ -1,0 +1,3 @@
+(unstack h d)
+#No ambiguous actions avalable. Switching to optimal.
+(stack h d)
