@@ -157,6 +157,12 @@ public class Main implements Runnable {
     ParseProblems();
     Logger logger = new Logger();
 
+    int RMP = 0;
+    if (loitering || unexpected) {
+      RMP = PlannerUtils.CalculateRadiusOfMaximumProbability(baseProblem, goals, primaryGoalID);
+      System.out.println(RMP); 
+    }
+
     // DIRECTED BEHAVIOUR
     
     if (directed) {
@@ -167,6 +173,33 @@ public class Main implements Runnable {
       generateBehaviour(
         new DirectedBehaviourGenerator(baseProblem, goals),
         logger);
+    }
+
+    // PURPOSELESS BEHAVIOUR
+    if (loitering) {
+      logger = new Logger();
+      logger.initialize(outputFolder,
+          String.format("purposelessSuspicious-goal%d-simple.log", primaryGoalID),
+          String.format("purposelessSuspicious-goal%d-detailed.log", primaryGoalID),
+          String.format("purposelessSuspicious-goal%d-plan.plan", primaryGoalID));
+      generateBehaviour(
+          new PurposelessSuspiciousBehaviourGenerator(baseProblem, goals, RMP+1, numsteps,
+              primaryGoalID),
+          logger);
+    }
+
+    // UNEXPECTEDLY SUSPICUOUS
+    if (unexpected) {
+      logger = new Logger();
+      logger.initialize(outputFolder,
+      String.format("unexpectedlySuspicious-goal%d-simple.log", 1),
+      String.format("unexpectedlySuspicious-goal%d-detailed.log", 1),
+      String.format("unexpectedlySuspicious-goal%d-plan.plan", 1));
+      generateBehaviour(
+      new UnexpectedlySuspiciousBehaviourGenerator(goals, baseProblem, 6, 1, goals.size()
+      - 1,
+      new SemidirectedBehaviourGenerator(baseProblem, goals, 2, goals.size() - 2)),
+      logger);
     }
 
     // PURPOSEFUL BEHAVIUOUR
@@ -180,40 +213,6 @@ public class Main implements Runnable {
         new PurposefulSuspiciousBehaviourGenerator(baseProblem, goals, purposefulE, numsteps, br, primaryGoalID),
         logger);      
     }
-
-
-    // PURPOSELESS BEHAVIOUR
-    // for (int i = 0; i < problems.size(); i++) {
-    // problems = ParseProblems();
-    // logger = new Logger();
-    // logger.initialize(outputFolder,
-    //     String.format("purposelessSuspicious-goal%d-simple.log", problems.size() -
-    //         1),
-    //     String.format("purposelessSuspicious-goal%d-detailed.log", problems.size() -
-    //         1),
-    //     String.format("purposelessSuspicious-goal%d-plan.plan", problems.size() -
-    //         1));
-    // generateBehaviour(problems,
-    //     new PurposelessSuspiciousBehaviourGenerator(problems, purposelessE, numsteps,
-    //         problems.size() - 1),
-    //     logger);
-    // }
-
-    // UNEXPECTEDLY SUSPICUOUS
-    // for (int i = 0; i < problems.size() - 1; i++) {
-    // ParseProblems();
-    // logger = new Logger();
-    // logger.initialize(outputFolder,
-    // String.format("unexpectedlySuspicious-goal%d-simple.log", 1),
-    // String.format("unexpectedlySuspicious-goal%d-detailed.log", 1),
-    // String.format("unexpectedlySuspicious-goal%d-plan.plan", 1));
-    // generateBehaviour(
-    // new UnexpectedlySuspactioniciousBehaviourGenerator(goals, baseProblem, 6, 1, goals.size()
-    // - 1,
-    // new SemidirectedBehaviourGenerator(baseProblem, goals, 2, goals.size() - 2)),
-    // logger);
-    // }
-    //
 
     // Map<ModularLoitering.CurrentStage, ModularGenerator> generators = new
     // HashMap<ModularLoitering.CurrentStage, ModularGenerator>();
@@ -276,7 +275,7 @@ public class Main implements Runnable {
         logger.logSimple("## Action Made:\n" + baseProblem.toString(chosen));
         logger.logSimple("## New State:\n" + baseProblem.toString(state) + "\n\n\n");
       } catch (NoValidActionException e) {
-        logger.logSimple("Execution terminated: No more valid actions");
+        logger.logSimple("Execution terminated: " + e);
         break;
       }
 
@@ -300,7 +299,7 @@ public class Main implements Runnable {
 
       goals = new ArrayList<Goal>();
 
-      for (int i = 1; i < inputFiles.size(); i++) {
+      for (int i = 0; i < inputFiles.size(); i++) {
         File f = inputFiles.get(i);
         ParsedProblem parsedproblemGoal = parser.parseGoal(f);
         // System.out.println(parsedproblemGoal.getGoal());

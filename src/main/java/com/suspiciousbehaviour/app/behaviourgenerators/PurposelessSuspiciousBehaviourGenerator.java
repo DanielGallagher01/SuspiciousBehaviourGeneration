@@ -9,61 +9,84 @@ import java.util.Collections;
 import java.util.Map;
 import fr.uga.pddl4j.problem.DefaultProblem;
 import fr.uga.pddl4j.problem.State;
+import fr.uga.pddl4j.problem.Goal;
 import fr.uga.pddl4j.problem.Problem;
 import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.planners.statespace.HSP;
 import fr.uga.pddl4j.plan.Plan;
 
 public class PurposelessSuspiciousBehaviourGenerator implements BehaviourGenerator {
-  private List<DefaultProblem> problems;
+  private DefaultProblem problem;
+  private List<Goal> goals;
   private int epsilon;
   private Double prefixCost;
   private int stepsBeforeOptimal;
   private int currentStep;
-  private HSP planner;
   private int goalID;
 
-  public PurposelessSuspiciousBehaviourGenerator(List<DefaultProblem> problems, int epsilon, int stepsBeforeOptimal,
+  private Plan initialPlan;
+  private Plan finalPlan;
+
+  public PurposelessSuspiciousBehaviourGenerator(DefaultProblem problem, List<Goal> goals, int epsilon, int stepsBeforeOptimal,
       int goalID) {
-    this.problems = problems;
+    this.problem = problem;
+    this.goals = goals;
     this.epsilon = epsilon;
     this.stepsBeforeOptimal = stepsBeforeOptimal;
     this.currentStep = 1;
-    this.planner = new HSP();
     this.goalID = goalID;
   }
 
   public Action generateAction(State state, Logger logger) throws NoValidActionException {
-    logger.logDetailed("Generating plan");
-    Plan plan = PlannerUtils.GeneratePlanFromState(state, problems.get(goalID));
 
-    if (plan == null || plan.actions().size() == 0) {
-      logger.logDetailed("Already at goal");
-      throw new NoValidActionException("Achieved Goal");
+
+    if (initialPlan == null) {
+      logger.logDetailed("Plan not yet generated - Generating plan");
+      logger.logActionComment("# Approaching goal");
+      initialPlan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, goals.get(goalID));
     }
 
-    logger.logDetailed("Checking if completed enough steps or is far enough away to act optimal");
-    if (currentStep >= stepsBeforeOptimal || plan.cost() >= epsilon) {
-      logger.logDetailed("Acting Optimally");
-      return plan.actions().get(0);
+
+    // Getting close to goal
+    if (currentStep < initialPlan.size() - epsilon) {
+      logger.logSimple("Acting optimally towards goal - initial");
+      logger.logDetailed("Current Step: " + currentStep);
+      return initialPlan.actions().get(currentStep);
+    }
+
+    // After loitering - reaching goal
+    if (currentStep > (initialPlan.size() - epsilon) + stepsBeforeOptimal ) {
+      logger.logSimple("Acting optimally towards goal - ending");
+      if (initialPlan == null) {
+        logger.logDetailed("Final Plan not yet generated - Generating plan");
+        logger.logActionComment("# Ending");
+        finalPlan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, goals.get(goalID));
+      }
+
+      if (currentStep > (initialPlan.size() - epsilon) + stepsBeforeOptimal + finalPlan.size()) {
+        logger.logDetailed("Achieved goal");
+        throw new NoValidActionException("Achieved Goal");
+      }
+
+      return finalPlan.actions().get((initialPlan.size() - epsilon) + stepsBeforeOptimal - currentStep);
     }
 
     logger.logDetailed("Still acting suspicious");
     logger.logDetailed("Randomising actions");
-    Collections.shuffle(problems.get(0).getActions());
-    for (Action a : problems.get(0).getActions()) {
+    Collections.shuffle(problem.getActions());
+    for (Action a : problem.getActions()) {
       State tempState = (State) state.clone();
 
       if (a.isApplicable(tempState)) {
-        logger.logDetailed("Chosen Action: \n" + problems.get(0).toString(a));
+        logger.logDetailed("Chosen Action: \n" + problem.toString(a));
         logger.logDetailed("Action is applicable to state");
         logger.logDetailed("Applying action to temporary state");
 
         tempState.apply(a.getConditionalEffects());
-        logger.logDetailed("Temporary state after action: " + problems.get(0).toString(tempState));
+        logger.logDetailed("Temporary state after action: " + problem.toString(tempState));
 
         logger.logDetailed("Generating Plan");
-        plan = PlannerUtils.GeneratePlanFromState(state, problems.get(goalID));
+        Plan plan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, goals.get(goalID));
         if (plan == null) {
           logger.logDetailed("Action is a dead end");
         } else if (plan.cost() > 1 && plan.cost() <= epsilon) {
@@ -83,7 +106,7 @@ public class PurposelessSuspiciousBehaviourGenerator implements BehaviourGenerat
   }
 
   public void actionTaken(State state, Action action) {
-
+    currentStep++;
   }
 
   @Override
