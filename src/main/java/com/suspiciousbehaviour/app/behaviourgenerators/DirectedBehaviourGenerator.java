@@ -39,7 +39,7 @@ public class DirectedBehaviourGenerator implements BehaviourGenerator {
 				logger.logDetailed("Temporary state after action: " + problem.toString(tempState));
 				logger.logDetailed("Checking if state has already been observed");
 
-				if (!observedActionStates.contains(new ActionState(a, state))) {
+				if (!observedActionStates.contains(new ActionState(a, tempState))) {
 					logger.logDetailed("State has not been observed");
 					return a;
 				} 
@@ -56,7 +56,7 @@ public class DirectedBehaviourGenerator implements BehaviourGenerator {
 	public void actionTaken(State state, Action action) {
 		State tempState = (State)state.clone();
 		tempState.apply(action.getConditionalEffects());
-		observedActionStates.add(new ActionState(action, state));
+		observedActionStates.add(new ActionState(action, tempState));
 	}
 
 	@Override
