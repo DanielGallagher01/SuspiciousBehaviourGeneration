@@ -1,3 +1,11 @@
-(unstack h d)
+(unstack o a)
+(stack o c)
+(pick-up y)
+(stack y o)
 #No ambiguous actions avalable. Switching to optimal.
-(stack h d)
+(unstack t s)
+(put-down t)
+(pick-up a)
+(stack a t)
+(unstack r g)
+(stack r a)
