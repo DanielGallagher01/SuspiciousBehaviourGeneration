@@ -1,12 +1,22 @@
-java -cp out:lib/*:. -Xmx10G com.suspiciousbehaviour.app.Main \
+#! /bin/bash
+problem='bank-16'
+domain='navigation'
+
+mkdir outputs/$domain/$problem -p
+
+java -cp out:lib/*:. -Xmx11G com.suspiciousbehaviour.app.Main \
   --directed \
   --primary_goal 4 \
   --obfuscating \
-  -o outputs/navigation \
-  -d PDDL/navigation/domain.pddl \
-  -p PDDL/navigation/maze-15/core-problem.pddl \
-  PDDL/navigation/maze-15/goal-1.pddl \
-  PDDL/navigation/maze-15/goal-2.pddl \
-  PDDL/navigation/maze-15/goal-3.pddl \
-  PDDL/navigation/maze-15/goal-4.pddl \
-  PDDL/navigation/maze-15/goal-5.pddl
+  --loitering \
+  --purposefulE 0.4 \
+  --unexpected \
+  --secondary_goal 1 \
+  -o outputs/$domain/$problem \
+  -d PDDL/$domain/domain.pddl \
+  -p PDDL/$domain/$problem/core-problem.pddl \
+  PDDL/$domain/$problem/goal-1.pddl \
+  PDDL/$domain/$problem/goal-2.pddl \
+  PDDL/$domain/$problem/goal-3.pddl \
+  PDDL/$domain/$problem/goal-4.pddl \
+  PDDL/$domain/$problem/goal-5.pddl

@@ -52,6 +52,7 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
       try {
         secondaryPlan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, goals.get(secondaryGoalID));
       } catch (Exception e) {
+        e.printStackTrace();
         throw new NoValidActionException("Planner error");
       }
 
@@ -106,7 +107,12 @@ public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerato
       }
     }
 
-    throw new NoValidActionException("No valid action");
+    logger.logSimple("No ambiguous actions avalable. Switching to optimal.");
+    logger.logActionComment("#No ambiguous actions avalable. Switching to optimal.");
+    currentStep = stepsBeforeOptimal;
+    return generateAction(state, logger);
+
+    // throw new NoValidActionException("No valid action");
   }
 
   public void actionTaken(State state, Action action) {

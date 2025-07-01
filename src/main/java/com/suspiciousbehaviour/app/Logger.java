@@ -93,6 +93,13 @@ public class Logger {
         planLogWriter.println(message);
         planLogWriter.flush();
     }
+
+    public void logActionComment(String message) {
+        if (!initialized) return;
+        
+        planLogWriter.println(message);
+        planLogWriter.flush();
+    }
     
     
     public void close() {

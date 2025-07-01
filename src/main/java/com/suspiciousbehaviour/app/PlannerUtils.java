@@ -58,7 +58,6 @@ public class PlannerUtils {
   }
 
   public static Plan GeneratePlanFromStateToGoal(State state, DefaultProblem problem, Goal goal) {
-      // Goal originalGoal = problem.getGoal();
       problem.setGoal(goal);
 
       Plan plan;
@@ -66,12 +65,45 @@ public class PlannerUtils {
         plan = GeneratePlanFromState(state, problem);
       } catch (Exception e) {
         System.out.println("Planing error");
-        // problem.setGoal(originalGoal);
         return null;
       }
 
-      // problem.setGoal(originalGoal);
       return plan;
+  }
+
+
+  public static int CalculateRadiusOfMaximumProbability(DefaultProblem problem, List<Goal> goals, int goalID) {
+    // Plan a route to the real goal
+    Plan plan = GeneratePlanFromStateToGoal(new State(problem.getInitialState()), problem, goals.get(goalID));
+
+    // Find the state that achieves the goal
+    State realGoalState = new State(problem.getInitialState());
+    for (Action a : plan.actions()) {
+      a.getConditionalEffects().stream().filter(ce -> realGoalState.satisfy(ce.getCondition()))
+            .forEach(ce -> realGoalState.apply(ce.getEffect()));
+    }
+
+    // Run the calculation
+    int minRadius = Integer.MAX_VALUE;
+    for (Goal g : goals) {
+      if (g == goals.get(goalID)) {
+        continue;
+      }
+
+      int c = GeneratePlanFromStateToGoal(realGoalState, problem, g).size();
+      int a = plan.size();
+      int b = GeneratePlanFromStateToGoal(new State(problem.getInitialState()), problem, g).size();
+
+      int beta = (c+a-b)/2;
+
+      if (beta < minRadius) {
+        minRadius = beta;
+      }
+    }
+
+
+    
+    return minRadius;
   }
 
 }
