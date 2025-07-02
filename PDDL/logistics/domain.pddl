@@ -2,7 +2,7 @@
 ;;
 
 (define (domain logistics)
-  (:requirements :strips :typing) 
+  (:requirements :strips :typing :negative-preconditions :disjunctive-preconditions) 
   (:types truck
           airplane - vehicle
           package
@@ -16,7 +16,7 @@
   (:predicates 	(in-city ?loc - place ?city - city)
 		(at ?obj - physobj ?loc - place)
 		(in ?pkg - package ?veh - vehicle)
-		(city ?city - city))
+		(iscity ?city - city))
   
 (:action LOAD-TRUCK
    :parameters    (?pkg - package ?truck - truck ?loc - place)

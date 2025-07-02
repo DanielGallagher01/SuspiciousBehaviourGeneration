@@ -33,7 +33,7 @@ public class PurposelessSuspiciousBehaviourGenerator implements BehaviourGenerat
     this.goals = goals;
     this.epsilon = epsilon;
     this.stepsBeforeOptimal = stepsBeforeOptimal;
-    this.currentStep = 1;
+    this.currentStep = 0;
     this.goalID = goalID;
   }
 
@@ -57,18 +57,22 @@ public class PurposelessSuspiciousBehaviourGenerator implements BehaviourGenerat
     // After loitering - reaching goal
     if (currentStep > (initialPlan.size() - epsilon) + stepsBeforeOptimal ) {
       logger.logSimple("Acting optimally towards goal - ending");
-      if (initialPlan == null) {
+      if (finalPlan == null) {
         logger.logDetailed("Final Plan not yet generated - Generating plan");
         logger.logActionComment("# Ending");
         finalPlan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, goals.get(goalID));
       }
 
-      if (currentStep > (initialPlan.size() - epsilon) + stepsBeforeOptimal + finalPlan.size()) {
+      if (currentStep > (initialPlan.size() - epsilon) + stepsBeforeOptimal + finalPlan.size() + 1) {
         logger.logDetailed("Achieved goal");
         throw new NoValidActionException("Achieved Goal");
       }
 
-      return finalPlan.actions().get((initialPlan.size() - epsilon) + stepsBeforeOptimal - currentStep);
+      return finalPlan.actions().get(currentStep - (initialPlan.size() - epsilon) - stepsBeforeOptimal - 2);
+    }
+
+    if (currentStep == initialPlan.size() - epsilon) {
+      logger.logActionComment("# Loitering");
     }
 
     logger.logDetailed("Still acting suspicious");
@@ -86,15 +90,15 @@ public class PurposelessSuspiciousBehaviourGenerator implements BehaviourGenerat
         logger.logDetailed("Temporary state after action: " + problem.toString(tempState));
 
         logger.logDetailed("Generating Plan");
-        Plan plan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, goals.get(goalID));
+        Plan plan = PlannerUtils.GeneratePlanFromStateToGoal(tempState, problem, goals.get(goalID));
         if (plan == null) {
           logger.logDetailed("Action is a dead end");
-        } else if (plan.cost() > 1 && plan.cost() <= epsilon) {
+        } else if (plan.cost() <= 1) {
+          logger.logDetailed("Action achieves goal (or is too close). Skipping");
+        } else if (plan.cost() <= epsilon+1) {
           logger.logDetailed("Action does not achieve goal and maintains close proximity to goal. Choosing action.");
           currentStep++;
           return a;
-        } else if (plan.cost() == 0) {
-          logger.logDetailed("Action achieves goal. Skipping action");
         } else {
           logger.logDetailed("Action goes outside proximity to goal. Skipping action");
         }

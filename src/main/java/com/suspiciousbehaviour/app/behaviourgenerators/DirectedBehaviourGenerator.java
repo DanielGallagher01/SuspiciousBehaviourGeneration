@@ -1,62 +1,135 @@
 package com.suspiciousbehaviour.app.behaviourgenerators;
 
 import com.suspiciousbehaviour.app.Logger;
+import com.suspiciousbehaviour.app.Node;
+import com.suspiciousbehaviour.app.PlannerUtils;
+
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Stack;
 import fr.uga.pddl4j.problem.DefaultProblem;
 import fr.uga.pddl4j.problem.State;
+import fr.uga.pddl4j.problem.operator.Condition;
 import fr.uga.pddl4j.problem.Goal;
+import fr.uga.pddl4j.plan.Plan;
+import fr.uga.pddl4j.util.BitVector;
 import fr.uga.pddl4j.problem.operator.Action;
 
-import com.suspiciousbehaviour.app.Logger;
 import java.util.Objects;
 
 public class DirectedBehaviourGenerator implements BehaviourGenerator {
 	private DefaultProblem problem;
-	private List<Goal> goals;
-	private Set<ActionState> observedActionStates;
+	protected List<Goal> goals;
+	private Plan curPlan;
+	int searchDist;
+	int minGoalDist;
+	int distanceToGoal;
+	int step = 0;
 
-	public DirectedBehaviourGenerator(DefaultProblem problem, List<Goal> goals) {
+	public DirectedBehaviourGenerator(DefaultProblem problem, List<Goal> goals, int searchDist, int minGoalDist, int distanceToGoal) {
 		this.problem = problem;
 		this.goals = goals;
-		this.observedActionStates = new HashSet<ActionState>();
+		this.searchDist = searchDist;
+		this.minGoalDist = minGoalDist;
+		this.distanceToGoal = distanceToGoal;
 	}
 
-	public Action generateAction(State state, Logger logger) throws NoValidActionException {
-		logger.logDetailed("Randomising actions");
-		Collections.shuffle(problem.getActions());
-		for (Action a : problem.getActions()) {
-			State tempState = (State)state.clone();
-			if (a.isApplicable(tempState)) {
-				logger.logDetailed("Chosen Action: \n" + problem.toString(a));
-				logger.logDetailed("Action is applicable to state");
-				logger.logDetailed("Applying action to temporary state");
-				tempState.apply(a.getConditionalEffects());
-				logger.logDetailed("Temporary state after action: " + problem.toString(tempState));
-				logger.logDetailed("Checking if state has already been observed");
-
-				if (!observedActionStates.contains(new ActionState(a, tempState))) {
-					logger.logDetailed("State has not been observed");
-					return a;
-				} 
-				logger.logDetailed("State has been observed. Choosing another action");
-
-			} 
+	public Action generateAction(State state, Logger logger) throws NoValidActionException {	
+		if (curPlan == null || step >= curPlan.size() - distanceToGoal) {
+			logger.logSimple("Getting new plan");
+			step = 0;
+			generateNewPlan(logger, state);
 		}
 
-
-		logger.logDetailed("Out of actions to try. None are applicable or new.");
-		throw new NoValidActionException("No valid action");
+		logger.logSimple("Following plan");
+		return curPlan.actions().get(step);
 	}
 
 	public void actionTaken(State state, Action action) {
-		State tempState = (State)state.clone();
-		tempState.apply(action.getConditionalEffects());
-		observedActionStates.add(new ActionState(action, tempState));
+		step++;
+	}
+
+	private void generateNewPlan(Logger logger, State startState) {
+		Random r = new Random();
+		Set<Node> visited = new HashSet<Node>();
+
+		int curDistance = 0;
+
+		Stack<Node> current = new Stack<Node>();
+
+		current.push(new Node(startState));
+
+		while (current.size() > 0) {
+			Node node = current.pop();
+			visited.add(node);
+			logger.logDetailed("Current Node: " + node.toString());
+    		Collections.shuffle(problem.getActions());
+			for (Action action : problem.getActions()) {
+				if (action.isApplicable(node)) {
+					logger.logDetailed("Next applicable action: " + problem.toString(action) + "\n");
+					Node newNode = new Node(node, action);
+					
+					if (visited.contains(newNode)) {
+						logger.logDetailed("State seen");
+						continue;
+					}
+
+					logger.logDetailed("New node: " + problem.toString(newNode));
+
+					if (newNode.cost <= searchDist + r.nextInt(4) - 2) {
+						current.push(newNode);
+					} else {
+						logger.logDetailed("Testing if node is good");
+						if (testNodeAcceptible(logger, node, startState)) {
+							logger.logDetailed("Node accpeted");
+							return;
+						}
+						logger.logDetailed("Node rejected");
+					}
+				}
+
+			}
+		}
+	}
+
+	private boolean testNodeAcceptible(Logger logger, Node node, State startState) {
+		Plan planToState = PlannerUtils.GeneratePlanFromStateToGoal(startState, problem, new Goal(new Condition((State)node, new BitVector())));
+		if (planToState == null) {
+			return false;
+		}
+
+		System.out.println(planToState.size());
+		if (planToState.size() < minGoalDist) {
+			return false;
+		}
+
+		State tempState = new State(startState);
+		for (Action action : planToState.actions()) {
+			if (!testIndividualStateOnPath(tempState, logger)) {
+				return false;
+			}
+
+			action.getConditionalEffects().stream().filter(ce -> tempState.satisfy(ce.getCondition())).
+        		forEach(ce -> tempState.apply(ce.getEffect()));
+		}
+
+		this.curPlan = planToState;
+		return true;
+	}
+
+	protected boolean testIndividualStateOnPath(State state, Logger logger) {
+		for (Goal g : goals) {
+			if (state.satisfy(g)) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	@Override

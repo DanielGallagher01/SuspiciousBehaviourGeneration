@@ -18,16 +18,14 @@ public class UnexpectedlySuspiciousBehaviourGenerator implements BehaviourGenera
   private int epsilon;
   private int stepCount = 0;
   private boolean reachedEpsilon = false;
-  private int goalID, secondaryGoalID;
+  private int goalID;
   private BehaviourGenerator secondaryGenerator;
   private DefaultProblem baseProblem;
   private List<Goal> goals;
 
-  public UnexpectedlySuspiciousBehaviourGenerator(List<Goal> goals, DefaultProblem baseProblem, int epsilon, int goalID,
-      int secondaryGoalID, BehaviourGenerator secondaryGenerator) {
+  public UnexpectedlySuspiciousBehaviourGenerator(List<Goal> goals, DefaultProblem baseProblem, int epsilon, int goalID, BehaviourGenerator secondaryGenerator) {
     this.epsilon = epsilon;
     this.goalID = goalID;
-    this.secondaryGoalID = secondaryGoalID;
     this.secondaryGenerator = secondaryGenerator;
     this.baseProblem = baseProblem;
     this.goals = goals;

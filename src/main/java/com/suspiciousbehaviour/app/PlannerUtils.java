@@ -90,9 +90,17 @@ public class PlannerUtils {
         continue;
       }
 
-      int c = GeneratePlanFromStateToGoal(realGoalState, problem, g).size();
+      Plan goalToGoalPlan = GeneratePlanFromStateToGoal(realGoalState, problem, g);
+
       int a = plan.size();
       int b = GeneratePlanFromStateToGoal(new State(problem.getInitialState()), problem, g).size();
+      int c;
+
+      if (goalToGoalPlan == null) {
+        c = (a+b)/2;
+      } else {
+        c = GeneratePlanFromStateToGoal(realGoalState, problem, g).size();
+      }
 
       int beta = (c+a-b)/2;
 

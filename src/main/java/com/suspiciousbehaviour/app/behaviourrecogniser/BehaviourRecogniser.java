@@ -24,7 +24,7 @@ import java.util.Map;
 public abstract class BehaviourRecogniser {
   public abstract Map<Goal, Double> recognise(State state, double prefixCost, Logger logger);
 
-  public boolean isAmbiguous(State state, DefaultProblem problems, List<Goal> goals, double epsilon, Logger logger,
+  public boolean isAmbiguous(State state, List<Goal> goals, double epsilon, Logger logger,
       int prefixCost) {
     logger.logDetailed("\n\nTesting if state is ambiguous!");
 
