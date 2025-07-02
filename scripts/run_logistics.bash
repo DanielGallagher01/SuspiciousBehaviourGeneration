@@ -5,13 +5,13 @@ domain='logistics'
 mkdir outputs/$domain/$problem -p
 
 java -cp out:lib/*:. -Xmx11G com.suspiciousbehaviour.app.Main \
-  --directed \
   --primary_goal 3 \
   --obfuscating \
-  --loitering \
   --purposefulE 0.4 \
   --unexpected \
   --secondary_goal 1 \
+  --loitering \
+  --shoe_tie \
   -o outputs/$domain/$problem \
   -d PDDL/$domain/domain.pddl \
   -p PDDL/$domain/$problem/core-problem.pddl \

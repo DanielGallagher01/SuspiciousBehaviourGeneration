@@ -52,7 +52,7 @@ public class Main implements Runnable {
   int primaryGoalID;
 
   @Option(names = {"--secondary_goal" }, description = "Secondary Goal ID", defaultValue = "0")
-  int SecondaryGoalID;
+  int secondary_goal;
 
   @Option(names = {"--loitering" }, description = "Generate Loitering Behaviour")
   boolean loitering;
@@ -63,8 +63,24 @@ public class Main implements Runnable {
   @Option(names = {"--unexpected" }, description = "Generate Unexpected Behaviour")
   boolean unexpected;
 
-  @Option(names = {"--directed" }, description = "Directed Obfuscating Behaviour")
+  @Option(names = {"--directed" }, description = "Directed Behaviour")
   boolean directed;
+
+  @Option(names = {"--optimal" }, description = "Optimal Behaviour")
+  boolean optimal;
+  
+
+  @Option(names = {"--shoe_tie" }, description = "\"Shoe Tie\" Suboptimal Behaviour")
+  boolean shoe_tie;
+
+  @Option(names = {"--directed_search_distance" }, description = "Search Distance for obfuscating and directed", defaultValue = "12")
+  int directed_search_distance;
+
+  @Option(names = {"--directed_min_goal_distance" }, description = "Minimum Goal Distance for obfuscating and directed", defaultValue = "8")
+  int directed_min_goal_distance;
+
+  @Option(names = {"--directed_goal_switch_radius" }, description = "Distance from goal before switching for obfuscating and directed", defaultValue = "3")
+  int directed_goal_switch_radius;
 
   @Option(names = {
       "--purposelessE" }, description = "Espilon Threashold for Purposless Suspicious Behaviour", defaultValue = "5")
@@ -171,8 +187,9 @@ public class Main implements Runnable {
       "directed-detailed.log",
       "directed-plan.plan");
       generateBehaviour(
-        new DirectedBehaviourGenerator(baseProblem, goals),
+        new DirectedBehaviourGenerator(baseProblem, goals, directed_search_distance, directed_min_goal_distance, directed_goal_switch_radius),
         logger);
+        System.out.println("Completed directed Generation");
     }
 
     // PURPOSELESS BEHAVIOUR
@@ -186,6 +203,7 @@ public class Main implements Runnable {
           new PurposelessSuspiciousBehaviourGenerator(baseProblem, goals, RMP+1, numsteps,
               primaryGoalID),
           logger);
+        System.out.println("Completed loitering Generation");
     }
 
     // UNEXPECTEDLY SUSPICUOUS
@@ -196,10 +214,10 @@ public class Main implements Runnable {
       String.format("unexpectedlySuspicious-goal%d-detailed.log", 1),
       String.format("unexpectedlySuspicious-goal%d-plan.plan", 1));
       generateBehaviour(
-      new UnexpectedlySuspiciousBehaviourGenerator(goals, baseProblem, 6, 1, goals.size()
-      - 1,
-      new SemidirectedBehaviourGenerator(baseProblem, goals, 2, goals.size() - 2)),
+      new UnexpectedlySuspiciousBehaviourGenerator(goals, baseProblem, directed_goal_switch_radius, secondary_goal,
+      new DirectedBehaviourGenerator(baseProblem, goals, directed_search_distance, directed_min_goal_distance, directed_goal_switch_radius)),
       logger);
+        System.out.println("Completed unexpected Generation");
     }
 
     // PURPOSEFUL BEHAVIUOUR
@@ -210,8 +228,33 @@ public class Main implements Runnable {
       "purposefulSuspicious-detailed.log",
       "purposefulSuspicious-plan.plan");
       generateBehaviour(
-        new PurposefulSuspiciousBehaviourGenerator(baseProblem, goals, purposefulE, numsteps, br, primaryGoalID),
+        new PurposefulSuspiciousBehaviourGenerator(baseProblem, goals, directed_search_distance, directed_min_goal_distance, directed_goal_switch_radius, purposefulE, br),
         logger);      
+        System.out.println("Completed obfuscating Generation");
+    }
+
+    // OPTIMAL BEHAVIOR
+    if (optimal) {
+      logger = new Logger();
+      logger.initialize(outputFolder, "optimal-simple.log",
+      "optimal-detailed.log",
+      "optimal-plan.plan");
+      generateBehaviour(
+        new OptimalBehaviourGenerator(goals.get(primaryGoalID), baseProblem),
+        logger);      
+        System.out.println("Completed Optimal Generation");
+    }
+
+    // 'SHOE TIE' SUBOPTIMAL BEHAVIOR
+    if (optimal) {
+      logger = new Logger();
+      logger.initialize(outputFolder, "shoe-tie-simple.log",
+      "shoe-tie-detailed.log",
+      "shoe-tie-plan.plan");
+      generateBehaviour(
+        new ShoeTieBehaviourGenerator(goals.get(primaryGoalID), baseProblem, 3d, goals),
+        logger);      
+        System.out.println("Completed Shoe-Tie Generation");
     }
 
     // Map<ModularLoitering.CurrentStage, ModularGenerator> generators = new
@@ -291,11 +334,27 @@ public class Main implements Runnable {
     try {
       final Parser parser = new Parser();
 
+      System.out.println("Parsing Domain");
       final ParsedDomain parsedDomain = parser.parseDomain(domainFile);
+      final ErrorManager errorManager = parser.getErrorManager();
+
+      if (!errorManager.isEmpty()) {
+        // Prints the errors
+        for (Message m : errorManager.getMessages()) {
+          System.out.println(m.toString());
+        }
+        errorManager.clear();
+
+      }
+
+      System.out.println("Domain Parsed");
+      System.out.println(parsedDomain.getDomainName());
+      System.out.println("Parsing Problem");
       final ParsedProblem parsedProblem = parser.parseProblemWithoutGoal(problemFile);
       DefaultParsedProblem defaultParsedProblem = new DefaultParsedProblem(parsedDomain, parsedProblem);
       this.baseProblem = new DefaultProblem(defaultParsedProblem);
       this.baseProblem.instantiate();
+      System.out.println("Problem Parsed");
 
       goals = new ArrayList<Goal>();
 
@@ -303,6 +362,14 @@ public class Main implements Runnable {
         File f = inputFiles.get(i);
         ParsedProblem parsedproblemGoal = parser.parseGoal(f);
         // System.out.println(parsedproblemGoal.getGoal());
+
+        if (!errorManager.isEmpty()) {
+          // Prints the errors
+          for (Message m : errorManager.getMessages()) {
+            System.out.println(m.toString());
+          }
+          errorManager.clear();
+        }
 
         Goal goal = Goal.GoalFromExistingProblem(baseProblem, parsedproblemGoal.getGoal());
 

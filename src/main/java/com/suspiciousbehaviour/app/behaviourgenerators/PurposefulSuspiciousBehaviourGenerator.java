@@ -19,114 +19,34 @@ import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.planners.statespace.HSP;
 import fr.uga.pddl4j.plan.Plan;
 
-public class PurposefulSuspiciousBehaviourGenerator implements BehaviourGenerator {
-  private DefaultProblem problem;
-  private List<Goal> goals;
+public class PurposefulSuspiciousBehaviourGenerator extends DirectedBehaviourGenerator {
   private double epsilon;
-  private double prefixCost;
   private BehaviourRecogniser br;
-  private int stepsBeforeOptimal;
-  private int currentStep;
-  private Set<DirectedBehaviourGenerator.ActionState> observedStates;
-  private int secondaryGoalID;
-  private Plan secondaryPlan;
 
-  public PurposefulSuspiciousBehaviourGenerator(DefaultProblem problem, List<Goal> goals, double epsilon, int stepsBeforeOptimal,
-      BehaviourRecogniser br, int secondaryGoalID) {
-    this.problem = problem;
-    this.goals = goals;
+  public PurposefulSuspiciousBehaviourGenerator(DefaultProblem problem, List<Goal> goals, int searchDist, int minGoalDist, int distanceToGoal, double epsilon, BehaviourRecogniser br) {
+    super(problem, goals, searchDist, minGoalDist, distanceToGoal);
+
     this.epsilon = epsilon;
     this.br = br;
-    this.stepsBeforeOptimal = stepsBeforeOptimal;
-    this.currentStep = 1;
-    this.prefixCost = 0d;
-    this.secondaryGoalID = secondaryGoalID;
-    this.observedStates = new HashSet<DirectedBehaviourGenerator.ActionState>();
   }
 
-  public Action generateAction(State state, Logger logger) throws NoValidActionException {
-    logger.logDetailed("Checking if completed enough steps to act optimal");
-    if (currentStep == stepsBeforeOptimal) {
-      logger.logDetailed("Acting Optimally - Generating plan");
-
-      try {
-        secondaryPlan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, goals.get(secondaryGoalID));
-      } catch (Exception e) {
-        e.printStackTrace();
-        throw new NoValidActionException("Planner error");
+    @Override
+  	protected boolean testIndividualStateOnPath(State state, Logger logger) {
+      if (!br.isAmbiguous(state, goals, epsilon, logger, 0)) {
+        logger.logSimple("State not amviguous");
+        return false;
       }
 
-      if (secondaryPlan.actions().size() == 0) {
-        throw new NoValidActionException("Achieved Goal");
-      }
-
-      return secondaryPlan.actions().get(0);
-    }
-    else if (currentStep > stepsBeforeOptimal) {
-      logger.logDetailed("Acting Optimally - Following plan");
-      if (secondaryPlan.actions().size() < stepsBeforeOptimal - currentStep) {
-        throw new NoValidActionException("Achieved Goal");
-      }
-
-      return secondaryPlan.actions().get(stepsBeforeOptimal - currentStep);
+      return super.testIndividualStateOnPath(state, logger);
     }
 
-    logger.logDetailed("Still acting suspicious");
-    logger.logDetailed("Randomising actions");
-    Collections.shuffle(problem.getActions());
-    for (Action a : problem.getActions()) {
-      State tempState = (State) state.clone();
-      if (a.isApplicable(tempState)) {
-        logger.logDetailed("Chosen Action: \n" + problem.toString(a));
-        logger.logDetailed("Action is applicable to state");
-        logger.logDetailed("Checking if State-Action Pair has already been observed");
 
-        if (observedStates.contains(new DirectedBehaviourGenerator.ActionState(a, state))) {
-          logger.logDetailed("State-Action Pair has been observed. Choosing another action");
-          continue;
-        }
-        logger.logDetailed("State-Action Pair has not been observed");
-
-        logger.logDetailed("Applying action to temporary state");
-        a.getConditionalEffects().stream().filter(ce -> tempState.satisfy(ce.getCondition()))
-            .forEach(ce -> tempState.apply(ce.getEffect()));
-        logger.logDetailed("Temporary state after action: " + problem.toString(tempState));
-
-        double delta = prefixCost + a.getCost().getValue();
-        logger.logDetailed("Mirroing delta: " + delta);
-
-        boolean isAmbiguous = br.isAmbiguous(state, problem, goals, epsilon, logger, (int) prefixCost);
-
-        if (isAmbiguous) {
-          logger.logDetailed("Difference between probabilities is less than epsilon. Choosing action.");
-          return a;
-        }
-
-        logger.logDetailed("Difference between probabilities is greater than epsilon. Skipping action.");
-
-      }
-    }
-
-    logger.logSimple("No ambiguous actions avalable. Switching to optimal.");
-    logger.logActionComment("#No ambiguous actions avalable. Switching to optimal.");
-    currentStep = stepsBeforeOptimal;
-    return generateAction(state, logger);
-
-    // throw new NoValidActionException("No valid action");
-  }
-
-  public void actionTaken(State state, Action action) {
-    prefixCost += action.getCost().getValue();
-    currentStep++;
-    observedStates.add(new DirectedBehaviourGenerator.ActionState(action, state));
-  }
 
   @Override
   public String toString() {
     return "PurposefulSuspiciousBehaviourGenerator{" +
         "type=Purposeful, " +
-        "epsilon=" + epsilon + ", " +
-        "stepsBeforeOptimal=" + stepsBeforeOptimal +
+        "epsilon=" + epsilon +
         "}";
   }
 }

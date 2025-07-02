@@ -1,7 +1,22 @@
-java -cp out:lib/*:. -Xmx8G -Djol.tryWithSudo=true com.suspiciousbehaviour.app.Main \
-  -o outputs/sokoban_new -d PDDL/sokoban/domain.pddl \
-  PDDL/sokoban/sokoban-10/problem-1.pddl \
-  PDDL/sokoban/sokoban-10/problem-2.pddl \
-  PDDL/sokoban/sokoban-10/problem-3.pddl \
-  PDDL/sokoban/sokoban-10/problem-4.pddl \
-  PDDL/sokoban/sokoban-10/problem-5.pddl
+#! /bin/bash
+problem='sokoban-9'
+domain='sokoban'
+
+mkdir outputs/$domain/$problem -p
+
+java -cp out:lib/*:. -Xmx11G com.suspiciousbehaviour.app.Main \
+  --directed \
+  --primary_goal 4 \
+  --obfuscating \
+  --loitering \
+  --purposefulE 0.4 \
+  --unexpected \
+  --secondary_goal 1 \
+  -o outputs/$domain/$problem \
+  -d PDDL/$domain/domain.pddl \
+  -p PDDL/$domain/$problem/core-problem.pddl \
+  PDDL/$domain/$problem/goal-1.pddl \
+  PDDL/$domain/$problem/goal-2.pddl \
+  PDDL/$domain/$problem/goal-3.pddl \
+  PDDL/$domain/$problem/goal-4.pddl \
+  PDDL/$domain/$problem/goal-5.pddl
