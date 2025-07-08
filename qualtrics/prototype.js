@@ -43,6 +43,7 @@ Qualtrics.SurveyEngine.addOnReady(function() {
 			  vids.forEach((vid, index) => {
 				vid.pause();
 			  });
+			  checkIfAllDone();
 			  document.getElementById("stopBtn1").style.display = "block";
 			  document.getElementById("stopBtn2").style.display = "block";
 			  document.getElementById("stopBtn3").style.display = "block";
@@ -79,7 +80,8 @@ Qualtrics.SurveyEngine.addOnReady(function() {
 	  advanceBtn.style.display = "none";
 	  advanceBtn.addEventListener("click", function() {
 		 console.log("adv button clicked");
-    	qobj.clickNextButton () ; 
+		qobj.enableNextButton(); 
+    	qobj.clickNextButton(); 
 	  });
   }
 });
@@ -98,30 +100,67 @@ Qualtrics.SurveyEngine.addOnload(function() {
 	document.getElementById("stopBtn1").addEventListener("click", function() {
 		stopped[0] = true;	
 		document.getElementById("stopBtn1").style.backgroundColor = "grey";
+		checkIfAllDone();
 	});
 														 
 	document.getElementById("stopBtn2").addEventListener("click", function() {
 		stopped[1] = true;	
 		document.getElementById("stopBtn2").style.backgroundColor = "grey";
+		checkIfAllDone();
 	});
 
     document.getElementById("stopBtn3").addEventListener("click", function() {
 		stopped[2] = true;	
 		document.getElementById("stopBtn3").style.backgroundColor = "grey";
+		checkIfAllDone();
 	});
 														 
 	document.getElementById("stopBtn4").addEventListener("click", function() {
 		stopped[3] = true;	
 		document.getElementById("stopBtn4").style.backgroundColor = "grey";
+		checkIfAllDone();
 	});
 														 
 	document.getElementById("stopBtn5").addEventListener("click", function() {
 		stopped[4] = true;	
 		document.getElementById("stopBtn5").style.backgroundColor = "grey";
+		checkIfAllDone();
 	});
 														 
 	document.getElementById("stopBtn6").addEventListener("click", function() {
 		stopped[5] = true;	
 		document.getElementById("stopBtn6").style.backgroundColor = "grey";
+		checkIfAllDone();
 	});										 
 });
+
+
+Qualtrics.SurveyEngine.addOnload(function() {
+    const vids = document.querySelectorAll(".survey-video");
+	vids.forEach((vid, index) => {
+	  vid.addEventListener("ended", checkIfAllDone);
+	});
+});
+
+function checkIfAllDone() {
+  const vids = document.querySelectorAll(".survey-video");
+  let allDone = true;
+  vids.forEach((vid, index) => {
+    if (!stopped[index] && !vid.ended) {
+      allDone = false;
+    }
+  });
+
+  if (allDone) {
+    clearInterval(timerInterval); 
+	document.getElementById("stopBtn1").style.display = "none";
+	document.getElementById("stopBtn2").style.display = "none";
+	document.getElementById("stopBtn3").style.display = "none";
+	document.getElementById("stopBtn4").style.display = "none";
+	document.getElementById("stopBtn5").style.display = "none";
+	document.getElementById("stopBtn6").style.display = "none";
+	document.getElementById("investigateBtn").style.display = "none";
+    document.getElementById("advanceBtn").style.display = "block";
+    console.log("All videos done or stopped. Timer stopped, advance button shown.");
+  }
+}
