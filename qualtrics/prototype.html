@@ -30,19 +30,40 @@
 	</video> 
 </div>
 
-<button id="startBtn">Start</button>
+<button id="startBtn" class="std-button">Start</button>
 
+<button id="investigateBtn" class="std-button">Investigate</button>
+
+<button id="advanceBtn" class="std-button">Next Question</button>
+
+<div class="video-grid">
+<button id="stopBtn1" class="std-button">Stop</button>
+<button id="stopBtn2" class="std-button">Stop</button>
+<button id="stopBtn3" class="std-button">Stop</button>
+<button id="stopBtn4" class="std-button">Stop</button>
+<button id="stopBtn5" class="std-button">Stop</button>
+<button id="stopBtn6" class="std-button">Stop</button>
+</div>
+
+<div id="timer">0.0s</div>
 
 <style>
 .video-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 16px; /* spacing between videos */
+  gap: 1px; /* spacing between videos */
   justify-items: center; /* center-aligns each video */
   margin-top: 20px;
 }
 .survey-video {
-  width: 320px;
+  width: 300px;
   height: 240px;
+}
+	
+#timer {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+  display: none;
 }
 </style>
