@@ -174,7 +174,7 @@ public class Main implements Runnable {
     Logger logger = new Logger();
 
     int RMP = 0;
-    if (loitering || unexpected) {
+    if (loitering || unexpected || shoe_tie) {
       RMP = PlannerUtils.CalculateRadiusOfMaximumProbability(baseProblem, goals, primaryGoalID);
       System.out.println(RMP); 
     }
@@ -215,22 +215,9 @@ public class Main implements Runnable {
       String.format("unexpectedlySuspicious-goal%d-plan.plan", 1));
       generateBehaviour(
       new UnexpectedlySuspiciousBehaviourGenerator(goals, baseProblem, directed_goal_switch_radius, secondary_goal,
-      new DirectedBehaviourGenerator(baseProblem, goals, directed_search_distance, directed_min_goal_distance, directed_goal_switch_radius)),
+      new DirectedBehaviourGenerator(baseProblem, goals, directed_search_distance+1, directed_min_goal_distance, directed_goal_switch_radius)),
       logger);
         System.out.println("Completed unexpected Generation");
-    }
-
-    // PURPOSEFUL BEHAVIUOUR
-    if (obfuscating) {
-      BehaviourRecogniser br = new SelfModulatingRecogniser(baseProblem, goals);
-      logger = new Logger();
-      logger.initialize(outputFolder, "purposefulSuspicious-simple.log",
-      "purposefulSuspicious-detailed.log",
-      "purposefulSuspicious-plan.plan");
-      generateBehaviour(
-        new PurposefulSuspiciousBehaviourGenerator(baseProblem, goals, directed_search_distance, directed_min_goal_distance, directed_goal_switch_radius, purposefulE, br),
-        logger);      
-        System.out.println("Completed obfuscating Generation");
     }
 
     // OPTIMAL BEHAVIOR
@@ -246,16 +233,53 @@ public class Main implements Runnable {
     }
 
     // 'SHOE TIE' SUBOPTIMAL BEHAVIOR
-    if (optimal) {
+    // if (shoe_tie) {
+    //   logger = new Logger();
+    //   logger.initialize(outputFolder, "shoe-tie-simple.log",
+    //   "shoe-tie-detailed.log",
+    //   "shoe-tie-plan.plan");
+    //   generateBehaviour(
+    //     new ShoeTieBehaviourGenerator(goals.get(primaryGoalID), baseProblem, 3d, goals),
+    //     logger);      
+    //     System.out.println("Completed Shoe-Tie Generation");
+    // }
+
+    if (shoe_tie) {
       logger = new Logger();
-      logger.initialize(outputFolder, "shoe-tie-simple.log",
-      "shoe-tie-detailed.log",
-      "shoe-tie-plan.plan");
+      logger.initialize(outputFolder, "adversarial-simple.log",
+      "adversarial-detailed.log",
+      "adversarial-plan.plan");
       generateBehaviour(
-        new ShoeTieBehaviourGenerator(goals.get(primaryGoalID), baseProblem, 3d, goals),
+        new AdversarialBehaviourGenerator(baseProblem, goals, directed_search_distance, directed_min_goal_distance, primaryGoalID, RMP),
         logger);      
-        System.out.println("Completed Shoe-Tie Generation");
+        System.out.println("Completed adversarial Generation");
     }
+
+    // PURPOSEFUL BEHAVIUOUR
+    // if (obfuscating) {
+    //   BehaviourRecogniser br = new SelfModulatingRecogniser(baseProblem, goals);
+    //   logger = new Logger();
+    //   logger.initialize(outputFolder, "purposefulSuspicious-simple.log",
+    //   "purposefulSuspicious-detailed.log",
+    //   "purposefulSuspicious-plan.plan");
+    //   generateBehaviour(
+    //     new PurposefulSuspiciousBehaviourGenerator(baseProblem, goals, directed_search_distance, directed_min_goal_distance, directed_goal_switch_radius, purposefulE, br),
+    //     logger);      
+    //     System.out.println("Completed obfuscating Generation");
+    // }
+
+    if (obfuscating) {
+      BehaviourRecogniser br = new SelfModulatingRecogniser(baseProblem, goals);
+      logger = new Logger();
+      logger.initialize(outputFolder, "ambiguous-simple.log",
+      "ambiguous-detailed.log",
+      "ambiguous-plan.plan");
+      generateBehaviour(
+        new AmbiguousBehaviourGenerator(baseProblem, goals, purposefulE, primaryGoalID, RMP, br),
+        logger);      
+        System.out.println("Completed ambiguous Generation");
+    }
+
 
     // Map<ModularLoitering.CurrentStage, ModularGenerator> generators = new
     // HashMap<ModularLoitering.CurrentStage, ModularGenerator>();

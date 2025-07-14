@@ -1,14 +1,11 @@
 #! /bin/bash
-problem='maze-13'
+problem='bank-16-B'
 domain='navigation'
 
 mkdir outputs/$domain/$problem -p
 
 java -cp out:lib/*:. -Xmx11G com.suspiciousbehaviour.app.Main \
-  --directed \
-  --optimal \
   --obfuscating \
-  --unexpected \
   --shoe_tie \
   --loitering \
   \
@@ -16,10 +13,10 @@ java -cp out:lib/*:. -Xmx11G com.suspiciousbehaviour.app.Main \
   --secondary_goal 1 \
   \
   --directed_search_distance 10 \
-  --directed_min_goal_distance 8 \
+  --directed_min_goal_distance 6 \
   --directed_goal_switch_radius 3 \
   \
-  --purposefulE 0.4 \
+  --purposefulE 0.2 \
   \
   -o outputs/$domain/$problem \
   -d PDDL/$domain/domain.pddl \

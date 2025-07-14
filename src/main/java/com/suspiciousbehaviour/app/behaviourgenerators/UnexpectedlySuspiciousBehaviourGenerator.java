@@ -41,8 +41,9 @@ public class UnexpectedlySuspiciousBehaviourGenerator implements BehaviourGenera
     logger.logSimple("Acting Rationally towards original goal");
 
     Plan originalPlan = PlannerUtils.GeneratePlanFromStateToGoal(state, baseProblem, goals.get(goalID));
-    if (originalPlan != null && originalPlan.cost() < epsilon) {
+    if (originalPlan != null && originalPlan.cost() <= epsilon+1) {
       reachedEpsilon = true;
+      return generateAction(state, logger);
     }
 
     Collections.shuffle(baseProblem.getActions());

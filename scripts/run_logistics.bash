@@ -5,17 +5,22 @@ domain='logistics'
 mkdir outputs/$domain/$problem -p
 
 java -cp out:lib/*:. -Xmx11G com.suspiciousbehaviour.app.Main \
-  --primary_goal 3 \
   --obfuscating \
-  --purposefulE 0.4 \
-  --unexpected \
+  \
+  --primary_goal 4 \
   --secondary_goal 1 \
-  --loitering \
-  --shoe_tie \
+  \
+  --directed_search_distance 6 \
+  --directed_min_goal_distance 4 \
+  --directed_goal_switch_radius 1 \
+  \
+  --purposefulE 0.5 \
+  \
   -o outputs/$domain/$problem \
   -d PDDL/$domain/domain.pddl \
   -p PDDL/$domain/$problem/core-problem.pddl \
   PDDL/$domain/$problem/goal-1.pddl \
   PDDL/$domain/$problem/goal-2.pddl \
   PDDL/$domain/$problem/goal-3.pddl \
-  PDDL/$domain/$problem/goal-4.pddl
+  PDDL/$domain/$problem/goal-4.pddl 
+

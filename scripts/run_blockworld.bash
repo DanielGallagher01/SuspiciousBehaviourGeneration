@@ -1,19 +1,26 @@
-#! /bin/bash
-problem='blockworld-4'
+
+problem='blockworld-5'
 domain='blockworld'
 
 mkdir outputs/$domain/$problem -p
 
-java -cp out:lib/*:. -Xmx10G com.suspiciousbehaviour.app.Main \
+java -cp out:lib/*:. -Xmx11G com.suspiciousbehaviour.app.Main \
   --directed \
   --optimal \
-  --primary_goal 4 \
   --obfuscating \
-  --purposefulE 0.4 \
   --unexpected \
-  --secondary_goal 1 \
-  --loitering \
   --shoe_tie \
+  --loitering \
+  \
+  --primary_goal 4 \
+  --secondary_goal 1 \
+  \
+  --directed_search_distance 6 \
+  --directed_min_goal_distance 4 \
+  --directed_goal_switch_radius 1 \
+  \
+  --purposefulE 0.7 \
+  \
   -o outputs/$domain/$problem \
   -d PDDL/$domain/domain.pddl \
   -p PDDL/$domain/$problem/core-problem.pddl \
@@ -22,3 +29,4 @@ java -cp out:lib/*:. -Xmx10G com.suspiciousbehaviour.app.Main \
   PDDL/$domain/$problem/goal-3.pddl \
   PDDL/$domain/$problem/goal-4.pddl \
   PDDL/$domain/$problem/goal-5.pddl
+

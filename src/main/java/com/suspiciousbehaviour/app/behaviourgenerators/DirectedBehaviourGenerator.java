@@ -23,9 +23,9 @@ import fr.uga.pddl4j.problem.operator.Action;
 import java.util.Objects;
 
 public class DirectedBehaviourGenerator implements BehaviourGenerator {
-	private DefaultProblem problem;
+	protected DefaultProblem problem;
 	protected List<Goal> goals;
-	private Plan curPlan;
+	protected Plan curPlan;
 	int searchDist;
 	int minGoalDist;
 	int distanceToGoal;
@@ -54,11 +54,12 @@ public class DirectedBehaviourGenerator implements BehaviourGenerator {
 		step++;
 	}
 
-	private void generateNewPlan(Logger logger, State startState) {
+	protected void generateNewPlan(Logger logger, State startState) {
 		Random r = new Random();
 		Set<Node> visited = new HashSet<Node>();
 
 		int curDistance = 0;
+		int skipChecks = 10;
 
 		Stack<Node> current = new Stack<Node>();
 
@@ -74,22 +75,33 @@ public class DirectedBehaviourGenerator implements BehaviourGenerator {
 					logger.logDetailed("Next applicable action: " + problem.toString(action) + "\n");
 					Node newNode = new Node(node, action);
 					
-					if (visited.contains(newNode)) {
-						logger.logDetailed("State seen");
-						continue;
+					if (skipChecks > 0) {
+						skipChecks--;
+						if (visited.contains(newNode)) {
+							logger.logDetailed("State seen");
+							continue;
+						}
+
+						if (!testIndividualStateOnPath(node, logger)) {
+							logger.logDetailed("State not valid. Skipping");
+							continue;
+						}
 					}
 
 					logger.logDetailed("New node: " + problem.toString(newNode));
 
-					if (newNode.cost <= searchDist + r.nextInt(4) - 2) {
-						current.push(newNode);
-					} else {
+					current.push(newNode);
+					if (newNode.cost > searchDist) {
 						logger.logDetailed("Testing if node is good");
 						if (testNodeAcceptible(logger, node, startState)) {
 							logger.logDetailed("Node accpeted");
 							return;
 						}
 						logger.logDetailed("Node rejected");
+						return;
+						// current.pop();
+						// current.pop();
+						// current.pop();
 					}
 				}
 
@@ -97,25 +109,17 @@ public class DirectedBehaviourGenerator implements BehaviourGenerator {
 		}
 	}
 
-	private boolean testNodeAcceptible(Logger logger, Node node, State startState) {
+	protected boolean testNodeAcceptible(Logger logger, Node node, State startState) {
 		Plan planToState = PlannerUtils.GeneratePlanFromStateToGoal(startState, problem, new Goal(new Condition((State)node, new BitVector())));
 		if (planToState == null) {
+			logger.logDetailed("Path not found");
 			return false;
 		}
 
 		System.out.println(planToState.size());
 		if (planToState.size() < minGoalDist) {
+			logger.logDetailed("Path too short");
 			return false;
-		}
-
-		State tempState = new State(startState);
-		for (Action action : planToState.actions()) {
-			if (!testIndividualStateOnPath(tempState, logger)) {
-				return false;
-			}
-
-			action.getConditionalEffects().stream().filter(ce -> tempState.satisfy(ce.getCondition())).
-        		forEach(ce -> tempState.apply(ce.getEffect()));
 		}
 
 		this.curPlan = planToState;
@@ -125,6 +129,7 @@ public class DirectedBehaviourGenerator implements BehaviourGenerator {
 	protected boolean testIndividualStateOnPath(State state, Logger logger) {
 		for (Goal g : goals) {
 			if (state.satisfy(g)) {
+				logger.logDetailed("Path satifies a goal");
 				return false;
 			}
 		}
