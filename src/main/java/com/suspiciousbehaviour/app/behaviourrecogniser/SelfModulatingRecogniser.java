@@ -56,22 +56,26 @@ public class SelfModulatingRecogniser extends BehaviourRecogniser {
 
     Map<Goal, Double> cost = new ConcurrentHashMap<>();
 
+    int i = 1;
     for (Goal g : goals) {
       Plan plan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, g);
       if (plan == null) {
         cost.put(g, Double.POSITIVE_INFINITY);
+        logger.logDetailed("Cost for goal " + i + ": inf");
       } else {
         cost.put(g, plan.cost());
+        logger.logDetailed("Cost for goal " + i + ": " + plan.cost());
       }
+      i++;
     }
 
     Map<Goal, Double> scores = new Hashtable<>();
 
     logger.logDetailed("Generating scores for goals");
-    int i = 1;
+    i = 1;
     for (Goal g : goals) {
       Double score = Math.exp(initialPlans.get(g).cost() - cost.get(g));
-      logger.logDetailed("Score for goal " + i + ": " + score);
+      logger.logDetailed("Score for goal " + i + ": " + score + ". Distance was: " + (initialPlans.get(g).cost() - cost.get(g)));
       scores.put(g, score);
       i++;
     }

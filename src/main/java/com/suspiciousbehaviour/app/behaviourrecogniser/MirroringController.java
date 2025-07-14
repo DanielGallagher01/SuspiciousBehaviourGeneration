@@ -55,8 +55,10 @@ public class MirroringController extends BehaviourRecogniser {
       Plan plan = PlannerUtils.GeneratePlanFromStateToGoal(this.initialState, problem, g);
       if (plan == null) {
         cost.put(g, Double.POSITIVE_INFINITY);
+        logger.logDetailed("Cost for goal " + i + ": inf");
       } else {
         cost.put(g, plan.cost());
+        logger.logDetailed("Cost for goal " + i + ": " + plan.cost());
       }
     }
 
