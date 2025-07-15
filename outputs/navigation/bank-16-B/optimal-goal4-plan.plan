@@ -1,4 +1,3 @@
-# Approaching goal
 (move node8-0 node8-1 robot)
 (move node8-1 node8-2 robot)
 (move node8-2 node8-3 robot)
@@ -18,19 +17,7 @@
 (move node15-9 node15-10 robot)
 (move node15-10 node15-11 robot)
 (move node15-11 node15-12 robot)
-# Loitering
-(move node15-12 node15-11 robot)
-(move node15-11 node15-12 robot)
-(move node15-12 node14-12 robot)
-(move node14-12 node14-13 robot)
-(move node14-13 node14-14 robot)
-(move node14-14 node14-15 robot)
-(move node14-15 node14-14 robot)
-(move node14-14 node13-14 robot)
-(move node13-14 node13-15 robot)
-(wait)
-(wait)
-# Ending
-(move node13-15 node14-15 robot)
-(move node14-15 node15-15 robot)
+(move node15-12 node15-13 robot)
+(move node15-13 node15-14 robot)
+(move node15-14 node15-15 robot)
 (move node15-15 node15-16 robot)
