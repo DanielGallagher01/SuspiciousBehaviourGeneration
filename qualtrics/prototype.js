@@ -146,6 +146,31 @@ function checkIfAllDone() {
   const vids = document.querySelectorAll(".survey-video");
   let allDone = true;
   vids.forEach((vid, index) => {
+	if(vid.ended) {
+		stopped[index] = true;
+		
+		switch (index) {
+			case 0:
+				document.getElementById("stopBtn1").style.backgroundColor = "grey";
+				break;
+			case 1:
+				document.getElementById("stopBtn2").style.backgroundColor = "grey";
+				break;
+			case 2:
+				document.getElementById("stopBtn3").style.backgroundColor = "grey";
+				break;
+			case 3:
+				document.getElementById("stopBtn4").style.backgroundColor = "grey";
+				break;
+			case 4:
+				document.getElementById("stopBtn5").style.backgroundColor = "grey";
+				break;
+			case 5:
+				document.getElementById("stopBtn6").style.backgroundColor = "grey";
+				break;
+		}
+
+	}
     if (!stopped[index] && !vid.ended) {
       allDone = false;
     }
