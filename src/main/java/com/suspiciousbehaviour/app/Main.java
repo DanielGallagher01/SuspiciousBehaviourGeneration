@@ -173,11 +173,11 @@ public class Main implements Runnable {
     ParseProblems();
     Logger logger = new Logger();
 
-    int RMP = 0;
-    if (loitering || unexpected || shoe_tie) {
-      RMP = PlannerUtils.CalculateRadiusOfMaximumProbability(baseProblem, goals, primaryGoalID);
-      System.out.println(RMP); 
-    }
+    int RMP = 3;
+    // if (loitering || unexpected || shoe_tie) {
+    //   RMP = PlannerUtils.CalculateRadiusOfMaximumProbability(baseProblem, goals, primaryGoalID);
+    //   System.out.println(RMP); 
+    // }
 
     // DIRECTED BEHAVIOUR
     
@@ -200,7 +200,7 @@ public class Main implements Runnable {
           String.format("purposelessSuspicious-goal%d-detailed.log", primaryGoalID),
           String.format("purposelessSuspicious-goal%d-plan.plan", primaryGoalID));
       generateBehaviour(
-          new PurposelessSuspiciousBehaviourGenerator(baseProblem, goals, RMP+1, numsteps,
+          new PurposelessSuspiciousBehaviourGenerator(baseProblem, goals, RMP+1, 20,
               primaryGoalID),
           logger);
         System.out.println("Completed loitering Generation");
@@ -223,9 +223,10 @@ public class Main implements Runnable {
     // OPTIMAL BEHAVIOR
     if (optimal) {
       logger = new Logger();
-      logger.initialize(outputFolder, "optimal-simple.log",
-      "optimal-detailed.log",
-      "optimal-plan.plan");
+      logger.initialize(outputFolder, 
+      String.format("optimal-goal%d-simple.log", primaryGoalID),
+      String.format("optimal-goal%d-detailed.log", primaryGoalID),
+      String.format("optimal-goal%d-plan.plan", primaryGoalID));
       generateBehaviour(
         new OptimalBehaviourGenerator(goals.get(primaryGoalID), baseProblem),
         logger);      

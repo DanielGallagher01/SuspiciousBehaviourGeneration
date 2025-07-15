@@ -40,10 +40,7 @@ public class SelfModulatingRecogniser extends BehaviourRecogniser {
     this.initialPlans = new Hashtable<>();
     this.initialState = problem.getInitialState();
 
-    initialPlans = new ConcurrentHashMap<>();
-
-    ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-    List<Future<?>> futures = new ArrayList<>();
+    initialPlans = new Hashtable<>();
 
     for (Goal g : goals) {
       Plan plan = PlannerUtils.GeneratePlanFromStateToGoal(new State(this.initialState), problem, g);
@@ -54,7 +51,7 @@ public class SelfModulatingRecogniser extends BehaviourRecogniser {
   public Map<Goal, Double> recognise(State state, double prefixCost, Logger logger) {
     logger.logDetailed("Starting recognising");
 
-    Map<Goal, Double> cost = new ConcurrentHashMap<>();
+    Map<Goal, Double> cost = new Hashtable<>();
 
     int i = 1;
     for (Goal g : goals) {
@@ -74,7 +71,12 @@ public class SelfModulatingRecogniser extends BehaviourRecogniser {
     logger.logDetailed("Generating scores for goals");
     i = 1;
     for (Goal g : goals) {
-      Double score = Math.exp(initialPlans.get(g).cost() - cost.get(g));
+      Double score;
+      if (cost.get(g) == 0) {
+        score = Double.MAX_VALUE;
+      } else {
+        score = Math.exp(initialPlans.get(g).cost() - cost.get(g));
+      }
       logger.logDetailed("Score for goal " + i + ": " + score + ". Distance was: " + (initialPlans.get(g).cost() - cost.get(g)));
       scores.put(g, score);
       i++;

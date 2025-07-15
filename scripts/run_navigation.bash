@@ -1,13 +1,12 @@
 #! /bin/bash
-problem='bank-16-B'
+
+problem='bank-16-A'
 domain='navigation'
 
 mkdir outputs/$domain/$problem -p
 
 java -cp out:lib/*:. -Xmx11G com.suspiciousbehaviour.app.Main \
   --obfuscating \
-  --shoe_tie \
-  --loitering \
   \
   --primary_goal 4 \
   --secondary_goal 1 \

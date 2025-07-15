@@ -36,7 +36,7 @@ public class AmbiguousBehaviourGenerator implements BehaviourGenerator {
     this.epsilon = epsilon;
     this.currentStep = 0;
     this.goalID = goalID;
-    this.curGoalID = goalID;
+    this.curGoalID = 0;
     this.RMP = RMP;
     this.br = br;
   }
