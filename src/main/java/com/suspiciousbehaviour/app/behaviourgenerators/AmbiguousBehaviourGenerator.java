@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Random;
+import java.util.Random;
 import fr.uga.pddl4j.problem.DefaultProblem;
 import fr.uga.pddl4j.problem.State;
 import fr.uga.pddl4j.problem.Goal;
@@ -16,60 +17,70 @@ import fr.uga.pddl4j.problem.Problem;
 import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.planners.statespace.HSP;
 import fr.uga.pddl4j.plan.Plan;
+import fr.uga.pddl4j.util.BitVector;
+import fr.uga.pddl4j.problem.operator.Condition;
+
 
 public class AmbiguousBehaviourGenerator implements BehaviourGenerator {
   private DefaultProblem problem;
   private List<Goal> goals;
   private double epsilon;
-  private Double prefixCost;
   private int currentStep;
   private int goalID;
-  private int RMP;
   private BehaviourRecogniser br;
-  private int curGoalID;
+  private ArrayList<Integer> goalsRemaining;
+  private boolean[] goalIsDangerous;
+  private Random random = new Random();
+  private boolean ending;
 
   private Plan currentPlan;
 
-  public AmbiguousBehaviourGenerator(DefaultProblem problem, List<Goal> goals, double epsilon, int goalID, int RMP, BehaviourRecogniser br) {
+
+  public AmbiguousBehaviourGenerator(DefaultProblem problem, List<Goal> goals, double epsilon, int goalID, BehaviourRecogniser br, boolean[] goalIsDangerous) {
     this.problem = problem;
     this.goals = goals;
     this.epsilon = epsilon;
     this.currentStep = 0;
     this.goalID = goalID;
-    this.curGoalID = 0;
-    this.RMP = RMP;
     this.br = br;
+    this.goalIsDangerous = goalIsDangerous;
+
+    goalsRemaining = new ArrayList();
+    for(int i = 0; i < goals.size(); i++) {
+      if (!goalIsDangerous[i]) {
+        goalsRemaining.add(i);
+      }
+    }
   }
 
   public Action generateAction(State state, Logger logger) throws NoValidActionException {
 
     if (currentPlan == null) {
-        logger.logSimple("Generating Initial Plan");
-        currentPlan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, goals.get(0));
+      generateNewPlan(logger, state);
     }
 
-    if (curGoalID == goalID && currentStep >= currentPlan.actions().size() - RMP) {
-        throw new NoValidActionException("Completed"); 
+    if (currentStep >= currentPlan.actions().size()) {
+      logger.logDetailed("Reached end of plan");
+      if (ending) {
+        throw new NoValidActionException("Completed!");
+      }
+
+      currentStep = 0;
+      currentPlan = null;
+      return generateAction(state, logger);
     }
+
 
     State tempState = (State) state.clone();
-    Action action = currentPlan.actions().get(currentStep);
-    tempState.apply(action.getConditionalEffects());
-    if (br.isAmbiguous(tempState, goals, epsilon, logger, 0)) {
-        logger.logSimple("Next step is ambiguous!");
-        return currentPlan.actions().get(currentStep);
+    tempState.apply(currentPlan.actions().get(currentStep).getConditionalEffects());
+    if (!ending && !br.isAmbiguous(tempState, goals, epsilon, logger, 0, goalIsDangerous)) {
+      logger.logSimple("Action makes plan not ambiguous. Switching goals...");
+      currentStep = 0;
+      currentPlan = null;
+      return generateAction(state, logger);
     }
-	
-    logger.logSimple("Next step is not ambiguous. Generating new plan");
-    Random r = new Random();
-    curGoalID = r.nextInt(goals.size());
-    logger.logSimple("Goal ID: " + curGoalID);
-    currentPlan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, goals.get(curGoalID));
-    currentStep = 0;
-    return generateAction(state, logger);
 
-
-    // throw new NoValidActionException("No valid action");
+    return currentPlan.actions().get(currentStep);
   }
 
   public void actionTaken(State state, Action action) {
@@ -82,6 +93,94 @@ public class AmbiguousBehaviourGenerator implements BehaviourGenerator {
         "type=Ambiguous, " +
         "epsilon=" + epsilon + 
                 "}";
+  }
+
+  private int beta;
+  private Plan optimalToTrueGoal;
+  private Plan optimalPlanToGoalI;
+  private Plan goalToGoalPlan;
+  private State trueGoalState;
+  private State targetState;
+
+  private void generateNewPlan(Logger logger, State state) {
+    logger.logSimple("Generating new plan!");
+
+
+    if (goalsRemaining.isEmpty()) {
+      currentPlan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, goals.get(goalID));
+      ending = true;
+      return;
+    }
+
+    logger.logDetailed("Chosing random goal");
+    int r = random.nextInt(goalsRemaining.size());
+    int selectedIndex = goalsRemaining.get(r);
+    goalsRemaining.remove(r);
+    logger.logDetailed("Chosen goal: " + selectedIndex);
+
+    logger.logDetailed("Calculating beta");
+    calculateBeta(logger, state, selectedIndex);
+    logger.logDetailed("Beta: " + beta);
+
+    logger.logDetailed("Calculating target node");
+    calculatedTarget(logger);
+
+    logger.logDetailed("Calculating path to target");
+    currentPlan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, new Goal(new Condition(targetState, new BitVector())));
+  }
+
+
+
+
+
+
+
+  // private int calculateClosestTarget(Logger logger) {
+  //   int lowestValue = Integer.MAX_VALUE;
+  //   int lowestID = 0;
+
+  //   for (int i = 0; i < goals.size(); i++) {
+  //     if (i == goalID) {
+
+  //     }
+  //   }
+  // }
+
+  private void calculatedTarget(Logger logger) {
+    targetState = new State(trueGoalState);
+    for (int i = 0; i < beta; i++) {
+      goalToGoalPlan.actions().get(i).getConditionalEffects().stream().filter(ce -> targetState.satisfy(ce.getCondition()))
+            .forEach(ce -> targetState.apply(ce.getEffect()));
+    }
+  }
+
+  private void calculateBeta(Logger logger, State state, int i) {
+   
+    optimalToTrueGoal = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, goals.get(goalID));
+    trueGoalState = new State(state);
+    for (Action a : optimalToTrueGoal.actions()) {
+      a.getConditionalEffects().stream().filter(ce -> trueGoalState.satisfy(ce.getCondition()))
+            .forEach(ce -> trueGoalState.apply(ce.getEffect()));
+    }
+    
+
+    int a = optimalToTrueGoal.actions().size();
+
+    optimalPlanToGoalI = PlannerUtils.GeneratePlanFromStateToGoal(new State(state), problem, goals.get(i));
+    int b = optimalPlanToGoalI.actions().size();
+
+    goalToGoalPlan = PlannerUtils.GeneratePlanFromStateToGoal(trueGoalState, problem, goals.get(i));
+
+    int c;
+
+    if (goalToGoalPlan == null) {
+      c = (a+b)/2;
+      logger.logSimple("Goal to Goal Impossible!!!");
+    } else {
+      c = goalToGoalPlan.size();
+    }
+
+    beta = (c+a-b)/2;
   }
 }
 

@@ -25,29 +25,51 @@ public abstract class BehaviourRecogniser {
   public abstract Map<Goal, Double> recognise(State state, double prefixCost, Logger logger);
 
   public boolean isAmbiguous(State state, List<Goal> goals, double epsilon, Logger logger,
-      int prefixCost) {
+    int prefixCost, boolean[] goalIsDangerous) {
     logger.logDetailed("\n\nTesting if state is ambiguous!");
 
     logger.logDetailed("Generating plans for each problem");
     Map<Goal, Double> probabilities = recognise(state, prefixCost, logger);
 
+    // Find the most likely goal
     double highest = 0;
-    double second = 0;
+    int highestID = 0;
 
-    for (Goal g : probabilities.keySet()) {
+    for (int i = 0; i < goals.size(); i++) {
+      Goal g = goals.get(i);
       Double prob = probabilities.get(g);
       if (prob > highest) {
-        second = highest;
+        highestID = i;
         highest = prob;
-      } else if (prob > second) {
-        second = prob;
       }
     }
 
-    logger.logDetailed("Highest probability: " + highest);
-    logger.logDetailed("Second highest: " + second);
+    // If the most likely goal is safe, we are all good
+    if (!goalIsDangerous[highestID]) {
+      logger.logDetailed("Highest probability is not dangerous");
+      return true;
+    }
 
-    return highest - second < epsilon;
+    logger.logDetailed("Highest probability is dangerous...");
+
+    // Otherwise, test if there is a safe goal within epsilon
+    boolean isAmb;
+    for (int i = 0; i < goals.size(); i++) {
+      if (!goalIsDangerous[i]) {
+        Goal g = goals.get(i);
+        Double prob = probabilities.get(g);
+        if (highest - prob < epsilon) {
+          logger.logDetailed("Highest probability: " + highest);
+          logger.logDetailed("Safe probability: " + prob);
+          return true;
+        }
+      }
+    }
+
+
+    logger.logDetailed("Highest probability: " + highest);
+    logger.logDetailed("No safe within epsilon");
+    return false;
 
   }
 }

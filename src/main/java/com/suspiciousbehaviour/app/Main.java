@@ -269,6 +269,7 @@ public class Main implements Runnable {
     //     System.out.println("Completed obfuscating Generation");
     // }
 
+    boolean goalIsDangerous[] = {false, false, false, true, true};
     if (obfuscating) {
       BehaviourRecogniser br = new SelfModulatingRecogniser(baseProblem, goals);
       logger = new Logger();
@@ -276,7 +277,7 @@ public class Main implements Runnable {
       "ambiguous-detailed.log",
       "ambiguous-plan.plan");
       generateBehaviour(
-        new AmbiguousBehaviourGenerator(baseProblem, goals, purposefulE, primaryGoalID, RMP, br),
+        new AmbiguousBehaviourGenerator(baseProblem, goals, purposefulE, primaryGoalID, br, goalIsDangerous),
         logger);      
         System.out.println("Completed ambiguous Generation");
     }

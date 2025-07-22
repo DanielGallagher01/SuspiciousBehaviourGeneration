@@ -584,6 +584,7 @@
     (clear pos-3-5)
     (clear pos-3-6)
     (clear pos-3-7)
+    (clear pos-3-8)
     (clear pos-3-9)
     (clear pos-4-2)
     (clear pos-4-3)
@@ -624,6 +625,6 @@
     (clear pos-9-10)
   )
   (:goal (and
-    (at-goal stone-01)
+    (at stone-01 pos-5-9)
   ))
 )

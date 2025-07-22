@@ -93,14 +93,14 @@ def sokoban_to_pddl(map_str, problem_name="p146-microban-sequential"):
 # Example usage:
 sokoban_input = """
 #@########
-#   ..# .#
-#       .#
-#  #   # #
-# #.## # #
-# #.#  # #
+#  #     #
 #        #
-# $$#  # #
-#   #     
+#  ### # #
+# $ #. #.#
+#   #   ##
+###      #
+#.       #
+#  #      
 ##########
 """
 
