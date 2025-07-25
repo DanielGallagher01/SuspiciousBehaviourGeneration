@@ -30,7 +30,6 @@ import java.util.Map;
 import com.suspiciousbehaviour.app.behaviourgenerators.BehaviourGenerator;
 import com.suspiciousbehaviour.app.behaviourgenerators.*;
 import com.suspiciousbehaviour.app.behaviourrecogniser.*;
-import com.suspiciousbehaviour.app.behaviourgenerators.modulargenerators.*;
 
 import java.nio.file.Path;
 
@@ -73,6 +72,9 @@ public class Main implements Runnable {
   @Option(names = {"--shoe_tie" }, description = "\"Shoe Tie\" Suboptimal Behaviour")
   boolean shoe_tie;
 
+  @Option(names = {"--random" }, description = "Random Behaviour")
+  boolean randomBeh;
+
   @Option(names = {"--directed_search_distance" }, description = "Search Distance for obfuscating and directed", defaultValue = "12")
   int directed_search_distance;
 
@@ -92,6 +94,9 @@ public class Main implements Runnable {
 
   @Option(names = { "--numsteps" }, description = "Maximum number of steps", defaultValue = "100")
   int numsteps;
+
+  @Option(names = { "--goaldanger" }, description = "A string to signify if each goal is dangerous. 0 = safe, 1 = danger. For example, \"00011\" means that the first three are safe, and the last 2 are dangerous.", defaultValue = "00011")
+  String goaldanger;
 
   @Parameters(arity = "1..*", paramLabel = "INPUT", description = "Input file(s)")
   List<File> inputFiles;
@@ -174,23 +179,19 @@ public class Main implements Runnable {
     Logger logger = new Logger();
 
     int RMP = 3;
-    // if (loitering || unexpected || shoe_tie) {
-    //   RMP = PlannerUtils.CalculateRadiusOfMaximumProbability(baseProblem, goals, primaryGoalID);
-    //   System.out.println(RMP); 
-    // }
-
-    // DIRECTED BEHAVIOUR
-    
-    if (directed) {
-      logger.initialize(outputFolder,
-      "directed-simple.log",
-      "directed-detailed.log",
-      "directed-plan.plan");
-      generateBehaviour(
-        new DirectedBehaviourGenerator(baseProblem, goals, directed_search_distance, directed_min_goal_distance, directed_goal_switch_radius),
-        logger);
-        System.out.println("Completed directed Generation");
+    if (loitering || unexpected || shoe_tie) {
+      RMP = PlannerUtils.CalculateRadiusOfMaximumProbability(baseProblem, goals, primaryGoalID);
+      System.out.println("RMP: " + RMP); 
     }
+
+
+    boolean goalIsDangerous[] = new boolean[goaldanger.length()];
+    for(int i = 0; i < goaldanger.length(); i++) {
+      goalIsDangerous[i] = goaldanger.charAt(i) != '0';
+    }
+
+
+
 
     // PURPOSELESS BEHAVIOUR
     if (loitering) {
@@ -233,17 +234,17 @@ public class Main implements Runnable {
         System.out.println("Completed Optimal Generation");
     }
 
-    // 'SHOE TIE' SUBOPTIMAL BEHAVIOR
-    // if (shoe_tie) {
-    //   logger = new Logger();
-    //   logger.initialize(outputFolder, "shoe-tie-simple.log",
-    //   "shoe-tie-detailed.log",
-    //   "shoe-tie-plan.plan");
-    //   generateBehaviour(
-    //     new ShoeTieBehaviourGenerator(goals.get(primaryGoalID), baseProblem, 3d, goals),
-    //     logger);      
-    //     System.out.println("Completed Shoe-Tie Generation");
-    // }
+    if (randomBeh) {
+      logger = new Logger();
+      logger.initialize(outputFolder, 
+      String.format("random-goal%d-simple.log", primaryGoalID),
+      String.format("random-goal%d-detailed.log", primaryGoalID),
+      String.format("random-goal%d-plan.plan", primaryGoalID));
+      generateBehaviour(
+        new RandomBehaviourGenerator(baseProblem, goals.get(primaryGoalID)),
+        logger);      
+        System.out.println("Completed Random Generation");
+    }
 
     if (shoe_tie) {
       logger = new Logger();
@@ -256,20 +257,7 @@ public class Main implements Runnable {
         System.out.println("Completed adversarial Generation");
     }
 
-    // PURPOSEFUL BEHAVIUOUR
-    // if (obfuscating) {
-    //   BehaviourRecogniser br = new SelfModulatingRecogniser(baseProblem, goals);
-    //   logger = new Logger();
-    //   logger.initialize(outputFolder, "purposefulSuspicious-simple.log",
-    //   "purposefulSuspicious-detailed.log",
-    //   "purposefulSuspicious-plan.plan");
-    //   generateBehaviour(
-    //     new PurposefulSuspiciousBehaviourGenerator(baseProblem, goals, directed_search_distance, directed_min_goal_distance, directed_goal_switch_radius, purposefulE, br),
-    //     logger);      
-    //     System.out.println("Completed obfuscating Generation");
-    // }
-
-    boolean goalIsDangerous[] = {false, false, false, true, true};
+    
     if (obfuscating) {
       BehaviourRecogniser br = new SelfModulatingRecogniser(baseProblem, goals);
       logger = new Logger();
@@ -281,47 +269,6 @@ public class Main implements Runnable {
         logger);      
         System.out.println("Completed ambiguous Generation");
     }
-
-
-    // Map<ModularLoitering.CurrentStage, ModularGenerator> generators = new
-    // HashMap<ModularLoitering.CurrentStage, ModularGenerator>();
-
-    // generators.put(ModularLoitering.CurrentStage.APPROACHING, new
-    // OptimalPlanner());
-    // generators.put(ModularLoitering.CurrentStage.LOITERING, new
-    // SuboptimalPlanner(5));
-    // generators.put(ModularLoitering.CurrentStage.ENDING, new OptimalPlanner());
-    // Map<ModularUnexpected.CurrentStage, ModularGenerator> unexgenerators = new HashMap<ModularUnexpected.CurrentStage, ModularGenerator>();
-      // return new ArrayList<DefaultProblem>();
-
-    // unexgenerators.put(ModularUnexpected.CurrentStage.APPROACHING, new SuboptimalPlanner(1, 0));
-    // unexgenerators.put(ModularUnexpected.CurrentStage.UNEXPECTED, new SuboptimalPlanner(4));
-
-    // problems = ParseProblems();
-    // logger = new Logger();
-    // logger.initialize(outputFolder,
-    //     String.format("ModularUnexpected-goal%d-simple.log", 4),
-    //     String.format("ModularUnexpected-goal%d-detailed.log", 4),
-    //     String.format("ModularUnexpected-goal%d-plan.plan", 4));
-
-    // generateBehaviour(problems,
-    //     new ModularUnexpected(problems, 8, 3, unexgenerators),
-    //     logger);
-
-    // Map<ModularAmbiguous.CurrentStage, ModularGenerator> ambgenerators = new HashMap<ModularAmbiguous.CurrentStage, ModularGenerator>();
-
-    // ambgenerators.put(ModularAmbiguous.CurrentStage.AMBIGUOUS, new AmbiguousSuboptimalPlanner(0.8, 8));
-    // ambgenerators.put(ModularAmbiguous.CurrentStage.ENDING, new OptimalPlanner());
-
-    // problems = ParseProblems();
-    // logger = new Logger();
-    // logger.initialize(outputFolder, String.format("ModularAmbiguous-goal%d-simple.log", 4),
-    //     String.format("ModularAmbiguous-goal%d-detailed.log", 4),
-    //     String.format("ModularAmbiguous-goal%d-plan.plan", 4));
-
-    // generateBehaviour(problems,
-    //     new ModularAmbiguous(problems, 1, 4, ambgenerators),
-    //     logger);
 
     logger.close();
 

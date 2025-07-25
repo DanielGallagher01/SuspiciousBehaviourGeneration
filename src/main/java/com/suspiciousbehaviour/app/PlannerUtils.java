@@ -15,6 +15,8 @@ import fr.uga.pddl4j.problem.operator.Action;
 import fr.uga.pddl4j.plan.Plan;
 import fr.uga.pddl4j.problem.State;
 import fr.uga.pddl4j.problem.InitialState;
+import fr.uga.pddl4j.util.BitVector;
+import fr.uga.pddl4j.problem.operator.Condition;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.HashMap;
@@ -45,7 +47,7 @@ public class PlannerUtils {
     try {
       plan = planner.solve(problem);
     } catch (Exception e) {
-      // If we have an error, still rest the state
+      // If we have an error, still reset the state
       System.out.println(e);
       problem.getInitialState().getPositiveFluents().clear();
       problem.getInitialState().getPositiveFluents().or(initialState);
@@ -64,7 +66,6 @@ public class PlannerUtils {
       try {
         plan = GeneratePlanFromState(state, problem);
       } catch (Exception e) {
-        System.out.println("Planing error");
         return null;
       }
 
@@ -91,18 +92,21 @@ public class PlannerUtils {
       }
 
       Plan goalToGoalPlan = GeneratePlanFromStateToGoal(realGoalState, problem, g);
+      Plan fakeGoalPlan = GeneratePlanFromStateToGoal(new State(problem.getInitialState()), problem, g);
 
       int a = plan.size();
-      int b = GeneratePlanFromStateToGoal(new State(problem.getInitialState()), problem, g).size();
+      int b = fakeGoalPlan.size();
       int c;
 
-      if (goalToGoalPlan == null) {
-        c = (a+b)/2;
+      if (goalToGoalPlan == null || goalToGoalPlan.actions().size() == 0) {
+        c = generateBackupC(plan, fakeGoalPlan, problem, 1);
+        System.out.println("Using backup c calculation");
       } else {
-        c = GeneratePlanFromStateToGoal(realGoalState, problem, g).size();
+        c = goalToGoalPlan.size();
       }
 
       int beta = (c+a-b)/2;
+      System.out.println("("+c+"+"+a+"-"+b+")/2="+beta);
 
       if (beta < minRadius) {
         minRadius = beta;
@@ -112,6 +116,33 @@ public class PlannerUtils {
 
     
     return minRadius;
+  }
+
+  private static int generateBackupC(Plan trueGoalPlan, Plan fakeGoalPlan, DefaultProblem problem, int moveBack) {
+    State trueGoalState = new State(problem.getInitialState());
+    for (int i = 0; i < trueGoalPlan.actions().size() - moveBack; i++) {
+      Action a = trueGoalPlan.actions().get(i);
+      a.getConditionalEffects().stream().filter(ce -> trueGoalState.satisfy(ce.getCondition()))
+            .forEach(ce -> trueGoalState.apply(ce.getEffect()));
+    }
+
+    State fakeGoalState = new State(problem.getInitialState());
+    for (int i = 0; i < fakeGoalPlan.actions().size() - moveBack; i++) {
+      Action a = fakeGoalPlan.actions().get(i);
+      a.getConditionalEffects().stream().filter(ce -> fakeGoalState.satisfy(ce.getCondition()))
+            .forEach(ce -> fakeGoalState.apply(ce.getEffect()));
+    }
+
+
+    Plan goalToGoalPlan = PlannerUtils.GeneratePlanFromStateToGoal(trueGoalState, problem, new Goal(new Condition((State)fakeGoalState, new BitVector())));
+
+    if (goalToGoalPlan != null && goalToGoalPlan.actions().size() > 0) {
+      return goalToGoalPlan.actions().size() + moveBack;
+    } else if (moveBack < trueGoalPlan.actions().size()) {
+      return generateBackupC(trueGoalPlan, fakeGoalPlan, problem, moveBack+1);
+    } 
+    
+    return Integer.MAX_VALUE;
   }
 
 }

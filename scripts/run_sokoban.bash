@@ -1,15 +1,12 @@
 #! /bin/bash
-problem='sokoban-11'
+problem='sokoban-1-10-A'
 domain='sokoban'
 
 mkdir outputs/$domain/$problem -p
 
 java -cp out:lib/*:. -Xmx11G com.suspiciousbehaviour.app.Main \
-  --obfuscating \
-  --directed \
   --optimal \
-  --unexpected \
-  --shoe_tie \
+  --random \
   --loitering \
   \
   --primary_goal 4 \
@@ -20,6 +17,8 @@ java -cp out:lib/*:. -Xmx11G com.suspiciousbehaviour.app.Main \
   --directed_goal_switch_radius 3 \
   \
   --purposefulE 0.6 \
+  \
+  --goaldanger="00011" \
   \
   -o outputs/$domain/$problem \
   -d PDDL/$domain/domain.pddl \
