@@ -99,8 +99,8 @@ public class PlannerUtils {
       int c;
 
       if (goalToGoalPlan == null || goalToGoalPlan.actions().size() == 0) {
-        c = generateBackupC(plan, fakeGoalPlan, problem, 1);
         System.out.println("Using backup c calculation");
+        c = generateBackupC(plan, fakeGoalPlan, problem, 1);
       } else {
         c = goalToGoalPlan.size();
       }

@@ -1,12 +1,10 @@
 #! /bin/bash
-problem='sokoban-1-10-A'
+problem='sokoban-1-10-C'
 domain='sokoban'
 
 mkdir outputs/$domain/$problem -p
 
 java -cp out:lib/*:. -Xmx11G com.suspiciousbehaviour.app.Main \
-  --optimal \
-  --random \
   --loitering \
   \
   --primary_goal 4 \

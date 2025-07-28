@@ -107,6 +107,7 @@ public class AmbiguousBehaviourGenerator implements BehaviourGenerator {
 
 
     if (goalsRemaining.isEmpty()) {
+      logger.logDetailed("All goals attempted. Using true goal");
       currentPlan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, goals.get(goalID));
       ending = true;
       return;
@@ -119,32 +120,32 @@ public class AmbiguousBehaviourGenerator implements BehaviourGenerator {
     logger.logDetailed("Chosen goal: " + selectedIndex);
 
     logger.logDetailed("Calculating beta");
-    calculateBeta(logger, state, selectedIndex);
+    if (!calculateBeta(logger, state, selectedIndex)) {
+      generateNewPlan(logger, state);
+      return;
+    }
     logger.logDetailed("Beta: " + beta);
+
+    if (goalToGoalPlan == null) {
+      generateNewPlan(logger, state);
+      return;
+    }
 
     logger.logDetailed("Calculating target node");
     calculatedTarget(logger);
 
+    logger.logDetailed("\n\nTARGET NODE");
+    logger.logDetailed(problem.toString(targetState));
+
     logger.logDetailed("Calculating path to target");
     currentPlan = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, new Goal(new Condition(targetState, new BitVector())));
+
+    if (currentPlan == null) {
+      generateNewPlan(logger, state);
+      return;
+    }
   }
 
-
-
-
-
-
-
-  // private int calculateClosestTarget(Logger logger) {
-  //   int lowestValue = Integer.MAX_VALUE;
-  //   int lowestID = 0;
-
-  //   for (int i = 0; i < goals.size(); i++) {
-  //     if (i == goalID) {
-
-  //     }
-  //   }
-  // }
 
   private void calculatedTarget(Logger logger) {
     targetState = new State(trueGoalState);
@@ -154,7 +155,7 @@ public class AmbiguousBehaviourGenerator implements BehaviourGenerator {
     }
   }
 
-  private void calculateBeta(Logger logger, State state, int i) {
+  private boolean calculateBeta(Logger logger, State state, int i) {
    
     optimalToTrueGoal = PlannerUtils.GeneratePlanFromStateToGoal(state, problem, goals.get(goalID));
     trueGoalState = new State(state);
@@ -167,6 +168,12 @@ public class AmbiguousBehaviourGenerator implements BehaviourGenerator {
     int a = optimalToTrueGoal.actions().size();
 
     optimalPlanToGoalI = PlannerUtils.GeneratePlanFromStateToGoal(new State(state), problem, goals.get(i));
+
+    if (optimalPlanToGoalI == null) {
+      logger.logDetailed("Goal i impossible from current state. Trying again with new i");
+      return false;
+    }
+
     int b = optimalPlanToGoalI.actions().size();
 
     goalToGoalPlan = PlannerUtils.GeneratePlanFromStateToGoal(trueGoalState, problem, goals.get(i));
@@ -174,13 +181,42 @@ public class AmbiguousBehaviourGenerator implements BehaviourGenerator {
     int c;
 
     if (goalToGoalPlan == null) {
-      c = (a+b)/2;
-      logger.logSimple("Goal to Goal Impossible!!!");
+      logger.logDetailed("Calculating alternative C");
+      c = generateBackupC(optimalToTrueGoal, optimalPlanToGoalI, problem, 1);
     } else {
       c = goalToGoalPlan.size();
     }
 
     beta = (c+a-b)/2;
+    return true;
+  }
+
+  private int generateBackupC(Plan trueGoalPlan, Plan fakeGoalPlan, DefaultProblem problem, int moveBack) {
+    State trueGoalState = new State(problem.getInitialState());
+    for (int i = 0; i < trueGoalPlan.actions().size() - moveBack; i++) {
+      Action a = trueGoalPlan.actions().get(i);
+      a.getConditionalEffects().stream().filter(ce -> trueGoalState.satisfy(ce.getCondition()))
+            .forEach(ce -> trueGoalState.apply(ce.getEffect()));
+    }
+
+    State fakeGoalState = new State(problem.getInitialState());
+    for (int i = 0; i < fakeGoalPlan.actions().size() - moveBack; i++) {
+      Action a = fakeGoalPlan.actions().get(i);
+      a.getConditionalEffects().stream().filter(ce -> fakeGoalState.satisfy(ce.getCondition()))
+            .forEach(ce -> fakeGoalState.apply(ce.getEffect()));
+    }
+
+
+    goalToGoalPlan = PlannerUtils.GeneratePlanFromStateToGoal(trueGoalState, problem, new Goal(new Condition((State)fakeGoalState, new BitVector())));
+
+    if (goalToGoalPlan != null && goalToGoalPlan.actions().size() > 0) {
+      this.trueGoalState = trueGoalState;
+      return goalToGoalPlan.actions().size() + moveBack;
+    } else if (moveBack < trueGoalPlan.actions().size()) {
+      return generateBackupC(trueGoalPlan, fakeGoalPlan, problem, moveBack+1);
+    } 
+    
+    return Integer.MAX_VALUE;
   }
 }
 
