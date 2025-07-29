@@ -1,0 +1,32 @@
+.question-display {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+#NextButton {
+  display: none;
+}
+
+.std-button {
+  background-color: #4CAF50; /* green */
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: sans-serif;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: tackground-color 0.2s ease, transform 0.1s ease;
+}
+
+.std-button:hover {
+ stackground-color: #45a049; /* slightly darker green */
+}
+
+.std-button:active {
+  transform: scale(0.97); /* subtle press effect */
+}
+
