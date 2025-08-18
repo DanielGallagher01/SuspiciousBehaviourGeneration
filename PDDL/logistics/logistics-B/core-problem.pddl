@@ -7,7 +7,6 @@
     city1 city2 city3  - city
     truck1 truck2 truck3 - truck
     pkg1 pkg2 pkg3 pkg4 pkg5 pkg6 - package
-    background
 )
 (:init 
     (at plane1 pos2_1)
@@ -32,11 +31,8 @@
     (in-city pos3_3 city3)
     (in-city pos3_4 city3)
     (in-city pos3_5 city3)
-    (city city1)
-    (city city2)
-    (city city3)
-)
-(:goal 
-	(and (at pkg5 pos3_5) (at pkg6 pos3_4) (at pkg4 pos3_3) (at pkg3 pos3_3))
+    (iscity city1)
+    (iscity city2)
+    (iscity city3)
 )
 )

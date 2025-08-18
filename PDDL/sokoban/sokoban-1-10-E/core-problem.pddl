@@ -624,8 +624,5 @@
     (clear pos-9-7)
     (clear pos-9-8)
   )
-  (:goal (and
-    (at-goal stone-01)
-  ))
 )
 
