@@ -1,6 +1,6 @@
 (define (problem logistics)
   (:domain logistics)
   (:goal 
-    (and (at pkg4 pos2_3) (at pkg1 pos2_3) (at pkg5 pos2_3))
-  )
+	  (and (at pkg1 pos3_3) (at pkg3 pos3_3) (at pkg6 pos3_3))  
+    )
 )

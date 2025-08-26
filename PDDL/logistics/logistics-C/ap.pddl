@@ -120,7 +120,7 @@
              (showName FALSE)
              (x NULL)
              (y NULL)
-             (color #00FF21)
+             (color #222222)
              (width 250)
              (height 250)
              (depth 5)
@@ -135,7 +135,7 @@
              (showName FALSE)
              (x NULL)
              (y NULL)
-             (color #00FF21)
+             (color #222222)
              (width 250)
              (height 250)
              (depth 5)
@@ -155,7 +155,7 @@
               (width 400)
               (height 400)
               (depth 3)
- ;             (showLabel TRUE)
+              (showLabel FALSE)
               (label 0)
             )
   )
@@ -184,14 +184,14 @@
             :type predefine
             :objects (pos1_1)
             :properties(
-              (x 3600)
-              (y 1900)
+              (x 150)
+              (y 200)
               (color #B3A5DB)
               (width 4000)
               (height 5000)
               (depth 0)
               (showLabel FALSE)
-              (prefabImage img-none)
+            ;   (prefabImage img-none)
             )
   )
   
@@ -199,10 +199,10 @@
             :type predefine
             :objects (pos1_2)
             :properties(
-              (x 5200)
-              (y 1900)
+              (x 1700)
+              (y 200)
               (color #B3A5DB)
-              (width 5220)
+              (width 400)
               (height 500)
               (depth 0)
               (showLabel FALSE)
@@ -214,8 +214,8 @@
             :type predefine
             :objects (pos1_3)
             :properties(
-              (x 3600)
-              (y 620)
+              (x 150)
+              (y 2100)
               (color #B3A5DB)
               (width 400)
               (height 500)
@@ -229,8 +229,8 @@
             :type predefine
             :objects (pos1_4)
             :properties(
-              (x 5200)
-              (y 620)
+              (x 1700)
+              (y 2100)
               (color #B3A5DB)
               (width 400)
               (height 500)
@@ -244,8 +244,8 @@
             :type predefine
             :objects (pos2_1)
             :properties(
-              (x 1800)
-              (y 3400)
+              (x 3300)
+              (y 2400)
               (color #B3A5DB)
               (width 400)
               (height 500)
@@ -259,8 +259,8 @@
             :type predefine
             :objects (pos2_2)
             :properties(
-              (x 60)
-              (y 3300)
+              (x 4700)
+              (y 2400)
               (color #B3A5DB)
               (width 400)
               (height 500)
@@ -270,20 +270,7 @@
             )
   )
   
-    (:visual pos2_3
-            :type predefine
-            :objects (pos2_3)
-            :properties(
-              (x 740)
-              (y 1900)
-              (color #B3A5DB)
-              (width 400)
-              (height 500)
-              (depth 0)
-              (showLabel FALSE)
-              (prefabImage img-none)
-            )
-  )
+
   
   
 
@@ -292,8 +279,8 @@
             :type predefine
             :objects (pos3_1)
             :properties(
-              (x 3440)
-              (y 4240)
+              (x 400)
+              (y 3700)
               (color #B3A5DB)
               (width 400)
               (height 500)
@@ -307,8 +294,8 @@
             :type predefine
             :objects (pos3_2)
             :properties(
-              (x 5230)
-              (y 4240)
+              (x 1900)
+              (y 3700)
               (color #B3A5DB)
               (width 400)
               (height 500)
@@ -318,12 +305,16 @@
             )
   )
   
-      (:visual pos3_3
+  
+  
+  
+  
+      (:visual pos4_1
             :type predefine
-            :objects (pos3_3)
+            :objects (pos4_1)
             :properties(
-              (x 2710)
-              (y 5700)
+              (x 3300)
+              (y 4400)
               (color #B3A5DB)
               (width 400)
               (height 500)
@@ -333,12 +324,12 @@
             )
   )
   
-     (:visual pos3_4
+      (:visual pos4_2
             :type predefine
-            :objects (pos3_4)
+            :objects (pos4_2)
             :properties(
-              (x 4440)
-              (y 5700)
+              (x 4700)
+              (y 4400)
               (color #B3A5DB)
               (width 400)
               (height 500)
@@ -348,12 +339,12 @@
             )
   )
   
-      (:visual pos3_5
+      (:visual pos4_3
             :type predefine
-            :objects (pos3_5)
+            :objects (pos4_3)
             :properties(
-              (x 4400)
-              (y 6500)
+              (x 3300)
+              (y 6200)
               (color #B3A5DB)
               (width 400)
               (height 500)
@@ -362,6 +353,23 @@
               (prefabImage img-none)
             )
   )
+  
+      (:visual pos4_4
+            :type predefine
+            :objects (pos4_4)
+            :properties(
+              (x 4700)
+              (y 6200)
+              (color #B3A5DB)
+              (width 400)
+              (height 500)
+              (depth 0)
+              (showLabel FALSE)
+              (prefabImage img-none)
+            )
+  )
+  
+
   
   
   
@@ -379,8 +387,8 @@
               (x 0)
               (y 0)
               (color #FFFFFF)
-              (height 7240)
-              (width 6528)
+              (height 6720)
+              (width 5480)
               (depth 0)
             )
   )

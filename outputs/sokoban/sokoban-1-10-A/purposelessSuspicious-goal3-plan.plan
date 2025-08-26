@@ -19,6 +19,7 @@
 (push-to-nongoal player-01 stone-01 pos-3-7 pos-4-7 pos-5-7 dir-down)
 (push-to-nongoal player-01 stone-01 pos-4-7 pos-5-7 pos-6-7 dir-down)
 # Loitering
+(wait)
 (move player-01 pos-5-7 pos-4-7 dir-up)
 (move player-01 pos-4-7 pos-5-7 dir-down)
 (wait)
@@ -28,8 +29,10 @@
 (move player-01 pos-6-8 pos-6-7 dir-left)
 (move player-01 pos-6-7 pos-6-8 dir-right)
 (move player-01 pos-6-8 pos-6-7 dir-left)
+(wait)
 (push-to-nongoal player-01 stone-01 pos-6-7 pos-7-7 pos-8-7 dir-down)
 (push-to-nongoal player-01 stone-01 pos-7-7 pos-8-7 pos-9-7 dir-down)
+(wait)
 # Ending
 (move player-01 pos-8-7 pos-8-6 dir-left)
 (move player-01 pos-8-6 pos-9-6 dir-down)
