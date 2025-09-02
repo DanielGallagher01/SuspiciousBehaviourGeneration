@@ -14,7 +14,7 @@ Qualtrics.SurveyEngine.addOnload(function() {
 	prepareVids();
 	
 	domainArray = 	Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_domain");
-	domainArray = domainArray + domain + ",";
+	domainArray = domainArray + domain + "|";
 	Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_domain", domainArray);
 	
 	console.log(Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_domain"));
@@ -49,13 +49,13 @@ Qualtrics.SurveyEngine.addOnReady(function() {
 		  
 	if(!alarm[0]) {
 		watchArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch");
-		watchArray = watchArray + "null" + ",";
+		watchArray = watchArray + "null" + "|";
 		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_watch", watchArray);	
 	}
 	  
 	 if(!stopped[0]) {
 		stopArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_stop");
-		stopArray = stopArray + "null" + ",";
+		stopArray = stopArray + "null" + "|";
 		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_stop", stopArray);	
 	}
 		  
@@ -80,7 +80,7 @@ function prepareStopButton() {
 			document.getElementById('vid1cont').style.backgroundColor = '#202020';
 			
 			stopArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_stop");
-			stopArray = stopArray + time.toString() + ",";
+			stopArray = stopArray + time.toString() + "|";
 			Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_stop", stopArray);
 		} else {
 			document.getElementById("stopBtn1").style.backgroundColor = "red";
@@ -89,7 +89,7 @@ function prepareStopButton() {
 			document.getElementById('vid1cont').style.backgroundColor = '#4444f0';
 			
 			watchArray = 	Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch");
-			watchArray = watchArray + time.toString() + ",";
+			watchArray = watchArray + time.toString() + "|";
 			Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_watch", watchArray);
 		}
 	});
@@ -111,7 +111,7 @@ function randomiseVideos() {
 		randProblemID = Math.floor(Math.random() * problems.length);
 	
 		mapArray = 	Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_map");
-		mapArray = mapArray + problems[randProblemID].toString() + ",";
+		mapArray = mapArray + problems[randProblemID].toString() + "|";
 		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_map", mapArray);
 	
 	    
@@ -121,7 +121,7 @@ function randomiseVideos() {
 		console.log("Instance for video:" + behaviours[instanceID]);
 	
 		behaviourArray = 	Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_behaviour");
-		behaviourArray = behaviourArray + behaviours[instanceID].toString() + ",";
+		behaviourArray = behaviourArray + behaviours[instanceID].toString() + "|";
 		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_behaviour", behaviourArray);
 		
 		
@@ -198,13 +198,13 @@ function checkIfAllDone() {
 	  
 	if(!alarm[0]) {
 		watchArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch");
-		watchArray = watchArray + "null" + ",";
+		watchArray = watchArray + "null" + "|";
 		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_watch", watchArray);	
 	}
 	  
 	 if(!stopped[0]) {
 		topArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_stop");
-		stopArray = stopArray + "null" + ",";
+		stopArray = stopArray + "null" + "|";
 		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_stop", stopArray);	
 	}
 	  
