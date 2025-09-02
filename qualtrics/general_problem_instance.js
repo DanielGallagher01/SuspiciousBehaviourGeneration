@@ -28,11 +28,11 @@ Qualtrics.SurveyEngine.addOnload(function() {
 
 Qualtrics.SurveyEngine.addOnPageSubmit(function() {
 	userinput_watch = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_userinput_watch");
-	userinput_watch = userinput_watch + "|" + document.querySelector("#question-QID43 textarea").value;
+	userinput_watch = userinput_watch + document.querySelector("#question-QID43 textarea").value + "|";
 	Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_userinput_watch", userinput_watch);
 
 	userinput_stop = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_userinput_stop");
-	userinput_stop = userinput_stop + "|" + document.querySelector("#question-QID55 textarea").value;
+	userinput_stop = userinput_stop + document.querySelector("#question-QID55 textarea").value + "|";
 	Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_userinput_stop", userinput_stop);
 });
 
