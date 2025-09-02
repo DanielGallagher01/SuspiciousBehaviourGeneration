@@ -1,5 +1,24 @@
 # Approaching goal
 (push-to-nongoal player-01 stone-01 pos-9-5 pos-8-5 pos-7-5 dir-up)
+# Loitering
+(move player-01 pos-8-5 pos-9-5 dir-down)
+(wait)
+(wait)
+(move player-01 pos-9-5 pos-9-4 dir-left)
+(move player-01 pos-9-4 pos-9-5 dir-right)
+(wait)
+(wait)
+(move player-01 pos-9-5 pos-9-4 dir-left)
+(move player-01 pos-9-4 pos-9-5 dir-right)
+(wait)
+(wait)
+(move player-01 pos-9-5 pos-8-5 dir-up)
+(move player-01 pos-8-5 pos-9-5 dir-down)
+(wait)
+(move player-01 pos-9-5 pos-8-5 dir-up)
+(wait)
+(wait)
+# Ending
 (move player-01 pos-8-5 pos-9-5 dir-down)
 (move player-01 pos-9-5 pos-9-4 dir-left)
 (move player-01 pos-9-4 pos-9-3 dir-left)
@@ -13,4 +32,3 @@
 (push-to-nongoal player-01 stone-01 pos-7-6 pos-7-7 pos-7-8 dir-right)
 (push-to-nongoal player-01 stone-01 pos-7-7 pos-7-8 pos-7-9 dir-right)
 (push-to-nongoal player-01 stone-01 pos-7-8 pos-7-9 pos-7-10 dir-right)
-# Loitering

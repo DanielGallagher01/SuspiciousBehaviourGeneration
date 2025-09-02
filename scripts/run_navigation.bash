@@ -1,6 +1,4 @@
-#! /bin/bash
-
-problem='bank-16-A'
+problem='bank-16-E'
 domain='navigation'
 
 mkdir outputs/$domain/$problem -p
@@ -8,14 +6,14 @@ mkdir outputs/$domain/$problem -p
 java -cp out:lib/*:. -Xmx11G com.suspiciousbehaviour.app.Main \
   --obfuscating \
   \
-  --primary_goal 4 \
+  --primary_goal 3 \
   --secondary_goal 1 \
   \
   --directed_search_distance 10 \
   --directed_min_goal_distance 6 \
   --directed_goal_switch_radius 3 \
   \
-  --purposefulE 0.2 \
+  --purposefulE 0.5 \
   \
   -o outputs/$domain/$problem \
   -d PDDL/$domain/domain.pddl \
