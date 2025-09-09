@@ -53,6 +53,7 @@ Qualtrics.SurveyEngine.addOnReady(function() {
 		 console.log("adv button clicked");
 		document.getElementById("vid1").pause();
 		  document.getElementById("stopBtn1").style.display = "none";
+		  document.getElementById("watchBtn1").style.display = "none";
 		qobj.enableNextButton(); 
 		  advanceBtn.style.display = "none";
 	   document.getElementById('question-QID43').style.display = "block";
@@ -84,6 +85,7 @@ Qualtrics.SurveyEngine.addOnReady(function() {
 
 function prepareStopButton() {
 	document.getElementById("stopBtn1").style.display = "none";
+	document.getElementById("watchBtn1").style.display = "none";
 	
 	document.getElementById("stopBtn1").addEventListener("click", function() {
 		if (alarm[0]) {
@@ -96,17 +98,21 @@ function prepareStopButton() {
 			stopArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_stop");
 			stopArray = stopArray + time.toString() + "|";
 			Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_stop", stopArray);
-		} else {
-			document.getElementById("stopBtn1").style.backgroundColor = "red";
-			document.getElementById("stopBtn1").textContent = "⚠Stop⚠";
-			alarm[0] = true;
-			document.getElementById('vid1cont').style.backgroundColor = '#4444f0';
-			
-			watchArray = 	Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch");
-			watchArray = watchArray + time.toString() + "|";
-			Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_watch", watchArray);
 		}
 	});
+	
+		document.getElementById("watchBtn1").addEventListener("click", function() {
+			if (!alarm[0]) {
+				document.getElementById("stopBtn1").style.backgroundColor = "red";
+				document.getElementById("watchBtn1").style.backgroundColor = "grey";
+				alarm[0] = true;
+				document.getElementById('vid1cont').style.backgroundColor = '#4444f0';
+
+				watchArray = 	Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch");
+				watchArray = watchArray + time.toString() + "|";
+				Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_watch", watchArray);
+			}
+		});
 			
 	
  
@@ -140,12 +146,19 @@ function randomiseVideos() {
 		
 		
 		
-		document.getElementById('vid' + (1) + 'cont').innerHTML = "<video disablepictureinpicture=\"\" playsinline=\"\" muted id=\"vid" + (1) + "\" class=\"survey-video-single\"> <source type=\"video/" + fileExtention + "\" src=\"https://github.com/TheAlchemist010/SuspiciousBehaviourGeneration/raw/refs/heads/main/planimation/" + domain + "/" + problems[randProblemID] + "/" + behaviours[instanceID] + "." + fileExtention + "\"> Your browser does not support the video tag. </video> <button class=\"std-button\" id=\"stopBtn" + (1) + "\">🔍Watch🔍</button>";
-	  document.getElementById('stopBtn1').style.margin = 'auto';
+		document.getElementById('vid' + (1) + 'cont').innerHTML = "<video disablepictureinpicture playsinline muted id=\"vid" + (1) + "\" class=\"survey-video-single\">   <source type=\"video/" + fileExtention + "\" src=\"https://github.com/TheAlchemist010/SuspiciousBehaviourGeneration/raw/refs/heads/main/planimation/" + domain + "/" + problems[randProblemID] + "/" + behaviours[instanceID] + "." + fileExtention + "\"> Your browser does not support the video tag. </video> <div class='button-container'>   <button class=\"std-button\" id=\"watchBtn" + (1) + "\">🔍Watch🔍</button>   <button class=\"std-button\" id=\"stopBtn" + (1) + "\">⚠Stop⚠</button>   <button id=\"startBtn\" class=\"std-button\">Start</button>   <button id=\"advanceBtn\" class=\"std-button\">Safe</button> </div>";
+	  //document.getElementById('stopBtn1').style.margin = 'auto';
+	//document.getElementById('stopBtn1').style.margin = 'auto';
+	    document.getElementById("stopBtn1").style.backgroundColor = "grey";
 		document.getElementById('vid' + (1) + 'cont').style.backgroundColor = '#f0f0f0';
 		document.getElementById('vid' + (1) + 'cont').style.padding = '5px';
 		document.getElementById('vid' + (1) + 'cont').style.borderRadius = '5px';
+		document.getElementById("watchBtn1").style.backgroundColor = "#4444f0";
     document.getElementById("explantext").innerHTML = explainText;
+	
+		if(domain == "logistics") {
+				document.getElementById('vid' + (1)).currentTime=4;
+		}
   
 		
 		behaviours.splice(instanceID, 1);
@@ -179,6 +192,7 @@ function prepareStartButton() {
 	  document.getElementById("advanceBtn").style.display = "block";
 	  document.getElementById("advanceBtn").style.backgroundColor = "green";
 	  document.getElementById("stopBtn1").style.display = "block";
+	  document.getElementById("watchBtn1").style.display = "block";
 	});
   }
 }
@@ -197,6 +211,7 @@ function checkIfAllDone() {
 		switch (index) {
 			case 0:
 				document.getElementById("stopBtn1").style.display = "none";
+				document.getElementById("watchBtn1").style.display = "none";
 				document.getElementById('vid1cont').style.backgroundColor = '#202020';
 				break;
 		}
@@ -209,6 +224,7 @@ function checkIfAllDone() {
 
   if (allDone) {
 	document.getElementById("stopBtn1").style.display = "none";
+	document.getElementById("watchBtn1").style.display = "none";
 	  
 	if(!alarm[0]) {
 		watchArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch");
