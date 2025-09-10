@@ -75,7 +75,7 @@
              (showName FALSE)
              (x NULL)
              (y NULL)
-             (color #084AFF)
+             (color #AA11AA)
              (width 250)
              (height 250)
              (depth 5)
@@ -184,7 +184,7 @@
             :type predefine
             :objects (pos1_1)
             :properties(
-              (x 4770)
+              (x 4670)
               (y 3600)
               (color #B3A5DB)
               (showLabel FALSE)

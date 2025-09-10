@@ -7,7 +7,6 @@
     city1 city2 city3 city4 - city
     truck1 truck2 truck3 truck4 - truck
     pkg1 pkg2 pkg3 pkg4 pkg5 pkg6 - package
-    s1 s2 - slot
     background
 )
 (:init 
@@ -40,15 +39,5 @@
     (iscity city2)
     (iscity city3)
     (iscity city4)
-    (slot-free truck1 s1)
-    (slot-free truck1 s2)
-    (slot-free truck2 s1)
-    (slot-free truck2 s2)
-    (slot-free truck3 s1)
-    (slot-free truck3 s2)
-    (slot-free truck4 s1)
-    (slot-free truck4 s2)
-    (slot-free-airplane plane1 s1)
-    (slot-free-airplane plane1 s2)
 )
 )
