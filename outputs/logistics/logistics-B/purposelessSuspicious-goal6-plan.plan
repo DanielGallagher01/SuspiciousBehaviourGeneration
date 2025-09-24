@@ -28,10 +28,12 @@
 (drive-truck truck3 pos3_1 pos3_3 city3)
 (fly-airplane plane1 pos3_1 pos1_1)
 (drive-truck truck1 pos1_4 pos1_3 city1)
+(wait)
 (unload-truck pkg1 truck3 pos3_3)
 (wait)
 (drive-truck truck1 pos1_3 pos1_1 city1)
 (drive-truck truck3 pos3_3 pos3_4 city3)
+(wait)
 (wait)
 # Ending
 (drive-truck truck3 pos3_4 pos3_1 city3)

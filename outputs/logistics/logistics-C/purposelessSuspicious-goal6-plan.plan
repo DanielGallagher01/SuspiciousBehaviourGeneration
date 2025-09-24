@@ -25,6 +25,8 @@
 (fly-airplane plane1 pos1_4 pos4_1)
 (drive-truck truck1 pos1_4 pos1_3 city1)
 (drive-truck truck1 pos1_3 pos1_2 city1)
+(wait)
+(wait)
 (drive-truck truck1 pos1_2 pos1_3 city1)
 (wait)
 (drive-truck truck1 pos1_3 pos1_4 city1)
