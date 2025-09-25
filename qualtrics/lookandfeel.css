@@ -3,6 +3,10 @@
   width: 100% !important;
 }
 
+#survey-canvas {
+  max-width: none !important;
+  width: 100% !important;
+}
 #NextButton {
   display: none;
 }
@@ -28,5 +32,60 @@
 
 .std-button:active {
   transform: scale(0.97); /* subtle press effect */
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Always 3 in a line */
+  gap: 10px;
+  justify-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.video-grid > div {
+  width: 100%;
+  height: auto;
+}
+
+.vidcont {
+  width: 50%;
+  height: auto;
+  margin: auto;
+}
+	
+.survey-video {
+  width: 80%;
+  height: auto;
+  max-width: 100%; 
+  aspect-ratio: 5 / 4;
+  object-fit: contain; 
+}
+
+.survey-video-single {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: contain; 
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* space between buttons */
+  margin-top: 10px; /* spacing from video */
+}
+
+.end-of-feed {
+  width: 100%;
+  aspect-ratio: 5 / 4;  /* same as your video */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;   /* optional, looks more like a video feed */
+  color: white;
+  font-size: 1.5rem;
+  font-family: sans-serif;
 }
 
