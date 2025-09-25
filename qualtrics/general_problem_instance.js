@@ -209,12 +209,13 @@ function prepareStartButton() {
 
 function checkIfAllDone() {
   const vids = document.querySelectorAll(".survey-video-single");
-  let allDone = true;
+  let allDone = false;
   needNullStopEntry = false;
   vids.forEach((vid, index) => {
 	if(vid.ended) {
 		needNullStopEntry = true;
 		stopped[index] = true;
+		allDone = true;
 		
 		switch (index) {
 			case 0:
@@ -239,9 +240,6 @@ function checkIfAllDone() {
 		}
 
 	}
-    if (!stopped[index] && !vid.ended) {
-      allDone = false;
-    }
   });
 
   if (allDone) {
