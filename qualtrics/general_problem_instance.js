@@ -245,15 +245,16 @@ function checkIfAllDone() {
   if (allDone) {
 	document.getElementById("stopBtn1").style.display = "none";
 	document.getElementById("watchBtn1").style.display = "none";
-	  
+	document.getElementById("advanceBtn").style.display = "none";
+
 	if(!alarm[0]) {
 		watchArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch");
 		watchArray = watchArray + "null" + "|";
 		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_watch", watchArray);	
 	}
 	  
-	 if(needNullStopEntry) {
-		topArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_stop");
+	if(needNullStopEntry) {
+		stopArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_stop");
 		stopArray = stopArray + "null" + "|";
 		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_stop", stopArray);	
 	}
