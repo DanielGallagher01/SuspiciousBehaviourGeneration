@@ -3,10 +3,11 @@ var alarm = [false, false];
 var chosenType = ["","",""];
 var qobj;
 var time = 0;
+var currentBehaviour = ""
 
 Qualtrics.SurveyEngine.addOnload(function() {
 	console.log("On Load");
-	randomiseVideos();
+	randomiseVideos(); 
 
 	prepareStartButton();
 	prepareStopButton();
@@ -34,6 +35,9 @@ Qualtrics.SurveyEngine.addOnPageSubmit(function() {
 	userinput_stop = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_userinput_stop");
 	userinput_stop = userinput_stop + document.querySelector("#question-QID55 textarea").value + "|";
 	Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_userinput_stop", userinput_stop);
+	
+	document.querySelector("#question-QID43 textarea").value = "";
+	document.querySelector("#question-QID55 textarea").value = "";
 });
 
 
@@ -143,10 +147,11 @@ function randomiseVideos() {
 		behaviourArray = 	Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_behaviour");
 		behaviourArray = behaviourArray + behaviours[instanceID].toString() + "|";
 		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_behaviour", behaviourArray);
+		currentBehaviour = behaviours[instanceID].toString()
 		
 		
 		
-		document.getElementById('vid' + (1) + 'cont').innerHTML = "<video disablepictureinpicture playsinline muted id=\"vid" + (1) + "\" class=\"survey-video-single\">   <source type=\"video/" + fileExtention + "\" src=\"https://github.com/TheAlchemist010/SuspiciousBehaviourGeneration/raw/refs/heads/main/planimation/" + domain + "/" + problems[randProblemID] + "/" + behaviours[instanceID] + "." + fileExtention + "\"> Your browser does not support the video tag. </video> <div class='button-container'>   <button class=\"std-button\" id=\"watchBtn" + (1) + "\">🔍Watch🔍</button>   <button class=\"std-button\" id=\"stopBtn" + (1) + "\">⚠Stop⚠</button>   <button id=\"startBtn\" class=\"std-button\">Start</button>   <button id=\"advanceBtn\" class=\"std-button\">Safe</button> </div>";
+		document.getElementById('vid' + (1) + 'cont').innerHTML = "<video disablepictureinpicture playsinline muted id=\"vid" + (1) + "\" class=\"survey-video-single\">   <source type=\"video/" + fileExtention + "\" src=\"https://github.com/TheAlchemist010/SuspiciousBehaviourGeneration/raw/refs/heads/main/planimation/" + domain + "/" + problems[randProblemID] + "/" + behaviours[instanceID] + "." + fileExtention + "\"> Your browser does not support the video tag. </video> <div class='button-container'>   <button class=\"std-button\" id=\"watchBtn" + (1) + "\">Suspicious</button>   <button class=\"std-button\" id=\"stopBtn" + (1) + "\">⚠Stop⚠</button>   <button id=\"startBtn\" class=\"std-button\">Start</button>   <button id=\"advanceBtn\" class=\"std-button\">Safe</button> </div>";
 	  //document.getElementById('stopBtn1').style.margin = 'auto';
 	//document.getElementById('stopBtn1').style.margin = 'auto';
 	    document.getElementById("stopBtn1").style.backgroundColor = "grey";
@@ -154,7 +159,9 @@ function randomiseVideos() {
 		document.getElementById('vid' + (1) + 'cont').style.padding = '5px';
 		document.getElementById('vid' + (1) + 'cont').style.borderRadius = '5px';
 		document.getElementById("watchBtn1").style.backgroundColor = "#4444f0";
-    document.getElementById("explantext").innerHTML = explainText;
+    	document.getElementById("explantext").innerHTML = explainText;
+	
+		document.getElementById("titletext").innerHTML = "<h3>" + domain_title + " (" + (6-behaviours.length) + "/5)<\h3>";
 	
 		if(domain == "logistics") {
 				document.getElementById('vid' + (1)).currentTime=4;
@@ -204,8 +211,10 @@ function prepareStartButton() {
 function checkIfAllDone() {
   const vids = document.querySelectorAll(".survey-video-single");
   let allDone = true;
+  needNullStopEntry = false;
   vids.forEach((vid, index) => {
 	if(vid.ended) {
+		needNullStopEntry = true;
 		stopped[index] = true;
 		
 		switch (index) {
@@ -213,6 +222,20 @@ function checkIfAllDone() {
 				document.getElementById("stopBtn1").style.display = "none";
 				document.getElementById("watchBtn1").style.display = "none";
 				document.getElementById('vid1cont').style.backgroundColor = '#202020';
+				const container = document.getElementById("vid1cont");
+
+				//endtext = ""
+				//if (currentBehaviour == "opt-a") {
+				//	endtext = "	
+				//}
+				
+				
+				container.querySelector("video").replaceWith(
+				  Object.assign(document.createElement("div"), {
+					className: "end-of-feed",
+					innerText: "End of feed"
+				  })
+				);
 				break;
 		}
 
@@ -232,7 +255,7 @@ function checkIfAllDone() {
 		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_watch", watchArray);	
 	}
 	  
-	 if(!stopped[0]) {
+	 if(needNullStopEntry) {
 		topArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_stop");
 		stopArray = stopArray + "null" + "|";
 		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_stop", stopArray);	
