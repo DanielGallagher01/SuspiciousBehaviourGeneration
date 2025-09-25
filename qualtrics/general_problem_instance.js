@@ -54,17 +54,16 @@ Qualtrics.SurveyEngine.addOnReady(function() {
   if (advanceBtn) {
 	  advanceBtn.style.display = "none";
 	  advanceBtn.addEventListener("click", function() {
-		 console.log("adv button clicked");
-		document.getElementById("vid1").pause();
-		  document.getElementById("stopBtn1").style.display = "none";
-		  document.getElementById("watchBtn1").style.display = "none";
-		qobj.enableNextButton(); 
-		  advanceBtn.style.display = "none";
-	   document.getElementById('question-QID43').style.display = "block";
-	   document.getElementById('question-QID55').style.display = "block";
-	   document.querySelector("#question-QID43 textarea").value = "";
-	   document.querySelector("#question-QID55 textarea").value = "";
-    	//qobj.clickNextButton(); 
+	  console.log("adv button clicked");
+	  document.getElementById("vid1").pause();
+	  document.getElementById("stopBtn1").style.display = "none";
+	  document.getElementById("watchBtn1").style.display = "none";
+	  qobj.enableNextButton(); 
+	  advanceBtn.style.display = "none";
+	  document.getElementById('question-QID43').style.display = "block";
+	  document.getElementById('question-QID55').style.display = "block";
+	  document.querySelector("#question-QID43 textarea").value = "";
+	  document.querySelector("#question-QID55 textarea").value = "";
 		  
 	if(!alarm[0]) {
 		watchArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch");
