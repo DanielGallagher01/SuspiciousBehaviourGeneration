@@ -1,0 +1,46 @@
+Prolific_ID,__js_Instance_domain,__js_Instance_watch,__js_Instance_behaviour,__js_Instance_map,__js_Instance_stop,__js_Instance_userinput_watch,__js_Instance_userinput_stop,Order of showing,G1-Good,G2-Good,G3-Good,G4-Good,G5-Good,G6-Good,G7-Good,Watch - yes/no,Stop - yes/no,Watch number steps
+999,navigation,,opt-a,Navigation-D,,was heading toward mri,moving to touch mri (right on it),1,1,1,1,0,0,,,no,no,
+999,navigation,1001.0,loi,Navigation-E,4139.0,heading towads mri,moved right in to touch it,2,1,1,1,0,0,,,yes,yes,6
+999,navigation,4516.0,amb,Navigation-A,4720.0,heading towards mri,seemed to move  on it,3,1,1,1,0,0,,,yes,yes,25
+999,navigation,5281.0,opt-d,Navigation-B,7501.0,,,4,1,1,1,0,0,,,yes,yes,29
+999,navigation,,adv,Navigation-C,,,,5,1,1,1,0,0,,,no,no,
+999,logistics,,opt-a,Logistics-D,,airplane moving three colors together,three packages different colors heading towards green,6,1,1,1,1,1,0.0,0.0,no,no,
+999,logistics,25075.0,opt-d,Logistics-C,31382.0,airplane with three packages moving,truck with three packages heading towards green,7,1,1,1,1,1,0.0,0.0,yes,yes,29
+999,logistics,15833.0,amb,Logistics-B,25369.0,three packages moved to same location (not green),truck with three packages moving towards green,8,1,1,1,1,1,0.0,0.0,yes,yes,27
+999,logistics,9154.0,loi,Logistics-A,57142.0,all three color packages brought to same location (not green),truck with all three color packages heading towards green,9,1,1,1,1,1,0.0,0.0,yes,yes,17
+999,logistics,33841.0,adv,Logistics-E,39581.0,pushed box in direction of door,placed the box so that only moves left were towards the door,10,1,1,1,1,1,0.0,0.0,yes,yes,23
+999,sokoban,5688.0,opt-d,Sokoban-D,8878.0,pushed box towards the door,"seemed intent on pushing it out the door. Took time moving around before I pushed stop, but then became resolute to push it out",11,1,1,1,0,0,,,yes,yes,31
+999,sokoban,6673.0,loi,Sokoban-E,34249.0,,,12,1,1,1,0,0,,,yes,yes,36
+999,sokoban,,opt-a,Sokoban-A,,"pushed box towards door (though might also have been towards a target location -- which is why I waited to ""Stop"")",placed such that only move possible is to push it out,13,1,1,1,0,0,,,no,no,
+999,sokoban,14416.0,adv,Sokoban-C,40596.0,pushed box towards door,positioned box so as to push it out. no other explanation,14,1,1,1,0,0,,,yes,yes,67
+999,sokoban,12136.0,amb,Sokoban-B,31111.0,,,15,1,1,1,0,0,,,yes,yes,65
+1234,navigation,2276.0,loi,Navigation-B,2895.0,It was the only one there,It was too close to an MRI,1,1,1,1,0,0,,,yes,yes,13
+1234,navigation,4062.0,amb,Navigation-E,4244.0,It was the only one there,It got close to an MRI,2,1,1,1,0,0,,,yes,yes,22
+1234,navigation,,opt-a,Navigation-D,,,,3,1,1,1,0,0,,,no,no,
+1234,navigation,5887.0,opt-d,Navigation-C,6831.0,It was the only one there,It got too close to an MRI ,4,1,1,1,0,0,,,yes,yes,32
+1234,navigation,13630.0,adv,Navigation-A,13765.0,It was the only one there ,It got too close to an MRI ,5,1,1,1,0,0,,,yes,yes,67
+1234,sokoban,17166.0,loi,Sokoban-B,17514.0,It was the only one there,It reached a point where it could only steal it or leave it,6,1,1,1,0,0,,,yes,yes,67
+1234,sokoban,23567.0,amb,Sokoban-E,23791.0,It was the only one there,It reached a point where it could only steal it or leave it,7,1,1,1,0,0,,,yes,yes,67
+1234,sokoban,812.0,opt-a,Sokoban-D,,It was the only one there,,8,1,1,1,0,0,,,yes,no,5
+1234,sokoban,18328.0,opt-d,Sokoban-A,18624.0,It was the only one there,It reached a point where it could only steal it or leave it,9,1,1,1,0,0,,,yes,yes,67
+1234,sokoban,28172.0,adv,Sokoban-C,28482.0,It was the only one there,It reached a point where it could only steal it or leave it,10,1,1,1,0,0,,,yes,yes,67
+1234,logistics,42557.0,opt-a,Logistics-C,42766.0,I didn't,It looked like there was going to be trouble with the bags ,11,1,1,1,1,1,0.0,0.0,yes,yes,40
+1234,logistics,89356.0,adv,Logistics-A,92569.0,It was the only one moving at the end,Cause there were 3 bags in the green dot,12,1,1,1,1,1,0.0,0.0,yes,yes,35
+1234,logistics,60635.0,loi,Logistics-E,60999.0,It was close to 3 bags,3 bags were close to green dot,13,1,1,1,1,1,0.0,0.0,yes,yes,40
+1234,logistics,28990.0,opt-d,Logistics-B,29494.0,It was in a position to deliver 3 bags to green,It was in a position to deliver 3 bags to green,14,1,1,1,1,1,0.0,0.0,yes,yes,27
+1234,logistics,51320.0,amb,Logistics-D,51710.0,It was in a position to deliver 3 bags to green,It was in a position to deliver 3 bags to green,15,1,1,1,1,1,0.0,0.0,yes,yes,28
+96356,logistics,3488.0,loi,Logistics-D,5157.0,The plane did not follow exactly the dotted line and it was bring 2 packages together and then after that bringing them close to the last remaining package,The 3 packages were becoming dangerously close to being delivered to the same location.,1,1,1,1,1,1,0.0,0.0,yes,yes,6
+96356,logistics,1397.0,amb,Logistics-A,1559.0,It was bringing all three packages closer together,It finally got all packages at the same spot. I think I was too late to stop it in this case.,2,1,1,1,1,1,0.0,0.0,yes,yes,1
+96356,logistics,1549.0,opt-a,Logistics-B,1987.0,It started bringing two types of packages together at the same time,It was bringing all three packages together,3,1,1,1,1,1,0.0,0.0,yes,yes,2
+96356,logistics,4860.0,adv,Logistics-E,8931.0,It was bringing 2 packages together ,The plane disregarded the flight path and went straight to the final package along with the 2 other types of packages.,4,1,1,1,1,1,0.0,0.0,yes,yes,12
+96356,logistics,12865.0,opt-d,Logistics-C,14705.0,The plane was bringing two packages close together and it was getting closer to the third package,The truck brought the third package to the other two.,5,1,1,1,1,1,0.0,0.0,yes,yes,27
+96356,navigation,7771.0,opt-d,Navigation-C,9529.0,It started going into the room with the MRI machine,It was getting dangerously close to the MRI machine,6,1,1,1,0,0,,,yes,yes,42
+96356,navigation,14568.0,amb,Navigation-D,15716.0,It went past the charging station and towards the MRI machine,It was getting dangerously close to the MRI machine,7,1,1,1,0,0,,,yes,yes,67
+96356,navigation,15833.0,loi,Navigation-B,17969.0,It was getting close to the MRI machine,Getting dangerously close to the MRI machine,8,1,1,1,0,0,,,yes,yes,67
+96356,navigation,10261.0,adv,Navigation-E,,It was going around in circles and then started moving to the MRI machine,It got dangerously close to the MRI machine,9,1,1,1,0,0,,,yes,no,55
+96356,navigation,,opt-a,Navigation-A,10886.0,,,10,1,1,1,0,0,,,no,yes,
+96356,sokoban,11624.0,opt-a,Sokoban-C,32892.0,,,11,1,1,1,0,0,,,yes,yes,62
+96356,sokoban,12744.0,loi,Sokoban-E,47541.0,The robot approached the box from the left side and not right. Indicating it might want to push it towards the door,It was pushing the box very close to the door,12,1,1,1,0,0,,,yes,yes,67
+96356,sokoban,10049.0,adv,Sokoban-B,38095.0,It was approaching the box with the intent to push it towards the door,It got the box very close to the door,13,1,1,1,0,0,,,yes,yes,54
+96356,sokoban,34329.0,amb,Sokoban-A,14011.0,Agent was approaching from the wrong direction,Agent pushed it too close to the doorway,14,1,1,1,0,0,,,yes,yes,67
+96356,sokoban,10456.0,opt-d,Sokoban-D,,The agent pushed the box close to the door then moved to a position where the only viable option to push it to was the door,The agent was heading for the door.,15,1,1,1,0,0,,,yes,no,56
