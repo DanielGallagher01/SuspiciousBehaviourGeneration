@@ -27,6 +27,8 @@
 (push-to-nongoal player-01 stone-01 pos-5-7 pos-6-7 pos-7-7 dir-down)
 (move player-01 pos-6-7 pos-6-8 dir-right)
 (move player-01 pos-6-8 pos-6-7 dir-left)
+(wait)
+(wait)
 (move player-01 pos-6-7 pos-6-8 dir-right)
 (move player-01 pos-6-8 pos-6-7 dir-left)
 (wait)
