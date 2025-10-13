@@ -24,6 +24,7 @@ Qualtrics.SurveyEngine.addOnload(function() {
 	console.log(Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch"));
 	console.log(Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_userinput_watch"));
 	console.log(Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_userinput_stop"));
+	console.log(Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_safe"));
 });
 
 Qualtrics.SurveyEngine.addOnPageSubmit(function() {
