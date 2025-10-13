@@ -23,9 +23,10 @@ import java.io.IOException;
 import picocli.CommandLine;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
-import java.io.File;
+import java.io.*;
 import java.util.List;
 import java.util.Map;
+import java.nio.file.*;
 
 import com.suspiciousbehaviour.app.behaviourgenerators.BehaviourGenerator;
 import com.suspiciousbehaviour.app.behaviourgenerators.*;
@@ -101,6 +102,9 @@ public class Main implements Runnable {
   @Parameters(arity = "1..*", paramLabel = "INPUT", description = "Input file(s)")
   List<File> inputFiles;
 
+  @Option(names = {"--calculate_distances"}, description = "", defaultValue = "False")
+  boolean calculate_distances;
+
   List<Goal> goals;
   DefaultProblem baseProblem;
 
@@ -121,6 +125,12 @@ public class Main implements Runnable {
 
     if (analyze) {
       runAnalysis();
+    } else if (calculate_distances) {
+      try {
+        calcuateDistances();
+      } catch (Exception e) {
+        System.out.print(e);
+      }
     } else {
       generateAllBehaviour();
     }
@@ -355,5 +365,86 @@ public class Main implements Runnable {
     catch (Throwable t) {
       t.printStackTrace();
     }
+  }
+
+  private void calcuateDistances() throws Exception {
+    ParseProblems();
+
+    List<Path> planFiles = new ArrayList();
+    
+    try (DirectoryStream<Path> stream = Files.newDirectoryStream(outputFolder.toPath(), "*.plan")) {
+      for (Path entry : stream) {
+        planFiles.add(entry);
+      }
+    }
+
+    for(int i = 0; i < planFiles.size(); i++) {
+      State state = new State(baseProblem.getInitialState());
+
+      Path path = planFiles.get(i);
+      BufferedReader bfro = new BufferedReader(new FileReader(path.toString()));
+
+      String line;
+      int actionID = 0;
+
+      String starttext = "";
+
+      while ((line = bfro.readLine()) != null) {
+        if (starttext.equals("")) {
+          starttext = line;
+        }
+
+        if (!line.contains("#")) {
+          System.out.println(line);
+          for (Action action : baseProblem.getActions()) {
+
+            String actionText = "(";
+
+            actionText += action.getName();
+
+            for (int j = 0; j < action.arity(); j++) {
+                final int index = action.getValueOfParameter(j);
+                actionText += " " + baseProblem.getConstantSymbols().get(index);
+            }
+
+            actionText += ")";
+
+            // System.out.println(actionText);
+            if (actionText.equals(line)) {
+              // System.out.println("Action found!");
+              state.apply(action.getConditionalEffects());
+              actionID++;
+
+              calculateDistanceForState(state, starttext + "," + actionID);
+
+              continue;
+            }
+          }
+        }
+        // return;
+      }
+
+      // return;
+    }
+  }
+
+  private void calculateDistanceForState(State state, String starttext) throws Exception {
+    FileOutputStream fos = new FileOutputStream("data_analysis/distances.csv", true);
+    String outputtext = starttext.substring(2);
+    for(int i = 0; i < goals.size(); i++) {
+      Goal goal = goals.get(i);
+      Plan plan = PlannerUtils.GeneratePlanFromStateToGoal(state, baseProblem, goal);
+
+      if (plan == null) {
+        outputtext += ", ";
+      } else {
+        int distance = plan.size();
+        outputtext += ", " + distance;
+      }
+      
+    }
+
+    System.out.println(outputtext);
+    fos.write((outputtext + "\n").getBytes());
   }
 }

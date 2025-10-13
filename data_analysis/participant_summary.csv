@@ -1,0 +1,4 @@
+Prolific_ID,EndDate,Duration (in seconds),survey_version,Risk Taking,Q2_later,Q3_later
+999,2025-09-20 01:34:19,1609,0.1,6.0,incorrect,incorrect
+1234,2025-09-22 00:34:43,1211,0.1,5.5,correct,correct
+96356,2025-09-16 21:44:29,6198,0.0,6.0,correct,correct

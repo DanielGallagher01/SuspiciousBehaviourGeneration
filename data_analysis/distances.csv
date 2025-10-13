@@ -1,4 +1,4 @@
-problem, behaviour, target_goal, state, G1, G2, G3, G4, G5, G6, G7
+problem,behaviour,target_goal,state,G1,G2,G3,G4,G5,G6,G7
 Sokoban-A, amb,,1, 26, 15, 26, 26, 14
 Sokoban-A, amb,,2, 25, 14, 25, 25, 13
 Sokoban-A, amb,,3, 24, 13, 24, 24, 12
@@ -1045,3 +1045,1282 @@ Logistics-A, loi, 7,38, 38, 40, 41, 43, 42, 24, 6
 Logistics-A, loi, 7,39, 40, 39, 41, 43, 43, 24, 5
 Logistics-A, loi, 7,40, 40, 40, 41, 44, 44, 24, 4
 Logistics-A, loi, 7,41, 41, 41, 41, 45, 45, 26, 3
+Logistics-A, loi, 7,42, 40, 42, 43, 46, 47, 26, 2
+Logistics-A, loi, 7,43, 41, 42, 43, 47, 47, 26, 1
+Logistics-A, loi, 7,44, 42, 43, 42, 48, 48, 27, 0
+Logistics-A, opt-d, 7,1, 46, 46, 46, 46, 46, 24, 24
+Logistics-A, opt-d, 7,2, 45, 45, 45, 45, 45, 24, 23
+Logistics-A, opt-d, 7,3, 45, 45, 45, 45, 45, 24, 23
+Logistics-A, opt-d, 7,4, 44, 44, 44, 44, 44, 24, 21
+Logistics-A, opt-d, 7,5, 44, 44, 44, 44, 44, 24, 20
+Logistics-A, opt-d, 7,6, 43, 43, 43, 43, 43, 23, 19
+Logistics-A, opt-d, 7,7, 44, 44, 45, 44, 44, 23, 18
+Logistics-A, opt-d, 7,8, 43, 43, 43, 43, 43, 23, 17
+Logistics-A, opt-d, 7,9, 42, 42, 42, 42, 42, 23, 16
+Logistics-A, opt-d, 7,10, 41, 41, 41, 41, 41, 22, 15
+Logistics-A, opt-d, 7,11, 40, 40, 40, 40, 40, 21, 14
+Logistics-A, opt-d, 7,12, 39, 39, 39, 39, 39, 21, 13
+Logistics-A, opt-d, 7,13, 38, 38, 38, 38, 38, 21, 12
+Logistics-A, opt-d, 7,14, 37, 37, 37, 37, 38, 20, 11
+Logistics-A, opt-d, 7,15, 38, 38, 38, 38, 38, 21, 10
+Logistics-A, opt-d, 7,16, 39, 37, 39, 39, 39, 22, 9
+Logistics-A, opt-d, 7,17, 40, 36, 40, 40, 40, 22, 8
+Logistics-A, opt-d, 7,18, 41, 37, 39, 41, 41, 21, 7
+Logistics-A, opt-d, 7,19, 42, 38, 38, 42, 42, 21, 6
+Logistics-A, opt-d, 7,20, 41, 40, 39, 43, 43, 22, 5
+Logistics-A, opt-d, 7,21, 40, 40, 40, 44, 44, 23, 4
+Logistics-A, opt-d, 7,22, 41, 41, 41, 45, 45, 24, 3
+Logistics-A, opt-d, 7,23, 41, 42, 42, 46, 46, 26, 2
+Logistics-A, opt-d, 7,24, 41, 41, 43, 47, 47, 25, 1
+Logistics-A, opt-d, 7,25, 42, 42, 42, 49, 48, 25, 0
+Logistics-A, adv, 7,1, 46, 46, 46, 46, 46, 24, 24
+Logistics-A, adv, 7,2, 45, 45, 45, 45, 45, 24, 23
+Logistics-A, adv, 7,3, 45, 45, 45, 45, 45, 24, 23
+Logistics-A, adv, 7,4, 44, 44, 44, 44, 44, 24, 21
+Logistics-A, adv, 7,5, 44, 44, 44, 44, 44, 24, 20
+Logistics-A, adv, 7,6, 43, 43, 43, 43, 43, 23, 19
+Logistics-A, adv, 7,7, 44, 44, 45, 44, 44, 23, 18
+Logistics-A, adv, 7,8, 43, 43, 43, 43, 43, 23, 17
+Logistics-A, adv, 7,9, 42, 42, 42, 42, 42, 23, 16
+Logistics-A, adv, 7,10, 41, 41, 41, 41, 41, 22, 15
+Logistics-A, adv, 7,11, 40, 40, 40, 40, 40, 21, 14
+Logistics-A, adv, 7,12, 39, 39, 39, 39, 39, 21, 13
+Logistics-A, adv, 7,13, 40, 40, 40, 40, 40, 21, 14
+Logistics-A, adv, 7,14, 41, 41, 41, 41, 41, 21, 14
+Logistics-A, adv, 7,15, 40, 40, 40, 40, 40, 21, 13
+Logistics-A, adv, 7,16, 39, 39, 39, 39, 39, 19, 13
+Logistics-A, adv, 7,17, 40, 40, 40, 40, 40, 20, 13
+Logistics-A, adv, 7,18, 39, 39, 39, 39, 39, 20, 12
+Logistics-A, adv, 7,19, 40, 40, 40, 40, 39, 21, 13
+Logistics-A, adv, 7,20, 41, 41, 41, 41, 40, 21, 14
+Logistics-A, adv, 7,21, 40, 40, 40, 40, 40, 20, 13
+Logistics-A, adv, 7,22, 40, 40, 39, 39, 39, 20, 12
+Logistics-A, adv, 7,23, 40, 40, 40, 40, 40, 21, 11
+Logistics-A, adv, 7,24, 41, 39, 41, 41, 41, 21, 10
+Logistics-A, adv, 7,25, 42, 40, 40, 42, 42, 21, 9
+Logistics-A, adv, 7,26, 41, 39, 39, 41, 41, 21, 8
+Logistics-A, adv, 7,27, 42, 40, 38, 42, 42, 21, 7
+Logistics-A, adv, 7,28, 43, 39, 39, 43, 43, 21, 6
+Logistics-A, adv, 7,29, 42, 40, 40, 44, 44, 22, 5
+Logistics-A, adv, 7,30, 41, 41, 41, 45, 45, 23, 4
+Logistics-A, adv, 7,31, 42, 42, 43, 46, 46, 24, 3
+Logistics-A, adv, 7,32, 43, 43, 41, 47, 47, 24, 2
+Logistics-B, loi, 7,1, 45, 45, 45, 45, 45, 24, 24
+Logistics-B, loi, 7,2, 44, 44, 44, 44, 44, 23, 23
+Logistics-B, loi, 7,3, 43, 43, 43, 43, 43, 23, 22
+Logistics-B, loi, 7,4, 43, 43, 43, 43, 43, 24, 21
+Logistics-B, loi, 7,5, 42, 42, 42, 42, 42, 22, 20
+Logistics-B, loi, 7,6, 42, 42, 42, 42, 42, 21, 19
+Logistics-B, loi, 7,7, 41, 41, 41, 41, 41, 20, 18
+Logistics-B, loi, 7,8, 42, 42, 42, 43, 42, 20, 17
+Logistics-B, loi, 7,9, 41, 41, 41, 41, 41, 19, 16
+Logistics-B, loi, 7,10, 40, 41, 40, 40, 40, 19, 15
+Logistics-B, loi, 7,11, 39, 39, 39, 39, 39, 18, 14
+Logistics-B, loi, 7,12, 38, 38, 38, 38, 38, 18, 13
+Logistics-B, loi, 7,13, 37, 37, 37, 37, 37, 17, 12
+Logistics-B, loi, 7,14, 36, 36, 36, 36, 36, 16, 11
+Logistics-B, loi, 7,15, 37, 37, 37, 37, 37, 17, 10
+Logistics-B, loi, 7,16, 37, 38, 37, 38, 36, 18, 9
+Logistics-B, loi, 7,17, 37, 38, 37, 38, 36, 18, 9
+Logistics-B, loi, 7,18, 37, 39, 37, 39, 37, 19, 9
+Logistics-B, loi, 7,19, 36, 38, 36, 38, 36, 18, 9
+Logistics-B, loi, 7,20, 35, 39, 35, 39, 35, 19, 8
+Logistics-B, loi, 7,21, 36, 38, 36, 40, 36, 19, 7
+Logistics-B, loi, 7,22, 36, 38, 36, 40, 36, 19, 7
+Logistics-B, loi, 7,23, 35, 37, 35, 39, 35, 20, 6
+Logistics-B, loi, 7,24, 35, 37, 35, 39, 35, 20, 6
+Logistics-B, loi, 7,25, 35, 37, 35, 39, 35, 20, 6
+Logistics-B, loi, 7,26, 36, 38, 36, 40, 36, 21, 7
+Logistics-B, loi, 7,27, 35, 37, 35, 39, 35, 21, 7
+Logistics-B, loi, 7,28, 35, 37, 35, 39, 35, 22, 7
+Logistics-B, loi, 7,29, 35, 37, 35, 39, 35, 22, 7
+Logistics-B, loi, 7,30, 34, 38, 34, 40, 36, 23, 6
+Logistics-B, loi, 7,31, 34, 38, 34, 40, 36, 23, 6
+Logistics-B, loi, 7,32, 35, 39, 35, 41, 37, 23, 6
+Logistics-B, loi, 7,33, 35, 40, 35, 42, 37, 24, 6
+Logistics-B, loi, 7,34, 35, 40, 35, 42, 37, 24, 6
+Logistics-B, loi, 7,35, 35, 40, 35, 42, 37, 24, 6
+Logistics-B, loi, 7,36, 34, 39, 34, 41, 36, 24, 5
+Logistics-B, loi, 7,37, 33, 38, 33, 40, 35, 25, 4
+Logistics-B, loi, 7,38, 34, 37, 34, 41, 36, 25, 3
+Logistics-B, loi, 7,39, 35, 37, 35, 41, 37, 24, 2
+Logistics-B, loi, 7,40, 36, 38, 36, 42, 36, 25, 1
+Logistics-B, loi, 7,41, 37, 37, 37, 43, 37, 25, 0
+Logistics-B, opt-d, 7,1, 45, 45, 45, 45, 45, 24, 24
+Logistics-B, opt-d, 7,2, 44, 44, 44, 44, 44, 23, 24
+Logistics-B, opt-d, 7,3, 44, 44, 44, 44, 44, 22, 22
+Logistics-B, opt-d, 7,4, 44, 44, 44, 44, 44, 21, 21
+Logistics-B, opt-d, 7,5, 42, 42, 42, 42, 42, 20, 20
+Logistics-B, opt-d, 7,6, 43, 43, 43, 43, 43, 20, 20
+Logistics-B, opt-d, 7,7, 42, 42, 42, 42, 42, 19, 19
+Logistics-B, opt-d, 7,8, 41, 41, 41, 41, 41, 18, 18
+Logistics-B, opt-d, 7,9, 40, 40, 40, 40, 40, 17, 17
+Logistics-B, opt-d, 7,10, 39, 39, 39, 39, 39, 16, 16
+Logistics-B, opt-d, 7,11, 38, 38, 38, 38, 38, 16, 15
+Logistics-B, opt-d, 7,12, 39, 39, 39, 39, 39, 17, 14
+Logistics-B, opt-d, 7,13, 38, 38, 38, 38, 38, 17, 13
+Logistics-B, opt-d, 7,14, 37, 37, 37, 37, 37, 16, 12
+Logistics-B, opt-d, 7,15, 36, 36, 36, 36, 36, 16, 11
+Logistics-B, opt-d, 7,16, 37, 37, 37, 37, 37, 17, 10
+Logistics-B, opt-d, 7,17, 37, 38, 37, 38, 36, 18, 9
+Logistics-B, opt-d, 7,18, 35, 39, 35, 39, 35, 19, 8
+Logistics-B, opt-d, 7,19, 34, 38, 34, 38, 34, 20, 7
+Logistics-B, opt-d, 7,20, 33, 37, 33, 37, 33, 21, 6
+Logistics-B, opt-d, 7,21, 34, 36, 34, 38, 34, 21, 5
+Logistics-B, opt-d, 7,22, 35, 35, 35, 39, 35, 21, 4
+Logistics-B, opt-d, 7,23, 36, 36, 36, 40, 36, 22, 3
+Logistics-B, opt-d, 7,24, 37, 37, 37, 41, 35, 25, 2
+Logistics-B, opt-d, 7,25, 36, 38, 36, 42, 36, 24, 1
+Logistics-B, opt-d, 7,26, 37, 37, 37, 43, 37, 24, 0
+Logistics-B, adv, 7,1, 45, 45, 45, 45, 45, 24, 24
+Logistics-B, adv, 7,2, 44, 44, 44, 44, 44, 23, 24
+Logistics-B, adv, 7,3, 44, 44, 44, 44, 44, 22, 22
+Logistics-B, adv, 7,4, 44, 44, 44, 44, 44, 21, 21
+Logistics-B, adv, 7,5, 42, 42, 42, 42, 42, 20, 20
+Logistics-B, adv, 7,6, 43, 43, 43, 43, 43, 20, 20
+Logistics-B, adv, 7,7, 42, 42, 42, 42, 42, 19, 19
+Logistics-B, adv, 7,8, 41, 41, 41, 41, 41, 18, 18
+Logistics-B, adv, 7,9, 40, 40, 40, 40, 40, 17, 17
+Logistics-B, adv, 7,10, 39, 39, 39, 39, 39, 16, 16
+Logistics-B, adv, 7,11, 38, 38, 38, 38, 38, 16, 15
+Logistics-B, adv, 7,12, 39, 39, 39, 39, 39, 17, 14
+Logistics-B, adv, 7,13, 38, 38, 38, 38, 38, 17, 13
+Logistics-B, adv, 7,14, 39, 39, 39, 39, 39, 17, 14
+Logistics-B, adv, 7,15, 38, 38, 38, 38, 38, 17, 14
+Logistics-B, adv, 7,16, 37, 37, 37, 37, 37, 17, 15
+Logistics-B, adv, 7,17, 36, 36, 36, 36, 36, 16, 14
+Logistics-B, adv, 7,18, 37, 37, 37, 37, 37, 16, 14
+Logistics-B, adv, 7,19, 38, 38, 38, 39, 39, 17, 15
+Logistics-B, adv, 7,20, 37, 39, 37, 39, 37, 18, 14
+Logistics-B, adv, 7,21, 36, 38, 36, 38, 36, 18, 13
+Logistics-B, adv, 7,22, 37, 39, 37, 40, 37, 19, 13
+Logistics-B, adv, 7,23, 36, 38, 36, 39, 36, 19, 12
+Logistics-B, adv, 7,24, 35, 38, 35, 38, 35, 18, 11
+Logistics-B, adv, 7,25, 34, 36, 34, 36, 34, 18, 10
+Logistics-B, adv, 7,26, 33, 37, 33, 37, 33, 19, 9
+Logistics-B, adv, 7,27, 34, 38, 34, 38, 34, 19, 8
+Logistics-B, adv, 7,28, 33, 37, 33, 37, 33, 20, 7
+Logistics-B, adv, 7,29, 32, 36, 32, 36, 32, 21, 6
+Logistics-B, adv, 7,30, 33, 36, 33, 37, 33, 21, 5
+Logistics-B, adv, 7,31, 34, 34, 34, 38, 34, 21, 4
+Logistics-B, adv, 7,32, 35, 35, 35, 39, 35, 22, 3
+Logistics-B, adv, 7,33, 34, 36, 34, 40, 36, 23, 2
+Logistics-B, adv, 7,34, 35, 37, 35, 41, 35, 24, 1
+Logistics-B, adv, 7,35, 36, 36, 36, 42, 36, 24, 0
+Logistics-B, amb, ,1, 45, 45, 45, 45, 45, 24, 24
+Logistics-B, amb, ,2, 44, 44, 44, 44, 44, 23, 24
+Logistics-B, amb, ,3, 44, 44, 44, 44, 44, 22, 22
+Logistics-B, amb, ,4, 43, 44, 43, 43, 43, 22, 21
+Logistics-B, amb, ,5, 42, 42, 42, 42, 42, 21, 21
+Logistics-B, amb, ,6, 41, 41, 41, 41, 41, 20, 20
+Logistics-B, amb, ,7, 41, 41, 41, 40, 41, 19, 19
+Logistics-B, amb, ,8, 39, 39, 39, 39, 39, 18, 18
+Logistics-B, amb, ,9, 40, 40, 40, 40, 40, 17, 17
+Logistics-B, amb, ,10, 39, 39, 39, 39, 39, 16, 16
+Logistics-B, amb, ,11, 38, 38, 38, 38, 38, 15, 15
+Logistics-B, amb, ,12, 37, 37, 37, 37, 37, 14, 14
+Logistics-B, amb, ,13, 36, 36, 36, 36, 36, 13, 13
+Logistics-B, amb, ,14, 35, 35, 35, 36, 35, 13, 12
+Logistics-B, amb, ,15, 34, 34, 34, 34, 34, 13, 11
+Logistics-B, amb, ,16, 35, 35, 35, 35, 35, 14, 10
+Logistics-B, amb, ,17, 34, 34, 34, 34, 34, 15, 9
+Logistics-B, amb, ,18, 33, 33, 33, 33, 33, 16, 8
+Logistics-B, amb, ,19, 32, 34, 32, 34, 32, 17, 7
+Logistics-B, amb, ,20, 31, 35, 31, 35, 31, 18, 6
+Logistics-B, amb, ,21, 32, 34, 32, 36, 32, 18, 5
+Logistics-B, amb, ,22, 33, 33, 33, 37, 33, 18, 4
+Logistics-B, amb, ,23, 34, 34, 34, 39, 34, 19, 3
+Logistics-B, amb, ,24, 33, 36, 33, 39, 35, 20, 2
+Logistics-B, amb, ,25, 34, 36, 34, 40, 34, 21, 1
+Logistics-B, amb, ,26, 35, 35, 35, 41, 35, 21, 0
+Logistics-B, opt-a, 1,1, 45, 45, 45, 45, 45, 24, 24
+Logistics-B, opt-a, 1,2, 44, 44, 44, 44, 44, 23, 23
+Logistics-B, opt-a, 1,3, 43, 43, 43, 43, 43, 22, 24
+Logistics-B, opt-a, 1,4, 42, 42, 42, 42, 42, 22, 22
+Logistics-B, opt-a, 1,5, 41, 41, 41, 41, 41, 21, 21
+Logistics-B, opt-a, 1,6, 40, 40, 40, 40, 40, 20, 20
+Logistics-B, opt-a, 1,7, 39, 39, 39, 39, 39, 20, 20
+Logistics-B, opt-a, 1,8, 38, 38, 38, 38, 38, 19, 19
+Logistics-B, opt-a, 1,9, 37, 37, 37, 37, 37, 18, 18
+Logistics-B, opt-a, 1,10, 36, 36, 36, 36, 36, 18, 18
+Logistics-B, opt-a, 1,11, 35, 35, 35, 35, 35, 17, 17
+Logistics-B, opt-a, 1,12, 34, 34, 34, 34, 34, 16, 16
+Logistics-B, opt-a, 1,13, 33, 33, 33, 33, 33, 17, 16
+Logistics-B, opt-a, 1,14, 32, 32, 32, 32, 32, 15, 16
+Logistics-B, opt-a, 1,15, 31, 31, 31, 31, 31, 14, 15
+Logistics-B, opt-a, 1,16, 30, 30, 30, 30, 30, 13, 14
+Logistics-B, opt-a, 1,17, 29, 29, 29, 29, 29, 13, 14
+Logistics-B, opt-a, 1,18, 28, 28, 28, 28, 28, 12, 13
+Logistics-B, opt-a, 1,19, 27, 27, 27, 27, 27, 11, 13
+Logistics-B, opt-a, 1,20, 26, 26, 26, 26, 26, 11, 13
+Logistics-B, opt-a, 1,21, 25, 25, 25, 25, 25, 11, 13
+Logistics-B, opt-a, 1,22, 24, 24, 24, 24, 24, 11, 12
+Logistics-B, opt-a, 1,23, 23, 23, 23, 23, 23, 11, 11
+Logistics-B, opt-a, 1,24, 22, 22, 22, 22, 22, 10, 11
+Logistics-B, opt-a, 1,25, 23, 21, 23, 21, 23, 9, 12
+Logistics-B, opt-a, 1,26, 24, 20, 24, 22, 24, 9, 12
+Logistics-B, opt-a, 1,27, 25, 19, 25, 23, 25, 9, 12
+Logistics-B, opt-a, 1,28, 26, 18, 26, 24, 26, 10, 13
+Logistics-B, opt-a, 1,29, 27, 18, 27, 23, 27, 9, 14
+Logistics-B, opt-a, 1,30, 26, 16, 26, 22, 26, 10, 13
+Logistics-B, opt-a, 1,31, 25, 15, 25, 21, 25, 11, 12
+Logistics-B, opt-a, 1,32, 24, 14, 24, 20, 24, 11, 12
+Logistics-B, opt-a, 1,33, 23, 13, 23, 19, 23, 11, 12
+Logistics-B, opt-a, 1,34, 24, 12, 24, 20, 24, 11, 11
+Logistics-B, opt-a, 1,35, 25, 11, 25, 21, 25, 11, 10
+Logistics-B, opt-a, 1,36, 26, 10, 26, 22, 26, 12, 11
+Logistics-B, opt-a, 1,37, 27, 9, 27, 21, 27, 11, 12
+Logistics-B, opt-a, 1,38, 28, 8, 28, 22, 28, 11, 12
+Logistics-B, opt-a, 1,39, 29, 7, 29, 21, 29, 12, 12
+Logistics-B, opt-a, 1,40, 30, 6, 30, 20, 30, 13, 12
+Logistics-B, opt-a, 1,41, 30, 5, 30, 20, 31, 14, 13
+Logistics-B, opt-a, 1,42, 29, 4, 29, 19, 32, 15, 15
+Logistics-B, opt-a, 1,43, 28, 3, 28, 18, 31, 15, 14
+Logistics-B, opt-a, 1,44, 28, 2, 28, 18, 31, 16, 15
+Logistics-B, opt-a, 1,45, 29, 1, 29, 17, 32, 17, 15
+Logistics-B, opt-a, 1,46, 30, 0, 30, 18, 33, 17, 14
+Logistics-C, loi, 7,1, 47, 47, 38, 47, 47, 20, 28
+Logistics-C, loi, 7,2, 48, 48, 39, 48, 48, 19, 27
+Logistics-C, loi, 7,3, 48, 47, 38, 47, 47, 19, 26
+Logistics-C, loi, 7,4, 46, 46, 37, 46, 46, 18, 24
+Logistics-C, loi, 7,5, 45, 45, 36, 45, 45, 17, 23
+Logistics-C, loi, 7,6, 44, 44, 35, 44, 44, 16, 23
+Logistics-C, loi, 7,7, 45, 45, 36, 45, 45, 15, 21
+Logistics-C, loi, 7,8, 44, 44, 35, 44, 44, 14, 20
+Logistics-C, loi, 7,9, 43, 43, 34, 43, 43, 13, 19
+Logistics-C, loi, 7,10, 43, 43, 34, 43, 43, 12, 18
+Logistics-C, loi, 7,11, 42, 42, 33, 42, 42, 11, 17
+Logistics-C, loi, 7,12, 43, 43, 34, 43, 43, 10, 16
+Logistics-C, loi, 7,13, 42, 42, 34, 42, 42, 10, 15
+Logistics-C, loi, 7,14, 41, 41, 33, 41, 41, 9, 14
+Logistics-C, loi, 7,15, 42, 42, 33, 42, 42, 8, 13
+Logistics-C, loi, 7,16, 42, 42, 33, 42, 42, 8, 13
+Logistics-C, loi, 7,17, 41, 41, 32, 41, 41, 9, 14
+Logistics-C, loi, 7,18, 42, 42, 33, 42, 42, 9, 14
+Logistics-C, loi, 7,19, 43, 43, 32, 43, 43, 10, 13
+Logistics-C, loi, 7,20, 42, 42, 33, 42, 42, 9, 14
+Logistics-C, loi, 7,21, 42, 42, 33, 42, 42, 9, 14
+Logistics-C, loi, 7,22, 42, 42, 33, 42, 42, 9, 14
+Logistics-C, loi, 7,23, 42, 42, 33, 42, 42, 8, 13
+Logistics-C, loi, 7,24, 43, 43, 34, 43, 43, 8, 14
+Logistics-C, loi, 7,25, 43, 43, 34, 43, 43, 8, 14
+Logistics-C, loi, 7,26, 43, 43, 34, 43, 43, 8, 14
+Logistics-C, loi, 7,27, 43, 43, 34, 43, 43, 8, 14
+Logistics-C, loi, 7,28, 43, 43, 34, 43, 43, 8, 14
+Logistics-C, loi, 7,29, 43, 43, 34, 43, 43, 8, 14
+Logistics-C, loi, 7,30, 42, 42, 33, 42, 42, 8, 13
+Logistics-C, loi, 7,31, 42, 42, 33, 42, 42, 8, 13
+Logistics-C, loi, 7,32, 41, 41, 32, 41, 41, 9, 14
+Logistics-C, loi, 7,33, 41, 41, 32, 41, 41, 9, 14
+Logistics-C, loi, 7,34, 41, 41, 32, 41, 41, 9, 14
+Logistics-C, loi, 7,35, 42, 42, 33, 42, 42, 8, 13
+Logistics-C, loi, 7,36, 41, 41, 34, 41, 41, 9, 12
+Logistics-C, loi, 7,37, 40, 40, 35, 40, 40, 10, 11
+Logistics-C, loi, 7,38, 40, 40, 35, 40, 40, 11, 10
+Logistics-C, loi, 7,39, 41, 41, 36, 41, 41, 12, 9
+Logistics-C, loi, 7,40, 40, 40, 37, 41, 41, 13, 8
+Logistics-C, loi, 7,41, 41, 41, 36, 42, 42, 14, 7
+Logistics-C, loi, 7,42, 40, 41, 37, 40, 40, 15, 6
+Logistics-C, loi, 7,43, 41, 41, 36, 41, 41, 16, 5
+Logistics-C, loi, 7,44, 42, 42, 37, 42, 42, 17, 4
+Logistics-C, loi, 7,45, 43, 43, 38, 43, 43, 18, 3
+Logistics-C, loi, 7,46, 43, 42, 39, 42, 42, 19, 2
+Logistics-C, loi, 7,47, 43, 43, 40, 43, 43, 20, 1
+Logistics-C, loi, 7,48, 44, 44, 39, 44, 44, 21, 0
+Logistics-C, opt-d, 7,1, 47, 47, 38, 47, 47, 20, 28
+Logistics-C, opt-d, 7,2, 46, 46, 38, 46, 46, 20, 26
+Logistics-C, opt-d, 7,3, 46, 45, 37, 46, 46, 20, 26
+Logistics-C, opt-d, 7,4, 46, 46, 37, 46, 46, 18, 25
+Logistics-C, opt-d, 7,5, 45, 45, 36, 45, 45, 17, 23
+Logistics-C, opt-d, 7,6, 44, 44, 36, 44, 44, 16, 22
+Logistics-C, opt-d, 7,7, 43, 43, 36, 43, 43, 17, 21
+Logistics-C, opt-d, 7,8, 44, 44, 37, 44, 44, 16, 20
+Logistics-C, opt-d, 7,9, 44, 43, 36, 43, 43, 15, 19
+Logistics-C, opt-d, 7,10, 42, 42, 35, 42, 42, 14, 18
+Logistics-C, opt-d, 7,11, 43, 43, 36, 43, 43, 14, 18
+Logistics-C, opt-d, 7,12, 43, 42, 37, 42, 42, 15, 16
+Logistics-C, opt-d, 7,13, 41, 41, 36, 41, 41, 15, 15
+Logistics-C, opt-d, 7,14, 40, 40, 35, 40, 40, 14, 14
+Logistics-C, opt-d, 7,15, 41, 41, 36, 41, 41, 13, 13
+Logistics-C, opt-d, 7,16, 40, 40, 35, 40, 40, 12, 12
+Logistics-C, opt-d, 7,17, 39, 39, 34, 39, 39, 11, 11
+Logistics-C, opt-d, 7,18, 40, 40, 35, 40, 40, 11, 10
+Logistics-C, opt-d, 7,19, 41, 41, 36, 41, 41, 12, 9
+Logistics-C, opt-d, 7,20, 42, 42, 37, 42, 42, 13, 8
+Logistics-C, opt-d, 7,21, 43, 43, 36, 43, 43, 14, 7
+Logistics-C, opt-d, 7,22, 44, 44, 35, 44, 44, 15, 6
+Logistics-C, opt-d, 7,23, 43, 43, 36, 43, 43, 16, 5
+Logistics-C, opt-d, 7,24, 42, 42, 37, 42, 42, 17, 4
+Logistics-C, opt-d, 7,25, 43, 43, 38, 43, 43, 18, 3
+Logistics-C, opt-d, 7,26, 43, 42, 39, 42, 42, 19, 2
+Logistics-C, opt-d, 7,27, 43, 43, 40, 43, 43, 20, 1
+Logistics-C, opt-d, 7,28, 44, 44, 39, 44, 44, 21, 0
+Logistics-C, adv, 7,1, 47, 47, 38, 47, 47, 20, 28
+Logistics-C, adv, 7,2, 46, 46, 38, 46, 46, 20, 26
+Logistics-C, adv, 7,3, 46, 45, 37, 46, 46, 20, 26
+Logistics-C, adv, 7,4, 46, 46, 37, 46, 46, 18, 25
+Logistics-C, adv, 7,5, 45, 45, 36, 45, 45, 17, 23
+Logistics-C, adv, 7,6, 44, 44, 36, 44, 44, 16, 22
+Logistics-C, adv, 7,7, 43, 43, 36, 43, 43, 17, 21
+Logistics-C, adv, 7,8, 44, 44, 37, 44, 44, 16, 20
+Logistics-C, adv, 7,9, 44, 43, 36, 43, 43, 15, 19
+Logistics-C, adv, 7,10, 42, 42, 35, 42, 42, 14, 18
+Logistics-C, adv, 7,11, 43, 43, 36, 43, 43, 14, 18
+Logistics-C, adv, 7,12, 43, 42, 37, 42, 42, 15, 16
+Logistics-C, adv, 7,13, 41, 41, 36, 41, 41, 15, 15
+Logistics-C, adv, 7,14, 40, 40, 35, 40, 40, 14, 14
+Logistics-C, adv, 7,15, 41, 41, 36, 41, 41, 15, 15
+Logistics-C, adv, 7,16, 42, 42, 37, 42, 42, 16, 16
+Logistics-C, adv, 7,17, 41, 41, 36, 41, 41, 16, 16
+Logistics-C, adv, 7,18, 40, 40, 35, 40, 40, 15, 15
+Logistics-C, adv, 7,19, 39, 39, 34, 39, 39, 15, 15
+Logistics-C, adv, 7,20, 40, 40, 35, 40, 40, 16, 16
+Logistics-C, adv, 7,21, 41, 41, 36, 41, 41, 17, 17
+Logistics-C, adv, 7,22, 40, 40, 35, 40, 40, 17, 18
+Logistics-C, adv, 7,23, 40, 41, 36, 40, 40, 18, 18
+Logistics-C, adv, 7,24, 39, 39, 35, 39, 39, 17, 17
+Logistics-C, adv, 7,25, 38, 38, 34, 38, 38, 16, 15
+Logistics-C, adv, 7,26, 37, 37, 33, 37, 37, 15, 14
+Logistics-C, adv, 7,27, 36, 36, 32, 36, 36, 14, 13
+Logistics-C, adv, 7,28, 35, 35, 31, 35, 35, 13, 12
+Logistics-C, adv, 7,29, 34, 34, 30, 34, 34, 12, 11
+Logistics-C, adv, 7,30, 35, 35, 31, 35, 35, 12, 10
+Logistics-C, adv, 7,31, 34, 34, 32, 34, 34, 13, 9
+Logistics-C, adv, 7,32, 35, 35, 33, 35, 35, 14, 8
+Logistics-C, adv, 7,33, 36, 36, 34, 36, 36, 15, 7
+Logistics-C, adv, 7,34, 35, 35, 35, 35, 35, 16, 6
+Logistics-C, adv, 7,35, 36, 36, 34, 36, 36, 17, 5
+Logistics-C, adv, 7,36, 37, 37, 33, 37, 37, 18, 4
+Logistics-C, adv, 7,37, 38, 38, 34, 38, 38, 19, 3
+Logistics-C, adv, 7,38, 39, 39, 33, 39, 39, 20, 2
+Logistics-C, adv, 7,39, 41, 40, 34, 40, 40, 21, 1
+Logistics-C, adv, 7,40, 39, 39, 35, 39, 39, 22, 0
+Logistics-C, opt-a, 3,1, 47, 47, 38, 47, 47, 21, 29
+Logistics-C, opt-a, 3,2, 46, 46, 37, 46, 46, 21, 27
+Logistics-C, opt-a, 3,3, 45, 45, 36, 45, 45, 20, 26
+Logistics-C, opt-a, 3,4, 44, 44, 35, 44, 44, 19, 25
+Logistics-C, opt-a, 3,5, 43, 43, 34, 43, 43, 19, 25
+Logistics-C, opt-a, 3,6, 42, 42, 33, 42, 42, 18, 24
+Logistics-C, opt-a, 3,7, 41, 41, 32, 41, 41, 17, 23
+Logistics-C, opt-a, 3,8, 40, 40, 31, 40, 40, 16, 22
+Logistics-C, opt-a, 3,9, 39, 39, 30, 39, 39, 15, 21
+Logistics-C, opt-a, 3,10, 38, 38, 29, 38, 38, 14, 21
+Logistics-C, opt-a, 3,11, 37, 37, 28, 37, 37, 14, 20
+Logistics-C, opt-a, 3,12, 36, 36, 27, 36, 36, 14, 20
+Logistics-C, opt-a, 3,13, 35, 35, 26, 35, 35, 14, 21
+Logistics-C, opt-a, 3,14, 34, 34, 25, 34, 34, 13, 19
+Logistics-C, opt-a, 3,15, 33, 33, 24, 33, 33, 12, 19
+Logistics-C, opt-a, 3,16, 32, 32, 23, 32, 32, 11, 17
+Logistics-C, opt-a, 3,17, 31, 31, 22, 31, 31, 11, 18
+Logistics-C, opt-a, 3,18, 30, 30, 21, 30, 30, 10, 16
+Logistics-C, opt-a, 3,19, 29, 29, 20, 29, 29, 9, 17
+Logistics-C, opt-a, 3,20, 28, 28, 19, 28, 28, 8, 18
+Logistics-C, opt-a, 3,21, 27, 27, 18, 27, 27, 8, 18
+Logistics-C, opt-a, 3,22, 28, 28, 17, 28, 28, 9, 19
+Logistics-C, opt-a, 3,23, 27, 27, 16, 27, 27, 9, 19
+Logistics-C, opt-a, 3,24, 28, 28, 15, 28, 28, 10, 18
+Logistics-C, opt-a, 3,25, 29, 29, 14, 29, 29, 10, 18
+Logistics-C, opt-a, 3,26, 30, 30, 13, 30, 30, 10, 18
+Logistics-C, opt-a, 3,27, 30, 30, 12, 30, 30, 11, 18
+Logistics-C, opt-a, 3,28, 31, 28, 11, 29, 29, 10, 19
+Logistics-C, opt-a, 3,29, 32, 29, 10, 30, 30, 11, 18
+Logistics-C, opt-a, 3,30, 33, 30, 9, 31, 31, 12, 19
+Logistics-C, opt-a, 3,31, 34, 31, 8, 32, 32, 13, 18
+Logistics-C, opt-a, 3,32, 35, 30, 7, 33, 33, 13, 18
+Logistics-C, opt-a, 3,33, 34, 29, 6, 32, 32, 12, 18
+Logistics-C, opt-a, 3,34, 34, 28, 5, 31, 31, 11, 17
+Logistics-C, opt-a, 3,35, 32, 27, 4, 30, 30, 11, 17
+Logistics-C, opt-a, 3,36, 32, 27, 3, 30, 30, 11, 17
+Logistics-C, opt-a, 3,37, 33, 28, 2, 31, 31, 12, 18
+Logistics-C, opt-a, 3,38, 34, 29, 1, 32, 32, 12, 18
+Logistics-C, opt-a, 3,39, 35, 30, 0, 33, 33, 12, 18
+Logistics-C, amb, ,1, 47, 47, 38, 47, 47, 20, 28
+Logistics-C, amb, ,2, 48, 48, 39, 48, 48, 19, 27
+Logistics-C, amb, ,3, 48, 47, 38, 48, 48, 18, 25
+Logistics-C, amb, ,4, 46, 46, 38, 46, 46, 17, 24
+Logistics-C, amb, ,5, 48, 47, 38, 47, 47, 16, 23
+Logistics-C, amb, ,6, 46, 46, 37, 46, 46, 15, 23
+Logistics-C, amb, ,7, 45, 46, 36, 45, 45, 14, 21
+Logistics-C, amb, ,8, 44, 44, 35, 45, 45, 13, 20
+Logistics-C, amb, ,9, 44, 44, 35, 44, 44, 12, 19
+Logistics-C, amb, ,10, 43, 43, 34, 43, 43, 11, 18
+Logistics-C, amb, ,11, 44, 44, 35, 44, 44, 10, 17
+Logistics-C, amb, ,12, 43, 43, 36, 43, 43, 9, 18
+Logistics-C, amb, ,13, 42, 42, 37, 42, 42, 8, 19
+Logistics-C, amb, ,14, 41, 41, 37, 41, 41, 7, 20
+Logistics-C, amb, ,15, 40, 41, 35, 40, 40, 6, 21
+Logistics-C, amb, ,16, 39, 39, 35, 39, 39, 5, 20
+Logistics-C, amb, ,17, 38, 38, 34, 38, 38, 4, 19
+Logistics-C, amb, ,18, 39, 39, 35, 38, 38, 3, 19
+Logistics-C, amb, ,19, 38, 40, 36, 37, 37, 2, 20
+Logistics-C, amb, ,20, 39, 39, 35, 36, 36, 1, 21
+Logistics-C, amb, ,21, 40, 40, 36, 37, 37, 0, 22
+Logistics-D, opt-a, 2,1, 32, 32, 22, 37, 28, 18
+Logistics-D, opt-a, 2,2, 31, 30, 21, 36, 27, 17
+Logistics-D, opt-a, 2,3, 30, 29, 20, 36, 26, 17
+Logistics-D, opt-a, 2,4, 29, 28, 20, 34, 25, 16
+Logistics-D, opt-a, 2,5, 29, 27, 20, 34, 25, 17
+Logistics-D, opt-a, 2,6, 28, 26, 19, 32, 24, 15
+Logistics-D, opt-a, 2,7, 27, 25, 20, 31, 25, 14
+Logistics-D, opt-a, 2,8, 26, 24, 21, 30, 24, 15
+Logistics-D, opt-a, 2,9, 26, 23, 21, 30, 24, 13
+Logistics-D, opt-a, 2,10, 27, 22, 22, 29, 25, 14
+Logistics-D, opt-a, 2,11, 28, 21, 23, 28, 26, 15
+Logistics-D, opt-a, 2,12, 28, 20, 23, 28, 26, 14
+Logistics-D, opt-a, 2,13, 27, 19, 24, 27, 27, 13
+Logistics-D, opt-a, 2,14, 26, 18, 25, 26, 26, 13
+Logistics-D, opt-a, 2,15, 27, 17, 26, 25, 27, 14
+Logistics-D, opt-a, 2,16, 28, 16, 27, 24, 28, 15
+Logistics-D, opt-a, 2,17, 29, 15, 28, 25, 29, 16
+Logistics-D, opt-a, 2,18, 30, 14, 29, 24, 30, 17
+Logistics-D, opt-a, 2,19, 29, 13, 29, 23, 29, 18
+Logistics-D, opt-a, 2,20, 28, 12, 28, 22, 28, 16
+Logistics-D, opt-a, 2,21, 29, 11, 29, 22, 29, 17
+Logistics-D, opt-a, 2,22, 30, 10, 28, 21, 28, 15
+Logistics-D, opt-a, 2,23, 31, 9, 27, 20, 27, 14
+Logistics-D, opt-a, 2,24, 30, 8, 28, 19, 28, 13
+Logistics-D, opt-a, 2,25, 29, 7, 29, 18, 29, 12
+Logistics-D, opt-a, 2,26, 28, 6, 30, 17, 29, 12
+Logistics-D, opt-a, 2,27, 27, 5, 31, 16, 27, 12
+Logistics-D, opt-a, 2,28, 27, 4, 32, 15, 27, 13
+Logistics-D, opt-a, 2,29, 26, 3, 33, 14, 29, 14
+Logistics-D, opt-a, 2,30, 25, 2, 34, 13, 27, 14
+Logistics-D, opt-a, 2,31, 25, 1, 35, 13, 29, 15
+Logistics-D, opt-a, 2,32, 27, 0, 36, 12, 29, 14
+Logistics-D, loi, 6,1, 32, 32, 22, 37, 28, 18
+Logistics-D, loi, 6,2, 31, 30, 21, 36, 27, 17
+Logistics-D, loi, 6,3, 32, 31, 22, 37, 28, 16
+Logistics-D, loi, 6,4, 31, 30, 23, 36, 29, 15
+Logistics-D, loi, 6,5, 31, 30, 23, 36, 29, 14
+Logistics-D, loi, 6,6, 30, 30, 24, 35, 30, 13
+Logistics-D, loi, 6,7, 30, 30, 24, 35, 30, 13
+Logistics-D, loi, 6,8, 30, 30, 24, 35, 30, 13
+Logistics-D, loi, 6,9, 29, 29, 24, 35, 29, 12
+Logistics-D, loi, 6,10, 30, 29, 25, 36, 30, 13
+Logistics-D, loi, 6,11, 30, 29, 25, 36, 30, 13
+Logistics-D, loi, 6,12, 29, 29, 24, 35, 29, 12
+Logistics-D, loi, 6,13, 30, 29, 25, 36, 30, 12
+Logistics-D, loi, 6,14, 30, 29, 25, 36, 30, 12
+Logistics-D, loi, 6,15, 31, 30, 26, 37, 31, 13
+Logistics-D, loi, 6,16, 32, 31, 27, 38, 32, 14
+Logistics-D, loi, 6,17, 32, 31, 27, 38, 32, 14
+Logistics-D, loi, 6,18, 31, 30, 26, 37, 31, 13
+Logistics-D, loi, 6,19, 30, 29, 26, 36, 30, 13
+Logistics-D, loi, 6,20, 29, 28, 25, 35, 29, 12
+Logistics-D, loi, 6,21, 29, 28, 25, 35, 29, 12
+Logistics-D, loi, 6,22, 29, 28, 25, 35, 29, 12
+Logistics-D, loi, 6,23, 28, 27, 24, 34, 28, 11
+Logistics-D, loi, 6,24, 29, 26, 25, 34, 29, 10
+Logistics-D, loi, 6,25, 30, 25, 25, 33, 28, 9
+Logistics-D, loi, 6,26, 29, 24, 25, 32, 29, 8
+Logistics-D, loi, 6,27, 30, 23, 24, 31, 28, 7
+Logistics-D, loi, 6,28, 29, 22, 25, 31, 29, 6
+Logistics-D, loi, 6,29, 29, 21, 25, 29, 29, 5
+Logistics-D, loi, 6,30, 28, 20, 24, 28, 28, 4
+Logistics-D, loi, 6,31, 29, 19, 25, 29, 29, 3
+Logistics-D, loi, 6,32, 30, 18, 26, 28, 30, 2
+Logistics-D, loi, 6,33, 29, 19, 25, 29, 29, 1
+Logistics-D, loi, 6,34, 30, 20, 26, 30, 30, 0
+Logistics-D, opt-d, 6,1, 32, 32, 22, 38, 28, 18
+Logistics-D, opt-d, 6,2, 31, 31, 21, 37, 27, 17
+Logistics-D, opt-d, 6,3, 32, 30, 22, 37, 28, 16
+Logistics-D, opt-d, 6,4, 31, 29, 21, 36, 27, 15
+Logistics-D, opt-d, 6,5, 30, 28, 20, 35, 26, 14
+Logistics-D, opt-d, 6,6, 31, 30, 21, 36, 27, 13
+Logistics-D, opt-d, 6,7, 30, 28, 22, 35, 28, 12
+Logistics-D, opt-d, 6,8, 29, 27, 23, 34, 29, 11
+Logistics-D, opt-d, 6,9, 29, 27, 24, 34, 29, 10
+Logistics-D, opt-d, 6,10, 30, 26, 23, 33, 28, 9
+Logistics-D, opt-d, 6,11, 29, 25, 24, 32, 29, 8
+Logistics-D, opt-d, 6,12, 30, 24, 23, 31, 28, 7
+Logistics-D, opt-d, 6,13, 29, 23, 24, 30, 29, 6
+Logistics-D, opt-d, 6,14, 29, 22, 24, 29, 29, 5
+Logistics-D, opt-d, 6,15, 28, 21, 23, 28, 28, 4
+Logistics-D, opt-d, 6,16, 29, 20, 24, 29, 29, 3
+Logistics-D, opt-d, 6,17, 30, 19, 25, 28, 30, 2
+Logistics-D, opt-d, 6,18, 29, 20, 24, 29, 29, 1
+Logistics-D, opt-d, 6,19, 30, 21, 25, 30, 30, 0
+Logistics-D, adv, 6,1, 32, 32, 22, 38, 28, 18
+Logistics-D, adv, 6,2, 31, 31, 21, 37, 27, 17
+Logistics-D, adv, 6,3, 32, 30, 22, 37, 28, 16
+Logistics-D, adv, 6,4, 31, 29, 21, 36, 27, 15
+Logistics-D, adv, 6,5, 30, 28, 20, 35, 26, 14
+Logistics-D, adv, 6,6, 31, 30, 21, 36, 27, 13
+Logistics-D, adv, 6,7, 30, 28, 22, 35, 28, 12
+Logistics-D, adv, 6,8, 29, 27, 23, 34, 29, 11
+Logistics-D, adv, 6,9, 29, 27, 24, 34, 29, 10
+Logistics-D, adv, 6,10, 30, 26, 23, 33, 28, 9
+Logistics-D, adv, 6,11, 29, 25, 24, 32, 29, 8
+Logistics-D, adv, 6,12, 30, 24, 23, 31, 28, 7
+Logistics-D, adv, 6,13, 29, 23, 24, 30, 29, 6
+Logistics-D, adv, 6,14, 29, 22, 24, 29, 29, 5
+Logistics-D, adv, 6,15, 28, 21, 23, 28, 28, 4
+Logistics-D, adv, 6,16, 29, 20, 24, 29, 29, 3
+Logistics-D, adv, 6,17, 30, 19, 25, 28, 30, 2
+Logistics-D, adv, 6,18, 29, 20, 24, 29, 29, 1
+Logistics-D, adv, 6,19, 30, 21, 25, 30, 30, 0
+Logistics-D, loi, ,1, 32, 32, 22, 38, 28, 18
+Logistics-D, loi, ,2, 31, 31, 21, 37, 27, 17
+Logistics-D, loi, ,3, 30, 31, 20, 36, 26, 17
+Logistics-D, loi, ,4, 30, 30, 19, 35, 26, 17
+Logistics-D, loi, ,5, 31, 29, 18, 35, 25, 16
+Logistics-D, loi, ,6, 32, 28, 17, 33, 24, 15
+Logistics-D, loi, ,7, 31, 28, 16, 32, 23, 14
+Logistics-D, loi, ,8, 30, 26, 15, 31, 22, 13
+Logistics-D, loi, ,9, 31, 27, 16, 32, 23, 12
+Logistics-D, loi, ,10, 31, 26, 16, 31, 23, 13
+Logistics-D, loi, ,11, 30, 26, 15, 30, 22, 12
+Logistics-D, loi, ,12, 29, 25, 14, 29, 21, 11
+Logistics-D, loi, ,13, 29, 25, 15, 29, 20, 10
+Logistics-D, loi, ,14, 28, 24, 14, 28, 19, 10
+Logistics-D, loi, ,15, 29, 24, 15, 27, 20, 9
+Logistics-D, loi, ,16, 28, 24, 14, 28, 20, 8
+Logistics-D, loi, ,17, 28, 25, 13, 29, 18, 9
+Logistics-D, loi, ,18, 26, 24, 14, 28, 19, 8
+Logistics-D, loi, ,19, 25, 23, 15, 27, 20, 7
+Logistics-D, loi, ,20, 24, 23, 14, 26, 19, 7
+Logistics-D, loi, ,21, 23, 25, 13, 27, 18, 6
+Logistics-D, loi, ,22, 23, 24, 13, 27, 19, 5
+Logistics-D, loi, ,23, 22, 23, 14, 26, 20, 4
+Logistics-D, loi, ,24, 21, 22, 15, 25, 21, 3
+Logistics-D, loi, ,25, 22, 21, 16, 24, 22, 2
+Logistics-D, loi, ,26, 23, 20, 17, 23, 23, 1
+Logistics-D, loi, ,27, 24, 21, 18, 24, 25, 0
+Logistics-E, loi, 6,1, 42, 34, 43, 37, 38, 21, 22
+Logistics-E, loi, 6,2, 41, 33, 42, 36, 37, 20, 22
+Logistics-E, loi, 6,3, 40, 32, 41, 35, 36, 19, 22
+Logistics-E, loi, 6,4, 39, 31, 42, 34, 37, 18, 23
+Logistics-E, loi, 6,5, 38, 31, 41, 33, 36, 17, 21
+Logistics-E, loi, 6,6, 37, 29, 40, 32, 35, 16, 22
+Logistics-E, loi, 6,7, 38, 30, 41, 33, 36, 15, 22
+Logistics-E, loi, 6,8, 37, 29, 40, 32, 35, 14, 23
+Logistics-E, loi, 6,9, 36, 28, 39, 31, 34, 13, 22
+Logistics-E, loi, 6,10, 36, 28, 39, 31, 34, 13, 22
+Logistics-E, loi, 6,11, 36, 28, 39, 31, 34, 13, 22
+Logistics-E, loi, 6,12, 36, 28, 39, 31, 34, 13, 22
+Logistics-E, loi, 6,13, 38, 29, 40, 32, 35, 13, 22
+Logistics-E, loi, 6,14, 38, 29, 40, 32, 35, 13, 22
+Logistics-E, loi, 6,15, 38, 28, 41, 34, 36, 13, 22
+Logistics-E, loi, 6,16, 40, 29, 41, 34, 37, 13, 23
+Logistics-E, loi, 6,17, 40, 29, 41, 34, 37, 13, 23
+Logistics-E, loi, 6,18, 40, 30, 42, 35, 38, 14, 23
+Logistics-E, loi, 6,19, 39, 30, 41, 35, 37, 14, 22
+Logistics-E, loi, 6,20, 38, 29, 41, 35, 36, 14, 21
+Logistics-E, loi, 6,21, 38, 29, 41, 35, 36, 14, 21
+Logistics-E, loi, 6,22, 38, 29, 41, 35, 36, 14, 21
+Logistics-E, loi, 6,23, 38, 28, 40, 34, 36, 14, 21
+Logistics-E, loi, 6,24, 37, 27, 39, 33, 35, 13, 22
+Logistics-E, loi, 6,25, 37, 27, 39, 33, 35, 13, 22
+Logistics-E, loi, 6,26, 37, 27, 39, 33, 35, 13, 22
+Logistics-E, loi, 6,27, 39, 29, 40, 35, 36, 12, 22
+Logistics-E, loi, 6,28, 38, 27, 41, 33, 37, 12, 22
+Logistics-E, loi, 6,29, 36, 26, 40, 32, 36, 10, 22
+Logistics-E, loi, 6,30, 37, 26, 40, 33, 36, 9, 20
+Logistics-E, loi, 6,31, 35, 27, 39, 33, 35, 8, 20
+Logistics-E, loi, 6,32, 36, 28, 40, 34, 36, 7, 21
+Logistics-E, loi, 6,33, 35, 28, 39, 33, 35, 6, 21
+Logistics-E, loi, 6,34, 34, 30, 38, 34, 34, 5, 19
+Logistics-E, loi, 6,35, 35, 30, 39, 35, 35, 4, 19
+Logistics-E, loi, 6,36, 36, 30, 40, 36, 36, 3, 20
+Logistics-E, loi, 6,37, 37, 32, 41, 37, 37, 2, 20
+Logistics-E, loi, 6,38, 36, 32, 40, 38, 36, 1, 20
+Logistics-E, loi, 6,39, 37, 31, 41, 37, 37, 0, 22
+Logistics-E, opt-d, 6,1, 42, 34, 42, 37, 37, 22, 21
+Logistics-E, opt-d, 6,2, 41, 33, 41, 36, 36, 20, 21
+Logistics-E, opt-d, 6,3, 40, 32, 41, 35, 36, 19, 22
+Logistics-E, opt-d, 6,4, 39, 31, 40, 34, 35, 18, 21
+Logistics-E, opt-d, 6,5, 40, 32, 41, 35, 36, 17, 22
+Logistics-E, opt-d, 6,6, 39, 32, 40, 34, 35, 16, 22
+Logistics-E, opt-d, 6,7, 38, 30, 39, 33, 34, 15, 22
+Logistics-E, opt-d, 6,8, 37, 29, 40, 32, 35, 14, 23
+Logistics-E, opt-d, 6,9, 36, 28, 39, 31, 34, 13, 22
+Logistics-E, opt-d, 6,10, 37, 29, 40, 32, 35, 12, 23
+Logistics-E, opt-d, 6,11, 36, 28, 41, 31, 36, 11, 23
+Logistics-E, opt-d, 6,12, 36, 28, 41, 31, 36, 10, 22
+Logistics-E, opt-d, 6,13, 35, 29, 40, 32, 35, 9, 22
+Logistics-E, opt-d, 6,14, 36, 30, 41, 33, 36, 8, 22
+Logistics-E, opt-d, 6,15, 35, 31, 40, 34, 35, 7, 22
+Logistics-E, opt-d, 6,16, 36, 32, 41, 35, 36, 6, 22
+Logistics-E, opt-d, 6,17, 35, 32, 40, 35, 35, 5, 21
+Logistics-E, opt-d, 6,18, 34, 31, 39, 34, 34, 4, 20
+Logistics-E, opt-d, 6,19, 34, 31, 39, 34, 34, 3, 20
+Logistics-E, opt-d, 6,20, 35, 32, 40, 35, 35, 2, 20
+Logistics-E, opt-d, 6,21, 34, 33, 39, 36, 34, 1, 20
+Logistics-E, opt-d, 6,22, 35, 32, 40, 35, 35, 0, 21
+Logistics-E, adv, 6,1, 42, 34, 42, 37, 37, 22, 21
+Logistics-E, adv, 6,2, 41, 33, 41, 36, 36, 20, 21
+Logistics-E, adv, 6,3, 40, 32, 41, 35, 36, 19, 22
+Logistics-E, adv, 6,4, 39, 31, 40, 34, 35, 18, 21
+Logistics-E, adv, 6,5, 40, 32, 41, 35, 36, 17, 22
+Logistics-E, adv, 6,6, 39, 32, 40, 34, 35, 16, 22
+Logistics-E, adv, 6,7, 38, 30, 39, 33, 34, 15, 22
+Logistics-E, adv, 6,8, 37, 29, 40, 32, 35, 14, 23
+Logistics-E, adv, 6,9, 36, 28, 39, 31, 34, 13, 22
+Logistics-E, adv, 6,10, 37, 29, 40, 32, 35, 12, 23
+Logistics-E, adv, 6,11, 36, 28, 41, 31, 36, 11, 23
+Logistics-E, adv, 6,12, 36, 28, 41, 31, 36, 10, 22
+Logistics-E, adv, 6,13, 35, 29, 40, 32, 35, 9, 22
+Logistics-E, adv, 6,14, 36, 30, 41, 33, 36, 8, 22
+Logistics-E, adv, 6,15, 35, 31, 40, 34, 35, 7, 22
+Logistics-E, adv, 6,16, 36, 32, 41, 35, 36, 6, 22
+Logistics-E, adv, 6,17, 35, 32, 40, 35, 35, 5, 21
+Logistics-E, adv, 6,18, 34, 31, 39, 34, 34, 4, 20
+Logistics-E, adv, 6,19, 34, 31, 39, 34, 34, 3, 20
+Logistics-E, adv, 6,20, 35, 32, 40, 35, 35, 2, 20
+Logistics-E, adv, 6,21, 34, 33, 39, 36, 34, 1, 20
+Logistics-E, adv, 6,22, 35, 32, 40, 35, 35, 0, 21
+Logistics-E, amb, ,1, 42, 34, 42, 37, 37, 22, 21
+Logistics-E, amb, ,2, 41, 33, 41, 36, 36, 20, 21
+Logistics-E, amb, ,3, 40, 32, 41, 35, 36, 19, 22
+Logistics-E, amb, ,4, 39, 31, 40, 34, 35, 18, 21
+Logistics-E, amb, ,5, 38, 30, 39, 33, 34, 17, 21
+Logistics-E, amb, ,6, 37, 29, 40, 32, 35, 16, 22
+Logistics-E, amb, ,7, 36, 28, 39, 31, 34, 16, 20
+Logistics-E, amb, ,8, 35, 27, 38, 30, 33, 15, 19
+Logistics-E, amb, ,9, 34, 26, 37, 29, 32, 14, 19
+Logistics-E, amb, ,10, 34, 25, 37, 28, 31, 14, 18
+Logistics-E, amb, ,11, 32, 24, 35, 27, 30, 13, 18
+Logistics-E, amb, ,12, 34, 25, 36, 28, 31, 12, 19
+Logistics-E, amb, ,13, 32, 24, 37, 27, 32, 11, 19
+Logistics-E, amb, ,14, 32, 24, 37, 27, 32, 10, 18
+Logistics-E, amb, ,15, 31, 25, 36, 26, 31, 10, 18
+Logistics-E, amb, ,16, 30, 26, 35, 27, 30, 9, 18
+Logistics-E, amb, ,17, 31, 27, 36, 28, 31, 8, 18
+Logistics-E, amb, ,18, 32, 28, 37, 29, 32, 7, 18
+Logistics-E, amb, ,19, 31, 29, 36, 30, 31, 6, 18
+Logistics-E, amb, ,20, 30, 29, 35, 30, 30, 5, 17
+Logistics-E, amb, ,21, 29, 28, 34, 29, 29, 4, 16
+Logistics-E, amb, ,22, 29, 28, 34, 29, 29, 3, 16
+Logistics-E, amb, ,23, 30, 29, 35, 30, 30, 2, 16
+Logistics-E, amb, ,24, 29, 30, 34, 31, 29, 1, 16
+Logistics-E, amb, ,25, 30, 29, 35, 30, 30, 0, 17
+Logistics-E, opt-a, 2,1, 44, 34, 44, 39, 39, 22, 22
+Logistics-E, opt-a, 2,2, 43, 33, 43, 39, 38, 22, 21
+Logistics-E, opt-a, 2,3, 42, 32, 42, 38, 37, 21, 20
+Logistics-E, opt-a, 2,4, 41, 31, 41, 37, 36, 20, 20
+Logistics-E, opt-a, 2,5, 40, 30, 40, 36, 35, 19, 19
+Logistics-E, opt-a, 2,6, 39, 29, 39, 35, 34, 19, 18
+Logistics-E, opt-a, 2,7, 38, 28, 38, 34, 33, 18, 17
+Logistics-E, opt-a, 2,8, 37, 27, 37, 33, 32, 18, 17
+Logistics-E, opt-a, 2,9, 36, 26, 36, 32, 31, 17, 17
+Logistics-E, opt-a, 2,10, 35, 25, 35, 31, 30, 16, 16
+Logistics-E, opt-a, 2,11, 34, 24, 34, 30, 29, 16, 15
+Logistics-E, opt-a, 2,12, 34, 23, 34, 30, 29, 16, 15
+Logistics-E, opt-a, 2,13, 34, 22, 34, 30, 29, 15, 15
+Logistics-E, opt-a, 2,14, 35, 21, 35, 31, 30, 15, 16
+Logistics-E, opt-a, 2,15, 34, 20, 35, 30, 30, 14, 16
+Logistics-E, opt-a, 2,16, 33, 19, 34, 29, 29, 13, 16
+Logistics-E, opt-a, 2,17, 34, 18, 35, 28, 30, 12, 17
+Logistics-E, opt-a, 2,18, 33, 17, 34, 27, 29, 11, 17
+Logistics-E, opt-a, 2,19, 34, 16, 35, 28, 30, 11, 17
+Logistics-E, opt-a, 2,20, 33, 15, 36, 27, 31, 10, 17
+Logistics-E, opt-a, 2,21, 34, 14, 37, 28, 32, 10, 19
+Logistics-E, opt-a, 2,22, 35, 13, 38, 27, 33, 11, 18
+Logistics-E, opt-a, 2,23, 36, 12, 39, 26, 34, 12, 19
+Logistics-E, opt-a, 2,24, 37, 11, 40, 27, 35, 13, 19
+Logistics-E, opt-a, 2,25, 36, 11, 41, 26, 36, 12, 19
+Logistics-E, opt-a, 2,26, 37, 9, 42, 27, 37, 12, 20
+Logistics-E, opt-a, 2,27, 38, 8, 42, 27, 38, 13, 22
+Logistics-E, opt-a, 2,28, 36, 7, 43, 26, 39, 14, 21
+Logistics-E, opt-a, 2,29, 35, 6, 44, 25, 40, 16, 21
+Logistics-E, opt-a, 2,30, 34, 5, 43, 25, 40, 16, 21
+Logistics-E, opt-a, 2,31, 33, 4, 42, 23, 39, 16, 21
+Logistics-E, opt-a, 2,32, 32, 3, 42, 22, 39, 16, 20
+Logistics-E, opt-a, 2,33, 31, 2, 43, 21, 40, 17, 21
+Logistics-E, opt-a, 2,34, 32, 1, 44, 20, 41, 18, 20
+Logistics-E, opt-a, 2,35, 31, 0, 46, 19, 40, 18, 20
+Navigation-B, loi, 5,1, 10, 16, 9, 22, 22
+Navigation-B, loi, 5,2, 9, 15, 8, 21, 21
+Navigation-B, loi, 5,3, 8, 14, 7, 20, 20
+Navigation-B, loi, 5,4, 9, 15, 6, 21, 19
+Navigation-B, loi, 5,5, 10, 16, 5, 22, 18
+Navigation-B, loi, 5,6, 11, 17, 4, 23, 17
+Navigation-B, loi, 5,7, 12, 18, 3, 24, 16
+Navigation-B, loi, 5,8, 13, 19, 2, 25, 15
+Navigation-B, loi, 5,9, 14, 20, 1, 26, 14
+Navigation-B, loi, 5,10, 15, 19, 2, 25, 13
+Navigation-B, loi, 5,11, 16, 18, 3, 24, 12
+Navigation-B, loi, 5,12, 17, 17, 4, 23, 11
+Navigation-B, loi, 5,13, 18, 16, 5, 22, 10
+Navigation-B, loi, 5,14, 19, 15, 6, 21, 9
+Navigation-B, loi, 5,15, 18, 14, 7, 20, 8
+Navigation-B, loi, 5,16, 19, 15, 8, 21, 7
+Navigation-B, loi, 5,17, 18, 14, 9, 20, 6
+Navigation-B, loi, 5,18, 19, 13, 10, 19, 5
+Navigation-B, loi, 5,19, 20, 14, 11, 20, 4
+Navigation-B, loi, 5,20, 20, 14, 11, 20, 4
+Navigation-B, loi, 5,21, 19, 13, 10, 19, 5
+Navigation-B, loi, 5,22, 20, 14, 11, 20, 4
+Navigation-B, loi, 5,23, 19, 13, 10, 19, 5
+Navigation-B, loi, 5,24, 20, 14, 11, 20, 4
+Navigation-B, loi, 5,25, 20, 14, 11, 20, 4
+Navigation-B, loi, 5,26, 20, 14, 11, 20, 4
+Navigation-B, loi, 5,27, 21, 15, 12, 21, 3
+Navigation-B, loi, 5,28, 22, 16, 13, 22, 2
+Navigation-B, loi, 5,29, 21, 15, 12, 21, 3
+Navigation-B, loi, 5,30, 21, 15, 12, 21, 3
+Navigation-B, loi, 5,31, 20, 14, 13, 20, 4
+Navigation-B, loi, 5,32, 21, 15, 14, 21, 3
+Navigation-B, loi, 5,33, 21, 15, 14, 21, 3
+Navigation-B, loi, 5,34, 21, 15, 14, 21, 3
+Navigation-B, loi, 5,35, 22, 16, 13, 22, 2
+Navigation-B, loi, 5,36, 23, 17, 14, 23, 1
+Navigation-B, loi, 5,37, 24, 18, 15, 24, 0
+Navigation-B, adv, 5,1, 10, 16, 9, 22, 22
+Navigation-B, adv, 5,2, 9, 15, 8, 21, 21
+Navigation-B, adv, 5,3, 8, 14, 7, 20, 20
+Navigation-B, adv, 5,4, 9, 15, 6, 21, 19
+Navigation-B, adv, 5,5, 10, 16, 5, 22, 18
+Navigation-B, adv, 5,6, 11, 17, 4, 23, 17
+Navigation-B, adv, 5,7, 12, 18, 3, 24, 16
+Navigation-B, adv, 5,8, 13, 19, 2, 25, 15
+Navigation-B, adv, 5,9, 14, 20, 1, 26, 14
+Navigation-B, adv, 5,10, 15, 19, 2, 25, 13
+Navigation-B, adv, 5,11, 16, 18, 3, 24, 12
+Navigation-B, adv, 5,12, 17, 17, 4, 23, 11
+Navigation-B, adv, 5,13, 18, 16, 5, 22, 10
+Navigation-B, adv, 5,14, 19, 15, 6, 21, 9
+Navigation-B, adv, 5,15, 18, 14, 7, 20, 8
+Navigation-B, adv, 5,16, 17, 13, 8, 19, 9
+Navigation-B, adv, 5,17, 16, 12, 9, 18, 8
+Navigation-B, adv, 5,18, 17, 11, 10, 17, 7
+Navigation-B, adv, 5,19, 18, 12, 11, 18, 6
+Navigation-B, adv, 5,20, 19, 13, 12, 19, 5
+Navigation-B, adv, 5,21, 20, 14, 11, 20, 4
+Navigation-B, adv, 5,22, 21, 15, 12, 21, 3
+Navigation-B, adv, 5,23, 20, 14, 13, 20, 4
+Navigation-B, adv, 5,24, 19, 13, 14, 19, 5
+Navigation-B, adv, 5,25, 18, 12, 15, 18, 6
+Navigation-B, adv, 5,26, 19, 13, 14, 19, 5
+Navigation-B, adv, 5,27, 20, 14, 15, 20, 4
+Navigation-B, adv, 5,28, 21, 15, 14, 21, 3
+Navigation-B, adv, 5,29, 22, 16, 13, 22, 2
+Navigation-B, adv, 5,30, 23, 17, 14, 23, 1
+Navigation-B, adv, 5,31, 24, 18, 15, 24, 0
+Navigation-B, opt-a, 2,1, 10, 16, 11, 22, 24
+Navigation-B, opt-a, 2,2, 9, 15, 10, 21, 23
+Navigation-B, opt-a, 2,3, 8, 14, 9, 20, 22
+Navigation-B, opt-a, 2,4, 7, 13, 8, 19, 21
+Navigation-B, opt-a, 2,5, 8, 12, 9, 18, 20
+Navigation-B, opt-a, 2,6, 9, 11, 10, 17, 19
+Navigation-B, opt-a, 2,7, 8, 10, 11, 16, 18
+Navigation-B, opt-a, 2,8, 7, 9, 12, 15, 17
+Navigation-B, opt-a, 2,9, 8, 8, 13, 14, 16
+Navigation-B, opt-a, 2,10, 9, 7, 14, 13, 15
+Navigation-B, opt-a, 2,11, 10, 6, 15, 12, 14
+Navigation-B, opt-a, 2,12, 11, 5, 16, 11, 13
+Navigation-B, opt-a, 2,13, 12, 4, 17, 10, 14
+Navigation-B, opt-a, 2,14, 13, 3, 18, 9, 15
+Navigation-B, opt-a, 2,15, 14, 2, 19, 8, 16
+Navigation-B, opt-a, 2,16, 15, 1, 20, 7, 17
+Navigation-B, opt-a, 2,17, 16, 0, 21, 8, 18
+Navigation-B, opt-d, 5,1, 10, 16, 9, 22, 22
+Navigation-B, opt-d, 5,2, 9, 15, 8, 21, 21
+Navigation-B, opt-d, 5,3, 8, 14, 7, 20, 20
+Navigation-B, opt-d, 5,4, 9, 15, 6, 21, 19
+Navigation-B, opt-d, 5,5, 10, 16, 5, 22, 18
+Navigation-B, opt-d, 5,6, 11, 17, 4, 23, 17
+Navigation-B, opt-d, 5,7, 12, 18, 3, 24, 16
+Navigation-B, opt-d, 5,8, 13, 19, 2, 25, 15
+Navigation-B, opt-d, 5,9, 14, 20, 1, 26, 14
+Navigation-B, opt-d, 5,10, 15, 19, 2, 25, 13
+Navigation-B, opt-d, 5,11, 16, 18, 3, 24, 12
+Navigation-B, opt-d, 5,12, 17, 17, 4, 23, 11
+Navigation-B, opt-d, 5,13, 18, 16, 5, 22, 10
+Navigation-B, opt-d, 5,14, 19, 15, 6, 21, 9
+Navigation-B, opt-d, 5,15, 18, 14, 7, 20, 8
+Navigation-B, opt-d, 5,16, 19, 15, 8, 21, 7
+Navigation-B, opt-d, 5,17, 18, 14, 9, 20, 6
+Navigation-B, opt-d, 5,18, 19, 13, 10, 19, 5
+Navigation-B, opt-d, 5,19, 20, 14, 11, 20, 4
+Navigation-B, opt-d, 5,20, 21, 15, 12, 21, 3
+Navigation-B, opt-d, 5,21, 22, 16, 13, 22, 2
+Navigation-B, opt-d, 5,22, 23, 17, 14, 23, 1
+Navigation-B, opt-d, 5,23, 24, 18, 15, 24, 0
+Navigation-B, amb, ,1, 10, 16, 11, 22, 24
+Navigation-B, amb, ,2, 9, 15, 10, 21, 23
+Navigation-B, amb, ,3, 8, 14, 9, 20, 22
+Navigation-B, amb, ,4, 7, 13, 8, 19, 21
+Navigation-B, amb, ,5, 8, 12, 9, 18, 20
+Navigation-B, amb, ,6, 9, 11, 10, 17, 19
+Navigation-B, amb, ,7, 8, 12, 11, 16, 20
+Navigation-B, amb, ,8, 7, 11, 12, 15, 19
+Navigation-B, amb, ,9, 6, 10, 13, 14, 18
+Navigation-B, amb, ,10, 7, 9, 14, 13, 17
+Navigation-B, amb, ,11, 8, 8, 15, 12, 16
+Navigation-B, amb, ,12, 9, 7, 16, 11, 15
+Navigation-B, amb, ,13, 8, 8, 17, 10, 16
+Navigation-B, amb, ,14, 7, 9, 18, 9, 17
+Navigation-B, amb, ,15, 6, 10, 19, 8, 18
+Navigation-B, amb, ,16, 7, 9, 18, 9, 17
+Navigation-B, amb, ,17, 8, 8, 17, 10, 16
+Navigation-B, amb, ,18, 9, 7, 16, 11, 15
+Navigation-B, amb, ,19, 10, 6, 15, 12, 14
+Navigation-B, amb, ,20, 11, 7, 14, 13, 13
+Navigation-B, amb, ,21, 12, 8, 13, 14, 12
+Navigation-B, amb, ,22, 13, 9, 12, 15, 11
+Navigation-B, amb, ,23, 14, 10, 11, 16, 10
+Navigation-B, amb, ,24, 15, 11, 10, 17, 9
+Navigation-B, amb, ,25, 16, 12, 9, 18, 8
+Navigation-B, amb, ,26, 17, 13, 8, 19, 7
+Navigation-B, amb, ,27, 16, 12, 9, 18, 8
+Navigation-B, amb, ,28, 15, 11, 10, 17, 9
+Navigation-B, amb, ,29, 16, 10, 11, 16, 8
+Navigation-B, amb, ,30, 17, 11, 12, 17, 7
+Navigation-B, amb, ,31, 18, 12, 13, 18, 6
+Navigation-B, amb, ,32, 19, 13, 14, 19, 5
+Navigation-B, amb, ,33, 20, 14, 15, 20, 4
+Navigation-B, amb, ,34, 21, 15, 14, 21, 3
+Navigation-B, amb, ,35, 22, 16, 13, 22, 2
+Navigation-B, amb, ,36, 23, 17, 14, 23, 1
+Navigation-B, amb, ,37, 24, 18, 15, 24, 0
+Navigation-C, loi, 5,1, 22, 18, 21, 24, 21
+Navigation-C, loi, 5,2, 23, 17, 20, 25, 20
+Navigation-C, loi, 5,3, 24, 16, 19, 26, 19
+Navigation-C, loi, 5,4, 23, 15, 18, 25, 18
+Navigation-C, loi, 5,5, 24, 16, 17, 26, 17
+Navigation-C, loi, 5,6, 23, 15, 16, 25, 16
+Navigation-C, loi, 5,7, 22, 14, 15, 24, 15
+Navigation-C, loi, 5,8, 21, 13, 14, 23, 14
+Navigation-C, loi, 5,9, 20, 12, 13, 22, 13
+Navigation-C, loi, 5,10, 19, 11, 12, 21, 12
+Navigation-C, loi, 5,11, 18, 10, 11, 20, 11
+Navigation-C, loi, 5,12, 17, 9, 12, 19, 10
+Navigation-C, loi, 5,13, 18, 10, 11, 20, 9
+Navigation-C, loi, 5,14, 19, 11, 10, 21, 8
+Navigation-C, loi, 5,15, 20, 12, 9, 22, 7
+Navigation-C, loi, 5,16, 21, 13, 10, 23, 6
+Navigation-C, loi, 5,17, 22, 14, 11, 24, 5
+Navigation-C, loi, 5,18, 23, 15, 12, 25, 4
+Navigation-C, loi, 5,19, 24, 16, 13, 26, 5
+Navigation-C, loi, 5,20, 24, 16, 13, 26, 5
+Navigation-C, loi, 5,21, 24, 16, 13, 26, 5
+Navigation-C, loi, 5,22, 23, 15, 12, 25, 4
+Navigation-C, loi, 5,23, 24, 16, 13, 26, 5
+Navigation-C, loi, 5,24, 24, 16, 13, 26, 5
+Navigation-C, loi, 5,25, 25, 17, 14, 27, 4
+Navigation-C, loi, 5,26, 24, 16, 13, 26, 5
+Navigation-C, loi, 5,27, 24, 16, 13, 26, 5
+Navigation-C, loi, 5,28, 25, 17, 14, 27, 4
+Navigation-C, loi, 5,29, 26, 18, 15, 28, 3
+Navigation-C, loi, 5,30, 25, 17, 14, 27, 4
+Navigation-C, loi, 5,31, 25, 17, 14, 27, 4
+Navigation-C, loi, 5,32, 26, 18, 15, 28, 3
+Navigation-C, loi, 5,33, 27, 19, 16, 29, 2
+Navigation-C, loi, 5,34, 26, 18, 15, 28, 1
+Navigation-C, loi, 5,35, 27, 19, 16, 29, 0
+Navigation-C, adv, 5,1, 22, 18, 21, 24, 21
+Navigation-C, adv, 5,2, 23, 17, 20, 25, 20
+Navigation-C, adv, 5,3, 24, 16, 19, 26, 19
+Navigation-C, adv, 5,4, 25, 17, 18, 27, 18
+Navigation-C, adv, 5,5, 24, 16, 17, 26, 17
+Navigation-C, adv, 5,6, 23, 15, 16, 25, 16
+Navigation-C, adv, 5,7, 22, 14, 15, 24, 15
+Navigation-C, adv, 5,8, 21, 13, 14, 23, 14
+Navigation-C, adv, 5,9, 20, 12, 13, 22, 13
+Navigation-C, adv, 5,10, 19, 11, 12, 21, 12
+Navigation-C, adv, 5,11, 18, 10, 11, 20, 11
+Navigation-C, adv, 5,12, 17, 9, 12, 19, 10
+Navigation-C, adv, 5,13, 16, 8, 13, 18, 11
+Navigation-C, adv, 5,14, 15, 7, 14, 17, 12
+Navigation-C, adv, 5,15, 14, 8, 15, 16, 13
+Navigation-C, adv, 5,16, 13, 7, 16, 15, 14
+Navigation-C, adv, 5,17, 12, 8, 17, 14, 15
+Navigation-C, adv, 5,18, 11, 9, 18, 13, 16
+Navigation-C, adv, 5,19, 12, 10, 17, 14, 15
+Navigation-C, adv, 5,20, 13, 9, 16, 15, 14
+Navigation-C, adv, 5,21, 14, 8, 15, 16, 13
+Navigation-C, adv, 5,22, 15, 7, 14, 17, 12
+Navigation-C, adv, 5,23, 16, 8, 13, 18, 11
+Navigation-C, adv, 5,24, 17, 9, 12, 19, 10
+Navigation-C, adv, 5,25, 18, 10, 11, 20, 9
+Navigation-C, adv, 5,26, 19, 11, 10, 21, 8
+Navigation-C, adv, 5,27, 20, 12, 9, 22, 9
+Navigation-C, adv, 5,28, 21, 13, 8, 23, 8
+Navigation-C, adv, 5,29, 22, 14, 7, 24, 9
+Navigation-C, adv, 5,30, 23, 15, 6, 25, 10
+Navigation-C, adv, 5,31, 24, 16, 5, 26, 11
+Navigation-C, adv, 5,32, 23, 15, 6, 25, 10
+Navigation-C, adv, 5,33, 22, 14, 7, 24, 9
+Navigation-C, adv, 5,34, 21, 13, 8, 23, 8
+Navigation-C, adv, 5,35, 20, 12, 9, 22, 7
+Navigation-C, adv, 5,36, 21, 13, 10, 23, 6
+Navigation-C, adv, 5,37, 20, 12, 9, 22, 7
+Navigation-C, adv, 5,38, 19, 11, 10, 21, 8
+Navigation-C, adv, 5,39, 18, 10, 11, 20, 9
+Navigation-C, adv, 5,40, 19, 11, 10, 21, 10
+Navigation-C, adv, 5,41, 18, 10, 11, 20, 9
+Navigation-C, adv, 5,42, 19, 11, 10, 21, 8
+Navigation-C, adv, 5,43, 20, 12, 9, 22, 7
+Navigation-C, adv, 5,44, 21, 13, 10, 23, 6
+Navigation-C, adv, 5,45, 22, 14, 11, 24, 5
+Navigation-C, adv, 5,46, 21, 13, 10, 23, 6
+Navigation-C, adv, 5,47, 20, 12, 9, 22, 7
+Navigation-C, adv, 5,48, 21, 13, 8, 23, 8
+Navigation-C, adv, 5,49, 20, 12, 9, 22, 7
+Navigation-C, adv, 5,50, 21, 13, 10, 23, 6
+Navigation-C, adv, 5,51, 22, 14, 11, 24, 5
+Navigation-C, adv, 5,52, 23, 15, 12, 25, 4
+Navigation-C, adv, 5,53, 24, 16, 13, 26, 3
+Navigation-C, adv, 5,54, 25, 17, 14, 27, 2
+Navigation-C, adv, 5,55, 26, 18, 15, 28, 3
+Navigation-C, adv, 5,56, 27, 19, 16, 29, 2
+Navigation-C, adv, 5,57, 26, 18, 15, 28, 1
+Navigation-C, adv, 5,58, 27, 19, 16, 29, 0
+Navigation-C, opt-a, 2,1, 22, 18, 21, 24, 21
+Navigation-C, opt-a, 2,2, 21, 17, 20, 23, 20
+Navigation-C, opt-a, 2,3, 20, 16, 19, 22, 19
+Navigation-C, opt-a, 2,4, 21, 15, 18, 23, 18
+Navigation-C, opt-a, 2,5, 20, 14, 17, 22, 17
+Navigation-C, opt-a, 2,6, 21, 13, 16, 23, 16
+Navigation-C, opt-a, 2,7, 20, 12, 15, 22, 15
+Navigation-C, opt-a, 2,8, 19, 11, 14, 21, 14
+Navigation-C, opt-a, 2,9, 18, 10, 13, 20, 13
+Navigation-C, opt-a, 2,10, 17, 9, 12, 19, 12
+Navigation-C, opt-a, 2,11, 16, 8, 13, 18, 11
+Navigation-C, opt-a, 2,12, 15, 7, 14, 17, 12
+Navigation-C, opt-a, 2,13, 14, 6, 15, 16, 13
+Navigation-C, opt-a, 2,14, 15, 5, 16, 17, 14
+Navigation-C, opt-a, 2,15, 16, 4, 17, 18, 15
+Navigation-C, opt-a, 2,16, 17, 3, 18, 19, 16
+Navigation-C, opt-a, 2,17, 18, 2, 19, 20, 17
+Navigation-C, opt-a, 2,18, 19, 1, 20, 21, 18
+Navigation-C, opt-a, 2,19, 20, 0, 21, 22, 19
+Navigation-C, opt-d, 5,1, 22, 18, 21, 24, 21
+Navigation-C, opt-d, 5,2, 23, 17, 20, 25, 20
+Navigation-C, opt-d, 5,3, 24, 16, 19, 26, 19
+Navigation-C, opt-d, 5,4, 23, 15, 18, 25, 18
+Navigation-C, opt-d, 5,5, 24, 16, 17, 26, 17
+Navigation-C, opt-d, 5,6, 23, 15, 16, 25, 16
+Navigation-C, opt-d, 5,7, 22, 14, 15, 24, 15
+Navigation-C, opt-d, 5,8, 21, 13, 14, 23, 14
+Navigation-C, opt-d, 5,9, 20, 12, 13, 22, 13
+Navigation-C, opt-d, 5,10, 19, 11, 12, 21, 12
+Navigation-C, opt-d, 5,11, 18, 10, 11, 20, 11
+Navigation-C, opt-d, 5,12, 17, 9, 12, 19, 10
+Navigation-C, opt-d, 5,13, 18, 10, 11, 20, 9
+Navigation-C, opt-d, 5,14, 19, 11, 10, 21, 8
+Navigation-C, opt-d, 5,15, 20, 12, 9, 22, 7
+Navigation-C, opt-d, 5,16, 21, 13, 10, 23, 6
+Navigation-C, opt-d, 5,17, 22, 14, 11, 24, 5
+Navigation-C, opt-d, 5,18, 23, 15, 12, 25, 4
+Navigation-C, opt-d, 5,19, 24, 16, 13, 26, 3
+Navigation-C, opt-d, 5,20, 25, 17, 14, 27, 2
+Navigation-C, opt-d, 5,21, 26, 18, 15, 28, 1
+Navigation-C, opt-d, 5,22, 27, 19, 16, 29, 0
+Navigation-C, amb, ,1, 22, 18, 21, 24, 21
+Navigation-C, amb, ,2, 21, 17, 20, 23, 20
+Navigation-C, amb, ,3, 20, 16, 19, 22, 19
+Navigation-C, amb, ,4, 21, 15, 18, 23, 18
+Navigation-C, amb, ,5, 20, 14, 17, 22, 17
+Navigation-C, amb, ,6, 21, 13, 16, 23, 16
+Navigation-C, amb, ,7, 20, 12, 15, 22, 15
+Navigation-C, amb, ,8, 19, 11, 14, 21, 14
+Navigation-C, amb, ,9, 18, 10, 13, 20, 13
+Navigation-C, amb, ,10, 17, 9, 12, 19, 12
+Navigation-C, amb, ,11, 16, 8, 13, 18, 11
+Navigation-C, amb, ,12, 15, 7, 14, 17, 12
+Navigation-C, amb, ,13, 14, 8, 15, 16, 13
+Navigation-C, amb, ,14, 15, 7, 14, 17, 12
+Navigation-C, amb, ,15, 16, 8, 13, 18, 11
+Navigation-C, amb, ,16, 17, 9, 12, 19, 10
+Navigation-C, amb, ,17, 18, 10, 11, 20, 9
+Navigation-C, amb, ,18, 19, 11, 10, 21, 8
+Navigation-C, amb, ,19, 20, 12, 9, 22, 7
+Navigation-C, amb, ,20, 21, 13, 10, 23, 6
+Navigation-C, amb, ,21, 22, 14, 11, 24, 5
+Navigation-C, amb, ,22, 23, 15, 12, 25, 4
+Navigation-C, amb, ,23, 24, 16, 13, 26, 3
+Navigation-C, amb, ,24, 25, 17, 14, 27, 2
+Navigation-C, amb, ,25, 26, 18, 15, 28, 1
+Navigation-C, amb, ,26, 27, 19, 16, 29, 0
+Navigation-D, opt-d, 5,1, 8, 18, 23, 16, 27
+Navigation-D, opt-d, 5,2, 7, 17, 22, 15, 26
+Navigation-D, opt-d, 5,3, 8, 16, 21, 14, 25
+Navigation-D, opt-d, 5,4, 9, 15, 20, 15, 24
+Navigation-D, opt-d, 5,5, 10, 14, 19, 16, 23
+Navigation-D, opt-d, 5,6, 11, 13, 18, 17, 22
+Navigation-D, opt-d, 5,7, 12, 12, 17, 16, 21
+Navigation-D, opt-d, 5,8, 13, 11, 16, 15, 20
+Navigation-D, opt-d, 5,9, 12, 10, 15, 14, 19
+Navigation-D, opt-d, 5,10, 13, 9, 14, 15, 18
+Navigation-D, opt-d, 5,11, 12, 8, 13, 14, 17
+Navigation-D, opt-d, 5,12, 13, 9, 12, 15, 16
+Navigation-D, opt-d, 5,13, 14, 10, 11, 16, 15
+Navigation-D, opt-d, 5,14, 15, 11, 10, 17, 14
+Navigation-D, opt-d, 5,15, 16, 12, 9, 18, 13
+Navigation-D, opt-d, 5,16, 17, 13, 10, 19, 12
+Navigation-D, opt-d, 5,17, 16, 12, 9, 18, 11
+Navigation-D, opt-d, 5,18, 17, 13, 8, 19, 10
+Navigation-D, opt-d, 5,19, 18, 14, 7, 20, 9
+Navigation-D, opt-d, 5,20, 19, 15, 6, 21, 8
+Navigation-D, opt-d, 5,21, 20, 16, 5, 22, 7
+Navigation-D, opt-d, 5,22, 21, 17, 4, 23, 6
+Navigation-D, opt-d, 5,23, 22, 18, 3, 24, 5
+Navigation-D, opt-d, 5,24, 23, 19, 2, 25, 4
+Navigation-D, opt-d, 5,25, 24, 20, 3, 26, 3
+Navigation-D, opt-d, 5,26, 25, 21, 4, 27, 2
+Navigation-D, opt-d, 5,27, 26, 22, 5, 28, 1
+Navigation-D, opt-d, 5,28, 27, 23, 6, 29, 0
+Navigation-D, loi, 5,1, 8, 18, 25, 16, 27
+Navigation-D, loi, 5,2, 7, 17, 24, 15, 26
+Navigation-D, loi, 5,3, 6, 16, 21, 14, 25
+Navigation-D, loi, 5,4, 7, 15, 20, 13, 24
+Navigation-D, loi, 5,5, 8, 14, 19, 14, 23
+Navigation-D, loi, 5,6, 9, 13, 18, 15, 22
+Navigation-D, loi, 5,7, 10, 12, 17, 16, 21
+Navigation-D, loi, 5,8, 11, 11, 16, 15, 20
+Navigation-D, loi, 5,9, 12, 10, 15, 14, 19
+Navigation-D, loi, 5,10, 13, 9, 14, 15, 18
+Navigation-D, loi, 5,11, 14, 10, 13, 16, 17
+Navigation-D, loi, 5,12, 15, 11, 12, 17, 16
+Navigation-D, loi, 5,13, 16, 12, 11, 18, 15
+Navigation-D, loi, 5,14, 17, 13, 10, 19, 14
+Navigation-D, loi, 5,15, 16, 12, 9, 18, 13
+Navigation-D, loi, 5,16, 15, 11, 8, 17, 12
+Navigation-D, loi, 5,17, 16, 12, 7, 18, 11
+Navigation-D, loi, 5,18, 17, 13, 6, 19, 10
+Navigation-D, loi, 5,19, 18, 14, 5, 20, 9
+Navigation-D, loi, 5,20, 19, 15, 6, 21, 8
+Navigation-D, loi, 5,21, 20, 16, 5, 22, 7
+Navigation-D, loi, 5,22, 21, 17, 4, 23, 6
+Navigation-D, loi, 5,23, 22, 18, 3, 24, 5
+Navigation-D, loi, 5,24, 21, 17, 2, 23, 6
+Navigation-D, loi, 5,25, 21, 17, 2, 23, 6
+Navigation-D, loi, 5,26, 22, 18, 1, 24, 7
+Navigation-D, loi, 5,27, 22, 18, 1, 24, 7
+Navigation-D, loi, 5,28, 21, 17, 2, 23, 6
+Navigation-D, loi, 5,29, 20, 16, 3, 22, 7
+Navigation-D, loi, 5,30, 20, 16, 3, 22, 7
+Navigation-D, loi, 5,31, 20, 16, 3, 22, 7
+Navigation-D, loi, 5,32, 21, 17, 4, 23, 6
+Navigation-D, loi, 5,33, 21, 17, 4, 23, 6
+Navigation-D, loi, 5,34, 22, 18, 3, 24, 5
+Navigation-D, loi, 5,35, 21, 17, 4, 23, 6
+Navigation-D, loi, 5,36, 20, 16, 3, 22, 7
+Navigation-D, loi, 5,37, 20, 16, 3, 22, 7
+Navigation-D, loi, 5,38, 20, 16, 3, 22, 7
+Navigation-D, loi, 5,39, 20, 16, 3, 22, 7
+Navigation-D, loi, 5,40, 21, 17, 4, 23, 6
+Navigation-D, loi, 5,41, 22, 18, 3, 24, 5
+Navigation-D, loi, 5,42, 23, 19, 2, 25, 4
+Navigation-D, loi, 5,43, 24, 20, 3, 26, 3
+Navigation-D, loi, 5,44, 25, 21, 4, 27, 2
+Navigation-D, loi, 5,45, 26, 22, 5, 28, 1
+Navigation-D, loi, 5,46, 27, 23, 6, 29, 0
+Navigation-D, adv, 5,1, 8, 18, 23, 16, 27
+Navigation-D, adv, 5,2, 7, 17, 22, 15, 26
+Navigation-D, adv, 5,3, 8, 16, 21, 14, 25
+Navigation-D, adv, 5,4, 9, 15, 20, 15, 24
+Navigation-D, adv, 5,5, 10, 14, 19, 16, 23
+Navigation-D, adv, 5,6, 11, 13, 18, 17, 22
+Navigation-D, adv, 5,7, 12, 12, 17, 16, 21
+Navigation-D, adv, 5,8, 13, 11, 16, 15, 20
+Navigation-D, adv, 5,9, 12, 10, 15, 14, 19
+Navigation-D, adv, 5,10, 13, 9, 14, 15, 18
+Navigation-D, adv, 5,11, 12, 8, 13, 14, 17
+Navigation-D, adv, 5,12, 13, 9, 12, 15, 16
+Navigation-D, adv, 5,13, 14, 10, 11, 16, 15
+Navigation-D, adv, 5,14, 15, 11, 10, 17, 14
+Navigation-D, adv, 5,15, 14, 10, 11, 16, 15
+Navigation-D, adv, 5,16, 15, 11, 12, 17, 16
+Navigation-D, adv, 5,17, 14, 10, 13, 16, 17
+Navigation-D, adv, 5,18, 13, 9, 14, 15, 18
+Navigation-D, adv, 5,19, 12, 10, 15, 14, 19
+Navigation-D, adv, 5,20, 13, 11, 16, 15, 20
+Navigation-D, adv, 5,21, 12, 12, 17, 16, 21
+Navigation-D, adv, 5,22, 11, 13, 18, 17, 22
+Navigation-D, adv, 5,23, 10, 14, 19, 16, 23
+Navigation-D, adv, 5,24, 11, 13, 18, 17, 22
+Navigation-D, adv, 5,25, 12, 12, 17, 16, 21
+Navigation-D, adv, 5,26, 13, 11, 16, 15, 20
+Navigation-D, adv, 5,27, 14, 10, 15, 16, 19
+Navigation-D, adv, 5,28, 13, 9, 14, 15, 18
+Navigation-D, adv, 5,29, 14, 10, 13, 16, 17
+Navigation-D, adv, 5,30, 15, 11, 12, 17, 16
+Navigation-D, adv, 5,31, 16, 12, 11, 18, 15
+Navigation-D, adv, 5,32, 17, 13, 10, 19, 14
+Navigation-D, adv, 5,33, 16, 12, 9, 18, 13
+Navigation-D, adv, 5,34, 15, 11, 8, 17, 12
+Navigation-D, adv, 5,35, 14, 10, 9, 16, 13
+Navigation-D, adv, 5,36, 13, 9, 10, 15, 14
+Navigation-D, adv, 5,37, 12, 8, 11, 14, 15
+Navigation-D, adv, 5,38, 11, 7, 12, 13, 16
+Navigation-D, adv, 5,39, 12, 8, 13, 14, 17
+Navigation-D, adv, 5,40, 13, 9, 14, 15, 18
+Navigation-D, adv, 5,41, 12, 10, 15, 14, 19
+Navigation-D, adv, 5,42, 13, 9, 14, 15, 18
+Navigation-D, adv, 5,43, 12, 8, 13, 14, 17
+Navigation-D, adv, 5,44, 13, 9, 12, 15, 16
+Navigation-D, adv, 5,45, 14, 10, 11, 16, 15
+Navigation-D, adv, 5,46, 13, 9, 10, 15, 14
+Navigation-D, adv, 5,47, 14, 10, 9, 16, 13
+Navigation-D, adv, 5,48, 15, 11, 8, 17, 12
+Navigation-D, adv, 5,49, 16, 12, 9, 18, 11
+Navigation-D, adv, 5,50, 17, 13, 8, 19, 10
+Navigation-D, adv, 5,51, 16, 12, 9, 18, 11
+Navigation-D, adv, 5,52, 15, 11, 8, 17, 12
+Navigation-D, adv, 5,53, 16, 12, 9, 18, 13
+Navigation-D, adv, 5,54, 17, 13, 10, 19, 14
+Navigation-D, adv, 5,55, 18, 14, 11, 20, 15
+Navigation-D, adv, 5,56, 17, 13, 12, 19, 16
+Navigation-D, adv, 5,57, 18, 14, 11, 20, 15
+Navigation-D, adv, 5,58, 19, 15, 12, 21, 14
+Navigation-D, adv, 5,59, 18, 14, 11, 20, 13
+Navigation-D, adv, 5,60, 17, 13, 10, 19, 12
+Navigation-D, adv, 5,61, 16, 12, 9, 18, 11
+Navigation-D, adv, 5,62, 17, 13, 8, 19, 10
+Navigation-D, adv, 5,63, 18, 14, 7, 20, 9
+Navigation-D, adv, 5,64, 19, 15, 6, 21, 8
+Navigation-D, adv, 5,65, 20, 16, 5, 22, 7
+Navigation-D, adv, 5,66, 21, 17, 4, 23, 6
+Navigation-D, adv, 5,67, 20, 16, 3, 22, 7
+Navigation-D, adv, 5,68, 21, 17, 2, 23, 6
+Navigation-D, adv, 5,69, 22, 18, 1, 24, 7
+Navigation-D, adv, 5,70, 23, 19, 0, 25, 6
+Navigation-D, adv, 5,71, 24, 20, 1, 26, 5
+Navigation-D, adv, 5,72, 23, 19, 2, 25, 4
+Navigation-D, adv, 5,73, 24, 20, 3, 26, 3
+Navigation-D, adv, 5,74, 25, 21, 4, 27, 2
+Navigation-D, adv, 5,75, 26, 22, 5, 28, 1
+Navigation-D, adv, 5,76, 27, 23, 6, 29, 0
+Navigation-D, amb, ,1, 8, 18, 23, 16, 27
+Navigation-D, amb, ,2, 7, 17, 22, 15, 26
+Navigation-D, amb, ,3, 8, 16, 21, 14, 25
+Navigation-D, amb, ,4, 9, 15, 20, 15, 24
+Navigation-D, amb, ,5, 8, 14, 19, 14, 23
+Navigation-D, amb, ,6, 9, 13, 18, 15, 22
+Navigation-D, amb, ,7, 10, 12, 17, 16, 21
+Navigation-D, amb, ,8, 11, 11, 16, 15, 20
+Navigation-D, amb, ,9, 10, 10, 15, 14, 19
+Navigation-D, amb, ,10, 11, 9, 14, 13, 18
+Navigation-D, amb, ,11, 10, 8, 13, 12, 17
+Navigation-D, amb, ,12, 11, 7, 12, 13, 16
+Navigation-D, amb, ,13, 12, 8, 11, 14, 15
+Navigation-D, amb, ,14, 13, 9, 10, 15, 14
+Navigation-D, amb, ,15, 14, 10, 9, 16, 13
+Navigation-D, amb, ,16, 15, 11, 8, 17, 12
+Navigation-D, amb, ,17, 16, 12, 7, 18, 11
+Navigation-D, amb, ,18, 17, 13, 6, 19, 10
+Navigation-D, amb, ,19, 18, 14, 5, 20, 9
+Navigation-D, amb, ,20, 19, 15, 4, 21, 10
+Navigation-D, amb, ,21, 20, 16, 3, 22, 9
+Navigation-D, amb, ,22, 21, 17, 2, 23, 8
+Navigation-D, amb, ,23, 22, 18, 1, 24, 7
+Navigation-D, amb, ,24, 23, 19, 0, 25, 6
+Navigation-D, amb, ,25, 24, 20, 1, 26, 5
+Navigation-D, amb, ,26, 25, 21, 2, 27, 4
+Navigation-D, amb, ,27, 24, 20, 3, 26, 3
+Navigation-D, amb, ,28, 25, 21, 4, 27, 2
+Navigation-D, amb, ,29, 26, 22, 5, 28, 1
+Navigation-D, amb, ,30, 27, 23, 6, 29, 0
+Navigation-D, opt-a, 2,1, 8, 18, 25, 16, 27
+Navigation-D, opt-a, 2,2, 7, 17, 24, 15, 26
+Navigation-D, opt-a, 2,3, 6, 16, 21, 14, 25
+Navigation-D, opt-a, 2,4, 7, 15, 20, 13, 24
+Navigation-D, opt-a, 2,5, 8, 14, 19, 14, 23
+Navigation-D, opt-a, 2,6, 9, 13, 18, 15, 22
+Navigation-D, opt-a, 2,7, 10, 12, 17, 16, 21
+Navigation-D, opt-a, 2,8, 9, 11, 16, 15, 20
+Navigation-D, opt-a, 2,9, 8, 10, 15, 14, 19
+Navigation-D, opt-a, 2,10, 9, 9, 14, 13, 18
+Navigation-D, opt-a, 2,11, 10, 8, 13, 12, 17
+Navigation-D, opt-a, 2,12, 11, 7, 12, 13, 16
+Navigation-D, opt-a, 2,13, 12, 6, 13, 12, 17
+Navigation-D, opt-a, 2,14, 13, 5, 14, 11, 18
+Navigation-D, opt-a, 2,15, 14, 4, 15, 12, 19
+Navigation-D, opt-a, 2,16, 15, 3, 16, 11, 20
+Navigation-D, opt-a, 2,17, 16, 2, 17, 10, 21
+Navigation-D, opt-a, 2,18, 17, 1, 18, 9, 22
+Navigation-D, opt-a, 2,19, 16, 0, 19, 8, 23
+Navigation-E, opt-d, 5,1, 21, 17, 23, 19, 7
+Navigation-E, opt-d, 5,2, 20, 18, 22, 20, 6
+Navigation-E, opt-d, 5,3, 19, 19, 21, 21, 5
+Navigation-E, opt-d, 5,4, 18, 20, 20, 22, 4
+Navigation-E, opt-d, 5,5, 17, 21, 19, 21, 3
+Navigation-E, opt-d, 5,6, 18, 20, 20, 22, 2
+Navigation-E, opt-d, 5,7, 19, 19, 21, 21, 1
+Navigation-E, opt-d, 5,8, 18, 20, 20, 24, 0
+Navigation-E, loi, 5,1, 21, 15, 25, 17, 7
+Navigation-E, loi, 5,2, 22, 16, 24, 18, 6
+Navigation-E, loi, 5,3, 21, 15, 25, 17, 5
+Navigation-E, loi, 5,4, 22, 16, 24, 18, 4
+Navigation-E, loi, 5,5, 21, 17, 23, 19, 3
+Navigation-E, loi, 5,6, 22, 16, 24, 18, 4
+Navigation-E, loi, 5,7, 21, 17, 23, 19, 3
+Navigation-E, loi, 5,8, 21, 17, 23, 19, 3
+Navigation-E, loi, 5,9, 20, 18, 22, 20, 2
+Navigation-E, loi, 5,10, 21, 19, 23, 21, 3
+Navigation-E, loi, 5,11, 21, 19, 23, 21, 3
+Navigation-E, loi, 5,12, 21, 19, 23, 21, 3
+Navigation-E, loi, 5,13, 20, 18, 22, 20, 2
+Navigation-E, loi, 5,14, 20, 18, 22, 20, 2
+Navigation-E, loi, 5,15, 21, 17, 23, 19, 3
+Navigation-E, loi, 5,16, 20, 18, 22, 20, 2
+Navigation-E, loi, 5,17, 21, 17, 23, 19, 3
+Navigation-E, loi, 5,18, 21, 17, 23, 19, 3
+Navigation-E, loi, 5,19, 21, 17, 23, 19, 3
+Navigation-E, loi, 5,20, 22, 16, 24, 18, 4
+Navigation-E, loi, 5,21, 22, 16, 24, 18, 4
+Navigation-E, loi, 5,22, 21, 17, 23, 19, 3
+Navigation-E, loi, 5,23, 20, 18, 22, 20, 2
+Navigation-E, loi, 5,24, 19, 19, 21, 21, 1
+Navigation-E, loi, 5,25, 18, 20, 20, 24, 0
+Navigation-E, adv, 5,1, 21, 17, 23, 19, 7
+Navigation-E, adv, 5,2, 20, 18, 22, 20, 6
+Navigation-E, adv, 5,3, 19, 19, 21, 21, 5
+Navigation-E, adv, 5,4, 18, 20, 20, 22, 4
+Navigation-E, adv, 5,5, 19, 19, 21, 21, 5
+Navigation-E, adv, 5,6, 20, 18, 22, 20, 6
+Navigation-E, adv, 5,7, 19, 19, 21, 21, 5
+Navigation-E, adv, 5,8, 18, 20, 20, 22, 4
+Navigation-E, adv, 5,9, 17, 21, 19, 21, 3
+Navigation-E, adv, 5,10, 16, 22, 18, 20, 4
+Navigation-E, adv, 5,11, 17, 21, 19, 21, 5
+Navigation-E, adv, 5,12, 16, 22, 18, 20, 4
+Navigation-E, adv, 5,13, 15, 23, 17, 19, 3
+Navigation-E, adv, 5,14, 16, 22, 18, 20, 2
+Navigation-E, adv, 5,15, 17, 21, 19, 21, 1
+Navigation-E, adv, 5,16, 18, 20, 20, 24, 0
+Navigation-E, amb, ,1, 21, 17, 23, 19, 7
+Navigation-E, amb, ,2, 20, 18, 22, 20, 6
+Navigation-E, amb, ,3, 19, 19, 21, 21, 5
+Navigation-E, amb, ,4, 18, 20, 20, 22, 4
+Navigation-E, amb, ,5, 17, 21, 19, 21, 5
+Navigation-E, amb, ,6, 16, 22, 18, 20, 4
+Navigation-E, amb, ,7, 15, 23, 17, 19, 3
+Navigation-E, amb, ,8, 14, 24, 16, 18, 4
+Navigation-E, amb, ,9, 13, 25, 15, 17, 5
+Navigation-E, amb, ,10, 12, 24, 14, 16, 6
+Navigation-E, amb, ,11, 11, 23, 13, 15, 7
+Navigation-E, amb, ,12, 10, 22, 12, 14, 8
+Navigation-E, amb, ,13, 9, 21, 11, 13, 9
+Navigation-E, amb, ,14, 8, 20, 10, 12, 10
+Navigation-E, amb, ,15, 7, 19, 9, 11, 11
+Navigation-E, amb, ,16, 6, 18, 8, 10, 12
+Navigation-E, amb, ,17, 5, 17, 7, 9, 13
+Navigation-E, amb, ,18, 4, 16, 8, 8, 14
+Navigation-E, amb, ,19, 3, 15, 9, 7, 15
+Navigation-E, amb, ,20, 4, 14, 10, 6, 16
+Navigation-E, amb, ,21, 5, 13, 11, 5, 17
+Navigation-E, amb, ,22, 6, 12, 12, 4, 18
+Navigation-E, amb, ,23, 5, 11, 13, 3, 19
+Navigation-E, amb, ,24, 6, 10, 14, 2, 20
+Navigation-E, amb, ,25, 7, 9, 15, 1, 21
+Navigation-E, amb, ,26, 8, 8, 16, 0, 22
+Navigation-E, opt-a, 2,1, 21, 15, 25, 17, 7
+Navigation-E, opt-a, 2,2, 20, 14, 26, 16, 6
+Navigation-E, opt-a, 2,3, 19, 13, 27, 15, 7
+Navigation-E, opt-a, 2,4, 18, 12, 28, 14, 8
+Navigation-E, opt-a, 2,5, 17, 11, 29, 13, 9
+Navigation-E, opt-a, 2,6, 16, 10, 28, 12, 10
+Navigation-E, opt-a, 2,7, 15, 9, 27, 11, 11
+Navigation-E, opt-a, 2,8, 16, 8, 28, 12, 12
+Navigation-E, opt-a, 2,9, 17, 7, 29, 13, 13
+Navigation-E, opt-a, 2,10, 16, 6, 28, 12, 14
+Navigation-E, opt-a, 2,11, 15, 5, 27, 11, 15
+Navigation-E, opt-a, 2,12, 14, 4, 26, 10, 16
+Navigation-E, opt-a, 2,13, 13, 3, 25, 9, 17
+Navigation-E, opt-a, 2,14, 12, 2, 24, 8, 18
+Navigation-E, opt-a, 2,15, 11, 1, 23, 7, 19
+Navigation-E, opt-a, 2,16, 12, 0, 24, 8, 20

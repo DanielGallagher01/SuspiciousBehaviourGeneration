@@ -1,10 +1,11 @@
-problem='bank-16-E'
+problem='bank-16-B'
 domain='navigation'
 
 mkdir outputs/$domain/$problem -p
 
 java -cp out:lib/*:. -Xmx11G com.suspiciousbehaviour.app.Main \
   --obfuscating \
+  --calculate_distances \
   \
   --primary_goal 3 \
   --secondary_goal 1 \
