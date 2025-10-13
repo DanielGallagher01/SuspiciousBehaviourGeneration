@@ -2,7 +2,6 @@ var stopped = [false, false];
 var alarm = [false, false];
 var chosenType = ["","",""];
 var qobj;
-var time = 0;
 var currentBehaviour = ""
 
 Qualtrics.SurveyEngine.addOnload(function() {
@@ -25,6 +24,7 @@ Qualtrics.SurveyEngine.addOnload(function() {
 	console.log(Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch"));
 	console.log(Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_userinput_watch"));
 	console.log(Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_userinput_stop"));
+	console.log(Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_safe"));
 });
 
 Qualtrics.SurveyEngine.addOnPageSubmit(function() {
@@ -76,6 +76,12 @@ Qualtrics.SurveyEngine.addOnReady(function() {
 		stopArray = stopArray + "null" + "|";
 		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_stop", stopArray);	
 	}
+
+	const video = document.getElementById("vid1");
+	const watchTimeSec = Math.round(video.currentTime);
+	safeArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_safe");
+	safeArray = safeArray + watchTimeSec.toString() + "|";
+	Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_safe", safeArray);	
 		  
 	stopped[0] = true;
 
@@ -87,39 +93,44 @@ Qualtrics.SurveyEngine.addOnReady(function() {
 
 
 function prepareStopButton() {
-	document.getElementById("stopBtn1").style.display = "none";
-	document.getElementById("watchBtn1").style.display = "none";
-	
-	document.getElementById("stopBtn1").addEventListener("click", function() {
-		if (alarm[0]) {
-			document.getElementById("stopBtn1").style.display = "none";
-			stopped[0] = true;
-			checkIfAllDone();
-			document.getElementById("vid1").pause();
-			document.getElementById('vid1cont').style.backgroundColor = '#202020';
-			
-			stopArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_stop");
-			stopArray = stopArray + time.toString() + "|";
-			Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_stop", stopArray);
-		}
-	});
-	
-		document.getElementById("watchBtn1").addEventListener("click", function() {
-			if (!alarm[0]) {
-				document.getElementById("stopBtn1").style.backgroundColor = "red";
-				document.getElementById("watchBtn1").style.backgroundColor = "grey";
-				alarm[0] = true;
-				document.getElementById('vid1cont').style.backgroundColor = '#4444f0';
+    document.getElementById("stopBtn1").style.display = "none";
+    document.getElementById("watchBtn1").style.display = "none";
+    
+    const video = document.getElementById("vid1");
 
-				watchArray = 	Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch");
-				watchArray = watchArray + time.toString() + "|";
-				Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_watch", watchArray);
-			}
-		});
-			
-	
- 
+    document.getElementById("stopBtn1").addEventListener("click", function() {
+        if (alarm[0]) {
+            document.getElementById("stopBtn1").style.display = "none";
+            stopped[0] = true;
+			video.pause();
+            checkIfAllDone();
+            
+            document.getElementById('vid1cont').style.backgroundColor = '#202020';
+
+            // Record stop time in seconds
+            const stopTimeSec = Math.round(video.currentTime);
+            stopArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_stop");
+            stopArray = stopArray + stopTimeSec.toString() + "|";
+            Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_stop", stopArray);
+        }
+    });
+    
+    document.getElementById("watchBtn1").addEventListener("click", function() {
+        if (!alarm[0]) {
+            document.getElementById("stopBtn1").style.backgroundColor = "red";
+            document.getElementById("watchBtn1").style.backgroundColor = "grey";
+            alarm[0] = true;
+            document.getElementById('vid1cont').style.backgroundColor = '#4444f0';
+
+            // Record watch time in seconds
+            const watchTimeSec = Math.round(video.currentTime); // hundredths of a second
+            watchArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch");
+            watchArray = watchArray + watchTimeSec.toString() + "|";
+            Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_watch", watchArray);
+        }
+    });
 }
+
 
 
 function prepareVids() {
@@ -151,8 +162,6 @@ function randomiseVideos() {
 		
 		
 		document.getElementById('vid' + (1) + 'cont').innerHTML = "<video disablepictureinpicture playsinline muted id=\"vid" + (1) + "\" class=\"survey-video-single\">   <source type=\"video/" + fileExtention + "\" src=\"https://github.com/TheAlchemist010/SuspiciousBehaviourGeneration/raw/refs/heads/main/planimation/" + domain + "/" + problems[randProblemID] + "/" + behaviours[instanceID] + "." + fileExtention + "\"> Your browser does not support the video tag. </video> <div class='button-container'>   <button class=\"std-button\" id=\"watchBtn" + (1) + "\">Suspicious</button>   <button class=\"std-button\" id=\"stopBtn" + (1) + "\">⚠Stop⚠</button>   <button id=\"startBtn\" class=\"std-button\">Start</button>   <button id=\"advanceBtn\" class=\"std-button\">Safe</button> </div>";
-	  //document.getElementById('stopBtn1').style.margin = 'auto';
-	//document.getElementById('stopBtn1').style.margin = 'auto';
 	    document.getElementById("stopBtn1").style.backgroundColor = "grey";
 		document.getElementById('vid' + (1) + 'cont').style.backgroundColor = '#f0f0f0';
 		document.getElementById('vid' + (1) + 'cont').style.padding = '5px';
@@ -175,18 +184,12 @@ function randomiseVideos() {
 
 }
 
-function stopwatch() {
-	time++;
-	setTimeout(stopwatch, 10);
-}
 
 function prepareStartButton() {
 	const startBtn = document.getElementById("startBtn");
 	startBtn.style.backgroundColor = "blue";
   if (startBtn) {
     startBtn.addEventListener("click", function() {
-	  time = 0;
-	  stopwatch();
       const vids = document.querySelectorAll(".survey-video-single");
       vids.forEach((vid, index) => {
         vid.play().catch(err => {
@@ -206,67 +209,47 @@ function prepareStartButton() {
 
 
 	
-
 function checkIfAllDone() {
   const vids = document.querySelectorAll(".survey-video-single");
-  let allDone = false;
-  needNullStopEntry = false;
+  let allDone = true; // assume done unless we find one not done
+  let needNullStopEntry = false;
+
   vids.forEach((vid, index) => {
-	if(vid.ended) {
-		needNullStopEntry = true;
-		stopped[index] = true;
-		allDone = true;
-		
-		switch (index) {
-			case 0:
-				document.getElementById("stopBtn1").style.display = "none";
-				document.getElementById("watchBtn1").style.display = "none";
-				document.getElementById('vid1cont').style.backgroundColor = '#202020';
-				const container = document.getElementById("vid1cont");
-
-				//endtext = ""
-				//if (currentBehaviour == "opt-a") {
-				//	endtext = "	
-				//}
-				
-				
-				container.querySelector("video").replaceWith(
-				  Object.assign(document.createElement("div"), {
-					className: "end-of-feed",
-					innerText: "End of feed"
-				  })
-				);
-				break;
-		}
-
-	}
+    if (!vid.ended && !stopped[index]) {
+      allDone = false;
+    }
+    if (!stopped[index]) {
+      needNullStopEntry = true;
+    }
   });
 
   if (allDone) {
-	document.getElementById("stopBtn1").style.display = "none";
-	document.getElementById("watchBtn1").style.display = "none";
-	document.getElementById("advanceBtn").style.display = "none";
+    document.getElementById("stopBtn1").style.display = "none";
+    document.getElementById("watchBtn1").style.display = "none";
+    document.getElementById("advanceBtn").style.display = "none";
 
-	if(!alarm[0]) {
-		watchArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch");
-		watchArray = watchArray + "null" + "|";
-		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_watch", watchArray);	
-	}
-	  
-	if(needNullStopEntry) {
-		stopArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_stop");
-		stopArray = stopArray + "null" + "|";
-		Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_stop", stopArray);	
-	}
-	  
-	  
-	qobj.enableNextButton(); 
-	advanceBtn.style.display = "none";
-	document.getElementById('question-QID43').style.display = "block";
-	document.getElementById('question-QID55').style.display = "block";
-	  
+    if(!alarm[0]) {
+      let watchArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch");
+      watchArray = watchArray + "null" + "|";
+      Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_watch", watchArray);  
+    }
+      
+    if(needNullStopEntry) {
+      let stopArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_stop");
+      stopArray = stopArray + "null" + "|";
+      Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_stop", stopArray);  
+    }
+
+	let safeArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_safe");
+    safeArray = safeArray + "null" + "|";
+    Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_safe", safeArray);  
+
+    qobj.enableNextButton(); 
+    document.getElementById('question-QID43').style.display = "block";
+    document.getElementById('question-QID55').style.display = "block";
+
     document.querySelector("#question-QID43 textarea").value = "";
-	document.querySelector("#question-QID55 textarea").value = "";
+    document.querySelector("#question-QID55 textarea").value = "";
 
     console.log("All videos done or stopped.");
   }
