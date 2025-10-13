@@ -78,7 +78,7 @@ Qualtrics.SurveyEngine.addOnReady(function() {
 	}
 
 	const video = document.getElementById("vid1");
-	const watchTimeSec = Math.round(video.currentTime * 100);
+	const watchTimeSec = Math.round(video.currentTime);
 	safeArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_safe");
 	safeArray = safeArray + watchTimeSec.toString() + "|";
 	Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_safe", safeArray);	
@@ -108,7 +108,7 @@ function prepareStopButton() {
             document.getElementById('vid1cont').style.backgroundColor = '#202020';
 
             // Record stop time in seconds
-            const stopTimeSec = Math.round(video.currentTime * 100); // hundredths of a second
+            const stopTimeSec = Math.round(video.currentTime);
             stopArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_stop");
             stopArray = stopArray + stopTimeSec.toString() + "|";
             Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_stop", stopArray);
@@ -123,7 +123,7 @@ function prepareStopButton() {
             document.getElementById('vid1cont').style.backgroundColor = '#4444f0';
 
             // Record watch time in seconds
-            const watchTimeSec = Math.round(video.currentTime * 100); // hundredths of a second
+            const watchTimeSec = Math.round(video.currentTime); // hundredths of a second
             watchArray = Qualtrics.SurveyEngine.getJSEmbeddedData("Instance_watch");
             watchArray = watchArray + watchTimeSec.toString() + "|";
             Qualtrics.SurveyEngine.setJSEmbeddedData("Instance_watch", watchArray);
