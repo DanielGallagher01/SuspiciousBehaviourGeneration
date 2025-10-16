@@ -1,3 +1,4 @@
+# Navigation-A, amb,
 (move node1-1 node1-2 robot)
 (move node1-2 node2-2 robot)
 (move node2-2 node3-2 robot)

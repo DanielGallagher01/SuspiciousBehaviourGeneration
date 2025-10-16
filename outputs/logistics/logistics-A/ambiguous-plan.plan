@@ -1,3 +1,4 @@
+# Logistics-A, amb, 
 (drive-truck truck1 pos1_1 pos1_2 city1)
 (load-truck pkg1 truck1 pos1_2)
 (load-truck pkg2 truck1 pos1_2)

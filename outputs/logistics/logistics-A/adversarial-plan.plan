@@ -1,3 +1,4 @@
+# Logistics-A, adv, 7
 (drive-truck truck1 pos1_1 pos1_4 city1)
 (load-truck pkg6 truck1 pos1_4)
 (drive-truck truck1 pos1_4 pos1_3 city1)

@@ -1,3 +1,4 @@
+# Logistics-D, adv, 6
 (fly-airplane plane1 pos2_1 pos1_1)
 (load-airplane pkg1 plane1 pos1_1)
 (fly-airplane plane1 pos1_1 pos3_1)

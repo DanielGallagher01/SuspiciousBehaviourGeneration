@@ -1,3 +1,4 @@
+# Sokoban-D, loi, 5
 # Approaching goal
 (move player-01 pos-9-2 pos-8-2 dir-up)
 (push-to-nongoal player-01 stone-01 pos-8-2 pos-8-3 pos-8-4 dir-right)

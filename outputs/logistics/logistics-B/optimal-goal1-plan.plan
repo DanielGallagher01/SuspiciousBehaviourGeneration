@@ -1,3 +1,4 @@
+# Logistics-B, opt-a, 1
 (fly-airplane plane1 pos2_1 pos1_1)
 (drive-truck truck1 pos1_1 pos1_4 city1)
 (load-truck pkg5 truck1 pos1_4)

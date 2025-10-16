@@ -1,3 +1,4 @@
+# Sokoban-B, loi, 5
 # Approaching goal
 (move player-01 pos-3-2 pos-3-3 dir-right)
 (move player-01 pos-3-3 pos-3-4 dir-right)

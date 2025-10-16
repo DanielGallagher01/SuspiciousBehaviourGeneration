@@ -1,7 +1,8 @@
+# Sokoban-C, loi, 4
 # Approaching goal
 (push-to-nongoal player-01 stone-01 pos-9-5 pos-8-5 pos-7-5 dir-up)
-# Loitering
 (move player-01 pos-8-5 pos-9-5 dir-down)
+# Loitering
 (wait)
 (wait)
 (move player-01 pos-9-5 pos-9-4 dir-left)

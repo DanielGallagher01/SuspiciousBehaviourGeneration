@@ -1,3 +1,4 @@
+# Logistics-A, opt-a, 2
 (drive-truck truck1 pos1_1 pos1_3 city1)
 (load-truck pkg3 truck1 pos1_3)
 (load-truck pkg4 truck1 pos1_3)

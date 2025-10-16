@@ -1,3 +1,4 @@
+# Logistics-B, opt-d, 7
 (drive-truck truck1 pos1_1 pos1_2 city1)
 (load-truck pkg1 truck1 pos1_2)
 (drive-truck truck1 pos1_2 pos1_3 city1)

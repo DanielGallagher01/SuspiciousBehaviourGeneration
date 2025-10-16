@@ -1,3 +1,4 @@
+# Navigation-A, loi, 
 # Approaching goal
 (move node1-1 node1-2 robot)
 (move node1-2 node2-2 robot)

@@ -1,3 +1,4 @@
+# Navigation-B, loi, 5
 # Approaching goal
 (move node8-0 node8-1 robot)
 (move node8-1 node8-2 robot)

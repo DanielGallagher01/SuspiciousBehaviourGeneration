@@ -1,3 +1,4 @@
+# Sokoban-D, adv,
 (move player-01 pos-9-2 pos-9-3 dir-right)
 (push-to-nongoal player-01 stone-01 pos-9-3 pos-8-3 pos-7-3 dir-up)
 (push-to-nongoal player-01 stone-01 pos-8-3 pos-7-3 pos-6-3 dir-up)

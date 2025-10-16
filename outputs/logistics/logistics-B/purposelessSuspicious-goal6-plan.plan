@@ -1,3 +1,4 @@
+# Logistics-B, loi, 7
 # Approaching goal
 (fly-airplane plane1 pos2_1 pos1_1)
 (drive-truck truck1 pos1_1 pos1_4 city1)

@@ -1,3 +1,4 @@
+# Navigation-C, opt-d, 5
 (move node8-0 node8-1 robot)
 (move node8-1 node9-1 robot)
 (move node9-1 node10-1 robot)

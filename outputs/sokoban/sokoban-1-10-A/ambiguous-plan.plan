@@ -1,3 +1,4 @@
+# Sokoban-A, amb,
 (move player-01 pos-1-2 pos-2-2 dir-down)
 (move player-01 pos-2-2 pos-3-2 dir-down)
 (move player-01 pos-3-2 pos-4-2 dir-down)

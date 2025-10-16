@@ -1,3 +1,4 @@
+# Logistics-C, adv, 7
 (load-truck pkg3 truck3 pos3_1)
 (drive-truck truck4 pos4_1 pos4_4 city4)
 (load-truck pkg5 truck4 pos4_4)
