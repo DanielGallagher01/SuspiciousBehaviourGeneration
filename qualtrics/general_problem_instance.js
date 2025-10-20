@@ -64,6 +64,7 @@ Qualtrics.SurveyEngine.addOnPageSubmit(function () {
 
 
 function prepareSafeButton() {
+	const advanceBtn = document.getElementById("advanceBtn");
 	advanceBtn.style.display = "none";
 	advanceBtn.addEventListener("click", function () {
 		safe = true;
